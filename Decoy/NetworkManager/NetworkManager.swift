@@ -70,7 +70,7 @@ class NetworkManager: NSObject {
      public func getBaseUrlDevlopment() -> String{
         return BaseUrl.baseURLDev
     }
-    
+    // For IP based url
      public func getBaseUrlWithIP() -> String{
         return BaseUrl.baseURLWithIP
     }

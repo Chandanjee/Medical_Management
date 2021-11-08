@@ -31,7 +31,9 @@ class UserInfoViewController: UIViewController {
     }
     
     func API_ListPatient(){
-        
+        func API_getViewAllTickets(json:PatientRequestModel, data:@escaping (_ result:PatientListJSONModel?,_ resultBool: Bool) -> ()){
+            
+        }
     }
 
 }

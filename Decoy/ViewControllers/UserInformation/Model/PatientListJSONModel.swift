@@ -11,13 +11,13 @@ import UIKit
 
 // MARK: - PatientListJSONModel
 struct PatientListJSONModel: Codable {
-    let response: [Responses]
+    let response: [ResponsesData]
     let status: Int
     let message: String
 }
 
 // MARK: - Response
-struct Responses: Codable {
+struct ResponsesData: Codable {
     let patientID: Int
     let address: String?
     let cityID: Int?

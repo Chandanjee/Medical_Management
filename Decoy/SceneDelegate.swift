@@ -19,6 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        if let userData = UserDefaults.standard.value(forKey: "userLoginStatus") as? String {
+            if userData == "Yes" {
+                showDashboard()
+
+            }else{
+                defaultLoginScreen()
+            }
+        }else{
+            defaultLoginScreen()
+        }
     }
 
     @available(iOS 13.0, *)
@@ -51,6 +61,56 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    func showDashboard() {
+        let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothTab())
+        let navigation = UINavigationController.init(rootViewController: dashboard)
+        window?.rootViewController = navigation
+        window?.makeKeyAndVisible()
+    }
+    
+    func smoothTab() -> [TabItem] {
+     let storyboard = UIStoryboard(name: "Main", bundle: nil)
+     let v1 = storyboard.instantiateViewController(withIdentifier:"DashboardViewController") as? DashboardViewController
+        v1?.tabController = .Home
+      let v2 =  storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+        v2?.tabController = .Profile
+      let v3 = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController
+        v3?.tabController = .Setting
+      //let v4 = ViewController()
+      //v4.tabController = .Profile
+      
+      
+        let t1 = TabItem(v1!, imageName: "home_blue", tabName: "Home")
+        let t2 = TabItem(v2!, imageName: "profile", tabName: "Profile")
+      let t3 = TabItem(v3!, imageName: "settingIcon", tabName: "Setting")
+      //let t4 = TabItem(v4, imageName: "profile", tabName: "Profile")
+      
+      return [t1,t2,t3]
+    }
 
+    
+    func defaultLoginScreen(){
+        let mainstoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let navigationController = UINavigationController(rootViewController: newViewcontroller)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+    }
+
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+        guard let window = self.window else {
+            return
+        }
+
+        window.rootViewController = vc
+
+        // add animation
+        UIView.transition(with: window,
+                          duration: 0.5,
+                          options: [.transitionFlipFromLeft],
+                          animations: nil,
+                          completion: nil)
+
+    }
 }
 

@@ -11,10 +11,16 @@ import Foundation
 class UserInfoViewController: UIViewController {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var btnBack:UIButton!
+    private let apiManager = NetworkManager()
+
+    let serviceUrl = BaseUrl.baseURL + "getPatientList"
+    var userInfoModel = [ResponsesData]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UserInfoCell.nib, forCellReuseIdentifier: UserInfoCell.identifier)
         // Do any additional setup after loading the view.
+        self.Data_ListPatient()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,13 +35,39 @@ class UserInfoViewController: UIViewController {
     @IBAction func tapToBack(_ sender: Any){
         self.navigationController?.popViewController(animated: true)
     }
+   
     
-    func API_ListPatient(){
-        func API_getViewAllTickets(json:PatientRequestModel, data:@escaping (_ result:PatientListJSONModel?,_ resultBool: Bool) -> ()){
+    func Data_ListPatient(){
+        API_getViewAllTickets(json: PatientRequestModel.init(username: "9971182412"), data: {
             
-        }
+            responseData,status  in
+            
+            print(responseData?.response.count as Any)
+//                self?.userResultModel = response?.result ?? []
+            let dataResult = responseData?.response
+            if dataResult?.count ?? 0 > 0{
+                self.userInfoModel = dataResult ?? []
+            }else{
+                self.userInfoModel =  []
+            }
+        })
     }
 
+    func API_getViewAllTickets(json:PatientRequestModel, data:@escaping (_ result:PatientListJSONModel?,_ resultBool: Bool) -> ()){
+        let jsons =  PatientRequestModel.encode(object: json)
+        print("infoView request",jsons)
+        apiManager.apiPostViewTickets(serviceName: serviceUrl, parameters: jsons as! [String : Any], completionHandler: {
+            (response, error) in
+            if let response = response {
+                let details = try? newJSONDecoder().decode(PatientListJSONModel.self, from: response)
+                data(details, true)
+
+            }else{
+                data(nil, true)
+
+            }
+        })
+    }
 }
 extension UserInfoViewController :UITableViewDelegate,UITableViewDataSource{
     

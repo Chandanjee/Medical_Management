@@ -18,20 +18,19 @@ struct LoginJSONModel: Codable {
 // MARK: - Response
 struct Response: Codable {
     let patientID: Int
-    let address: String
-    let cityID, dateOfBirth, districtID: Int
-    let formSubmitted: JSONNull?
-    let identificationNo, laborRegistered: String
+    let address, cityID: JSONNull?
+    let dateOfBirth: Int
+    let districtID, formSubmitted, identificationNo, laborRegistered: JSONNull?
     let lastChgDate: JSONNull?
-    let mobileNumber, occuption, patientName: String
+    let mobileNumber: String
+    let occuption: JSONNull?
+    let patientName: String
     let patientType: JSONNull?
     let loginPwd: String
-    let pincode: Int
-    let campID: JSONNull?
+    let pincode: JSONNull?
+    let campID: Int?
     let administrativeSexID: AdministrativeSexID
-    let religionID: JSONNull?
-    let regNo: String
-    let stateID: JSONNull?
+    let religionID, regNo, stateID: JSONNull?
     let uhidNo: String
     let age: Int
 
@@ -50,6 +49,7 @@ struct Response: Codable {
         case uhidNo, age
     }
 }
+
 
 // MARK: - AdministrativeSexID
 struct AdministrativeSexID: Codable {

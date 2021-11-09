@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
                 print(status)
                 if status == true{
                     UserDefaults.standard.set("Yes", forKey: "userLoginStatus")
-
+                    self.showDashboard()
                 }else{
                     UserDefaults.standard.set("No", forKey: "userLoginStatus")
                 }
@@ -114,12 +114,13 @@ class LoginViewController: UIViewController {
     
     func API_Login(option:String, data: @escaping (_ result:Bool) -> ()){
         let dictData = getLoginParams()
+        print("login",dictData)
         apiManager.apiPostLogin(serviceName: serviceUrl, parameters: dictData, completionHandler: {
             [weak self] (response, error) in
                 guard let weakSelf = self else { return }
                 if let response = response {
                        let loginJSONModel = try? newJSONDecoder().decode(LoginJSONModel.self, from: response)
-                    let status = String(loginJSONModel?.status ?? 0)
+                    let status = loginJSONModel?.status.description
                     let datass = loginJSONModel?.response[0].dateOfBirth
                     print(datass)
                     if (status == "200") {
@@ -131,5 +132,42 @@ class LoginViewController: UIViewController {
                     }
                 }
         })
+    }
+    
+    func showDashboard() {
+        var window: UIWindow?
+
+        let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothTab())
+        let navigation = UINavigationController.init(rootViewController: dashboard)
+        if #available(iOS 13.0, *) {
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(dashboard)
+        } else {
+            (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(dashboard)
+
+            // Fallback on earlier versions
+        }
+
+//        window?.rootViewController = navigation
+//        window?.makeKeyAndVisible()
+    }
+    
+    func smoothTab() -> [TabItem] {
+     let storyboard = UIStoryboard(name: "Main", bundle: nil)
+     let v1 = storyboard.instantiateViewController(withIdentifier:"DashboardViewController") as? DashboardViewController
+        v1?.tabController = .Home
+      let v2 =  storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+        v2?.tabController = .Profile
+      let v3 = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController
+        v3?.tabController = .Setting
+      //let v4 = ViewController()
+      //v4.tabController = .Profile
+      
+      
+        let t1 = TabItem(v1!, imageName: "home_blue", tabName: "Home")
+        let t2 = TabItem(v2!, imageName: "profile", tabName: "Profile")
+      let t3 = TabItem(v3!, imageName: "settingIcon", tabName: "Setting")
+      //let t4 = TabItem(v4, imageName: "profile", tabName: "Profile")
+      
+      return [t1,t2,t3]
     }
 }

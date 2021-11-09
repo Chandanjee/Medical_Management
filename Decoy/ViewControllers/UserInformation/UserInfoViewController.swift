@@ -50,6 +50,7 @@ class UserInfoViewController: UIViewController {
             }else{
                 self.userInfoModel =  []
             }
+            self.tableView.reloadData()
         })
     }
 
@@ -76,13 +77,15 @@ extension UserInfoViewController :UITableViewDelegate,UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return userInfoModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserInfoCell", for: indexPath) as? UserInfoCell else {
             fatalError("can't dequeue CustomCell")
         }
+        cell.cellViewModel = userInfoModel[indexPath.row]
+
 //        cell.addShadow(backgroundColor: .white, cornerRadius: 13, shadowRadius: 5, shadowOpacity: 0.1, shadowPathInset: (dx: 8, dy: 6), shadowPathOffset: (dx: 0, dy: 2))
         return cell
     }

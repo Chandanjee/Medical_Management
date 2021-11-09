@@ -461,7 +461,7 @@
                                 <rect key="frame" x="0.0" y="-11" width="375" height="71"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n29-hf-dxB">
-                                        <rect key="frame" x="141.5" y="25" width="92" height="22"/>
+                                        <rect key="frame" x="141.5" y="29" width="92" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="qZ4-B6-cwM"/>
                                         </constraints>
@@ -472,7 +472,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.066666666669999999" green="0.34928837419999997" blue="0.65245425700000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="n29-hf-dxB" firstAttribute="top" secondItem="eAV-9z-hGt" secondAttribute="top" constant="25" id="4xu-ea-PiA"/>
+                                    <constraint firstItem="n29-hf-dxB" firstAttribute="top" secondItem="eAV-9z-hGt" secondAttribute="top" constant="29" id="4xu-ea-PiA"/>
                                     <constraint firstItem="n29-hf-dxB" firstAttribute="centerX" secondItem="eAV-9z-hGt" secondAttribute="centerX" id="5w9-1n-Qab"/>
                                     <constraint firstAttribute="height" constant="71" id="O9U-Yw-60O"/>
                                 </constraints>
@@ -507,10 +507,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1J-r7-NfL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="-13" width="375" height="73"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xiq-SC-PTA">
-                                        <rect key="frame" x="136.5" y="19" width="102" height="22"/>
+                                        <rect key="frame" x="136.5" y="33" width="102" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="0lX-Yr-vGU"/>
                                         </constraints>
@@ -521,9 +521,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.066666666669999999" green="0.34928837419999997" blue="0.65245425700000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="TgJ-B6-4l2"/>
+                                    <constraint firstAttribute="height" constant="73" id="TgJ-B6-4l2"/>
                                     <constraint firstItem="Xiq-SC-PTA" firstAttribute="centerX" secondItem="O1J-r7-NfL" secondAttribute="centerX" id="ji5-Ki-HX6"/>
-                                    <constraint firstItem="Xiq-SC-PTA" firstAttribute="top" secondItem="O1J-r7-NfL" secondAttribute="top" constant="19" id="rei-Ge-zCg"/>
+                                    <constraint firstItem="Xiq-SC-PTA" firstAttribute="top" secondItem="O1J-r7-NfL" secondAttribute="top" constant="33" id="rei-Ge-zCg"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YD3-3v-xSV">
@@ -679,7 +679,7 @@
                         <viewLayoutGuide key="safeArea" id="S5Z-mp-nrJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="O1J-r7-NfL" firstAttribute="top" secondItem="uRe-B3-pNU" secondAttribute="top" id="X8c-4i-6KV"/>
+                            <constraint firstItem="O1J-r7-NfL" firstAttribute="top" secondItem="uRe-B3-pNU" secondAttribute="top" constant="-13" id="X8c-4i-6KV"/>
                             <constraint firstItem="YD3-3v-xSV" firstAttribute="leading" secondItem="uRe-B3-pNU" secondAttribute="leading" id="aNK-i7-Oa2"/>
                             <constraint firstAttribute="trailing" secondItem="O1J-r7-NfL" secondAttribute="trailing" id="cHP-sG-RFG"/>
                             <constraint firstAttribute="bottom" secondItem="YD3-3v-xSV" secondAttribute="bottom" id="dX6-Ku-bSp"/>
@@ -691,7 +691,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2T-qZ-YOX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4129" y="84"/>
+            <point key="canvasLocation" x="4128.8000000000002" y="83.208395802098963"/>
         </scene>
         <!--Camp Plan View Controller-->
         <scene sceneID="0gW-xJ-UYq">

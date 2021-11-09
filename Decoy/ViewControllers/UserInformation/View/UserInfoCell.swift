@@ -25,6 +25,26 @@ class UserInfoCell: UITableViewCell {
 //        contentView.addShadowView()
         
     }
+    
+    var cellViewModel: ResponsesData? {
+        didSet {
+            lblName.text = cellViewModel?.patientName
+            lblMobileNo.text = cellViewModel?.mobileNumber
+            let gend = cellViewModel?.administrativeSexID.administrativeSexCode
+            var gender = ""
+            switch gend {
+            case .f:
+                gender = "F"
+            case .m:
+                gender = "M"
+            case .none:
+                gender = ""
+            }
+            let age = (cellViewModel?.age.description)! + " yrs"
+            lblGender.text = age + " / " + gender
+            lblUHID.text = cellViewModel?.uhidNo
+        }
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

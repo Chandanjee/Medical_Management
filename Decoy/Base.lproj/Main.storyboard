@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L2L-Mk-dcY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L2L-Mk-dcY">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -436,7 +436,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q8K-0Q-ocX">
                                 <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="30" minimumInteritemSpacing="20" id="flv-3K-YpD">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="20" id="flv-3K-YpD">
                                     <size key="itemSize" width="128" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -458,10 +458,10 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAV-9z-hGt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="-11" width="375" height="71"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n29-hf-dxB">
-                                        <rect key="frame" x="141.5" y="19" width="92" height="22"/>
+                                        <rect key="frame" x="141.5" y="25" width="92" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="qZ4-B6-cwM"/>
                                         </constraints>
@@ -472,9 +472,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.066666666669999999" green="0.34928837419999997" blue="0.65245425700000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="n29-hf-dxB" firstAttribute="top" secondItem="eAV-9z-hGt" secondAttribute="top" constant="19" id="4xu-ea-PiA"/>
+                                    <constraint firstItem="n29-hf-dxB" firstAttribute="top" secondItem="eAV-9z-hGt" secondAttribute="top" constant="25" id="4xu-ea-PiA"/>
                                     <constraint firstItem="n29-hf-dxB" firstAttribute="centerX" secondItem="eAV-9z-hGt" secondAttribute="centerX" id="5w9-1n-Qab"/>
-                                    <constraint firstAttribute="height" constant="60" id="O9U-Yw-60O"/>
+                                    <constraint firstAttribute="height" constant="71" id="O9U-Yw-60O"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -487,7 +487,7 @@
                             <constraint firstItem="eAV-9z-hGt" firstAttribute="leading" secondItem="3ak-22-ikC" secondAttribute="leading" id="ZgR-7p-dag"/>
                             <constraint firstAttribute="trailing" secondItem="eAV-9z-hGt" secondAttribute="trailing" id="eZM-Rw-8sK"/>
                             <constraint firstItem="q8K-0Q-ocX" firstAttribute="leading" secondItem="3ak-22-ikC" secondAttribute="leading" id="pGz-7v-GeY"/>
-                            <constraint firstItem="eAV-9z-hGt" firstAttribute="top" secondItem="3ak-22-ikC" secondAttribute="top" id="uhr-Xx-zKS"/>
+                            <constraint firstItem="eAV-9z-hGt" firstAttribute="top" secondItem="3ak-22-ikC" secondAttribute="top" constant="-11" id="uhr-Xx-zKS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -907,28 +907,28 @@
     </scenes>
     <designables>
         <designable name="4S2-Jf-F9m">
-            <size key="intrinsicContentSize" width="166" height="21"/>
+            <size key="intrinsicContentSize" width="191" height="21"/>
         </designable>
         <designable name="GxV-Yz-0Tu">
-            <size key="intrinsicContentSize" width="62.5" height="17"/>
+            <size key="intrinsicContentSize" width="103.5" height="17"/>
         </designable>
         <designable name="T9u-Dl-sUn">
-            <size key="intrinsicContentSize" width="99" height="18.5"/>
+            <size key="intrinsicContentSize" width="126" height="18.5"/>
         </designable>
         <designable name="dwh-ss-r4L">
-            <size key="intrinsicContentSize" width="43" height="21"/>
+            <size key="intrinsicContentSize" width="68" height="21"/>
         </designable>
         <designable name="erm-7Y-lsA">
-            <size key="intrinsicContentSize" width="70" height="21"/>
+            <size key="intrinsicContentSize" width="95" height="21"/>
         </designable>
         <designable name="faW-1q-4If">
-            <size key="intrinsicContentSize" width="28.5" height="21"/>
+            <size key="intrinsicContentSize" width="53.5" height="21"/>
         </designable>
         <designable name="paa-Fl-naI">
-            <size key="intrinsicContentSize" width="132" height="21"/>
+            <size key="intrinsicContentSize" width="157" height="21"/>
         </designable>
         <designable name="yUa-bP-INV">
-            <size key="intrinsicContentSize" width="54" height="21"/>
+            <size key="intrinsicContentSize" width="79" height="21"/>
         </designable>
     </designables>
     <resources>

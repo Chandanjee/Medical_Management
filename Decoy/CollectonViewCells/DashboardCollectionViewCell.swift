@@ -34,7 +34,7 @@ class DashboardCollectionViewCell: UICollectionViewCell {
      layer.shadowRadius = 2.0
      layer.shadowOpacity = 0.5
      layer.masksToBounds = false
-     layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+//     layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
         
     }
   

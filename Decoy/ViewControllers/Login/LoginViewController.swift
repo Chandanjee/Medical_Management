@@ -138,17 +138,12 @@ class LoginViewController: UIViewController {
         var window: UIWindow?
 
         let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothTab())
-        let navigation = UINavigationController.init(rootViewController: dashboard)
+        _ = UINavigationController.init(rootViewController: dashboard)
         if #available(iOS 13.0, *) {
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(dashboard)
         } else {
             (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(dashboard)
-
-            // Fallback on earlier versions
         }
-
-//        window?.rootViewController = navigation
-//        window?.makeKeyAndVisible()
     }
     
     func smoothTab() -> [TabItem] {

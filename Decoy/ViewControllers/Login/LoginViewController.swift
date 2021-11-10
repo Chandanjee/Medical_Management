@@ -65,9 +65,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func tapToRegistration(_ sender:Any){
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        guard let v1 = storyboard.instantiateViewController(withIdentifier:"RegistrationViewController") as? RegistrationViewController else { return print("Controller is not initiate.") }
+//        self.navigationController?.pushViewController(v1, animated: true)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let v1 = storyboard.instantiateViewController(withIdentifier:"RegistrationViewController") as? RegistrationViewController else { return print("Controller is not initiate.") }
-        self.navigationController?.pushViewController(v1, animated: true)
+        let v1 = storyboard.instantiateViewController(withIdentifier:"RegistrationViewController") as? RegistrationViewController
+        self.navigationController?.hidesBarsOnTap = true
+        self.navigationController?.navigationBar.isHidden = true
+
+        self.navigationController?.pushViewController(v1!, animated: true)
     }
 
 //    @IBAction func tapToOffical(_ sender:Any){

@@ -24,6 +24,7 @@
 		0416734C2725759C00DE0045 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416734B2725759C00DE0045 /* Constants.swift */; };
 		041673792725AAF800DE0045 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041673782725AAF800DE0045 /* UITableView+Extension.swift */; };
 		0416737C2725AB2900DE0045 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416737B2725AB2900DE0045 /* NSObject+Extension.swift */; };
+		042B7FF0273AE7FA00E2DD6C /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */; };
 		04837DA62725B10D0090BBE4 /* CollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DA52725B10D0090BBE4 /* CollectionData.swift */; };
 		04837DAA2725DF630090BBE4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DA92725DF630090BBE4 /* RegistrationViewController.swift */; };
 		04837DAE2725E4340090BBE4 /* VerifyOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */; };
@@ -96,6 +97,7 @@
 		0416734B2725759C00DE0045 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		041673782725AAF800DE0045 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		0416737B2725AB2900DE0045 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
 		04837DA52725B10D0090BBE4 /* CollectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionData.swift; sourceTree = "<group>"; };
 		04837DA92725DF630090BBE4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPView.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				0416734B2725759C00DE0045 /* Constants.swift */,
 				041673782725AAF800DE0045 /* UITableView+Extension.swift */,
 				0416737B2725AB2900DE0045 /* NSObject+Extension.swift */,
+				042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				E30A2F3D27183BBE00AABC70 /* HomeRouter.swift in Sources */,
 				E30A2F322718399600AABC70 /* SettingsTableViewCell.swift in Sources */,
 				E30A2F2B2718350000AABC70 /* SettingsModels.swift in Sources */,
+				042B7FF0273AE7FA00E2DD6C /* ValidationClass.swift in Sources */,
 				0416734127255BF500DE0045 /* ProfileImageTableCell.swift in Sources */,
 				04E47D692728115300A4C0DB /* LoginJSONModel.swift in Sources */,
 				04B832DF272494FE00379243 /* DashboardViewController.swift in Sources */,

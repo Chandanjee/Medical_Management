@@ -308,3 +308,152 @@ func newJSONEncoder() -> JSONEncoder {
     }
     return encoder
 }
+
+
+//MARK:- Validation regular expressions
+extension String {
+    
+    var trimWhiteSpace: String {
+        let trimmedString = self.trimmingCharacters(in: CharacterSet.whitespaces)
+        
+        return trimmedString
+    }
+    
+    func containsCaseInsec(_ string: String) -> Bool {
+        return self.lowercased().range(of: string.lowercased()) != nil
+    }
+    //((\\+)|(00))
+   func isValidMobileNumber() -> Bool {
+        let mobileNoRegEx = "^[0-9]{8,16}$"
+//        let mobileNoRegEx = "^\\d{3}-\\d{3}-\\d{4}$"
+//        let mobileNoRegEx = "^[0-9+]{0,1}+[0-9]{5,16}$"
+    
+        let mobileNoTest = NSPredicate(format:"SELF MATCHES %@", mobileNoRegEx)
+    let texts = mobileNoTest.evaluate(with: self)
+    print("Number",texts)
+        return texts
+    }
+    /*
+    func isValidMobileNumber() -> Bool {
+//        let PHONE_REGEX = "^((\\+)|(00))[0-9]{6,14}$"
+        let PHONE_REGEX = "^(\\+)(?:[0-9] ?){6,14}[0-9]$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        let result =  phoneTest.evaluate(with: self)
+        return result
+    }*/
+    
+    func isContainsAllZeros() -> Bool {
+        let mobileNoRegEx = "^0*$";
+        let mobileNoTest = NSPredicate(format:"SELF MATCHES %@", mobileNoRegEx)
+        return mobileNoTest.evaluate(with: self)
+    }
+    
+    func isValidUserName() -> Bool {
+        let nameRegEx = "^[a-zA-Z0-9\\s]+$"
+        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
+        return nameTest.evaluate(with: self)
+    }
+    
+    func isValidPassword() -> Bool {
+        let passwordRegEx = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$"
+//      let passwordRegEx =  "^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$"
+        let passwordTest = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
+        return passwordTest.evaluate(with: self)
+    }
+    
+    var isEmail: Bool {
+        let regex = try? NSRegularExpression(pattern: "^(\\w[.|-]?)*\\w+[@](\\w[.]?)*\\w+[.][a-z]{2,4}$", options: .caseInsensitive)
+        return regex?.firstMatch(in: self, options: [], range: NSMakeRange(0, self.count)) != nil
+    }
+    
+    func isContainsAtleastOneSpecialCharacters() -> Bool{
+//        let passwordRegEx = "^(?=.*?[$@$!%*#?&^)(]).{8,}$"
+//        let password = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[$@$#!%*?&]).{6,}$")
+        let passwordRegEx = "^(?=.*[$@$#!%*?&]).{8,}$"
+        let passwordTest = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
+        return passwordTest.evaluate(with: self)
+    }
+    
+    func containsAlphaNumericOnly() -> Bool {
+        let nameRegEx = "^[a-zA-Z0-9\\s]+$"
+        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
+        return nameTest.evaluate(with: self)
+    }
+    func containsNumberOnly() -> Bool {
+        let nameRegEx = "^[0-9]+$"
+        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
+        let test = nameTest.evaluate(with: self)
+        print(test)
+        return test
+    }
+    
+    func containsAlphabetsOnly() -> Bool {
+        let nameRegEx = "^[a-zA-Z]+$"
+        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
+        return nameTest.evaluate(with: self)
+    }
+    
+    func isValidName() -> Bool {
+        
+        let nameRegEx = "^[a-zA-Z\\s]+$"
+        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
+        return nameTest.evaluate(with: self)
+    }
+    
+    func checkTextSufficientComplexityUpperCase() -> Bool{
+
+//        let capitalLetterRegEx  = ".*[A-Z]+.*"
+        let capitalLetterRegEx  = "(?=.*[A-Z]).{6,}$"
+        let texttest = NSPredicate(format:"SELF MATCHES %@", capitalLetterRegEx)
+        let capitalresult = texttest.evaluate(with: self)
+        print("\(capitalresult)")
+        
+        return capitalresult
+    }
+    func checkTextSufficientComplexityNumber() -> Bool{
+//        let numberRegEx  = ".*[0-9]+.*"
+       let numberRegEx  = "(?=.*[0-9]).{8,}$"
+        let texttest1 = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
+        let numberresult = texttest1.evaluate(with: self)
+        print("\(numberresult)")
+        return numberresult
+    }
+    func isValidPasswordATleastUpperLowerandSpecial() -> Bool {
+        //let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[ !\"\\\\#$%&'()*+,-./:;<=>?@\\[\\]^_`{|}~])[A-Za-z\\d !\"\\\\#$%&'()*+,-./:;<=>?@\\[\\]^_`{|}~]{8,}"
+        //safe to escape all regex chars
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[ !\"\\\\#$%&'\\(\\)\\*+,\\-\\./:;<=>?@\\[\\]^_`\\{|\\}~])[A-Za-z\\d !\"\\\\#$%&'\\(\\)\\*+,\\-\\./:;<=>?@\\[\\]^_`\\{|\\}~]{8,}"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
+    }
+    
+    func checkTextSufficientComplexity(text : String) -> Bool{
+
+
+        let capitalLetterRegEx  = ".*[A-Z]+.*"
+        let texttest = NSPredicate(format:"SELF MATCHES %@", capitalLetterRegEx)
+        let capitalresult = texttest.evaluate(with: text)
+        print("\(capitalresult)")
+
+
+        let numberRegEx  = ".*[0-9]+.*"
+        let texttest1 = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
+        let numberresult = texttest1.evaluate(with: text)
+        print("\(numberresult)")
+
+
+        let specialCharacterRegEx  = ".*[!&^%$#@()/]+.*"
+        let texttest2 = NSPredicate(format:"SELF MATCHES %@", specialCharacterRegEx)
+
+        let specialresult = texttest2.evaluate(with: text)
+        print("\(specialresult)")
+
+        return capitalresult || numberresult || specialresult
+
+    }
+    //MARK:- >>>> removes all whitespace from a string, not just trailing whitespace <<<//
+    func removeWhitespace() -> String {
+//        return self.replaceString(" ", withString: "")
+        return self.replacingOccurrences(of: " ", with: "")
+    }
+    
+    
+}

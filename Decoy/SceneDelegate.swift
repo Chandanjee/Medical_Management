@@ -101,8 +101,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let window = self.window else {
             return
         }
+        let navigationController = UINavigationController(rootViewController: vc)
 
-        window.rootViewController = vc
+        window.rootViewController = navigationController
 
         // add animation
         UIView.transition(with: window,

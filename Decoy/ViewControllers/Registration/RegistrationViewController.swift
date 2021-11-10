@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class RegistrationViewController: UIViewController {
     @IBOutlet weak var txtMobileNo:UITextField!
@@ -15,22 +16,20 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var txtGender:UITextField!
     @IBOutlet weak var txtName:UITextField!
     @IBOutlet weak var btnSubmit:UIButton!
-    
+    @IBOutlet weak var btnPrev:UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backButtonTitle = ""
 
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Navigation
+    @IBAction func tapToBackRegis(_ sender: Any){
+        self.navigationController?.popViewController(animated: true)
     }
-    */
 
 }

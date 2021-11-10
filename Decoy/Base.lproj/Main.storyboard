@@ -265,6 +265,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="z0M-Vj-nZg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gzE-GX-NHY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="O9D-0i-7cS"/>
@@ -303,6 +304,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="33D-c2-dyf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="YDV-qo-WFQ" secondAttribute="trailing" id="6jC-U9-gyN"/>
@@ -708,6 +710,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="OVz-sJ-rOF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="O1J-r7-NfL" firstAttribute="top" secondItem="uRe-B3-pNU" secondAttribute="top" id="X8c-4i-6KV"/>
@@ -905,6 +908,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ysL-ZN-PAf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="X11-j7-Nn4" firstAttribute="top" secondItem="jrc-4q-APb" secondAttribute="bottom" id="5T1-MQ-z5Y"/>

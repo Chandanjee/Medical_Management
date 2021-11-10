@@ -25,6 +25,10 @@
 		041673792725AAF800DE0045 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041673782725AAF800DE0045 /* UITableView+Extension.swift */; };
 		0416737C2725AB2900DE0045 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416737B2725AB2900DE0045 /* NSObject+Extension.swift */; };
 		042B7FF0273AE7FA00E2DD6C /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */; };
+		046D95F7273C32F10063FDCB /* OTPStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95F6273C32F10063FDCB /* OTPStackView.swift */; };
+		046D95F9273C33650063FDCB /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95F8273C33650063FDCB /* OTPTextField.swift */; };
+		046D95FB273C39260063FDCB /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95FA273C39260063FDCB /* OTPView.swift */; };
+		046D95FE273C39450063FDCB /* OTPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046D95FD273C39450063FDCB /* OTPView.xib */; };
 		04837DA62725B10D0090BBE4 /* CollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DA52725B10D0090BBE4 /* CollectionData.swift */; };
 		04837DAA2725DF630090BBE4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DA92725DF630090BBE4 /* RegistrationViewController.swift */; };
 		04837DAE2725E4340090BBE4 /* VerifyOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */; };
@@ -98,6 +102,10 @@
 		041673782725AAF800DE0045 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		0416737B2725AB2900DE0045 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
+		046D95F6273C32F10063FDCB /* OTPStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPStackView.swift; sourceTree = "<group>"; };
+		046D95F8273C33650063FDCB /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
+		046D95FA273C39260063FDCB /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		046D95FD273C39450063FDCB /* OTPView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPView.xib; sourceTree = "<group>"; };
 		04837DA52725B10D0090BBE4 /* CollectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionData.swift; sourceTree = "<group>"; };
 		04837DA92725DF630090BBE4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPView.swift; sourceTree = "<group>"; };
@@ -183,6 +191,8 @@
 				041673782725AAF800DE0045 /* UITableView+Extension.swift */,
 				0416737B2725AB2900DE0045 /* NSObject+Extension.swift */,
 				042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */,
+				046D95F6273C32F10063FDCB /* OTPStackView.swift */,
+				046D95F8273C33650063FDCB /* OTPTextField.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -198,6 +208,14 @@
 				0416733927255BA900DE0045 /* ProfileImageTableCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		046D95FC273C39340063FDCB /* OTPView */ = {
+			isa = PBXGroup;
+			children = (
+				046D95FD273C39450063FDCB /* OTPView.xib */,
+			);
+			path = OTPView;
 			sourceTree = "<group>";
 		};
 		04837DA82725DF4B0090BBE4 /* Registration */ = {
@@ -336,6 +354,7 @@
 		E30A2F0027181DE800AABC70 /* Decoy */ = {
 			isa = PBXGroup;
 			children = (
+				046D95FC273C39340063FDCB /* OTPView */,
 				04E47D582728067700A4C0DB /* NetworkManager */,
 				0402E7472722B362004D866A /* Utility */,
 				E30A2F41271D864900AABC70 /* CollectonViewCells */,
@@ -348,6 +367,7 @@
 				E30A2F0A27181DEB00AABC70 /* Assets.xcassets */,
 				E30A2F0C27181DEB00AABC70 /* LaunchScreen.storyboard */,
 				E30A2F0F27181DEB00AABC70 /* Info.plist */,
+				046D95FA273C39260063FDCB /* OTPView.swift */,
 			);
 			path = Decoy;
 			sourceTree = "<group>";
@@ -543,6 +563,7 @@
 				0416733B27255BA900DE0045 /* ProfileImageTableCell.xib in Resources */,
 				0416734627255C1A00DE0045 /* ProfileLogoutTableCell.xib in Resources */,
 				0416733E27255BE700DE0045 /* ProfileTableCell.xib in Resources */,
+				046D95FE273C39450063FDCB /* OTPView.xib in Resources */,
 				E30A2F45271D867B00AABC70 /* DashboardCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +638,7 @@
 				04E3C2D727247455008A074B /* AppTabBarViewController.swift in Sources */,
 				04837DA62725B10D0090BBE4 /* CollectionData.swift in Sources */,
 				04E3C2D527247455008A074B /* SmoothTabItemView.swift in Sources */,
+				046D95FB273C39260063FDCB /* OTPView.swift in Sources */,
 				0402E7662722D1F4004D866A /* DesignableUITextField.swift in Sources */,
 				E30A2F3D27183BBE00AABC70 /* HomeRouter.swift in Sources */,
 				E30A2F322718399600AABC70 /* SettingsTableViewCell.swift in Sources */,
@@ -635,11 +657,13 @@
 				E30A2F48271D899000AABC70 /* AddFamilyViewController.swift in Sources */,
 				E30A2F44271D867B00AABC70 /* DashboardCollectionViewCell.swift in Sources */,
 				E30A2F1F27182CF100AABC70 /* ProfileTableViewCell.swift in Sources */,
+				046D95F7273C32F10063FDCB /* OTPStackView.swift in Sources */,
 				04BA81E92739978200024685 /* PatientRequestModel.swift in Sources */,
 				E30A2F53271D9D6600AABC70 /* CampPlanModels.swift in Sources */,
 				04B832E22724952E00379243 /* SettingViewController.swift in Sources */,
 				E30A2F0227181DE800AABC70 /* AppDelegate.swift in Sources */,
 				E30A2F0427181DE800AABC70 /* SceneDelegate.swift in Sources */,
+				046D95F9273C33650063FDCB /* OTPTextField.swift in Sources */,
 				04837DAE2725E4340090BBE4 /* VerifyOTPView.swift in Sources */,
 				0416734527255C1A00DE0045 /* ProfileLogoutTableCell.swift in Sources */,
 				E30A2F282718350000AABC70 /* SettingsPresenter.swift in Sources */,

@@ -23,12 +23,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnSegment:UISegmentedControl!
     var segmentSelectedOption:String?
     let serviceUrl = BaseUrl.baseURL + "login"
+    
+    let otpStackView = OTPStackView()
+    @IBOutlet weak var otpContainerView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x1159A7)], for: .normal)
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        
+        otpStackView.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -61,7 +65,14 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func tapToLoginViaOTP(_ sender:Any){
-        
+        print("Final OTP : ",otpStackView.getOTP())
+        otpStackView.setAllFieldColor(isWarningColor: true, color: .yellow)
+
+    }
+    
+    @IBAction func clickedForHighlight(_ sender: UIButton) {
+        print("Final OTP : ",otpStackView.getOTP())
+        otpStackView.setAllFieldColor(isWarningColor: true, color: .yellow)
     }
     
     @IBAction func tapToRegistration(_ sender:Any){
@@ -171,4 +182,12 @@ class LoginViewController: UIViewController {
       
       return [t1,t2,t3]
     }
+}
+
+extension LoginViewController: OTPDelegate {
+    
+    func didChangeValidity(isValid: Bool) {
+        testButton.isHidden = !isValid
+    }
+    
 }

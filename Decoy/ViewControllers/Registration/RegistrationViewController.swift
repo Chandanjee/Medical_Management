@@ -19,12 +19,30 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var btnSubmit:UIButton!
     @IBOutlet weak var btnPrev:UIButton!
     let registerData = RegisterDetail()
+    private let apiManager = NetworkManager()
+    let serviceUrlRegis = BaseUrl.baseURL + "login"
+//https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/9897040757/AUTOGEN/MMULOGIN
+    let serviceURlOTP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/"
+    @IBOutlet weak var logoImageView: UIImageView!{
+        didSet{
+            self.logoImageView.center.y  = self.logoImageView.center.y + 40
+        }
+    }
+    
+    var otpView = Bundle.main.loadNibNamed("OTPView", owner: self, options: nil)?.first as! OTPView
+    let otpStackView = OTPStackView()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = ""
 
+        setupViews()
         // Do any additional setup after loading the view.
+    }
+    
+    func setupViews() {
+        self.otpView.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 335 , width: UIScreen.main.bounds.width, height:335 )
     }
     
     func isAllValid() -> Bool{
@@ -80,7 +98,10 @@ class RegistrationViewController: UIViewController {
     }
     
     @IBAction func tapToRegist(_ sender: Any){
+        appearOTPView()
+        API_RegisterOTP()
         if isAllValid() {
+           
             CallCreateUserApi()
         }
     }
@@ -92,9 +113,136 @@ class RegistrationViewController: UIViewController {
         MBProgressHUD.showAdded(to: view, animated: true)
         
     }
+    
+    func appearOTPView(){
+        btnSubmit.isUserInteractionEnabled = false
+        btnSubmit.alpha = 1
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [],
+                       animations: {
+                        self.btnSubmit.alpha = 0
+        }, completion: { _ in
+            self.btnSubmit.isHidden = true
+            proceed()
+        })
+        
+        func proceed() {
+            otpView.transform = CGAffineTransform(translationX: 0, y: 445)
+            self.otpView.btnVariefy.addTarget(self, action: #selector(self.createRegistrationContniue), for: .touchUpInside)
+            self.otpView.btnClose.addTarget(self, action: #selector(closeButton), for: .touchUpInside)
+
+//            self.otpView.btnClose.addTarget(self, action: #selector(createRegistrationNotification(_:)), for: .touchUpInside)
+//            self.otpView._txtCountryName.addTarget(self, action: #selector(self.createCountryName), for: .touchUpInside)
+            
+            animateViewUp()
+        }
+        
+    }
+    
+    //MARK:- Animated View
+    func animateViewUp() {
+        let diff = self.logoImageView.frame.maxY - (self.view.frame.height - self.otpView.frame.height)
+        let isCountryPickerOverlapLogo = diff > 0
+        if isCountryPickerOverlapLogo {
+//            self.logoImageViewCenterY.constant = -diff-70
+        }
+        UIView.animate(withDuration: 1.0, delay: 1, options: [.curveLinear], animations: {
+//            self.blackColor!.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+            self.otpView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.view.layoutIfNeeded()
+        }, completion:nil)
+        otpView.viewOtps.addSubview(otpStackView)
+        otpStackView.delegate = self
+        self.view.addSubview(otpView)
+    }
+    
+    
+    func animateViewDown(completion:(() -> Void)?) {
+//        self.logoImageViewCenterY.constant = 0
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut], animations: {
+//            self.blackColor!.backgroundColor = UIColor.black.withAlphaComponent(0.0)
+            self.otpView.frame.origin.y = self.view.bounds.height
+            self.btnSubmit.isHidden = false
+            self.btnSubmit.isUserInteractionEnabled = true
+
+            self.view.layoutIfNeeded()
+            }, completion: { _ in
+                self.otpView.removeFromSuperview()
+                completion?()
+        })
+    }
+    
+    
+    //MARK:- Button Continue
+    @objc func createRegistrationContniue() {
+        animateViewDown {
+//            proceed()
+        }
+    }
+    
+    @objc func closeButton(){
+        animateViewDown{
+            
+        }
+    }
+    
+    fileprivate func getRegisParams() -> [String: Any] {
+        let dictData: [String:Any] = ["age": self.txtAge.text!,
+                                      "dateOfBirth": self.txtPassword.text!,
+                                      "gender": self.txtGender.text!,
+                                      "mobileNumber": self.txtMobileNo.text!,
+                                      "password": self.txtPassword.text!,
+                                      "patientName": self.txtName.text!,
+                                      "religenID": "1"
+                                     ]
+        return dictData
+    }
+    
+    func API_Registration(option:String, data: @escaping (_ dataStore:Bool) -> ()){
+        let dictData = getRegisParams()
+        print("Registration Json",dictData)
+        apiManager.apiPostView(serviceName: serviceUrlRegis, parameters: dictData, completionHandler: {
+            [weak self] (response, error) in
+            if let response = response {
+                print(response)
+            }
+            
+        })
+
+    }
+    
+    func API_RegisterOTP(){
+        if self.txtMobileNo.text == "" {
+            Utility().addAlertView("Alert!", "Check your mobile number.", "OK", self)
+
+            return
+        }
+        let urlWithMobile = serviceURlOTP + self.txtMobileNo.text! + "/AUTOGEN/MMULOGIN"
+        apiManager.Api_OTP(serviceName: urlWithMobile, parameters: [:], completionHandler: {
+            [weak self] (response, error) in
+            if let response = response {
+                print(response)
+            }else if (error != nil) {
+                print(error as Any)
+            } else {
+                print(error as Any)
+            }
+        })
+    }
+    
+    func API_verifyOTP(){
+        
+    }
 }
 
-
+extension RegistrationViewController: OTPDelegate {
+    
+    func didChangeValidity(isValid: Bool) {
+        self.otpView.btnVariefy.isHidden = !isValid
+    }
+    
+}
 class RegisterDetail  {
  var Name  = ""
  var Gender = ""

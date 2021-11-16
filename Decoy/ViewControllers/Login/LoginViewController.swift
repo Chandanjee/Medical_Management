@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnSegment:UISegmentedControl!
     var segmentSelectedOption:String?
     let serviceUrl = BaseUrl.baseURL + "login"
-    
+    var userMobile = ""
     let otpStackView = OTPStackView()
     @IBOutlet weak var otpContainerView: UIView!
 
@@ -55,6 +55,7 @@ class LoginViewController: UIViewController {
                 print(status)
                 if status == true{
                     UserDefaults.standard.set("Yes", forKey: "userLoginStatus")
+                    UserDefaults.standard.set(self.userMobile, forKey: "userMobile")
                     self.showDashboard()
                 }else{
                     UserDefaults.standard.set("No", forKey: "userLoginStatus")
@@ -139,7 +140,8 @@ class LoginViewController: UIViewController {
                        let loginJSONModel = try? newJSONDecoder().decode(LoginJSONModel.self, from: response)
                     let status = loginJSONModel?.status.description
                     let datass = loginJSONModel?.response[0].dateOfBirth
-                    print(datass)
+                    self?.userMobile = loginJSONModel?.response[0].mobileNumber ?? ""
+                    print(datass)TimeCode
                     if (status == "200") {
                         data(true)
                     }else if (status == "500") {
@@ -187,7 +189,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: OTPDelegate {
     
     func didChangeValidity(isValid: Bool) {
-        testButton.isHidden = !isValid
+//        testButton.isHidden = !isValid
     }
     
 }

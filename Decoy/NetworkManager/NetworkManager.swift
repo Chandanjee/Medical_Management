@@ -257,7 +257,7 @@ class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandle
            }
        }
     
-    public func apiPostViewTickets(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Data?, _ error : Error?) -> ()){
+    public func apiPostView(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Data?, _ error : Error?) -> ()){
            var request = URLRequest(url: URL(string: serviceName)!)
 
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -286,4 +286,31 @@ class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandle
                }
            }
        }
+    public func Api_OTP(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Data?, _ error : Error?) -> ()){
+        var request = URLRequest(url: URL(string: serviceName)!)
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let jsonData = try! JSONSerialization.data(withJSONObject: parameters, options: [.fragmentsAllowed])
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        AF.request(request).responseData { (response) in
+            print(response)
+            switch(response.result) {
+            case .success(_):
+                print("Service url of Tickets call - " + serviceName)
+                if let data = response.data {
+                    do {
+                        completionHandler(data, nil)
+                    } catch let parseError {
+                        print("error",parseError)
+                    }
+                }
+                break
+            case .failure(_):
+                completionHandler(nil,response.error)
+                break
+            }
+        }
+    }
 }

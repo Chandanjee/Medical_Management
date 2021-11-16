@@ -659,6 +659,9 @@
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="tapToRegist:" destination="VkQ-aX-Fqd" eventType="touchUpInside" id="oRE-dG-Btq"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paa-Fl-naI" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
                                         <rect key="frame" x="25" y="350" width="325" height="45"/>
@@ -724,6 +727,7 @@
                     </view>
                     <connections>
                         <outlet property="btnPrev" destination="jTq-sw-52h" id="DNU-S0-vuP"/>
+                        <outlet property="btnSubmit" destination="eKt-qi-oQW" id="MXC-ld-uWT"/>
                         <outlet property="txtAge" destination="faW-1q-4If" id="ERX-Nq-2vf"/>
                         <outlet property="txtConfirmPassword" destination="paa-Fl-naI" id="g5m-bU-Waw"/>
                         <outlet property="txtGender" destination="yUa-bP-INV" id="VDy-Ws-qSr"/>
@@ -949,7 +953,7 @@
     </scenes>
     <designables>
         <designable name="4S2-Jf-F9m">
-            <size key="intrinsicContentSize" width="191" height="21"/>
+            <size key="intrinsicContentSize" width="166" height="21"/>
         </designable>
         <designable name="GxV-Yz-0Tu">
             <size key="intrinsicContentSize" width="103.33333333333333" height="17"/>
@@ -958,19 +962,19 @@
             <size key="intrinsicContentSize" width="126" height="18.666666666666668"/>
         </designable>
         <designable name="dwh-ss-r4L">
-            <size key="intrinsicContentSize" width="67.666666666666671" height="21"/>
+            <size key="intrinsicContentSize" width="42.666666666666664" height="21"/>
         </designable>
         <designable name="erm-7Y-lsA">
-            <size key="intrinsicContentSize" width="95" height="20"/>
+            <size key="intrinsicContentSize" width="70" height="20"/>
         </designable>
         <designable name="faW-1q-4If">
-            <size key="intrinsicContentSize" width="53.333333333333336" height="21"/>
+            <size key="intrinsicContentSize" width="28.333333333333332" height="21"/>
         </designable>
         <designable name="paa-Fl-naI">
-            <size key="intrinsicContentSize" width="157" height="20"/>
+            <size key="intrinsicContentSize" width="132" height="20"/>
         </designable>
         <designable name="yUa-bP-INV">
-            <size key="intrinsicContentSize" width="78.666666666666671" height="21"/>
+            <size key="intrinsicContentSize" width="53.666666666666664" height="21"/>
         </designable>
     </designables>
     <resources>

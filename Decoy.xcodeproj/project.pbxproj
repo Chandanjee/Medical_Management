@@ -213,6 +213,7 @@
 		046D95FC273C39340063FDCB /* OTPView */ = {
 			isa = PBXGroup;
 			children = (
+				046D95FA273C39260063FDCB /* OTPView.swift */,
 				046D95FD273C39450063FDCB /* OTPView.xib */,
 			);
 			path = OTPView;
@@ -367,7 +368,6 @@
 				E30A2F0A27181DEB00AABC70 /* Assets.xcassets */,
 				E30A2F0C27181DEB00AABC70 /* LaunchScreen.storyboard */,
 				E30A2F0F27181DEB00AABC70 /* Info.plist */,
-				046D95FA273C39260063FDCB /* OTPView.swift */,
 			);
 			path = Decoy;
 			sourceTree = "<group>";

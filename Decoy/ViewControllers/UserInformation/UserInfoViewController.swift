@@ -57,7 +57,7 @@ class UserInfoViewController: UIViewController {
     func API_getViewAllTickets(json:PatientRequestModel, data:@escaping (_ result:PatientListJSONModel?,_ resultBool: Bool) -> ()){
         let jsons =  PatientRequestModel.encode(object: json)
         print("infoView request",jsons)
-        apiManager.apiPostViewTickets(serviceName: serviceUrl, parameters: jsons as! [String : Any], completionHandler: {
+        apiManager.apiPostView(serviceName: serviceUrl, parameters: jsons as! [String : Any], completionHandler: {
             (response, error) in
             if let response = response {
                 let details = try? newJSONDecoder().decode(PatientListJSONModel.self, from: response)

@@ -18,6 +18,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var txtName:UITextField!
     @IBOutlet weak var btnSubmit:UIButton!
     @IBOutlet weak var btnPrev:UIButton!
+    
+    var OTPToken = ""
     let registerData = RegisterDetail()
     private let apiManager = NetworkManager()
     let serviceUrlRegis = BaseUrl.baseURL + "login"
@@ -102,7 +104,7 @@ class RegistrationViewController: UIViewController {
         API_RegisterOTP()
         if isAllValid() {
            
-            CallCreateUserApi()
+//            CallCreateUserApi()
         }
     }
     
@@ -142,11 +144,11 @@ class RegistrationViewController: UIViewController {
     
     //MARK:- Animated View
     func animateViewUp() {
-        let diff = self.logoImageView.frame.maxY - (self.view.frame.height - self.otpView.frame.height)
-        let isCountryPickerOverlapLogo = diff > 0
-        if isCountryPickerOverlapLogo {
-//            self.logoImageViewCenterY.constant = -diff-70
-        }
+//        let diff = self.logoImageView.frame.maxY - (self.view.frame.height - self.otpView.frame.height)
+//        let isCountryPickerOverlapLogo = diff > 0
+//        if isCountryPickerOverlapLogo {
+////            self.logoImageViewCenterY.constant = -diff-70
+//        }
         UIView.animate(withDuration: 1.0, delay: 1, options: [.curveLinear], animations: {
 //            self.blackColor!.backgroundColor = UIColor.black.withAlphaComponent(0.7)
             self.otpView.transform = CGAffineTransform(scaleX: 1, y: 1)
@@ -154,6 +156,9 @@ class RegistrationViewController: UIViewController {
         }, completion:nil)
         otpView.viewOtps.addSubview(otpStackView)
         otpStackView.delegate = self
+        otpStackView.heightAnchor.constraint(equalTo: otpView.viewOtps.heightAnchor).isActive = true
+        otpStackView.centerXAnchor.constraint(equalTo: otpView.viewOtps.centerXAnchor).isActive = true
+        otpStackView.centerYAnchor.constraint(equalTo: otpView.viewOtps.centerYAnchor).isActive = true
         self.view.addSubview(otpView)
     }
     
@@ -178,6 +183,27 @@ class RegistrationViewController: UIViewController {
     @objc func createRegistrationContniue() {
         animateViewDown {
 //            proceed()
+//        https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/{key}/{otp}
+            let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
+            let getOTP = self.otpStackView.getOTP()
+            let urlVeriftOTP = baseURLOtP + "{" + self.OTPToken + "}" + "{" + getOTP + "}"
+            print("url OTP",urlVeriftOTP)
+            self.apiManager.Api_OTP(serviceName: urlVeriftOTP, parameters: [:], completionHandler: {
+                [weak self] (response, error) in
+                if let response = response {
+                    print(response)
+                    do{
+                    let json = try JSONSerialization.jsonObject(with: response, options: []) as? [String : Any]
+//                        let token = json?["Details"] as? String
+//                        self?.OTPToken = token!
+                        print(json as Any)
+                    }catch{ print("erroMsg") }
+                }else if (error != nil) {
+                    print(error as Any)
+                } else {
+                    print(error as Any)
+                }
+            })
         }
     }
     
@@ -212,6 +238,7 @@ class RegistrationViewController: UIViewController {
 
     }
     
+    //MARK:- OTP Registration
     func API_RegisterOTP(){
         if self.txtMobileNo.text == "" {
             Utility().addAlertView("Alert!", "Check your mobile number.", "OK", self)
@@ -219,10 +246,17 @@ class RegistrationViewController: UIViewController {
             return
         }
         let urlWithMobile = serviceURlOTP + self.txtMobileNo.text! + "/AUTOGEN/MMULOGIN"
+        print("url OTP",urlWithMobile)
         apiManager.Api_OTP(serviceName: urlWithMobile, parameters: [:], completionHandler: {
             [weak self] (response, error) in
             if let response = response {
                 print(response)
+                do{
+                let json = try JSONSerialization.jsonObject(with: response, options: []) as? [String : Any]
+                    let token = json?["Details"] as? String
+                    self?.OTPToken = token!
+                    print(json as Any)
+                }catch{ print("erroMsg") }
             }else if (error != nil) {
                 print(error as Any)
             } else {
@@ -231,9 +265,7 @@ class RegistrationViewController: UIViewController {
         })
     }
     
-    func API_verifyOTP(){
-        
-    }
+   
 }
 
 extension RegistrationViewController: OTPDelegate {

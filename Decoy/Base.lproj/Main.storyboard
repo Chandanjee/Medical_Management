@@ -529,7 +529,7 @@
                                             <imageReference key="image" image="chevron.left" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <connections>
-                                            <action selector="tapToBackRegis:" destination="VkQ-aX-Fqd" eventType="touchUpInside" id="Rpz-Bf-EyS"/>
+                                            <action selector="tapToBackPOP:" destination="VkQ-aX-Fqd" eventType="touchUpInside" id="ImI-N9-bbb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -612,7 +612,7 @@
                                             <constraint firstAttribute="height" constant="45" id="HGl-SW-mfB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="gapPadding">
                                                 <real key="value" value="10"/>
@@ -631,7 +631,7 @@
                                             <constraint firstAttribute="height" constant="45" id="wpa-4p-dTy"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                                                 <real key="value" value="10"/>
@@ -953,7 +953,7 @@
     </scenes>
     <designables>
         <designable name="4S2-Jf-F9m">
-            <size key="intrinsicContentSize" width="166" height="21"/>
+            <size key="intrinsicContentSize" width="191" height="21"/>
         </designable>
         <designable name="GxV-Yz-0Tu">
             <size key="intrinsicContentSize" width="103.33333333333333" height="17"/>
@@ -962,19 +962,19 @@
             <size key="intrinsicContentSize" width="126" height="18.666666666666668"/>
         </designable>
         <designable name="dwh-ss-r4L">
-            <size key="intrinsicContentSize" width="42.666666666666664" height="21"/>
+            <size key="intrinsicContentSize" width="67.666666666666671" height="21"/>
         </designable>
         <designable name="erm-7Y-lsA">
-            <size key="intrinsicContentSize" width="70" height="20"/>
+            <size key="intrinsicContentSize" width="95" height="20"/>
         </designable>
         <designable name="faW-1q-4If">
-            <size key="intrinsicContentSize" width="28.333333333333332" height="21"/>
+            <size key="intrinsicContentSize" width="53.333333333333336" height="21"/>
         </designable>
         <designable name="paa-Fl-naI">
-            <size key="intrinsicContentSize" width="132" height="20"/>
+            <size key="intrinsicContentSize" width="157" height="20"/>
         </designable>
         <designable name="yUa-bP-INV">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="21"/>
+            <size key="intrinsicContentSize" width="78.666666666666671" height="21"/>
         </designable>
     </designables>
     <resources>

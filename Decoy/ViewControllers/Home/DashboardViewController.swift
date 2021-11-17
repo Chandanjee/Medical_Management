@@ -43,9 +43,17 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let name = collectionData.datass[indexPath.item]
+        
+        print(name.title)
+        if (name.title == "Camp Plan") {
+        }else if (name.title == "Add Family Member"){
+
+        }else{
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let v1 = storyboard.instantiateViewController(withIdentifier:"UserInfoViewController") as? UserInfoViewController
-        self.navigationController?.pushViewController(v1!, animated: true)
+            self.navigationController?.pushViewController(v1!, animated: true)}
     }
     
 }

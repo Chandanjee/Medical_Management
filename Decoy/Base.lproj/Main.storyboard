@@ -276,8 +276,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="SSZ-7V-fCD"/>
                     <connections>
+                        <outlet property="backContainerView" destination="gzE-GX-NHY" id="dET-FR-KYy"/>
                         <outlet property="btnLogin" destination="ICK-a1-Q9i" id="zAY-cr-2fE"/>
                         <outlet property="btnSegment" destination="bF1-03-99A" id="6kL-Lz-WwQ"/>
+                        <outlet property="loginWithOTP" destination="5qb-Eq-UHC" id="opJ-IU-b8e"/>
                         <outlet property="registration" destination="CKj-84-E01" id="Oyf-Rg-yqN"/>
                         <outlet property="txtMobileNo" destination="T9u-Dl-sUn" id="CAJ-AR-sYj"/>
                         <outlet property="txtPassword" destination="GxV-Yz-0Tu" id="MZo-W6-6lI"/>

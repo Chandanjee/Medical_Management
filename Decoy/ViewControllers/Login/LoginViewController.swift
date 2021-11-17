@@ -21,10 +21,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var imgLogo:UIImageView!
     @IBOutlet weak var imgSlogonTop:UIImageView!
     @IBOutlet weak var btnSegment:UISegmentedControl!
+    
     var segmentSelectedOption:String?
     let serviceUrl = BaseUrl.baseURL + "login"
     var userMobile = ""
-    @IBOutlet weak var otpContainerView: UIView!
+    @IBOutlet weak var backContainerView: UIView!
 
     var otpView = Bundle.main.loadNibNamed("OTPView", owner: self, options: nil)?.first as! OTPView
     let otpStackView = OTPStackView()
@@ -74,8 +75,10 @@ class LoginViewController: UIViewController {
     // MARK: - Action Login With OTP
 
     @IBAction func tapToLoginViaOTP(_ sender:Any){
-        print("Final OTP : ",otpStackView.getOTP())
-        otpStackView.setAllFieldColor(isWarningColor: true, color: .yellow)
+//        print("Final OTP : ",otpStackView.getOTP())
+//        otpStackView.setAllFieldColor(isWarningColor: true, color: .yellow)
+        appearOTPView()
+        API_RegisterOTP()
 
     }
     
@@ -113,6 +116,8 @@ class LoginViewController: UIViewController {
         return true
     }
     
+    
+    //MARK: - Segment Selection
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
         switch btnSegment.selectedSegmentIndex {
         case 0:
@@ -129,6 +134,7 @@ class LoginViewController: UIViewController {
 
     }
     
+    //MARK: - Dictionary for login
     fileprivate func getLoginParams() -> [String: Any] {
         let dictData: [String:Any] = ["username": self.txtMobileNo.text!,
                                       "password": self.txtPassword.text!
@@ -136,7 +142,7 @@ class LoginViewController: UIViewController {
         return dictData
     }
     
-    
+    //MARK: - Login
     func API_Login(option:String, data: @escaping (_ result:Bool) -> ()){
         let dictData = getLoginParams()
         print("login",dictData)
@@ -271,7 +277,8 @@ class LoginViewController: UIViewController {
         otpStackView.heightAnchor.constraint(equalTo: otpView.viewOtps.heightAnchor).isActive = true
         otpStackView.centerXAnchor.constraint(equalTo: otpView.viewOtps.centerXAnchor).isActive = true
         otpStackView.centerYAnchor.constraint(equalTo: otpView.viewOtps.centerYAnchor).isActive = true
-        self.view.addSubview(otpView)
+        self.backContainerView.addSubview(otpView)
+//        self.view.insertSubview(otpView, aboveSubview: backContainerView)
     }
     
     func appearOTPView(){

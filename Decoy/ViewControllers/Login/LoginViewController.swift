@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
     private let apiManager = NetworkManager()
@@ -63,6 +64,7 @@ class LoginViewController: UIViewController {
                 if status == true{
                     UserDefaults.standard.set("Yes", forKey: "userLoginStatus")
                     UserDefaults.standard.set(self.userMobile, forKey: "userMobile")
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     self.showDashboard()
                 }else{
                     UserDefaults.standard.set("No", forKey: "userLoginStatus")
@@ -146,6 +148,7 @@ class LoginViewController: UIViewController {
     func API_Login(option:String, data: @escaping (_ result:Bool) -> ()){
         let dictData = getLoginParams()
         print("login",dictData)
+        MBProgressHUD.showAdded(to: view, animated: true)
         apiManager.apiPostLogin(serviceName: serviceUrl, parameters: dictData, completionHandler: {
             [weak self] (response, error) in
                 guard let weakSelf = self else { return }
@@ -183,16 +186,16 @@ class LoginViewController: UIViewController {
      let v1 = storyboard.instantiateViewController(withIdentifier:"DashboardViewController") as? DashboardViewController
         v1?.tabController = .Home
       let v2 =  storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
-        v2?.tabController = .Profile
+        v2?.tabController = .Setting
       let v3 = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController
-        v3?.tabController = .Setting
+        v3?.tabController = .Profile
       //let v4 = ViewController()
       //v4.tabController = .Profile
       
       
         let t1 = TabItem(v1!, imageName: "home_blue", tabName: "Home")
-        let t2 = TabItem(v2!, imageName: "profile", tabName: "Profile")
-      let t3 = TabItem(v3!, imageName: "settingIcon", tabName: "Setting")
+        let t2 = TabItem(v3!, imageName: "profile", tabName: "Profile")
+      let t3 = TabItem(v2!, imageName: "settingIcon", tabName: "Setting")
       //let t4 = TabItem(v4, imageName: "profile", tabName: "Profile")
       
       return [t1,t2,t3]

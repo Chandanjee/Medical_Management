@@ -33,6 +33,8 @@
 		04837DAA2725DF630090BBE4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DA92725DF630090BBE4 /* RegistrationViewController.swift */; };
 		04837DAE2725E4340090BBE4 /* VerifyOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */; };
 		04837DB12725E4410090BBE4 /* VerifyOTPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04837DB02725E4410090BBE4 /* VerifyOTPView.xib */; };
+		04984BA727457D49001EC315 /* FamilyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04984BA527457D49001EC315 /* FamilyListCell.swift */; };
+		04984BA827457D4A001EC315 /* FamilyListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04984BA627457D49001EC315 /* FamilyListCell.xib */; };
 		04996CAF2727202F0006BDE2 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04996CAE2727202F0006BDE2 /* UserInfoViewController.swift */; };
 		04996CB4272720FA0006BDE2 /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04996CB2272720FA0006BDE2 /* UserInfoCell.swift */; };
 		04996CB5272720FA0006BDE2 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04996CB3272720FA0006BDE2 /* UserInfoCell.xib */; };
@@ -110,6 +112,8 @@
 		04837DA92725DF630090BBE4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPView.swift; sourceTree = "<group>"; };
 		04837DB02725E4410090BBE4 /* VerifyOTPView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyOTPView.xib; sourceTree = "<group>"; };
+		04984BA527457D49001EC315 /* FamilyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyListCell.swift; sourceTree = "<group>"; };
+		04984BA627457D49001EC315 /* FamilyListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyListCell.xib; sourceTree = "<group>"; };
 		04996CAE2727202F0006BDE2 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		04996CB2272720FA0006BDE2 /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		04996CB3272720FA0006BDE2 /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
@@ -233,6 +237,15 @@
 			children = (
 				04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */,
 				04837DB02725E4410090BBE4 /* VerifyOTPView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04984BA427457CF5001EC315 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04984BA527457D49001EC315 /* FamilyListCell.swift */,
+				04984BA627457D49001EC315 /* FamilyListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -418,6 +431,7 @@
 		E30A2F21271834C700AABC70 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				04984BA427457CF5001EC315 /* View */,
 				E30A2F222718350000AABC70 /* SettingsPresenter.swift */,
 				E30A2F232718350000AABC70 /* SettingsWorker.swift */,
 				E30A2F242718350000AABC70 /* SettingsRouter.swift */,
@@ -557,6 +571,7 @@
 				04E3C2D327247455008A074B /* SmoothTabBarView.xib in Resources */,
 				E30A2F0B27181DEB00AABC70 /* Assets.xcassets in Resources */,
 				04837DB12725E4410090BBE4 /* VerifyOTPView.xib in Resources */,
+				04984BA827457D4A001EC315 /* FamilyListCell.xib in Resources */,
 				E30A2F332718399600AABC70 /* SettingsTableViewCell.xib in Resources */,
 				E30A2F0927181DE800AABC70 /* Main.storyboard in Resources */,
 				04996CB5272720FA0006BDE2 /* UserInfoCell.xib in Resources */,
@@ -622,6 +637,7 @@
 				041673792725AAF800DE0045 /* UITableView+Extension.swift in Sources */,
 				0416737C2725AB2900DE0045 /* NSObject+Extension.swift in Sources */,
 				0402E7492722B37D004D866A /* Utility.swift in Sources */,
+				04984BA727457D49001EC315 /* FamilyListCell.swift in Sources */,
 				E30A2F51271D9D6600AABC70 /* CampPlanWorker.swift in Sources */,
 				E30A2F1727181EC200AABC70 /* LoginViewController.swift in Sources */,
 				04996CAF2727202F0006BDE2 /* UserInfoViewController.swift in Sources */,

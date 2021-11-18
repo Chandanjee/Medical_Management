@@ -13,7 +13,7 @@ protocol ProfileViewDelegate {
 
 class ProfileViewController: UIViewController,ProfileViewDelegate {
     
-    var tabController: VC_TYPE = .Profile
+    var tabController: VC_TYPE = .Setting
 
     @IBOutlet weak var viewTop: UIView!
     @IBOutlet weak var tableViewProfile: UITableView!

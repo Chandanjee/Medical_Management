@@ -113,7 +113,12 @@ class RegistrationViewController: UIViewController {
     func CallCreateUserApi ()
     {
         MBProgressHUD.showAdded(to: view, animated: true)
-        
+        apiManager.apiPostView(serviceName: "", parameters: [:], completionHandler: {
+            [weak self] (response, error) in
+            if let response = response {
+                print(response)
+            }
+        })
     }
     
     func appearOTPView(){
@@ -214,6 +219,7 @@ class RegistrationViewController: UIViewController {
     }
     
     fileprivate func getRegisParams() -> [String: Any] {
+        let dob = self.txtPassword.text
         let dictData: [String:Any] = ["age": self.txtAge.text!,
                                       "dateOfBirth": self.txtPassword.text!,
                                       "gender": self.txtGender.text!,

@@ -19,8 +19,8 @@ class FamilyListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        btnNext.layer.cornerRadius = 0.5 * btnNext.bounds.size.width //btnNext.frame.size.width / 2
-        btnNext.clipsToBounds = true
+//        btnNext.layer.cornerRadius = 0.5 * btnNext.bounds.size.width //btnNext.frame.size.width / 2
+//        btnNext.clipsToBounds = true
         // Initialization code
 //        contentView.addShadowView()
         

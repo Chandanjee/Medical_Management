@@ -340,11 +340,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tz8-v4-TIX">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5Q-Gx-9lj">
-                                                <rect key="frame" x="155.66666666666666" y="19" width="64" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5Q-Gx-9lj">
+                                                <rect key="frame" x="160.66666666666666" y="40" width="54" height="22"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="64" id="FA1-7b-IfT"/>
-                                                    <constraint firstAttribute="height" constant="22" id="jJw-kX-cLE"/>
+                                                    <constraint firstAttribute="height" constant="22" id="sBE-cf-o5b"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -354,13 +353,17 @@
                                         <color key="backgroundColor" red="0.066666666666666666" green="0.34928837419999997" blue="0.65245425700000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="6Tt-Yj-tTc"/>
-                                            <constraint firstItem="h5Q-Gx-9lj" firstAttribute="top" secondItem="Tz8-v4-TIX" secondAttribute="top" constant="19" id="LOv-iV-Ucu"/>
-                                            <constraint firstItem="h5Q-Gx-9lj" firstAttribute="centerX" secondItem="Tz8-v4-TIX" secondAttribute="centerX" id="t1i-Z6-Z8J"/>
+                                            <constraint firstItem="h5Q-Gx-9lj" firstAttribute="centerX" secondItem="Tz8-v4-TIX" secondAttribute="centerX" id="Bjm-Od-cuF"/>
+                                            <constraint firstAttribute="bottom" secondItem="h5Q-Gx-9lj" secondAttribute="bottom" constant="18" id="Bq0-4a-d75"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sdf-zc-aEz">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sdf-zc-aEz">
                                         <rect key="frame" x="0.0" y="80" width="375" height="698"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="xjh-xk-Usj" id="bQk-u4-enh"/>
+                                            <outlet property="delegate" destination="xjh-xk-Usj" id="jgC-9j-kwU"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

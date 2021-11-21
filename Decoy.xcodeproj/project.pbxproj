@@ -41,6 +41,7 @@
 		04B832DF272494FE00379243 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B832DE272494FE00379243 /* DashboardViewController.swift */; };
 		04B832E22724952E00379243 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B832E12724952E00379243 /* SettingViewController.swift */; };
 		04BA81E92739978200024685 /* PatientRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA81E82739978200024685 /* PatientRequestModel.swift */; };
+		04D38B7A274A3F42006A6C78 /* CampPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D38B79274A3F42006A6C78 /* CampPlanVC.swift */; };
 		04E24E1F2729C8500013FDD3 /* PatientListJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E24E1E2729C8500013FDD3 /* PatientListJSONModel.swift */; };
 		04E3C2C82724735E008A074B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3C2C72724735E008A074B /* Extensions.swift */; };
 		04E3C2D327247455008A074B /* SmoothTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E3C2CC27247455008A074B /* SmoothTabBarView.xib */; };
@@ -120,6 +121,7 @@
 		04B832DE272494FE00379243 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		04B832E12724952E00379243 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04BA81E82739978200024685 /* PatientRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRequestModel.swift; sourceTree = "<group>"; };
+		04D38B79274A3F42006A6C78 /* CampPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampPlanVC.swift; sourceTree = "<group>"; };
 		04E24E1E2729C8500013FDD3 /* PatientListJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListJSONModel.swift; sourceTree = "<group>"; };
 		04E3C2C72724735E008A074B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		04E3C2CC27247455008A074B /* SmoothTabBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmoothTabBarView.xib; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				E30A2F4D271D9D6600AABC70 /* CampPlanModels.swift */,
 				E30A2F4E271D9D6600AABC70 /* CampPlanViewController.swift */,
 				E30A2F4F271D9D6600AABC70 /* CampPlanInteractor.swift */,
+				04D38B79274A3F42006A6C78 /* CampPlanVC.swift */,
 			);
 			path = "Camp Plan";
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				0416733A27255BA900DE0045 /* ProfileTableCell.swift in Sources */,
 				E30A2F2C2718350000AABC70 /* SettingsViewController.swift in Sources */,
 				E30A2F292718350000AABC70 /* SettingsWorker.swift in Sources */,
+				04D38B7A274A3F42006A6C78 /* CampPlanVC.swift in Sources */,
 				E30A2F2A2718350000AABC70 /* SettingsRouter.swift in Sources */,
 				E30A2F3F27183BBE00AABC70 /* HomeViewController.swift in Sources */,
 				0402E7602722D0B9004D866A /* Design.swift in Sources */,

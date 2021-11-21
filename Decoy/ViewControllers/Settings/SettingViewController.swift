@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class SettingViewController: UIViewController {
     var tabController: VC_TYPE = .Profile
@@ -38,6 +39,8 @@ class SettingViewController: UIViewController {
    
     
     func Data_ListPatient(){
+        MBProgressHUD.showAdded(to: view, animated: true)
+
         API_getViewAllTickets(json: PatientRequestModel.init(username: "9971182412"), data: {
             
             responseData,status  in
@@ -51,6 +54,8 @@ class SettingViewController: UIViewController {
                 self.userInfoModel =  []
             }
             self.tableView.reloadData()
+            MBProgressHUD.hide(for: self.view, animated: true)
+
         })
     }
 
@@ -81,7 +86,7 @@ extension SettingViewController :UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserInfoCell", for: indexPath) as? UserInfoCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyListCell", for: indexPath) as? FamilyListCell else {
             fatalError("can't dequeue CustomCell")
         }
         cell.cellViewModel = userInfoModel[indexPath.row]

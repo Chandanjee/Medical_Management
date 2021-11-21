@@ -51,8 +51,8 @@ class RegistrationViewController: UIViewController {
         var isValid = false
         let u_email = ValidationClass.verifyPhoneNumber(text: registerData.mobileNumber)
         let u_name = ValidationClass.verifyFirstname(text: txtName.text!)
-        let u_age = ValidationClass.verifyLastname(text: txtAge.text!)
-        let u_gender = ValidationClass.verifyEmail(text: txtGender.text!)
+        let u_age = ValidationClass.verifyYears(text: txtAge.text!)
+        let u_gender = ValidationClass.verifyGender(text: txtGender.text!)
         let u_contact = ValidationClass.verifyPhoneNumber(text: txtMobileNo.text!)
         let u_password = ValidationClass.verifyPassword(text: txtPassword.text!)
         let u_confirm_pass = ValidationClass.verifyPasswordAndConfirmPassword(password: txtPassword.text!, confirmPassword: txtConfirmPassword.text!)
@@ -66,26 +66,33 @@ class RegistrationViewController: UIViewController {
         print("u_confirm_pass",u_confirm_pass)
         
         guard u_name.1 as Bool else {
+            Utility().addAlertView("Alert!", "Please check username.", "OK", self)
             return false
         }
         
         guard u_gender.1 as Bool else {
+            Utility().addAlertView("Alert!", "Please fullfil gender", "OK", self)
             return false
         }
         
         guard u_age.1 as Bool else {
+            Utility().addAlertView("Alert!", "Please check age.", "OK", self)
             return false
         }
         
         guard u_contact.1 else {
+            Utility().addAlertView("Alert!", "Please set 10 digit number.", "OK", self)
             return false
         }
         
         guard u_password.1 as Bool else {
+            Utility().addAlertView("Alert!", "Please check password.", "OK", self)
             return false
         }
         
         guard u_confirm_pass.1 else {
+            Utility().addAlertView("Alert!", "Please set same password.", "OK", self)
+
             return false
         }
         
@@ -100,10 +107,9 @@ class RegistrationViewController: UIViewController {
     }
     
     @IBAction func tapToRegist(_ sender: Any){
-        appearOTPView()
-        API_RegisterOTP()
         if isAllValid() {
-           
+            appearOTPView()
+            API_RegisterOTP()
 //            CallCreateUserApi()
         }
     }
@@ -191,6 +197,8 @@ class RegistrationViewController: UIViewController {
 //        https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/{key}/{otp}
             let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
             let getOTP = self.otpStackView.getOTP()
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+
             let urlVeriftOTP = baseURLOtP + "{" + self.OTPToken + "}" + "{" + getOTP + "}"
             print("url OTP",urlVeriftOTP)
             self.apiManager.Api_OTP(serviceName: urlVeriftOTP, parameters: [:], completionHandler: {
@@ -199,8 +207,9 @@ class RegistrationViewController: UIViewController {
                     print(response)
                     do{
                     let json = try JSONSerialization.jsonObject(with: response, options: []) as? [String : Any]
-//                        let token = json?["Details"] as? String
+                        let token = json?["status"] as? String
 //                        self?.OTPToken = token!
+                        self?.API_Registration()
                         print(json as Any)
                     }catch{ print("erroMsg") }
                 }else if (error != nil) {
@@ -219,9 +228,9 @@ class RegistrationViewController: UIViewController {
     }
     
     fileprivate func getRegisParams() -> [String: Any] {
-        let dob = self.txtPassword.text
+        let dob = self.txtAge.text
         let dictData: [String:Any] = ["age": self.txtAge.text!,
-                                      "dateOfBirth": self.txtPassword.text!,
+                                      "dateOfBirth": dob,
                                       "gender": self.txtGender.text!,
                                       "mobileNumber": self.txtMobileNo.text!,
                                       "password": self.txtPassword.text!,
@@ -231,13 +240,16 @@ class RegistrationViewController: UIViewController {
         return dictData
     }
     
-    func API_Registration(option:String, data: @escaping (_ dataStore:Bool) -> ()){
+//    func API_Registration(option:String, data: @escaping (_ dataStore:Bool) -> ()){
+    func API_Registration(){
         let dictData = getRegisParams()
         print("Registration Json",dictData)
         apiManager.apiPostView(serviceName: serviceUrlRegis, parameters: dictData, completionHandler: {
             [weak self] (response, error) in
             if let response = response {
                 print(response)
+                MBProgressHUD.hide(for: (self?.view)!, animated: true)
+
             }
             
         })

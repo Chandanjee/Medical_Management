@@ -38,8 +38,9 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = ""
-
-        setupViews()
+        self.navigationController?.hidesBarsOnTap = true
+        self.navigationController?.navigationBar.isHidden = true
+        
         // Do any additional setup after loading the view.
     }
     
@@ -108,6 +109,7 @@ class RegistrationViewController: UIViewController {
     
     @IBAction func tapToRegist(_ sender: Any){
         if isAllValid() {
+            setupViews()
             appearOTPView()
             API_RegisterOTP()
 //            CallCreateUserApi()
@@ -181,6 +183,7 @@ class RegistrationViewController: UIViewController {
             self.otpView.frame.origin.y = self.view.bounds.height
             self.btnSubmit.isHidden = false
             self.btnSubmit.isUserInteractionEnabled = true
+            self.btnSubmit.alpha = 1
 
             self.view.layoutIfNeeded()
             }, completion: { _ in

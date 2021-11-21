@@ -41,7 +41,6 @@ class LoginViewController: UIViewController {
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
 //        otpStackView.delegate = self
-        setupViews()
         // Do any additional setup after loading the view.
     }
     
@@ -93,6 +92,10 @@ class LoginViewController: UIViewController {
             Utility().addAlertView("Alert!", StringConstant.emptyUsername, "OK", self)
 
         }else{
+            //Enter the code sent to you at +916966366466
+            otpView.lblNumberTitle.text = "Enter the code sent to you at " + "+91\(txtMobileNo.text!)"
+            print(otpView.lblNumberTitle.text)
+            setupViews()
         appearOTPView()
         API_RegisterOTP()
         }
@@ -224,6 +227,7 @@ class LoginViewController: UIViewController {
         }
         let urlWithMobile = serviceURlOTP + self.txtMobileNo.text! + "/AUTOGEN/MMULOGIN"
         print("url OTP",urlWithMobile)
+        
         apiManager.Api_OTP(serviceName: urlWithMobile, parameters: [:], completionHandler: {
             [weak self] (response, error) in
             if let response = response {
@@ -284,11 +288,13 @@ class LoginViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut], animations: {
             self.otpView.frame.origin.y = self.view.bounds.height
             self.loginWithOTP.isHidden = false
+            self.loginWithOTP.alpha = 1
             self.loginWithOTP.isUserInteractionEnabled = true
 
             self.view.layoutIfNeeded()
             }, completion: { _ in
                 self.otpView.removeFromSuperview()
+                
                 completion?()
         })
     }

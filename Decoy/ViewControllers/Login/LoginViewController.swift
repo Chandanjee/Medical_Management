@@ -249,7 +249,7 @@ class LoginViewController: UIViewController {
 //        https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/{key}/{otp}
             let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
             let getOTP = self.otpStackView.getOTP()
-            MBProgressHUD.showAdded(to: view, animated: true)
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             if getOTP.count < 6 {
                 print("Get otp is less then 6")
             }else if getOTP != ""{

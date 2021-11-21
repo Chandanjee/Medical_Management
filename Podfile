@@ -11,6 +11,8 @@ pod 'MaterialComponents/Snackbar'
 pod 'MBProgressHUD', '~> 1.0'
 pod 'IQKeyboardManagerSwift', '6.5.0'
 pod 'SwiftyJSON'
+pod 'lottie-ios'
+pod 'TextFieldEffects'
 
   # Pods for Decoy
 

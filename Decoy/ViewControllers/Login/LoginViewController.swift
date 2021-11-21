@@ -40,10 +40,14 @@ class LoginViewController: UIViewController {
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x1159A7)], for: .normal)
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        otpStackView.delegate = self
+//        otpStackView.delegate = self
+        setupViews()
         // Do any additional setup after loading the view.
     }
     
+    func setupViews() {
+        self.otpView.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 335 , width: UIScreen.main.bounds.width, height:335 )
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -79,9 +83,19 @@ class LoginViewController: UIViewController {
     @IBAction func tapToLoginViaOTP(_ sender:Any){
 //        print("Final OTP : ",otpStackView.getOTP())
 //        otpStackView.setAllFieldColor(isWarningColor: true, color: .yellow)
+//        Enter the code sent to you at +916966366466
+        if txtMobileNo.text!.isEmpty {
+            Utility().addAlertView("Alert!", StringConstant.emptyUsername, "OK", self)
+        } else if !(txtMobileNo.text!.containsNumberOnly()) {
+            Utility().addAlertView("Alert!", StringConstant.emptyUsername, "OK", self)
+
+        }else if !(txtMobileNo.text!.count == 10) {
+            Utility().addAlertView("Alert!", StringConstant.emptyUsername, "OK", self)
+
+        }else{
         appearOTPView()
         API_RegisterOTP()
-
+        }
     }
     
 
@@ -235,6 +249,11 @@ class LoginViewController: UIViewController {
 //        https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/{key}/{otp}
             let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
             let getOTP = self.otpStackView.getOTP()
+            MBProgressHUD.showAdded(to: view, animated: true)
+            if getOTP.count < 6 {
+                print("Get otp is less then 6")
+            }else if getOTP != ""{
+                
             let urlVeriftOTP = baseURLOtP + "{" + self.OTPTokenLogin + "}" + "{" + getOTP + "}"
             print("url OTP",urlVeriftOTP)
             self.apiManager.Api_OTP(serviceName: urlVeriftOTP, parameters: [:], completionHandler: {
@@ -243,8 +262,11 @@ class LoginViewController: UIViewController {
                     print(response)
                     do{
                     let json = try JSONSerialization.jsonObject(with: response, options: []) as? [String : Any]
-//                        let token = json?["Details"] as? String
-
+                        let status = json?["Status"] as? String
+                        if status == "Success" {
+                            MBProgressHUD.hide(for: (self?.view)!, animated: true)
+                            self?.showDashboard()
+                        }
                         print(json as Any)
                     }catch{ print("erroMsg") }
                 }else if (error != nil) {
@@ -253,6 +275,8 @@ class LoginViewController: UIViewController {
                     print(error as Any)
                 }
             })
+            }
+
         }
     }
     

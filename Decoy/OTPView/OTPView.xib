@@ -19,7 +19,7 @@
                         <constraint firstAttribute="height" constant="41" id="V5G-TU-kra"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCa-WP-PWy">
@@ -29,9 +29,12 @@
                         <constraint firstAttribute="height" constant="50" id="led-pw-IRJ"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBN-jS-ZEq">
-                    <rect key="frame" x="64" y="188" width="246" height="38"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBN-jS-ZEq">
+                    <rect key="frame" x="64.5" y="188" width="246" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="5z5-dh-nzb"/>
+                        <constraint firstAttribute="width" constant="246" id="jYr-Id-ITk"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Verify Now">
                         <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
@@ -57,12 +60,14 @@
             <color key="backgroundColor" red="0.068109154699999994" green="0.34928837419999997" blue="0.65245425700000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="pCa-WP-PWy" secondAttribute="trailing" constant="27" id="3yz-0j-Q0U"/>
+                <constraint firstItem="uBN-jS-ZEq" firstAttribute="top" secondItem="pCa-WP-PWy" secondAttribute="bottom" constant="57" id="CQW-0T-xF8"/>
                 <constraint firstItem="aXf-ck-lTy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="FXH-ld-e97"/>
                 <constraint firstItem="Loz-PB-qST" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="21" id="Hak-D7-AKZ"/>
                 <constraint firstItem="pCa-WP-PWy" firstAttribute="top" secondItem="aXf-ck-lTy" secondAttribute="bottom" constant="20" id="KLE-NG-tke"/>
                 <constraint firstItem="Loz-PB-qST" firstAttribute="leading" secondItem="aXf-ck-lTy" secondAttribute="trailing" constant="13" id="Yee-Xd-JUt"/>
                 <constraint firstItem="aXf-ck-lTy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="aHX-vF-4bI"/>
                 <constraint firstItem="pCa-WP-PWy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="27" id="bGz-Yr-thW"/>
+                <constraint firstItem="uBN-jS-ZEq" firstAttribute="centerX" secondItem="pCa-WP-PWy" secondAttribute="centerX" id="hMT-gf-Dri"/>
                 <constraint firstItem="pCa-WP-PWy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hcb-T1-efO"/>
                 <constraint firstAttribute="trailing" secondItem="Loz-PB-qST" secondAttribute="trailing" constant="15" id="vVe-0g-gLK"/>
             </constraints>

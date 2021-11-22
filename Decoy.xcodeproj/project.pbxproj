@@ -42,6 +42,7 @@
 		04B832E22724952E00379243 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B832E12724952E00379243 /* SettingViewController.swift */; };
 		04BA81E92739978200024685 /* PatientRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA81E82739978200024685 /* PatientRequestModel.swift */; };
 		04D38B7A274A3F42006A6C78 /* CampPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D38B79274A3F42006A6C78 /* CampPlanVC.swift */; };
+		04D38B7D274B5EC0006A6C78 /* BookAppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D38B7C274B5EC0006A6C78 /* BookAppointmentVC.swift */; };
 		04E24E1F2729C8500013FDD3 /* PatientListJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E24E1E2729C8500013FDD3 /* PatientListJSONModel.swift */; };
 		04E3C2C82724735E008A074B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3C2C72724735E008A074B /* Extensions.swift */; };
 		04E3C2D327247455008A074B /* SmoothTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E3C2CC27247455008A074B /* SmoothTabBarView.xib */; };
@@ -122,6 +123,7 @@
 		04B832E12724952E00379243 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04BA81E82739978200024685 /* PatientRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRequestModel.swift; sourceTree = "<group>"; };
 		04D38B79274A3F42006A6C78 /* CampPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampPlanVC.swift; sourceTree = "<group>"; };
+		04D38B7C274B5EC0006A6C78 /* BookAppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointmentVC.swift; sourceTree = "<group>"; };
 		04E24E1E2729C8500013FDD3 /* PatientListJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListJSONModel.swift; sourceTree = "<group>"; };
 		04E3C2C72724735E008A074B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		04E3C2CC27247455008A074B /* SmoothTabBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmoothTabBarView.xib; sourceTree = "<group>"; };
@@ -271,6 +273,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04D38B7B274B5E9D006A6C78 /* BookAppointment */ = {
+			isa = PBXGroup;
+			children = (
+				04D38B7C274B5EC0006A6C78 /* BookAppointmentVC.swift */,
+			);
+			path = BookAppointment;
+			sourceTree = "<group>";
+		};
 		04E24E1D2729C8330013FDD3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +428,7 @@
 		E30A2F1C27182CC200AABC70 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				04D38B7B274B5E9D006A6C78 /* BookAppointment */,
 				04996CAD27271FFF0006BDE2 /* UserInformation */,
 				04837DA82725DF4B0090BBE4 /* Registration */,
 				E30A2F49271D9CF800AABC70 /* Camp Plan */,
@@ -696,6 +707,7 @@
 				04E3C2C82724735E008A074B /* Extensions.swift in Sources */,
 				0402E75A2722CCE5004D866A /* Loader.swift in Sources */,
 				E30A2F2D2718350000AABC70 /* SettingsInteractor.swift in Sources */,
+				04D38B7D274B5EC0006A6C78 /* BookAppointmentVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

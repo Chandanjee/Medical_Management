@@ -54,6 +54,7 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
         }else{
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let v1 = storyboard.instantiateViewController(withIdentifier:"UserInfoViewController") as? UserInfoViewController
+            v1?.targetOption = name.title
             self.navigationController?.pushViewController(v1!, animated: true)}
     }
     

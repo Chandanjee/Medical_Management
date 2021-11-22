@@ -109,6 +109,7 @@ class RegistrationViewController: UIViewController {
     
     @IBAction func tapToRegist(_ sender: Any){
         if isAllValid() {
+            otpView.lblNumberTitle.text = "Enter the code sent to you at " + "+91\(txtMobileNo.text!)"
             setupViews()
             appearOTPView()
             API_RegisterOTP()

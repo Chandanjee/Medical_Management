@@ -94,7 +94,7 @@ class LoginViewController: UIViewController {
         }else{
             //Enter the code sent to you at +916966366466
             otpView.lblNumberTitle.text = "Enter the code sent to you at " + "+91\(txtMobileNo.text!)"
-            print(otpView.lblNumberTitle.text)
+            print(otpView.lblNumberTitle.text as Any)
             setupViews()
         appearOTPView()
         API_RegisterOTP()
@@ -174,7 +174,7 @@ class LoginViewController: UIViewController {
                     let status = loginJSONModel?.status.description
                     let datass = loginJSONModel?.response[0].dateOfBirth
                     self?.userMobile = loginJSONModel?.response[0].mobileNumber ?? ""
-                    print(datass)
+                    print(datass as Any)
                     if (status == "200") {
                         data(true)
                     }else if (status == "500") {
@@ -187,7 +187,7 @@ class LoginViewController: UIViewController {
     }
     
     func showDashboard() {
-        var window: UIWindow?
+        var _: UIWindow?
 
         let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothTab())
         _ = UINavigationController.init(rootViewController: dashboard)

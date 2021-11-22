@@ -12,7 +12,7 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var btnBack:UIButton!
     private let apiManager = NetworkManager()
-
+var targetOption = ""
     let serviceUrl = BaseUrl.baseURL + "getPatientList"
     var userInfoModel = [ResponsesData]()
 
@@ -91,6 +91,16 @@ extension UserInfoViewController :UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //  Did Select for hub push
+        if targetOption == "Book Appointment" {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let v1 = storyboard.instantiateViewController(withIdentifier:"BookAppointmentVC") as? BookAppointmentVC
+//            v1?.infoViewModel = userInfoModel[indexPath.row]
+            v1?.userInfoModels = userInfoModel[indexPath.row]
+                self.navigationController?.pushViewController(v1!, animated: true)
+        }else if targetOption == "Appointment Status"{
+            
+        }
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // this will turn on `masksToBounds` just before showing the cell

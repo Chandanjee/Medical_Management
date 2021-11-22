@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
   - IQKeyboardManagerSwift (6.5.0)
+  - lottie-ios (3.2.3)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/Buttons (124.2.0):
@@ -76,20 +77,24 @@ PODS:
   - SDWebImage/Core (5.11.1)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.1)
+  - TextFieldEffects (1.6.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4.1)
   - IQKeyboardManagerSwift (= 6.5.0)
+  - lottie-ios
   - MaterialComponents/Snackbar
   - MBProgressHUD (~> 1.0)
   - SDWebImage
   - SVProgressHUD
   - SwiftyJSON
+  - TextFieldEffects
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - IQKeyboardManagerSwift
+    - lottie-ios
     - MaterialComponents
     - MBProgressHUD
     - MDFInternationalization
@@ -97,10 +102,12 @@ SPEC REPOS:
     - SDWebImage
     - SVProgressHUD
     - SwiftyJSON
+    - TextFieldEffects
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   IQKeyboardManagerSwift: 6cd19976c6e871907c4ed9127c2d3affdd4defc2
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
@@ -108,7 +115,8 @@ SPEC CHECKSUMS:
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 2c1d97deb84cff49d092ff59ece6e232a1a34c34
+PODFILE CHECKSUM: a86ba90466d671277597850d4b4901fa4e9e6bf6
 
 COCOAPODS: 1.10.1

@@ -68,6 +68,7 @@ class BookAppointmentVC: UIViewController {
     @objc func textFieldTouchUP(textfield: UITextField ){
            print("using date")
 //        txtAppointmentDate.text = ""
+        self.txtAppointmentDate.becomeFirstResponder()
         datePickers()
 
        }
@@ -121,7 +122,11 @@ class BookAppointmentVC: UIViewController {
         
         datePicker.autoresizingMask = .flexibleWidth
         datePicker.datePickerMode = .date
-        
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle  = .wheels
+            datePicker.backgroundColor = .white
+        } else {
+        }
         datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
         datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
         self.view.addSubview(datePicker)

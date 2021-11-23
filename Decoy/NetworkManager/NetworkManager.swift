@@ -341,4 +341,36 @@ class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandle
             }
         }
     }
+    
+    public func Api_GetWithData(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Data?, _ error : Error?) -> ()){
+        
+        
+        AF.request(serviceName, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseData { response in
+            
+            switch(response.result) {
+            case .success(_):
+
+
+                print("Response For Request URL in network manager - " + serviceName)
+                if let data = response.data {
+                    do {
+                        completionHandler(data, nil)
+                    } catch let parseError {
+                        print("error",parseError)
+                    }
+                }
+                break
+                
+            case .failure(_ ):
+                if response.response?.statusCode == 401 {
+//                    completionHandler(nil,"Request timed out.")
+                    SVProgressHUD.showInfo(withStatus: "Request timed out.")
+                }else{
+                completionHandler(nil,response.error)
+                }
+                break
+                
+            }
+        }
+    }
 }

@@ -19,10 +19,13 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var btnSubmit:UIButton!
     @IBOutlet weak var btnPrev:UIButton!
     
+    var arrGenderID = [String]()
+    var arrGenderName = [String]()
     var OTPToken = ""
     let registerData = RegisterDetail()
     private let apiManager = NetworkManager()
     let serviceUrlRegis = BaseUrl.baseURL + "login"
+    let serviceURLGender = BaseUrl.baseURL + "getAllRelation"
 //https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/9897040757/AUTOGEN/MMULOGIN
     let serviceURlOTP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/"
     @IBOutlet weak var logoImageView: UIImageView!{
@@ -40,7 +43,11 @@ class RegistrationViewController: UIViewController {
         navigationItem.backButtonTitle = ""
         self.navigationController?.hidesBarsOnTap = true
         self.navigationController?.navigationBar.isHidden = true
-        
+        getGender_API()
+        let dropDownBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        dropDownBtn.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal) //  downArrow_black arrowtriangle.down.fill, IQButtonBarArrowDown
+        txtGender.rightViewMode = UITextField.ViewMode.always
+        txtGender.rightView = dropDownBtn
         // Do any additional setup after loading the view.
     }
     
@@ -203,7 +210,7 @@ class RegistrationViewController: UIViewController {
             let getOTP = self.otpStackView.getOTP()
             MBProgressHUD.showAdded(to: self.view, animated: true)
 
-            let urlVeriftOTP = baseURLOtP + "{" + self.OTPToken + "}" + "{" + getOTP + "}"
+            let urlVeriftOTP = baseURLOtP + "{" + self.OTPToken + "}" +  "/" + "{" + getOTP + "}"
             print("url OTP",urlVeriftOTP)
             self.apiManager.Api_OTP(serviceName: urlVeriftOTP, parameters: [:], completionHandler: {
                 [weak self] (response, error) in
@@ -233,9 +240,18 @@ class RegistrationViewController: UIViewController {
     
     fileprivate func getRegisParams() -> [String: Any] {
         let dob = self.txtAge.text
+        let ageInt = Int(dob!)
+        let date = Calendar.current.date(byAdding: .year, value: -ageInt!, to: Date())
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "yyyy-MM-dd"  //1986-11-13
+        let timeFromDate = dateFormatter.string(from: date!)
+print(timeFromDate)
+        let index =  arrGenderName.firstIndex(where: { $0 == self.txtGender.text }) ?? 0
+        let nameID =  arrGenderID[index]
         let dictData: [String:Any] = ["age": self.txtAge.text!,
-                                      "dateOfBirth": dob,
-                                      "gender": self.txtGender.text!,
+                                      "dateOfBirth": timeFromDate,
+                                      "gender": nameID,
                                       "mobileNumber": self.txtMobileNo.text!,
                                       "password": self.txtPassword.text!,
                                       "patientName": self.txtName.text!,
@@ -287,7 +303,46 @@ class RegistrationViewController: UIViewController {
         })
     }
     
-   
+    func getGender_API(){
+        apiManager.Api_GetWithData(serviceName: serviceURLGender, parameters: [:], completionHandler: {(result,error) in
+            if let responses = result {
+                print(responses)
+                do{
+                    let json = try JSONSerialization.jsonObject(with: responses, options: []) as? [String : Any]
+                    //                    print(json?["response"] as? Array<Any>)
+                    let arrData =  json?["response"] as? [[String:Any]]
+                    
+                    var firstitem: Bool = false
+                    if  arrData?.count ?? 0 > 0{
+                        //                Loader.hideLoader(self)
+                        if let datasss = arrData {
+                            for itemss in datasss {
+                                print(itemss)
+                                let nameGender = itemss["administrativeSexName"] as? String
+                                let idGender = itemss["administrativeSexId"] as? Int
+                                if firstitem == false {
+                                    firstitem = true
+                                    self.arrGenderID.append("Select")
+                                    self.arrGenderName.append("Select")
+                                    self.arrGenderID.append(String(idGender!))
+                                    self.arrGenderName.append(nameGender!)
+                                }else{
+                                    self.arrGenderID.append(String( idGender! ))
+                                    self.arrGenderName.append(nameGender!)
+                                }
+                            }
+                        }
+                        self.txtGender.loadDropdownData(data: self.arrGenderName)
+                    }
+                }catch{ print("erroMsg") }
+                
+            }else{
+                print(error)
+            }
+            
+        })
+    }
+    
 }
 
 extension RegistrationViewController: OTPDelegate {
@@ -297,6 +352,43 @@ extension RegistrationViewController: OTPDelegate {
     }
     
 }
+
+extension RegistrationViewController:UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("TextField did begin editing method called")
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("TextField did end editing method called\(textField.text!)")
+        if (textField.tag == 111){
+//            textFieldEditingDidChange(self)
+        }
+        
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("TextField should begin editing method called")
+        return true;
+    }
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        print("TextField should clear method called")
+        return true;
+    }
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("TextField should end editing method called")
+        return true;
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("While entering the characters this method gets called")
+        return true;
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("TextField should return method called")
+        textField.resignFirstResponder();
+        return true;
+    }
+    
+    
+}
+
 class RegisterDetail  {
  var Name  = ""
  var Gender = ""

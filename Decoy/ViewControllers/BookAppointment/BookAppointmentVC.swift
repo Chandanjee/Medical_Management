@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class BookAppointmentVC: UIViewController {
     @IBOutlet weak var lblFullName:UILabel!
@@ -19,6 +20,8 @@ class BookAppointmentVC: UIViewController {
     var datePicker = UIDatePicker()
     var toolbar = UIToolbar()
     var selectedDate = ""
+    private let apiManager = NetworkManager()
+let serviceURL = BaseUrl.baseURL + "getAllCity"
     
 //    var userInfoModels  =  [ResponsesData]()
 
@@ -45,6 +48,8 @@ class BookAppointmentVC: UIViewController {
         lblGender.text = gender
         let age = (userInfoModels?.age.description)! + " years"
         lblAge.text = age
+        
+        self.API_City()
         // Do any additional setup after loading the view.
     }
     
@@ -69,6 +74,7 @@ class BookAppointmentVC: UIViewController {
            print("using date")
 //        txtAppointmentDate.text = ""
         self.txtAppointmentDate.becomeFirstResponder()
+        textfield.resignFirstResponder()
         datePickers()
 
        }
@@ -158,5 +164,24 @@ class BookAppointmentVC: UIViewController {
         }
         toolbar.removeFromSuperview()
         datePicker.removeFromSuperview()
+    }
+    
+    func API_City(){
+        NetworkManager.apiGet(serviceName: serviceURL, parameters: [:], completionHandler: {result,error in
+            print(result as Any)
+        })
+        
+//        apiManager.apiPostView(serviceName: serviceURL, parameters: [:], completionHandler: {result,error in
+//            if let response = result {
+//                do{
+//                let json = try JSONSerialization.jsonObject(with: response, options: []) as? [String : Any]
+//                    let status = json?["Status"] as? String
+//                    if status == "Success" {
+//                        MBProgressHUD.hide(for: self.view, animated: true)
+//                    }
+//                    print(json as Any)
+//                }catch{ print("erroMsg") }
+//            }
+//        })
     }
 }

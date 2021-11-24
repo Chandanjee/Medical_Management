@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import MBProgressHUD
 
 class UserInfoViewController: UIViewController {
     @IBOutlet weak var tableView:UITableView!
@@ -38,6 +39,8 @@ var targetOption = ""
    
     
     func Data_ListPatient(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+
         API_getViewAllTickets(json: PatientRequestModel.init(username: "9971182412"), data: {
             
             responseData,status  in
@@ -50,6 +53,8 @@ var targetOption = ""
             }else{
                 self.userInfoModel =  []
             }
+            MBProgressHUD.hide(for: (self.view)!, animated: true)
+
             self.tableView.reloadData()
         })
     }

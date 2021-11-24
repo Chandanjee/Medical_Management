@@ -22,7 +22,8 @@ class BookAppointmentVC: UIViewController {
     var selectedDate = ""
     private let apiManager = NetworkManager()
 let serviceURL = BaseUrl.baseURL + "getAllCity"
-    
+    let serviceURLWithDate = BaseUrl.baseURL + "getAllCityByDate/"
+
 //    var userInfoModels  =  [ResponsesData]()
 
     var userInfoModels : ResponsesData? = nil
@@ -128,6 +129,8 @@ let serviceURL = BaseUrl.baseURL + "getAllCity"
         
         datePicker.autoresizingMask = .flexibleWidth
         datePicker.datePickerMode = .date
+        datePicker.minimumDate = Date()
+        
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle  = .wheels
             datePicker.backgroundColor = .white
@@ -162,6 +165,7 @@ let serviceURL = BaseUrl.baseURL + "getAllCity"
         }else{
             self.txtAppointmentDate.text = selectedDate
         }
+        APi_AfterSelectionDate(date: self.txtAppointmentDate.text!)
         toolbar.removeFromSuperview()
         datePicker.removeFromSuperview()
     }
@@ -183,5 +187,36 @@ let serviceURL = BaseUrl.baseURL + "getAllCity"
 //                }catch{ print("erroMsg") }
 //            }
 //        })
+    }
+    
+    func APi_AfterSelectionDate(date:String){
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat =  "dd-MM-yyyy"//"dd/MM/yyyy"
+        let showDate = inputFormatter.date(from: date)
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+        let resultString = inputFormatter.string(from: showDate!)
+        print(resultString)
+
+        let urlWithDate = serviceURLWithDate + resultString //2021-11-23
+//        let url = urlWithDate + newdate
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+
+        apiManager.Api_GetWithData(serviceName: urlWithDate, parameters: [:], completionHandler: {(result,error) in
+            if let responsedata = result {
+                print(responsedata)
+                do{
+                    let json = try JSONSerialization.jsonObject(with: responsedata, options: []) as? [String : Any]
+                    let status = json?["status"] as? NSNumber
+//                    if (status != nil) == true {
+                    MBProgressHUD.hide(for: self.view, animated: true)
+
+                    if status == 404 {
+                        Utility().addAlertView("Alert!", "Appointment should not be given for date", "ok", self)
+                    }
+//                    }
+                    print(json as Any)
+                }catch{ print("erroMsg") }
+            }
+        })
     }
 }

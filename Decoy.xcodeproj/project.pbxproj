@@ -25,6 +25,8 @@
 		041673792725AAF800DE0045 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041673782725AAF800DE0045 /* UITableView+Extension.swift */; };
 		0416737C2725AB2900DE0045 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416737B2725AB2900DE0045 /* NSObject+Extension.swift */; };
 		042B7FF0273AE7FA00E2DD6C /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */; };
+		044064E3274D631900C4E81F /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E2274D631900C4E81F /* CustomPickerView.swift */; };
+		044064E5274E234200C4E81F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E4274E234200C4E81F /* LocationManager.swift */; };
 		046D95F7273C32F10063FDCB /* OTPStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95F6273C32F10063FDCB /* OTPStackView.swift */; };
 		046D95F9273C33650063FDCB /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95F8273C33650063FDCB /* OTPTextField.swift */; };
 		046D95FB273C39260063FDCB /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95FA273C39260063FDCB /* OTPView.swift */; };
@@ -106,6 +108,8 @@
 		041673782725AAF800DE0045 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		0416737B2725AB2900DE0045 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
+		044064E2274D631900C4E81F /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		044064E4274E234200C4E81F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		046D95F6273C32F10063FDCB /* OTPStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPStackView.swift; sourceTree = "<group>"; };
 		046D95F8273C33650063FDCB /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		046D95FA273C39260063FDCB /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */,
 				046D95F6273C32F10063FDCB /* OTPStackView.swift */,
 				046D95F8273C33650063FDCB /* OTPTextField.swift */,
+				044064E2274D631900C4E81F /* CustomPickerView.swift */,
+				044064E4274E234200C4E81F /* LocationManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -670,6 +676,7 @@
 				04837DA62725B10D0090BBE4 /* CollectionData.swift in Sources */,
 				04E3C2D527247455008A074B /* SmoothTabItemView.swift in Sources */,
 				046D95FB273C39260063FDCB /* OTPView.swift in Sources */,
+				044064E3274D631900C4E81F /* CustomPickerView.swift in Sources */,
 				0402E7662722D1F4004D866A /* DesignableUITextField.swift in Sources */,
 				E30A2F3D27183BBE00AABC70 /* HomeRouter.swift in Sources */,
 				E30A2F322718399600AABC70 /* SettingsTableViewCell.swift in Sources */,
@@ -681,6 +688,7 @@
 				E30A2F52271D9D6600AABC70 /* CampPlanRouter.swift in Sources */,
 				0416734C2725759C00DE0045 /* Constants.swift in Sources */,
 				E30A2F3B27183BBE00AABC70 /* HomePresenter.swift in Sources */,
+				044064E5274E234200C4E81F /* LocationManager.swift in Sources */,
 				E30A2F50271D9D6600AABC70 /* CampPlanPresenter.swift in Sources */,
 				0416733527255A8000DE0045 /* ProfileData.swift in Sources */,
 				E30A2F1A27182C2C00AABC70 /* ProfileViewController.swift in Sources */,

@@ -210,7 +210,7 @@ class RegistrationViewController: UIViewController {
             let getOTP = self.otpStackView.getOTP()
             MBProgressHUD.showAdded(to: self.view, animated: true)
 
-            let urlVeriftOTP = baseURLOtP + "{" + self.OTPToken + "}" +  "/" + "{" + getOTP + "}"
+            let urlVeriftOTP = baseURLOtP + self.OTPToken + "/" + getOTP
             print("url OTP",urlVeriftOTP)
             self.apiManager.Api_OTP(serviceName: urlVeriftOTP, parameters: [:], completionHandler: {
                 [weak self] (response, error) in

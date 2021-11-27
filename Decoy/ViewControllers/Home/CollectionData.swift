@@ -25,6 +25,7 @@ class CollectionData {
         EntryData(image: "docIcons", title: "Camp Plan"),
         EntryData(image: "notification", title: "Notification"),
         EntryData(image: "family", title: "Add Family Member"),
+        EntryData(image: "opd", title: "OPD History"),
 
     ]
 }

@@ -258,7 +258,7 @@ class LoginViewController: UIViewController {
                 print("Get otp is less then 6")
             }else if getOTP != ""{
                 
-            let urlVeriftOTP = baseURLOtP + "{" + self.OTPTokenLogin + "}" + "/" + "{" + getOTP + "}"
+            let urlVeriftOTP = baseURLOtP + self.OTPTokenLogin + "/" + getOTP
             print("url OTP",urlVeriftOTP)
             self.apiManager.Api_OTP(serviceName: urlVeriftOTP, parameters: [:], completionHandler: {
                 [weak self] (response, error) in

@@ -319,6 +319,16 @@ extension String {
         return trimmedString
     }
     
+    var trailingSpacesTrimmed: String {
+        var newString = self
+
+        while newString.last?.isWhitespace == true {
+            newString = String(newString.dropLast())
+        }
+
+        return newString
+    }
+    
     func containsCaseInsec(_ string: String) -> Bool {
         return self.lowercased().range(of: string.lowercased()) != nil
     }

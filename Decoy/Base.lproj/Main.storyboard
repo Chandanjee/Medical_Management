@@ -1088,7 +1088,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bYp-Kt-46N" customClass="AkiraTextField" customModule="TextFieldEffects">
+                                                    <textField opaque="NO" tag="111" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bYp-Kt-46N" customClass="AkiraTextField" customModule="TextFieldEffects">
                                                         <rect key="frame" x="20" y="80" width="314" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="b6L-FF-726"/>
@@ -1165,6 +1165,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="yf1-Ux-kgR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="R50-CZ-YaT" firstAttribute="top" secondItem="UoD-wa-GR9" secondAttribute="bottom" id="626-Po-Jra"/>
@@ -1442,46 +1443,46 @@
     </scenes>
     <designables>
         <designable name="4S2-Jf-F9m">
-            <size key="intrinsicContentSize" width="166" height="21"/>
+            <size key="intrinsicContentSize" width="191" height="21"/>
         </designable>
         <designable name="D7n-Bh-k2k">
-            <size key="intrinsicContentSize" width="78.666666666666671" height="21"/>
+            <size key="intrinsicContentSize" width="78.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="GxV-Yz-0Tu">
-            <size key="intrinsicContentSize" width="62.333333333333336" height="17"/>
+            <size key="intrinsicContentSize" width="103.33333333333333" height="17"/>
         </designable>
         <designable name="Rh3-4H-hys">
-            <size key="intrinsicContentSize" width="94.666666666666671" height="21"/>
+            <size key="intrinsicContentSize" width="94.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="Rss-pP-KEX">
-            <size key="intrinsicContentSize" width="94.666666666666671" height="21"/>
+            <size key="intrinsicContentSize" width="94.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="T9u-Dl-sUn">
-            <size key="intrinsicContentSize" width="99" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="126" height="18.666666666666668"/>
         </designable>
         <designable name="TBH-d4-2Ll">
             <size key="intrinsicContentSize" width="191" height="21"/>
         </designable>
         <designable name="bYp-Kt-46N">
-            <size key="intrinsicContentSize" width="78.666666666666671" height="21"/>
+            <size key="intrinsicContentSize" width="78.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="dAc-sh-D5p">
             <size key="intrinsicContentSize" width="191" height="21"/>
         </designable>
         <designable name="dwh-ss-r4L">
-            <size key="intrinsicContentSize" width="42.666666666666664" height="21"/>
+            <size key="intrinsicContentSize" width="67.666666666666671" height="21"/>
         </designable>
         <designable name="erm-7Y-lsA">
-            <size key="intrinsicContentSize" width="70" height="20"/>
+            <size key="intrinsicContentSize" width="95" height="20"/>
         </designable>
         <designable name="faW-1q-4If">
-            <size key="intrinsicContentSize" width="28.333333333333332" height="21"/>
+            <size key="intrinsicContentSize" width="53.333333333333336" height="21"/>
         </designable>
         <designable name="paa-Fl-naI">
-            <size key="intrinsicContentSize" width="132" height="20"/>
+            <size key="intrinsicContentSize" width="157" height="20"/>
         </designable>
         <designable name="yUa-bP-INV">
-            <size key="intrinsicContentSize" width="53.666666666666664" height="21"/>
+            <size key="intrinsicContentSize" width="78.666666666666671" height="21"/>
         </designable>
     </designables>
     <resources>

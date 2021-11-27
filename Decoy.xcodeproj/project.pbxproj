@@ -35,6 +35,7 @@
 		04837DAA2725DF630090BBE4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DA92725DF630090BBE4 /* RegistrationViewController.swift */; };
 		04837DAE2725E4340090BBE4 /* VerifyOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */; };
 		04837DB12725E4410090BBE4 /* VerifyOTPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04837DB02725E4410090BBE4 /* VerifyOTPView.xib */; };
+		0485858B275167D000055AC8 /* AppointmentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485858A275167D000055AC8 /* AppointmentResponseModel.swift */; };
 		04984BA727457D49001EC315 /* FamilyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04984BA527457D49001EC315 /* FamilyListCell.swift */; };
 		04984BA827457D4A001EC315 /* FamilyListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04984BA627457D49001EC315 /* FamilyListCell.xib */; };
 		04996CAF2727202F0006BDE2 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04996CAE2727202F0006BDE2 /* UserInfoViewController.swift */; };
@@ -118,6 +119,7 @@
 		04837DA92725DF630090BBE4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPView.swift; sourceTree = "<group>"; };
 		04837DB02725E4410090BBE4 /* VerifyOTPView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyOTPView.xib; sourceTree = "<group>"; };
+		0485858A275167D000055AC8 /* AppointmentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentResponseModel.swift; sourceTree = "<group>"; };
 		04984BA527457D49001EC315 /* FamilyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyListCell.swift; sourceTree = "<group>"; };
 		04984BA627457D49001EC315 /* FamilyListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyListCell.xib; sourceTree = "<group>"; };
 		04996CAE2727202F0006BDE2 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04858589275167A600055AC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0485858A275167D000055AC8 /* AppointmentResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		04984BA427457CF5001EC315 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +292,7 @@
 		04D38B7B274B5E9D006A6C78 /* BookAppointment */ = {
 			isa = PBXGroup;
 			children = (
+				04858589275167A600055AC8 /* Model */,
 				04D38B7C274B5EC0006A6C78 /* BookAppointmentVC.swift */,
 			);
 			path = BookAppointment;
@@ -683,6 +694,7 @@
 				E30A2F2B2718350000AABC70 /* SettingsModels.swift in Sources */,
 				042B7FF0273AE7FA00E2DD6C /* ValidationClass.swift in Sources */,
 				0416734127255BF500DE0045 /* ProfileImageTableCell.swift in Sources */,
+				0485858B275167D000055AC8 /* AppointmentResponseModel.swift in Sources */,
 				04E47D692728115300A4C0DB /* LoginJSONModel.swift in Sources */,
 				04B832DF272494FE00379243 /* DashboardViewController.swift in Sources */,
 				E30A2F52271D9D6600AABC70 /* CampPlanRouter.swift in Sources */,

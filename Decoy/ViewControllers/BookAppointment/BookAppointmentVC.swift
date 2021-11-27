@@ -22,11 +22,18 @@ class BookAppointmentVC: UIViewController {
     var selectedDate = ""
     private let apiManager = NetworkManager()
 let serviceURL = BaseUrl.baseURL + "getAllCity"
-    let serviceURLWithDate = BaseUrl.baseURL + "getAllCityByDate/"
+    let serviceURLWithDate = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getAllCityByDate/"
+    let serviceURLToken = BaseUrl.baseURL + "checking_token/"
 
+//http://103.133.215.182:8080/MobileMedicalUnit/admin/checking_token/{date}
+//http://103.133.215.182:8080/MobileMedicalUnit/getAllCityByDate/2021-11-23
 //    var userInfoModels  =  [ResponsesData]()
 
     var userInfoModels : ResponsesData? = nil
+    
+    var appointModelArray = [ResponseAppointment]()
+    var arrCityName = [String]()
+    var arrCampName = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         addArrowBtnToTextFields()
@@ -200,23 +207,96 @@ let serviceURL = BaseUrl.baseURL + "getAllCity"
         let urlWithDate = serviceURLWithDate + resultString //2021-11-23
 //        let url = urlWithDate + newdate
         MBProgressHUD.showAdded(to: self.view, animated: true)
-
+print("Appointment date url",urlWithDate)
         apiManager.Api_GetWithData(serviceName: urlWithDate, parameters: [:], completionHandler: {(result,error) in
             if let responsedata = result {
                 print(responsedata)
+                let details = try? newJSONDecoder().decode(AppointmentResponseModel.self, from: responsedata)
+                print(details?.response[0].location)
+                print(details?.response[0].landMark)
+                print("Total array iof appointment ==",details?.response.count, totalAppointmentCity())
                 do{
                     let json = try JSONSerialization.jsonObject(with: responsedata, options: []) as? [String : Any]
                     let status = json?["status"] as? NSNumber
-//                    if (status != nil) == true {
                     MBProgressHUD.hide(for: self.view, animated: true)
-
+                   
                     if status == 404 {
                         Utility().addAlertView("Alert!", "Appointment should not be given for date", "ok", self)
                     }
-//                    }
+                   
                     print(json as Any)
                 }catch{ print("erroMsg") }
+                var firstitem: Bool = false
+                if  details?.response.count ?? 0 > 0{
+                self.appointModelArray = details?.response ?? []
+                for itemss in details!.response {
+                    if firstitem == false {
+                        firstitem = true
+                    self.arrCityName.append("Select")
+                    self.arrCampName.append("Select")
+                        self.arrCityName.append(itemss.location.trailingSpacesTrimmed)
+                        self.arrCampName.append(itemss.landMark.trailingSpacesTrimmed)
+                        
+                    }else{
+                        self.arrCityName.append(itemss.location.trailingSpacesTrimmed)
+                        self.arrCampName.append(itemss.landMark.trailingSpacesTrimmed)
+                    }
+                }
+                }
+                self.txtCity.loadDropdownData(data: self.arrCityName)
             }
         })
     }
+    
+    func API_GetTokenonDate(date:String){
+        let url = serviceURLToken + date
+        print("token api", url)
+    }
+    
+    func textFieldEditingDidChange() {
+        print("change name")
+        let index =  arrCityName.firstIndex(where: { $0 == self.txtCity.text?.trimWhiteSpace }) ?? 0
+        let nameID =  arrCampName[index]
+        if (nameID != "" ||  nameID != "Select") {
+//            Loader.showLoader("Downloading Details...", target: self)
+            self.txtCamp.text = nameID
+        }
+    }
+}
+
+
+extension BookAppointmentVC:UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("TextField did begin editing method called")
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("TextField did end editing method called\(textField.text!)")
+        if (textField.tag == 111 || textField == txtCity){
+            textFieldEditingDidChange()
+        }
+        
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("TextField should begin editing method called")
+        return true;
+    }
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        print("TextField should clear method called")
+        return true;
+    }
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("TextField should end editing method called")
+        return true;
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("While entering the characters this method gets called")
+        return true;
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("TextField should return method called")
+        textField.resignFirstResponder();
+        return true;
+    }
+    
+    
 }

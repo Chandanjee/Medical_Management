@@ -29,4 +29,14 @@ extension Date {
            return dateFormatter.string(from: Date())
 
        }
+    
+    static func getCurrentDateWithHHmmss() -> String {
+
+           let dateFormatter = DateFormatter()
+
+           dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        dateFormatter.dateFormat = "dd-MM-yyyy"
+           return dateFormatter.string(from: Date())
+
+       }
 }

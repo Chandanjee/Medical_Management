@@ -329,6 +329,11 @@ extension String {
         return newString
     }
     
+    var urlEncoded: String? {
+          let allowedCharacterSet = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "~-_."))
+          return self.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)
+      }
+    
     func containsCaseInsec(_ string: String) -> Bool {
         return self.lowercased().range(of: string.lowercased()) != nil
     }

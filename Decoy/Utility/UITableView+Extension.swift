@@ -24,6 +24,18 @@ extension UITableView
             self.register(UINib.init(nibName: nib, bundle: nil), forHeaderFooterViewReuseIdentifier: nib)
         }
     }
+    
+    var contentSizeHeight: CGFloat {
+         var height = CGFloat(0)
+         for section in 0..<numberOfSections {
+             height = height + rectForHeader(inSection: section).height
+             let rows = numberOfRows(inSection: section)
+             for row in 0..<rows {
+                 height = height + rectForRow(at: IndexPath(row: row, section: section)).height
+             }
+         }
+         return height
+     }
 }
 
 extension UICollectionView

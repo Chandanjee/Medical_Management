@@ -18,6 +18,8 @@ class BookAppointmentVC: UIViewController {
     @IBOutlet weak var txtAppointmentDate:UITextField!
     @IBOutlet weak var txtCity:UITextField!
     @IBOutlet weak var txtCamp:UITextField!
+    @IBOutlet weak var btnSubmit:UIButton!
+
     @IBOutlet weak var tblHConstraint: NSLayoutConstraint!
 
     var datePicker = UIDatePicker()
@@ -27,11 +29,13 @@ class BookAppointmentVC: UIViewController {
     let serviceURL = BaseUrl.baseURL + "getAllCity"
     let serviceURLWithDate = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getAllCityByDate/"
     let serviceURLToken = BaseUrl.baseURL + "checking_token/"
-    
+    let serviceURLCreateBookVisit = BaseUrl.baseURL + "createVisits"
     var arrayDateList: [String] = []
-    
+    var globalIndexValue = ""
+    var globalSelectedDate = ""
     //http://103.133.215.182:8080/MobileMedicalUnit/admin/checking_token/{date}
     //http://103.133.215.182:8080/MobileMedicalUnit/getAllCityByDate/2021-11-23
+    //http://103.133.215.182:8080/MobileMedicalUnit/admin/createVisits
     //    var userInfoModels  =  [ResponsesData]()
     
     var userInfoModels : ResponsesData? = nil
@@ -112,7 +116,7 @@ class BookAppointmentVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+    //MARK: Add Arrow on TextField
     fileprivate func addArrowBtnToTextFields() {
         
         let dropDownBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
@@ -129,7 +133,8 @@ class BookAppointmentVC: UIViewController {
         //        txtCamp.rightView = dropDownBtn2
         
     }
-    
+    //MARK: Date Picker
+
     func datePickers(){
         datePicker = UIDatePicker.init()
         datePicker.backgroundColor = UIColor.white
@@ -264,7 +269,7 @@ class BookAppointmentVC: UIViewController {
         var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
         allowedQueryParamAndKey.remove(charactersIn: " ")
         let  urlEncode = url.addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)
-        print("token api", urlEncode)
+        print("token api", urlEncode as Any)
         
 //        Loader.showLoader("Wait checking your slot...", target: self)
         var ResponseMSG:String? = ""
@@ -280,18 +285,15 @@ class BookAppointmentVC: UIViewController {
                         if let person = responses {
                            print(person["name"] as! String)
                             ResponseMSG = person["name"] as? String ?? ""
-                            handlerValue(message!)
+                            handlerValue(ResponseMSG!)
                         }
                     }else{
                         handlerValue(message!)
 //                        Utility().addAlertView("Alert!", message!, "ok", self)
                     }
-//                    MBProgressHUD.hide(for: self.view, animated: true)
                     Loader.hideLoader(self)
                     
                     if status == 404 {
-//                        self.tblHConstraint.constant = 0
-//                        MBProgressHUD.hide(for: self.view, animated: true)
                         Utility().addAlertView("Alert!", "Appointment should not be given for date", "ok", self)
                         return
                     }
@@ -299,9 +301,7 @@ class BookAppointmentVC: UIViewController {
                     print(json as Any)
                 }catch{ print("erroMsg") }
             }else{
-//                MBProgressHUD.hide(for: self.view, animated: true)
                 Loader.hideLoader(self)
-//                self.tblHConstraint.constant = 0
             }
             
 
@@ -380,6 +380,89 @@ class BookAppointmentVC: UIViewController {
         print(arrayDateList)
         self.tableView.reloadData()
     }
+    
+    fileprivate func getBookParams(index:Int, bookDate:String) -> [String: Any] {
+        let dt = Date()
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+        let resultString = inputFormatter.string(from: dt)
+        
+
+let datafromArray = appointModelArray[index]
+        let campID = datafromArray.campID
+        let departID = datafromArray.departmentID
+        let mmu_ID = datafromArray.masMMU
+        let lastChangeDate = mmu_ID.lastChgDate
+        let date = TimeInterval(lastChangeDate).stringFromTimeInterval()
+        let startDateSelect = resultString + " " + date
+        let mmuid = mmu_ID.mmuID
+       let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
+        let dictData: [String:Any] = ["camp_id": String(campID),
+                                      "departmentID": String(departID),
+                                      "lastChangeDate": startDateSelect,
+                                      "mmu_id": String(mmuid),
+                                      "patientId":String(id!),
+                                      "status": mmu_ID.status,
+                                      "visit_date": bookDate
+                                     ]
+        
+        return dictData
+    }
+    
+    @IBAction func SubmitTimeSlot(_ sender:Any){
+        
+        if globalIndexValue == "" {
+            return
+        }else{
+            
+            let dictData = getBookParams(index: Int(globalIndexValue)!, bookDate: globalSelectedDate)
+            print("createBook appoint url and Data ",serviceURLCreateBookVisit , dictData)
+            apiManager.apiPostView(serviceName: serviceURLCreateBookVisit, parameters: dictData, completionHandler: {(resultData,error )in
+                if let resuts = resultData {
+                    print(resuts)
+                    do{
+                        let json = try JSONSerialization.jsonObject(with: resuts, options: []) as? [String : Any]
+                        let status = json?["status"] as? NSNumber
+                        let response = json?["response"] as? [String:Any]
+                        let msg = response?["message"] as? String
+                        print("Booking msg status",msg)
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        
+                        if status == 404 {
+                            MBProgressHUD.hide(for: self.view, animated: true)
+                            Utility().addAlertView("Alert!", "Appointment should not be given for date", "ok", self)
+                            return
+                        }
+                        if status == 208 {
+                            MBProgressHUD.hide(for: self.view, animated: true)
+                            Utility().addAlertView("Alert!", "Appointment is already booked for this date", "ok", self)
+                            return
+                        }
+                        if status == 200 {
+                            MBProgressHUD.hide(for: self.view, animated: true)
+                            Utility().addAlertView("Alert!", "Visit create successfully", "ok", self)
+                            return
+                        }
+                        
+                        print(json as Any)
+                    }catch{ print("erroMsg") }
+                }else{
+                    if let errors = error {
+                        print(errors.localizedDescription)
+                        Utility().addAlertView("Alert!", errors.localizedDescription, "ok", self)
+                    }
+                }
+            })
+        }
+        
+        
+        //        Loader.showLoader("Wait checking your slot...", target: self)
+        
+//        {"camp_id":"367","departmentID":"2","lastChangeDate":"2021-11-28 15:43:48.685","mmu_id":"59","patientId":"204","status":"N","visit_date":"2021-11-29 08:30:00.0"}
+        
+        
+
+    }
 }
 
 
@@ -448,10 +531,12 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
         let startDateSelect = resultString + " " + startTime
         print("cuurent time Select",startDateSelect)
         let cell = tableView.cellForRow(at: indexPath) as? TimeSlotViewCell
-
+        globalIndexValue = String(indexPath.row)
+        globalSelectedDate = startDateSelect
         API_GetTokenonDate(date: startDateSelect, handlerValue: { [weak self](valuess)in
         print("return message of appointment",valuess)
             cell?.lblAppointmentCount.text! = valuess
+            tableView.reloadData()
         }
 )
         
@@ -463,3 +548,20 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
 //        self.tableView.contentSizeHeight = 55 //CGFloat(cell.contentView.frame.height * CGFloat(indexPath.row))
     }
 }
+
+
+extension TimeInterval{
+
+        func stringFromTimeInterval() -> String {
+
+            let time = NSInteger(self)
+
+            let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
+            let seconds = time % 60
+            let minutes = (time / 60) % 60
+            let hours = (time / 3600)
+
+            return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
+
+        }
+    }

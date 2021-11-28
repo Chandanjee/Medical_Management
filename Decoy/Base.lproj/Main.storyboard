@@ -1175,6 +1175,9 @@
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="SubmitTimeSlot:" destination="kXk-bO-5G3" eventType="touchUpInside" id="HU6-l9-Pc3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1225,6 +1228,7 @@
                     <connections>
                         <outlet property="MiddleSearchView" destination="NKk-Mb-8Ln" id="2hD-m1-ngm"/>
                         <outlet property="TopPersonalDetails" destination="7S6-20-LHL" id="iCm-OD-wZU"/>
+                        <outlet property="btnSubmit" destination="EJK-1v-Nw3" id="wix-iv-W8w"/>
                         <outlet property="lblAge" destination="Ijy-e1-mbk" id="jih-KA-vqO"/>
                         <outlet property="lblFullName" destination="kyV-AG-L4E" id="kAU-Rd-bE1"/>
                         <outlet property="lblGender" destination="0P9-AC-EoD" id="cLT-Wz-qcz"/>

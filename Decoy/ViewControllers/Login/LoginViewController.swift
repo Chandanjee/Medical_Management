@@ -174,8 +174,11 @@ class LoginViewController: UIViewController {
                     let status = loginJSONModel?.status.description
                     let datass = loginJSONModel?.response[0].dateOfBirth
                     self?.userMobile = loginJSONModel?.response[0].mobileNumber ?? ""
+                    let patientId = loginJSONModel?.response[0].patientID
                     print(datass as Any)
                     if (status == "200") {
+                        UserDefaults.standard.set(patientId, forKey: "patientId")
+
                         data(true)
                     }else if (status == "500") {
                         data(false)

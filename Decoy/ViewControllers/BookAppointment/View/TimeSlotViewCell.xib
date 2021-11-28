@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="height" constant="25" id="ktc-Xd-uga"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00 - 09:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0H-GN-ya9">
@@ -38,14 +38,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rA-NV-twl">
+                                <rect key="frame" x="108" y="34" width="205" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="Nw0-An-4dK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="K4Y-D5-nvH" firstAttribute="top" secondItem="0CA-KC-OdT" secondAttribute="top" constant="15" id="ByZ-i2-zxN"/>
                             <constraint firstItem="K4Y-D5-nvH" firstAttribute="leading" secondItem="0CA-KC-OdT" secondAttribute="leading" constant="25" id="OwY-Ch-U08"/>
+                            <constraint firstAttribute="bottom" secondItem="4rA-NV-twl" secondAttribute="bottom" constant="4" id="XBt-XE-eOd"/>
                             <constraint firstAttribute="trailing" secondItem="b0H-GN-ya9" secondAttribute="trailing" constant="11" id="ZbU-qQ-J16"/>
                             <constraint firstItem="b0H-GN-ya9" firstAttribute="leading" secondItem="K4Y-D5-nvH" secondAttribute="trailing" constant="30" id="cWj-yK-Wmf"/>
+                            <constraint firstAttribute="trailing" secondItem="4rA-NV-twl" secondAttribute="trailing" constant="8" id="ijC-1i-Jjf"/>
+                            <constraint firstItem="4rA-NV-twl" firstAttribute="leading" secondItem="K4Y-D5-nvH" secondAttribute="trailing" constant="8" symbolic="YES" id="mjI-dz-UMG"/>
                             <constraint firstAttribute="bottom" secondItem="K4Y-D5-nvH" secondAttribute="bottom" constant="15" id="rXX-hV-MX2"/>
+                            <constraint firstItem="4rA-NV-twl" firstAttribute="top" secondItem="b0H-GN-ya9" secondAttribute="bottom" constant="1" id="wr3-eV-ID2"/>
                             <constraint firstItem="b0H-GN-ya9" firstAttribute="top" secondItem="0CA-KC-OdT" secondAttribute="top" constant="12" id="yhu-DN-VhZ"/>
                         </constraints>
                     </view>
@@ -58,6 +71,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="lblAppointmentCount" destination="4rA-NV-twl" id="vgM-CG-oh2"/>
                 <outlet property="lblTime" destination="b0H-GN-ya9" id="d7G-Qh-xbV"/>
                 <outlet property="viewBackground" destination="0CA-KC-OdT" id="mNg-EV-f3F"/>
             </connections>

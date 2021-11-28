@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class TimeSlotViewCell: UITableViewCell {
     @IBOutlet weak var lblTimeSlot:UILabel!
     @IBOutlet weak var lblTime:UILabel!

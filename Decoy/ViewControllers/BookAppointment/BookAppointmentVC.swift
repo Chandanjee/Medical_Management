@@ -91,8 +91,12 @@ class BookAppointmentVC: UIViewController {
     }
     
     override func viewDidLayoutSubviews(){
-        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
+//        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
+        if self.arrCityName.count > 0 {
+            self.tblHConstraint.constant = self.tableView.contentSize.height
+        }
          tableView.reloadData()
+        
     }
     
     @objc func textFieldTouchUP(textfield: UITextField ){
@@ -243,6 +247,9 @@ class BookAppointmentVC: UIViewController {
                     }
                 }
                 MBProgressHUD.hide(for: self.view, animated: true)
+                if self.arrCityName.count > 0 {
+                    self.tblHConstraint.constant = self.tableView.contentSize.height
+                }
                 self.txtCity.loadDropdownData(data: self.arrCityName)
             }else{
                 MBProgressHUD.hide(for: self.view, animated: true)
@@ -252,22 +259,38 @@ class BookAppointmentVC: UIViewController {
     }
     
     //MARK: API Token
-    func API_GetTokenonDate(date:String){
+    func API_GetTokenonDate(date:String,handlerValue: @escaping ((String)->Void)){
         let url = serviceURLToken + date
-        let  urlEncode = url.urlEncoded
+        var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
+        allowedQueryParamAndKey.remove(charactersIn: " ")
+        let  urlEncode = url.addingPercentEncoding(withAllowedCharacters: allowedQueryParamAndKey)
         print("token api", urlEncode)
         
-        Loader.showLoader("Wait checking your slot...", target: self)
-
+//        Loader.showLoader("Wait checking your slot...", target: self)
+        var ResponseMSG:String? = ""
         apiManager.Api_GetWithData(serviceName: urlEncode!, parameters: [:], completionHandler: {(resultDatas,error) in
             if let responsedata = resultDatas {
                 do{
                     let json = try JSONSerialization.jsonObject(with: responsedata, options: []) as? [String : Any]
                     let status = json?["status"] as? NSNumber
+                    let message = json?["message"] as? String
+                    let responses = json?["response"] as? [String:Any]
+                    if message == "succss" {
+
+                        if let person = responses {
+                           print(person["name"] as! String)
+                            ResponseMSG = person["name"] as? String ?? ""
+                            handlerValue(message!)
+                        }
+                    }else{
+                        handlerValue(message!)
+//                        Utility().addAlertView("Alert!", message!, "ok", self)
+                    }
 //                    MBProgressHUD.hide(for: self.view, animated: true)
                     Loader.hideLoader(self)
+                    
                     if status == 404 {
-                        self.tblHConstraint.constant = 0
+//                        self.tblHConstraint.constant = 0
 //                        MBProgressHUD.hide(for: self.view, animated: true)
                         Utility().addAlertView("Alert!", "Appointment should not be given for date", "ok", self)
                         return
@@ -278,8 +301,10 @@ class BookAppointmentVC: UIViewController {
             }else{
 //                MBProgressHUD.hide(for: self.view, animated: true)
                 Loader.hideLoader(self)
-                self.tblHConstraint.constant = 0
+//                self.tblHConstraint.constant = 0
             }
+            
+
         })
     }
     
@@ -295,7 +320,7 @@ class BookAppointmentVC: UIViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss"
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")!
-            
+            arrayDateList = []
             let startTimeStr = appointModelArray[index - 1].startTime
             let endTimeStr = appointModelArray[index - 1].endTime
             print("Start and end Time == ",startTimeStr,endTimeStr)
@@ -422,11 +447,18 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
         let startTime = arrayDateList[indexPath.row]
         let startDateSelect = resultString + " " + startTime
         print("cuurent time Select",startDateSelect)
-        API_GetTokenonDate(date: startDateSelect)
+        let cell = tableView.cellForRow(at: indexPath) as? TimeSlotViewCell
+
+        API_GetTokenonDate(date: startDateSelect, handlerValue: { [weak self](valuess)in
+        print("return message of appointment",valuess)
+            cell?.lblAppointmentCount.text! = valuess
+        }
+)
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        self.tblHConstraint.constant = self.tableView.contentSize.height
+//        self.tblHConstraint.constant = self.tableView.contentSize.height
 
 //        self.tableView.contentSizeHeight = 55 //CGFloat(cell.contentView.frame.height * CGFloat(indexPath.row))
     }

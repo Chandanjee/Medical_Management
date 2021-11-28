@@ -38,6 +38,7 @@
 		0485858B275167D000055AC8 /* AppointmentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485858A275167D000055AC8 /* AppointmentResponseModel.swift */; };
 		0485858F27536D4B00055AC8 /* TimeSlotViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485858D27536D4B00055AC8 /* TimeSlotViewCell.swift */; };
 		0485859027536D4B00055AC8 /* TimeSlotViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0485858E27536D4B00055AC8 /* TimeSlotViewCell.xib */; };
+		048585932753FD5000055AC8 /* AppointmentHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048585922753FD5000055AC8 /* AppointmentHistoryVC.swift */; };
 		04984BA727457D49001EC315 /* FamilyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04984BA527457D49001EC315 /* FamilyListCell.swift */; };
 		04984BA827457D4A001EC315 /* FamilyListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04984BA627457D49001EC315 /* FamilyListCell.xib */; };
 		04996CAF2727202F0006BDE2 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04996CAE2727202F0006BDE2 /* UserInfoViewController.swift */; };
@@ -124,6 +125,7 @@
 		0485858A275167D000055AC8 /* AppointmentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentResponseModel.swift; sourceTree = "<group>"; };
 		0485858D27536D4B00055AC8 /* TimeSlotViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlotViewCell.swift; sourceTree = "<group>"; };
 		0485858E27536D4B00055AC8 /* TimeSlotViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeSlotViewCell.xib; sourceTree = "<group>"; };
+		048585922753FD5000055AC8 /* AppointmentHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHistoryVC.swift; sourceTree = "<group>"; };
 		04984BA527457D49001EC315 /* FamilyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyListCell.swift; sourceTree = "<group>"; };
 		04984BA627457D49001EC315 /* FamilyListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyListCell.xib; sourceTree = "<group>"; };
 		04996CAE2727202F0006BDE2 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,14 @@
 				0485858E27536D4B00055AC8 /* TimeSlotViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		048585912753FD1C00055AC8 /* AppointmentHistory */ = {
+			isa = PBXGroup;
+			children = (
+				048585922753FD5000055AC8 /* AppointmentHistoryVC.swift */,
+			);
+			path = AppointmentHistory;
 			sourceTree = "<group>";
 		};
 		04984BA427457CF5001EC315 /* View */ = {
@@ -459,6 +469,7 @@
 		E30A2F1C27182CC200AABC70 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				048585912753FD1C00055AC8 /* AppointmentHistory */,
 				04D38B7B274B5E9D006A6C78 /* BookAppointment */,
 				04996CAD27271FFF0006BDE2 /* UserInformation */,
 				04837DA82725DF4B0090BBE4 /* Registration */,
@@ -679,6 +690,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E3C2D427247455008A074B /* SmoothTabBarView.swift in Sources */,
+				048585932753FD5000055AC8 /* AppointmentHistoryVC.swift in Sources */,
 				0402E75D2722D04F004D866A /* UIColor+Theme.swift in Sources */,
 				041673792725AAF800DE0045 /* UITableView+Extension.swift in Sources */,
 				0416737C2725AB2900DE0045 /* NSObject+Extension.swift in Sources */,

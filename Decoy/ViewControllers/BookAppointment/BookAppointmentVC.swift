@@ -425,7 +425,7 @@ let datafromArray = appointModelArray[index]
                         let status = json?["status"] as? NSNumber
                         let response = json?["response"] as? [String:Any]
                         let msg = response?["message"] as? String
-                        print("Booking msg status",msg)
+                        print("Booking msg status",msg as Any)
                         MBProgressHUD.hide(for: self.view, animated: true)
                         
                         if status == 404 {

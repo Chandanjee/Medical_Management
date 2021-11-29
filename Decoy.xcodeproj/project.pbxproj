@@ -474,7 +474,7 @@
 				04996CAD27271FFF0006BDE2 /* UserInformation */,
 				04837DA82725DF4B0090BBE4 /* Registration */,
 				E30A2F49271D9CF800AABC70 /* Camp Plan */,
-				E30A2F46271D896300AABC70 /* Add Family member */,
+				E30A2F46271D896300AABC70 /* AddFamilyMember */,
 				E30A2F3427183B9600AABC70 /* Home */,
 				E30A2F21271834C700AABC70 /* Settings */,
 				E30A2F1827182C1100AABC70 /* Profile */,
@@ -540,12 +540,12 @@
 			path = CollectonViewCells;
 			sourceTree = "<group>";
 		};
-		E30A2F46271D896300AABC70 /* Add Family member */ = {
+		E30A2F46271D896300AABC70 /* AddFamilyMember */ = {
 			isa = PBXGroup;
 			children = (
 				E30A2F47271D899000AABC70 /* AddFamilyViewController.swift */,
 			);
-			path = "Add Family member";
+			path = AddFamilyMember;
 			sourceTree = "<group>";
 		};
 		E30A2F49271D9CF800AABC70 /* Camp Plan */ = {

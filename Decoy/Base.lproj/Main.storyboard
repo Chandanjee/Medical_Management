@@ -62,7 +62,10 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="gapPadding">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="mobile"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="ic_user"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="E4b-V2-WbD"/>
@@ -76,7 +79,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="password"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="ic_lock"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="gapPadding">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
@@ -1558,7 +1561,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="ic_search"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
@@ -1587,6 +1590,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="PLC-Og-IcF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BOD-oS-7b1" firstAttribute="leading" secondItem="wqc-zh-pCZ" secondAttribute="leading" id="29O-Ak-UZ2"/>
@@ -1688,6 +1692,9 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                         <color key="value" red="0.068109154699999994" green="0.34928837419999997" blue="0.65245425700000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Your gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CKs-Aq-Yjq" customClass="AkiraTextField" customModule="TextFieldEffects">
@@ -1706,7 +1713,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yQG-tK-1iR" customClass="AkiraTextField" customModule="TextFieldEffects">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yQG-tK-1iR" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="170" width="319" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="OsO-EJ-Cqu"/>
@@ -1720,9 +1727,12 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                         <color key="value" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z1D-v8-1Qk" customClass="AkiraTextField" customModule="TextFieldEffects">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z1D-v8-1Qk" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="255" width="319" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="Z0Z-dW-bov"/>
@@ -1735,6 +1745,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                         <color key="value" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                        <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
@@ -1812,7 +1825,7 @@
             <size key="intrinsicContentSize" width="191" height="21"/>
         </designable>
         <designable name="9B1-yi-pKA">
-            <size key="intrinsicContentSize" width="50" height="21"/>
+            <size key="intrinsicContentSize" width="60" height="21"/>
         </designable>
         <designable name="CKs-Aq-Yjq">
             <size key="intrinsicContentSize" width="138.33333333333334" height="21.333333333333332"/>
@@ -1824,7 +1837,7 @@
             <size key="intrinsicContentSize" width="94.333333333333329" height="21"/>
         </designable>
         <designable name="GxV-Yz-0Tu">
-            <size key="intrinsicContentSize" width="103.33333333333333" height="17"/>
+            <size key="intrinsicContentSize" width="113.33333333333333" height="17"/>
         </designable>
         <designable name="Rh3-4H-hys">
             <size key="intrinsicContentSize" width="94.666666666666671" height="21.333333333333332"/>
@@ -1833,7 +1846,7 @@
             <size key="intrinsicContentSize" width="94.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="T9u-Dl-sUn">
-            <size key="intrinsicContentSize" width="126" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="150" height="18.666666666666668"/>
         </designable>
         <designable name="TBH-d4-2Ll">
             <size key="intrinsicContentSize" width="191" height="21"/>
@@ -1857,13 +1870,13 @@
             <size key="intrinsicContentSize" width="157" height="20"/>
         </designable>
         <designable name="yQG-tK-1iR">
-            <size key="intrinsicContentSize" width="28.333333333333332" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="43.333333333333336" height="21"/>
         </designable>
         <designable name="yUa-bP-INV">
             <size key="intrinsicContentSize" width="78.666666666666671" height="21"/>
         </designable>
         <designable name="z1D-v8-1Qk">
-            <size key="intrinsicContentSize" width="73.666666666666671" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="88.666666666666671" height="21"/>
         </designable>
         <designable name="z79-UO-Igf">
             <size key="intrinsicContentSize" width="70.666666666666671" height="21"/>
@@ -1873,10 +1886,11 @@
         <image name="background" width="1648" height="3152"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="footer" width="2036" height="632"/>
+        <image name="ic_lock" width="26" height="31"/>
+        <image name="ic_search" width="26" height="19"/>
+        <image name="ic_user" width="26" height="31"/>
         <image name="loginBackground" width="1648" height="3480"/>
         <image name="logo" width="736" height="736"/>
-        <image name="mobile" width="12" height="12"/>
-        <image name="password" width="16" height="16"/>
         <image name="text-t" width="1844" height="428"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

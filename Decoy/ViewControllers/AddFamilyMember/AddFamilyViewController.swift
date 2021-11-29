@@ -30,7 +30,6 @@ class AddFamilyViewController: UIViewController {
         dropDownBtn.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal) //  downArrow_black arrowtriangle.down.fill, IQButtonBarArrowDown
         genderTxt.rightViewMode = UITextField.ViewMode.always
         genderTxt.rightView = dropDownBtn
-       
         
     }
     /*

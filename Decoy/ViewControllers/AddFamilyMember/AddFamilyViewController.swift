@@ -19,6 +19,8 @@ class AddFamilyViewController: UIViewController {
         super.viewDidLoad()
         addArrowBtnToTextFields()
         // Do any additional setup after loading the view.
+        genderTxt.loadDropdownData(data: ["Select","Male","Female","Others"])
+
     }
     
     //MARK: Add Arrow on TextField

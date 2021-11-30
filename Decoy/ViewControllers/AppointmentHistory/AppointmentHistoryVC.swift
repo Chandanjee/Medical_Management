@@ -8,7 +8,9 @@
 import UIKit
 import MBProgressHUD
 
-class AppointmentHistoryVC: UIViewController {
+class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
+   
+    
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var fromDateTxt:UITextField!
     @IBOutlet weak var toDateTxt:UITextField!
@@ -23,7 +25,8 @@ class AppointmentHistoryVC: UIViewController {
     var userHistoryModel = [HistoryResponse]()
 
     let serviceURL = BaseUrl.baseURL + "getDataFromPatientIdAndDates"
-    
+    let serviceURLDelete = BaseUrl.baseURL + "cancelVisit"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 13.0, *) {
@@ -53,6 +56,15 @@ class AppointmentHistoryVC: UIViewController {
         tableView.layoutIfNeeded()
         tableView.reloadData()
         
+    }
+    
+    //MARK: Delegate Method
+    func didPressButton(tag: Int,Status:Bool) {
+        if Status == true {
+            self.API_DeleteAppointment(index: tag)
+        }else{
+            let Actualtag = tag - 2
+        }
     }
     
     //MARK: Date Picker
@@ -118,6 +130,7 @@ class AppointmentHistoryVC: UIViewController {
         datePicker.removeFromSuperview()
     }
     
+    //MARK: - From Date
     @objc func textFieldTouchUP(textfield: UITextField ){
         print("from date")
         self.fromDateTxt.becomeFirstResponder()
@@ -127,7 +140,7 @@ class AppointmentHistoryVC: UIViewController {
         
     }
     
-    
+    //MARK: - To Date
     @objc func toDatetextFieldTouchUP(textfield: UITextField){
         print("to date")
         self.toDateTxt.becomeFirstResponder()
@@ -197,6 +210,36 @@ class AppointmentHistoryVC: UIViewController {
     
     @IBAction func tapToSearch(_ sender:Any){
         self.API_CheckBydateAppointment()
+    }
+    
+    func API_DeleteAppointment(index:Int){
+//        {"visitID":"406","patientId":"204"}
+        let itemData = userHistoryModel[index]
+        let Visit = itemData.visit.visitID
+        let Patient = itemData.visit.patientID
+        let requestData : [String:Any] = ["visitID":Visit,
+                                          "patientId":Patient]
+        print("Delete Request data and url",serviceURLDelete,requestData)
+        apiManager.Api_GetWithData(serviceName: serviceURLDelete, parameters: requestData, completionHandler: {
+            (resultData,error) in
+            print(resultData)
+            if let responsedata = resultData {
+            do{
+                let json = try JSONSerialization.jsonObject(with: responsedata, options: []) as? [String : Any]
+                let status = json?["status"] as? NSNumber
+                MBProgressHUD.hide(for: self.view, animated: true)
+                
+                if status == 404 {
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    Utility().addAlertView("Alert!", "Appointment should not be given for date", "ok", self)
+                    return
+                }
+                
+                print(json as Any)
+            }catch{ print("erroMsg") }
+            }
+        })
+
     }
 }
 

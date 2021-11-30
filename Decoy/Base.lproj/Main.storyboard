@@ -1578,7 +1578,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cEO-Ba-aZg">
-                                        <rect key="frame" x="8" y="250" width="359" height="482"/>
+                                        <rect key="frame" x="0.0" y="250" width="375" height="482"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="dataSource" destination="yL6-Zv-SMK" id="mO3-4w-nJC"/>
@@ -1588,14 +1588,14 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="cEO-Ba-aZg" firstAttribute="leading" secondItem="zCR-5G-6Bn" secondAttribute="leading" constant="8" id="85O-Bl-oCT"/>
+                                    <constraint firstItem="cEO-Ba-aZg" firstAttribute="leading" secondItem="zCR-5G-6Bn" secondAttribute="leading" id="85O-Bl-oCT"/>
                                     <constraint firstAttribute="bottom" secondItem="l9Q-N3-7DV" secondAttribute="bottom" id="AyU-My-Rp1"/>
                                     <constraint firstItem="l9Q-N3-7DV" firstAttribute="top" secondItem="zCR-5G-6Bn" secondAttribute="top" id="FPV-a2-wOj"/>
                                     <constraint firstAttribute="bottom" secondItem="cEO-Ba-aZg" secondAttribute="bottom" id="SoP-gn-us0"/>
                                     <constraint firstAttribute="trailing" secondItem="l9Q-N3-7DV" secondAttribute="trailing" id="TIf-C9-mec"/>
                                     <constraint firstItem="l9Q-N3-7DV" firstAttribute="leading" secondItem="zCR-5G-6Bn" secondAttribute="leading" id="ceT-zZ-ah5"/>
                                     <constraint firstAttribute="trailing" secondItem="9xl-BA-HWz" secondAttribute="trailing" constant="8" id="mQj-YK-5f7"/>
-                                    <constraint firstAttribute="trailing" secondItem="cEO-Ba-aZg" secondAttribute="trailing" constant="8" id="o5i-DY-TwD"/>
+                                    <constraint firstAttribute="trailing" secondItem="cEO-Ba-aZg" secondAttribute="trailing" id="o5i-DY-TwD"/>
                                     <constraint firstItem="cEO-Ba-aZg" firstAttribute="top" secondItem="9xl-BA-HWz" secondAttribute="bottom" constant="10" id="vhT-FE-fPJ"/>
                                     <constraint firstItem="9xl-BA-HWz" firstAttribute="leading" secondItem="zCR-5G-6Bn" secondAttribute="leading" constant="8" id="wJ8-PQ-Tbo"/>
                                     <constraint firstItem="9xl-BA-HWz" firstAttribute="top" secondItem="zCR-5G-6Bn" secondAttribute="top" constant="10" id="xWu-yX-rzb"/>
@@ -1862,10 +1862,10 @@
             <size key="intrinsicContentSize" width="45" height="21"/>
         </designable>
         <designable name="CKs-Aq-Yjq">
-            <size key="intrinsicContentSize" width="138.33333333333334" height="21"/>
+            <size key="intrinsicContentSize" width="138.33333333333334" height="21.333333333333332"/>
         </designable>
         <designable name="D7n-Bh-k2k">
-            <size key="intrinsicContentSize" width="78.666666666666671" height="21"/>
+            <size key="intrinsicContentSize" width="78.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="FG1-Wg-ifj">
             <size key="intrinsicContentSize" width="79.333333333333329" height="21"/>
@@ -1874,10 +1874,10 @@
             <size key="intrinsicContentSize" width="62.333333333333336" height="17"/>
         </designable>
         <designable name="Rh3-4H-hys">
-            <size key="intrinsicContentSize" width="94.666666666666671" height="21"/>
+            <size key="intrinsicContentSize" width="94.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="Rss-pP-KEX">
-            <size key="intrinsicContentSize" width="94.666666666666671" height="21"/>
+            <size key="intrinsicContentSize" width="94.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="T9u-Dl-sUn">
             <size key="intrinsicContentSize" width="99" height="18.666666666666668"/>
@@ -1886,7 +1886,7 @@
             <size key="intrinsicContentSize" width="191" height="21"/>
         </designable>
         <designable name="bYp-Kt-46N">
-            <size key="intrinsicContentSize" width="78.666666666666671" height="21"/>
+            <size key="intrinsicContentSize" width="78.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="dAc-sh-D5p">
             <size key="intrinsicContentSize" width="191" height="21"/>

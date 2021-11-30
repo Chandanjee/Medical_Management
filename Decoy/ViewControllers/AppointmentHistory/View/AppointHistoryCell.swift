@@ -31,7 +31,7 @@ class AppointHistoryCell: UITableViewCell {
     var cellViewModel: HistoryResponse? {
         didSet {
             let status = cellViewModel?.visit.visitStatus
-            let locationCamp = cellViewModel?.masCamp.status
+            let locationCamp = cellViewModel?.masCamp.landMark
             self.lblAppointmentStatus.text = status
             if let camp = locationCamp as? String {
                 self.lblCampLocation.text = camp

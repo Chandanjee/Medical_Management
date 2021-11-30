@@ -31,6 +31,8 @@ class AppointmentHistoryVC: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        tableView.register(AppointHistoryCell.nib, forCellReuseIdentifier: AppointHistoryCell.identifier)
+
 //        theImageView.image = theImageView.image?.withRenderingMode(.alwaysTemplate)
 //        theImageView.tintColor = UIColor.red
         // Do any additional setup after loading the view.
@@ -177,6 +179,7 @@ class AppointmentHistoryVC: UIViewController {
 
                                   if status == 200 {
                                       MBProgressHUD.hide(for: self.view, animated: true)
+                                      self.tableView.reloadData()
                                   }
                     if status == 401 {
                         MBProgressHUD.hide(for: self.view, animated: true)
@@ -211,7 +214,9 @@ extension AppointmentHistoryVC:UITextViewDelegate,UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "AppointHistoryCell", for: indexPath) as? AppointHistoryCell else {
             fatalError("can't dequeue CustomCell")
         }
-//        cell.cellViewModel = userHistoryModel[indexPath.row]
+        cell.btnCancel.tag = indexPath.row
+        cell.btnReshdule.tag = indexPath.row + 2
+        cell.cellViewModel = userHistoryModel[indexPath.row]
 
 //        cell.addShadow(backgroundColor: .white, cornerRadius: 13, shadowRadius: 5, shadowOpacity: 0.1, shadowPathInset: (dx: 8, dy: 6), shadowPathOffset: (dx: 0, dy: 2))
         return cell

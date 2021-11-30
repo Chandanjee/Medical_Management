@@ -21,6 +21,7 @@ struct HistoryResponse: Codable {
     let masDepartment: HistoryMasDepartment
     let patient: HistoryPatient
 }
+
 // MARK: - MasCamp
 struct HistoryMasCamp: Codable {
     let campID, departmentID: Int
@@ -43,13 +44,14 @@ struct HistoryMasCamp: Codable {
         case masState, masDistrict, masCity, masMMU, campDate, location, landMark, lattitude, longitude, day, weeklyOff, status, startTime, endTime, lastChangeBy, lastChangeDate, year, month
     }
 }
+
 // MARK: - MasCity
 struct HistoryMasCity: Codable {
     let cityID: Int
     let cityCode, cityName: String
-    let masDistrict: MasDistrict
+    let masDistrict: HistoryMasDistrict
     let status: String
-    let lastChangeBy: JSONNull?
+    let lastChangeBy: Int?
     let lastChangeDate: Int
 
     enum CodingKeys: String, CodingKey {
@@ -57,12 +59,13 @@ struct HistoryMasCity: Codable {
         case cityCode, cityName, masDistrict, status, lastChangeBy, lastChangeDate
     }
 }
+
 // MARK: - MasDistrict
 struct HistoryMasDistrict: Codable {
     let districtID: Int
     let districtCode, districtName: String
-    let masState: MasState
-    let status: String
+    let masState: HistoryMasState
+    let status: HistoryStatus
     let lastChangeBy: JSONNull?
     let lastChangeDate: Int
 
@@ -71,6 +74,31 @@ struct HistoryMasDistrict: Codable {
         case districtCode, districtName, masState, status, lastChangeBy, lastChangeDate
     }
 }
+
+// MARK: - MasState
+struct HistoryMasState: Codable {
+    let stateID: Int
+    let stateCode: HistoryStateCode
+    let stateName: HistoryStateName
+
+    enum CodingKeys: String, CodingKey {
+        case stateID = "stateId"
+        case stateCode, stateName
+    }
+}
+
+enum HistoryStateCode: String, Codable {
+    case ch01 = "CH-01"
+}
+
+enum HistoryStateName: String, Codable {
+    case chhattisgarh = "Chhattisgarh"
+}
+
+enum HistoryStatus: String, Codable {
+    case y = "Y"
+}
+
 // MARK: - MasMMU
 struct HistoryMasMMU: Codable {
     let mmuID, cityID: Int
@@ -79,7 +107,7 @@ struct HistoryMasMMU: Codable {
     let mmuCode, mmuName, mmuNo: String
     let mmuTypeID, mmuVendorID: Int
     let oprationalDate: JSONNull?
-    let status: String
+    let status: HistoryStatus
 
     enum CodingKeys: String, CodingKey {
         case mmuID = "mmuId"
@@ -96,7 +124,7 @@ struct HistoryMasDepartment: Codable {
     let departmentID: Int
     let departmentCode, departmentName: String
     let lastChgDate: JSONNull?
-    let status: String
+    let status: HistoryStatus
 
     enum CodingKeys: String, CodingKey {
         case departmentID = "departmentId"
@@ -118,7 +146,7 @@ struct HistoryPatient: Codable {
     let loginPwd: String
     let pincode: JSONNull?
     let campID: Int
-    let administrativeSexID: AdministrativeSexID
+    let administrativeSexID: HistoryAdministrativeSexID
     let religionID, regNo, stateID: JSONNull?
     let uhidNo: String
     let age: Int
@@ -136,6 +164,17 @@ struct HistoryPatient: Codable {
         case regNo
         case stateID = "stateId"
         case uhidNo, age
+    }
+}
+
+// MARK: - AdministrativeSexID
+struct HistoryAdministrativeSexID: Codable {
+    let administrativeSexID: Int
+    let administrativeSexCode, administrativeSexName: String
+
+    enum CodingKeys: String, CodingKey {
+        case administrativeSexID = "administrativeSexId"
+        case administrativeSexCode, administrativeSexName
     }
 }
 
@@ -160,5 +199,4 @@ struct HistoryVisit: Codable {
         case departmentID = "departmentId"
     }
 }
-
 typealias  totalHistoryResponse = [HistoryResponse]

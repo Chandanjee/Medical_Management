@@ -27,6 +27,9 @@
 		042B7FF0273AE7FA00E2DD6C /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */; };
 		044064E3274D631900C4E81F /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E2274D631900C4E81F /* CustomPickerView.swift */; };
 		044064E5274E234200C4E81F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E4274E234200C4E81F /* LocationManager.swift */; };
+		045728632755243000439C34 /* AppointHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045728612755243000439C34 /* AppointHistoryCell.swift */; };
+		045728642755243000439C34 /* AppointHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045728622755243000439C34 /* AppointHistoryCell.xib */; };
+		0457286727553ED100439C34 /* AppointHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457286627553ED100439C34 /* AppointHistoryResponseModel.swift */; };
 		046D95F7273C32F10063FDCB /* OTPStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95F6273C32F10063FDCB /* OTPStackView.swift */; };
 		046D95F9273C33650063FDCB /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95F8273C33650063FDCB /* OTPTextField.swift */; };
 		046D95FB273C39260063FDCB /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95FA273C39260063FDCB /* OTPView.swift */; };
@@ -114,6 +117,9 @@
 		042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
 		044064E2274D631900C4E81F /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		044064E4274E234200C4E81F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		045728612755243000439C34 /* AppointHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointHistoryCell.swift; sourceTree = "<group>"; };
+		045728622755243000439C34 /* AppointHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointHistoryCell.xib; sourceTree = "<group>"; };
+		0457286627553ED100439C34 /* AppointHistoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointHistoryResponseModel.swift; sourceTree = "<group>"; };
 		046D95F6273C32F10063FDCB /* OTPStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPStackView.swift; sourceTree = "<group>"; };
 		046D95F8273C33650063FDCB /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		046D95FA273C39260063FDCB /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -232,6 +238,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04572860275523F700439C34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				045728612755243000439C34 /* AppointHistoryCell.swift */,
+				045728622755243000439C34 /* AppointHistoryCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0457286527553E9C00439C34 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0457286627553ED100439C34 /* AppointHistoryResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		046D95FC273C39340063FDCB /* OTPView */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +302,8 @@
 		048585912753FD1C00055AC8 /* AppointmentHistory */ = {
 			isa = PBXGroup;
 			children = (
+				0457286527553E9C00439C34 /* Model */,
+				04572860275523F700439C34 /* View */,
 				048585922753FD5000055AC8 /* AppointmentHistoryVC.swift */,
 			);
 			path = AppointmentHistory;
@@ -635,6 +660,7 @@
 				0416733B27255BA900DE0045 /* ProfileImageTableCell.xib in Resources */,
 				0416734627255C1A00DE0045 /* ProfileLogoutTableCell.xib in Resources */,
 				0416733E27255BE700DE0045 /* ProfileTableCell.xib in Resources */,
+				045728642755243000439C34 /* AppointHistoryCell.xib in Resources */,
 				046D95FE273C39450063FDCB /* OTPView.xib in Resources */,
 				E30A2F45271D867B00AABC70 /* DashboardCollectionViewCell.xib in Resources */,
 			);
@@ -694,6 +720,7 @@
 				0402E75D2722D04F004D866A /* UIColor+Theme.swift in Sources */,
 				041673792725AAF800DE0045 /* UITableView+Extension.swift in Sources */,
 				0416737C2725AB2900DE0045 /* NSObject+Extension.swift in Sources */,
+				0457286727553ED100439C34 /* AppointHistoryResponseModel.swift in Sources */,
 				0402E7492722B37D004D866A /* Utility.swift in Sources */,
 				04984BA727457D49001EC315 /* FamilyListCell.swift in Sources */,
 				E30A2F51271D9D6600AABC70 /* CampPlanWorker.swift in Sources */,
@@ -701,6 +728,7 @@
 				04996CAF2727202F0006BDE2 /* UserInfoViewController.swift in Sources */,
 				E30A2F4027183BBE00AABC70 /* HomeInteractor.swift in Sources */,
 				0416733A27255BA900DE0045 /* ProfileTableCell.swift in Sources */,
+				045728632755243000439C34 /* AppointHistoryCell.swift in Sources */,
 				E30A2F2C2718350000AABC70 /* SettingsViewController.swift in Sources */,
 				E30A2F292718350000AABC70 /* SettingsWorker.swift in Sources */,
 				04D38B7A274A3F42006A6C78 /* CampPlanVC.swift in Sources */,
@@ -904,13 +932,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 77RD563Q8T;
 				INFOPLIST_FILE = Decoy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Test.Decoy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Test.Decoys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -924,13 +953,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 77RD563Q8T;
 				INFOPLIST_FILE = Decoy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Test.Decoy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Test.Decoys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

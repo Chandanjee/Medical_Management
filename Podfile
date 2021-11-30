@@ -7,7 +7,7 @@ target 'Decoy' do
 pod 'Alamofire', '~> 5.4.1'
 pod 'SDWebImage'
 pod 'SVProgressHUD'
-pod 'MaterialComponents/Snackbar'
+#pod 'MaterialComponents/Snackbar'
 pod 'MBProgressHUD', '~> 1.0'
 pod 'IQKeyboardManagerSwift', '6.5.0'
 pod 'SwiftyJSON'

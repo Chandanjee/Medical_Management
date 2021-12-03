@@ -108,11 +108,15 @@ extension UserInfoViewController :UITableViewDelegate,UITableViewDataSource{
             let v1 = storyboard.instantiateViewController(withIdentifier:"AppointmentHistoryVC") as? AppointmentHistoryVC
                 self.navigationController?.pushViewController(v1!, animated: true)
         }
-//        else if targetOption == "Appointment Status"{
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let v1 = storyboard.instantiateViewController(withIdentifier:"AppointmentHistoryVC") as? AppointmentHistoryVC
-//                self.navigationController?.pushViewController(v1!, animated: true)
-//        }
+        else if targetOption == "Lab Result"{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let v1 = storyboard.instantiateViewController(withIdentifier:"LAbResultViewController") as? LAbResultViewController
+                self.navigationController?.pushViewController(v1!, animated: true)
+        }else if targetOption == "OPD History"{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let v1 = storyboard.instantiateViewController(withIdentifier:"OPDHistoryVC") as? OPDHistoryVC
+                self.navigationController?.pushViewController(v1!, animated: true)
+        }
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // this will turn on `masksToBounds` just before showing the cell

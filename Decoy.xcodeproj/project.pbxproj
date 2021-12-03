@@ -24,6 +24,7 @@
 		0416734C2725759C00DE0045 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416734B2725759C00DE0045 /* Constants.swift */; };
 		041673792725AAF800DE0045 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041673782725AAF800DE0045 /* UITableView+Extension.swift */; };
 		0416737C2725AB2900DE0045 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416737B2725AB2900DE0045 /* NSObject+Extension.swift */; };
+		0427A8C5275A20C20022570A /* OPDResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427A8C4275A20C10022570A /* OPDResponseModel.swift */; };
 		042B7FF0273AE7FA00E2DD6C /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */; };
 		044064E3274D631900C4E81F /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E2274D631900C4E81F /* CustomPickerView.swift */; };
 		044064E5274E234200C4E81F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E4274E234200C4E81F /* LocationManager.swift */; };
@@ -34,6 +35,14 @@
 		046D95F9273C33650063FDCB /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95F8273C33650063FDCB /* OTPTextField.swift */; };
 		046D95FB273C39260063FDCB /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95FA273C39260063FDCB /* OTPView.swift */; };
 		046D95FE273C39450063FDCB /* OTPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046D95FD273C39450063FDCB /* OTPView.xib */; };
+		047830F627579112005C594B /* RadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047830F527579111005C594B /* RadioButtonController.swift */; };
+		047830FA2757EECA005C594B /* LAbResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047830F92757EECA005C594B /* LAbResultViewController.swift */; };
+		047830FC2757EEF4005C594B /* OPDHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047830FB2757EEF4005C594B /* OPDHistoryVC.swift */; };
+		047831012757EFA2005C594B /* OPDTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047830FF2757EFA2005C594B /* OPDTableCell.swift */; };
+		047831022757EFA2005C594B /* OPDTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047831002757EFA2005C594B /* OPDTableCell.xib */; };
+		047831052757F010005C594B /* LABResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047831032757F010005C594B /* LABResultTableCell.swift */; };
+		047831062757F010005C594B /* LABResultTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047831042757F010005C594B /* LABResultTableCell.xib */; };
+		047831092758AAE6005C594B /* LABResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047831082758AAE5005C594B /* LABResponseModel.swift */; };
 		04837DA62725B10D0090BBE4 /* CollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DA52725B10D0090BBE4 /* CollectionData.swift */; };
 		04837DAA2725DF630090BBE4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DA92725DF630090BBE4 /* RegistrationViewController.swift */; };
 		04837DAE2725E4340090BBE4 /* VerifyOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */; };
@@ -114,6 +123,7 @@
 		0416734B2725759C00DE0045 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		041673782725AAF800DE0045 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		0416737B2725AB2900DE0045 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		0427A8C4275A20C10022570A /* OPDResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPDResponseModel.swift; sourceTree = "<group>"; };
 		042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
 		044064E2274D631900C4E81F /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		044064E4274E234200C4E81F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -124,6 +134,14 @@
 		046D95F8273C33650063FDCB /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		046D95FA273C39260063FDCB /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		046D95FD273C39450063FDCB /* OTPView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPView.xib; sourceTree = "<group>"; };
+		047830F527579111005C594B /* RadioButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonController.swift; sourceTree = "<group>"; };
+		047830F92757EECA005C594B /* LAbResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAbResultViewController.swift; sourceTree = "<group>"; };
+		047830FB2757EEF4005C594B /* OPDHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPDHistoryVC.swift; sourceTree = "<group>"; };
+		047830FF2757EFA2005C594B /* OPDTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPDTableCell.swift; sourceTree = "<group>"; };
+		047831002757EFA2005C594B /* OPDTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OPDTableCell.xib; sourceTree = "<group>"; };
+		047831032757F010005C594B /* LABResultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LABResultTableCell.swift; sourceTree = "<group>"; };
+		047831042757F010005C594B /* LABResultTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LABResultTableCell.xib; sourceTree = "<group>"; };
+		047831082758AAE5005C594B /* LABResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LABResponseModel.swift; sourceTree = "<group>"; };
 		04837DA52725B10D0090BBE4 /* CollectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionData.swift; sourceTree = "<group>"; };
 		04837DA92725DF630090BBE4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPView.swift; sourceTree = "<group>"; };
@@ -221,6 +239,7 @@
 				046D95F8273C33650063FDCB /* OTPTextField.swift */,
 				044064E2274D631900C4E81F /* CustomPickerView.swift */,
 				044064E4274E234200C4E81F /* LocationManager.swift */,
+				047830F527579111005C594B /* RadioButtonController.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -236,6 +255,14 @@
 				0416733927255BA900DE0045 /* ProfileImageTableCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0427A8C3275A20A70022570A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0427A8C4275A20C10022570A /* OPDResponseModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		04572860275523F700439C34 /* View */ = {
@@ -262,6 +289,52 @@
 				046D95FD273C39450063FDCB /* OTPView.xib */,
 			);
 			path = OTPView;
+			sourceTree = "<group>";
+		};
+		047830F72757EE8D005C594B /* OPDHistory */ = {
+			isa = PBXGroup;
+			children = (
+				0427A8C3275A20A70022570A /* Model */,
+				047830FE2757EF64005C594B /* View */,
+				047830FB2757EEF4005C594B /* OPDHistoryVC.swift */,
+			);
+			path = OPDHistory;
+			sourceTree = "<group>";
+		};
+		047830F82757EE9B005C594B /* LAbResult */ = {
+			isa = PBXGroup;
+			children = (
+				047831072758AAB0005C594B /* Model */,
+				047830FD2757EF5B005C594B /* View */,
+				047830F92757EECA005C594B /* LAbResultViewController.swift */,
+			);
+			path = LAbResult;
+			sourceTree = "<group>";
+		};
+		047830FD2757EF5B005C594B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				047831032757F010005C594B /* LABResultTableCell.swift */,
+				047831042757F010005C594B /* LABResultTableCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		047830FE2757EF64005C594B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				047830FF2757EFA2005C594B /* OPDTableCell.swift */,
+				047831002757EFA2005C594B /* OPDTableCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		047831072758AAB0005C594B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				047831082758AAE5005C594B /* LABResponseModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		04837DA82725DF4B0090BBE4 /* Registration */ = {
@@ -494,6 +567,8 @@
 		E30A2F1C27182CC200AABC70 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				047830F82757EE9B005C594B /* LAbResult */,
+				047830F72757EE8D005C594B /* OPDHistory */,
 				048585912753FD1C00055AC8 /* AppointmentHistory */,
 				04D38B7B274B5E9D006A6C78 /* BookAppointment */,
 				04996CAD27271FFF0006BDE2 /* UserInformation */,
@@ -646,6 +721,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047831062757F010005C594B /* LABResultTableCell.xib in Resources */,
 				E30A2F0E27181DEB00AABC70 /* LaunchScreen.storyboard in Resources */,
 				0485859027536D4B00055AC8 /* TimeSlotViewCell.xib in Resources */,
 				04E3C2D627247455008A074B /* SmoothTabItemView.xib in Resources */,
@@ -662,6 +738,7 @@
 				0416733E27255BE700DE0045 /* ProfileTableCell.xib in Resources */,
 				045728642755243000439C34 /* AppointHistoryCell.xib in Resources */,
 				046D95FE273C39450063FDCB /* OTPView.xib in Resources */,
+				047831022757EFA2005C594B /* OPDTableCell.xib in Resources */,
 				E30A2F45271D867B00AABC70 /* DashboardCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -726,6 +803,7 @@
 				E30A2F51271D9D6600AABC70 /* CampPlanWorker.swift in Sources */,
 				E30A2F1727181EC200AABC70 /* LoginViewController.swift in Sources */,
 				04996CAF2727202F0006BDE2 /* UserInfoViewController.swift in Sources */,
+				047830F627579112005C594B /* RadioButtonController.swift in Sources */,
 				E30A2F4027183BBE00AABC70 /* HomeInteractor.swift in Sources */,
 				0416733A27255BA900DE0045 /* ProfileTableCell.swift in Sources */,
 				045728632755243000439C34 /* AppointHistoryCell.swift in Sources */,
@@ -737,6 +815,7 @@
 				0402E7602722D0B9004D866A /* Design.swift in Sources */,
 				0402E7692723E5FD004D866A /* DateTime.swift in Sources */,
 				04E47D5A272806CD00A4C0DB /* NetworkManager.swift in Sources */,
+				047831012757EFA2005C594B /* OPDTableCell.swift in Sources */,
 				E30A2F3E27183BBE00AABC70 /* HomeModels.swift in Sources */,
 				04E3C2D727247455008A074B /* AppTabBarViewController.swift in Sources */,
 				04837DA62725B10D0090BBE4 /* CollectionData.swift in Sources */,
@@ -751,6 +830,7 @@
 				0416734127255BF500DE0045 /* ProfileImageTableCell.swift in Sources */,
 				0485858B275167D000055AC8 /* AppointmentResponseModel.swift in Sources */,
 				04E47D692728115300A4C0DB /* LoginJSONModel.swift in Sources */,
+				047830FA2757EECA005C594B /* LAbResultViewController.swift in Sources */,
 				04B832DF272494FE00379243 /* DashboardViewController.swift in Sources */,
 				E30A2F52271D9D6600AABC70 /* CampPlanRouter.swift in Sources */,
 				0416734C2725759C00DE0045 /* Constants.swift in Sources */,
@@ -762,8 +842,11 @@
 				E30A2F54271D9D6600AABC70 /* CampPlanViewController.swift in Sources */,
 				E30A2F48271D899000AABC70 /* AddFamilyViewController.swift in Sources */,
 				E30A2F44271D867B00AABC70 /* DashboardCollectionViewCell.swift in Sources */,
+				047831092758AAE6005C594B /* LABResponseModel.swift in Sources */,
 				E30A2F1F27182CF100AABC70 /* ProfileTableViewCell.swift in Sources */,
+				047831052757F010005C594B /* LABResultTableCell.swift in Sources */,
 				046D95F7273C32F10063FDCB /* OTPStackView.swift in Sources */,
+				047830FC2757EEF4005C594B /* OPDHistoryVC.swift in Sources */,
 				04BA81E92739978200024685 /* PatientRequestModel.swift in Sources */,
 				E30A2F53271D9D6600AABC70 /* CampPlanModels.swift in Sources */,
 				04B832E22724952E00379243 /* SettingViewController.swift in Sources */,
@@ -781,6 +864,7 @@
 				E30A2F55271D9D6600AABC70 /* CampPlanInteractor.swift in Sources */,
 				04996CB4272720FA0006BDE2 /* UserInfoCell.swift in Sources */,
 				04E3C2C82724735E008A074B /* Extensions.swift in Sources */,
+				0427A8C5275A20C20022570A /* OPDResponseModel.swift in Sources */,
 				0402E75A2722CCE5004D866A /* Loader.swift in Sources */,
 				E30A2F2D2718350000AABC70 /* SettingsInteractor.swift in Sources */,
 				04D38B7D274B5EC0006A6C78 /* BookAppointmentVC.swift in Sources */,

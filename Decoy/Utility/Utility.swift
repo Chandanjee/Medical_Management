@@ -12,7 +12,7 @@ import SystemConfiguration
 import CoreLocation
 import CoreTelephony
 
-
+//MARK: Utility
 public class Utility : NSObject {
    static func setViewCornerRadius(_ view: UIView, _ radius: CGFloat) {
        view.layer.cornerRadius = radius
@@ -118,7 +118,7 @@ public class Utility : NSObject {
 }
 
 
-
+//MARK: Color
 extension UIColor{
     convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
         self.init(
@@ -152,7 +152,7 @@ extension UIColor{
      }
 }
 
-
+//MARK: Application
 extension UIApplication {
 
     var statusBarUIView: UIView? {
@@ -184,7 +184,7 @@ extension UIApplication {
       }
 }
 
-
+//MARK: UITableCell
 extension UITableViewCell {
     func addShadow(backgroundColor: UIColor = .white, cornerRadius: CGFloat = 12, shadowRadius: CGFloat = 5, shadowOpacity: Float = 0.1, shadowPathInset: (dx: CGFloat, dy: CGFloat), shadowPathOffset: (dx: CGFloat, dy: CGFloat)) {
         layer.cornerRadius = cornerRadius
@@ -210,6 +210,7 @@ extension UITableViewCell {
     }
 }
 
+//MARK: UIView
 extension UIView {
     func addShadowView(){
         self.layer.shadowColor = UIColor.black.cgColor
@@ -221,6 +222,7 @@ extension UIView {
 }
 
 
+//MARK: UITextView
 extension UITextView :UITextViewDelegate
 {
     

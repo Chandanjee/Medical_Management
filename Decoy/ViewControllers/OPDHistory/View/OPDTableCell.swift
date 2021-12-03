@@ -1,24 +1,20 @@
 //
-//  AppointHistoryCell.swift
+//  OPDTableCell.swift
 //  Decoy
 //
-//  Created by MAC on 29/11/21.
+//  Created by MAC on 01/12/21.
 //
 
 import UIKit
 
-protocol HistoryButtonCellDelegate : AnyObject {
-    func didPressButton(tag: Int,Status:Bool)
-}
-
-class AppointHistoryCell: UITableViewCell {
-    @IBOutlet weak var lblCampLocation:UILabel!
-    @IBOutlet weak var lblAppointmentTime:UILabel!
-    @IBOutlet weak var lblAppointmentdate:UILabel!
-    @IBOutlet weak var lblAppointmentStatus:UILabel!
-    @IBOutlet weak var btnCancel:UIButton!
-    @IBOutlet weak var btnReshdule:UIButton!
-    @IBOutlet weak var viewBackground:UIView!
+class OPDTableCell: UITableViewCell {
+    @IBOutlet weak var lblDepartmentName:UILabel!
+    @IBOutlet weak var lblPatientName:UILabel!
+    @IBOutlet weak var lblDate:UILabel!
+    @IBOutlet weak var lblMMUName:UILabel!
+    @IBOutlet weak var btnSLip:UIButton!
+    @IBOutlet weak var btnReferral:UIButton!
+    @IBOutlet weak var viewBackgrounds:UIView!
 
    weak  var cellDelegate: HistoryButtonCellDelegate?
 
@@ -28,8 +24,8 @@ class AppointHistoryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        Utility.addAllSidesShadowOnView(viewBackground)
-        Utility.setViewCornerRadius(viewBackground, 8)
+        Utility.addAllSidesShadowOnView(viewBackgrounds)
+        Utility.setViewCornerRadius(viewBackgrounds, 8)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,16 +33,16 @@ class AppointHistoryCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    var cellViewModel: HistoryResponse? {
+    var cellViewModel: OPDResponse? {
         didSet {
-            let status = cellViewModel?.visit.visitStatus
-            let locationCamp = cellViewModel?.masCamp.landMark
-            self.lblAppointmentStatus.text = status
+            let status = cellViewModel?.masDepartment.departmentName
+            let locationCamp = cellViewModel?.masCamp.masMMU.mmuName
+            self.lblDepartmentName.text = status
             if let camp = locationCamp {
-                self.lblCampLocation.text = camp
+                self.lblMMUName.text = camp
             }
-            self.lblAppointmentdate.text = ""
-            self.lblAppointmentTime.text = ""
+            self.lblDate.text = ""
+            self.lblPatientName.text = cellViewModel?.patient.patientName
             
         }
     }

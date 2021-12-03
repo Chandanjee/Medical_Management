@@ -1,15 +1,16 @@
 //
-//  AppointmentHistoryVC.swift
+//  OPDHistoryVC.swift
 //  Decoy
 //
-//  Created by MAC on 28/11/21.
+//  Created by MAC on 01/12/21.
 //
 
 import UIKit
 import MBProgressHUD
 
-class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
-   
+
+class OPDHistoryVC: UIViewController {
+    
     
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var fromDateTxt:UITextField!
@@ -22,9 +23,9 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     var selectedTextField = 0
 
     private let apiManager = NetworkManager()
-    var userHistoryModel = [HistoryResponse]()
+    var userHistoryModel = [OPDResponse]()
 
-    let serviceURL = BaseUrl.baseURL + "getDataFromPatientIdAndDates"
+    let serviceURL = BaseUrl.baseURL + "fetchCompleteOpdData"
     let serviceURLDelete = BaseUrl.baseURL + "cancelVisit"
 
     override func viewDidLoad() {
@@ -34,7 +35,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         } else {
             // Fallback on earlier versions
         }
-        tableView.register(AppointHistoryCell.nib, forCellReuseIdentifier: AppointHistoryCell.identifier)
+        tableView.register(OPDTableCell.nib, forCellReuseIdentifier: OPDTableCell.identifier)
 
 //        theImageView.image = theImageView.image?.withRenderingMode(.alwaysTemplate)
 //        theImageView.tintColor = UIColor.red
@@ -56,6 +57,10 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         tableView.layoutIfNeeded()
         tableView.reloadData()
         
+    }
+    
+    @IBAction func tapToBack(_ sender:Any){
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: Delegate Method
@@ -186,7 +191,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         apiManager.apiPostView(serviceName: serviceURL, parameters: dataDic, completionHandler: {(results,error) in
             if let resultdata = results {
                 print(resultdata)
-                let details = try? newJSONDecoder().decode(AppointHistoryResponseModel.self, from: resultdata)
+                let details = try? newJSONDecoder().decode(OPDResponseModel.self, from: resultdata)
                 //                print(details?.response[0].location)
                 //                print(details?.response[0].landMark)
                 print("Total array iof appointment ==",details?.response.count as Any, self.userHistoryModel)
@@ -217,16 +222,14 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     @IBAction func tapToSearch(_ sender:Any){
         self.API_CheckBydateAppointment()
     }
-    @IBAction func tapToBack(_ sender:Any){
-        self.navigationController?.popViewController(animated: true)
-    }
+    
     func API_DeleteAppointment(index:Int){
 //        {"visitID":"406","patientId":"204"}
         let itemData = userHistoryModel[index]
-        let Visit = itemData.visit.visitID
-        let Patient = itemData.visit.patientID
-        let requestData : [String:Any] = ["visitID":Visit,
-                                          "patientId":Patient]
+//        let Visit = itemData.visit.visitID
+//        let Patient = itemData.visit.patientID
+        let requestData : [String:Any] = ["visitID":"Visit",
+                                          "patientId":"Patient"]
         print("Delete Request data and url",serviceURLDelete,requestData)
         apiManager.Api_GetWithData(serviceName: serviceURLDelete, parameters: requestData, completionHandler: {
             (resultData,error) in
@@ -251,7 +254,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     }
 }
 
-extension AppointmentHistoryVC:UITextViewDelegate,UITableViewDataSource{
+extension OPDHistoryVC:UITextViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -262,15 +265,14 @@ extension AppointmentHistoryVC:UITextViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AppointHistoryCell", for: indexPath) as? AppointHistoryCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OPDTableCell", for: indexPath) as? OPDTableCell else {
             fatalError("can't dequeue CustomCell")
         }
-        cell.btnCancel.tag = indexPath.row
-        cell.btnReshdule.tag = indexPath.row + 2
-        cell.cellDelegate = self
+//        cell.btnCancel.tag = indexPath.row
+//        cell.btnReshdule.tag = indexPath.row + 2
+//        cell.cellDelegate = self
         cell.cellViewModel = userHistoryModel[indexPath.row]
 
-//        cell.addShadow(backgroundColor: .white, cornerRadius: 13, shadowRadius: 5, shadowOpacity: 0.1, shadowPathInset: (dx: 8, dy: 6), shadowPathOffset: (dx: 0, dy: 2))
         return cell
     }
     

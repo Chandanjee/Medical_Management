@@ -1,15 +1,15 @@
 //
-//  AppointmentHistoryVC.swift
+//  LAbResultViewController.swift
 //  Decoy
 //
-//  Created by MAC on 28/11/21.
+//  Created by MAC on 01/12/21.
 //
 
 import UIKit
 import MBProgressHUD
 
-class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
-   
+class LAbResultViewController: UIViewController {
+    
     
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var fromDateTxt:UITextField!
@@ -22,9 +22,11 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     var selectedTextField = 0
 
     private let apiManager = NetworkManager()
-    var userHistoryModel = [HistoryResponse]()
+    var userHistoryModel = [LABResponse]()
 
-    let serviceURL = BaseUrl.baseURL + "getDataFromPatientIdAndDates"
+//    let serviceURL = BaseUrl.baseURL + "getLabResult" //http://103.133.215.182:8080/MobileMedicalUnit/
+    let serviceURL = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getLabResult" //http://103.133.215.182:8080/MobileMedicalUnit/
+
     let serviceURLDelete = BaseUrl.baseURL + "cancelVisit"
 
     override func viewDidLoad() {
@@ -34,7 +36,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         } else {
             // Fallback on earlier versions
         }
-        tableView.register(AppointHistoryCell.nib, forCellReuseIdentifier: AppointHistoryCell.identifier)
+        tableView.register(LABResultTableCell.nib, forCellReuseIdentifier: LABResultTableCell.identifier)
 
 //        theImageView.image = theImageView.image?.withRenderingMode(.alwaysTemplate)
 //        theImageView.tintColor = UIColor.red
@@ -172,9 +174,9 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         let enddate = toDate + " " + "23:59:59"
 //        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 //        let resultString = inputFormatter.string(from: dt)
-        let dictData: [String:Any] = ["fromDate":startDate, //"2021-10-28 00:00:00", //startDate,
+        let dictData: [String:Any] = ["fromDate":"2021-10-28 00:00:00", //startDate,
                                       "patientId":String(id!),
-                                      "toDate":enddate //"2021-11-30 23:59:59"//enddate
+                                      "toDate":"2021-11-30 23:59:59" //enddate
                                      ]
         return dictData
     }
@@ -186,7 +188,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         apiManager.apiPostView(serviceName: serviceURL, parameters: dataDic, completionHandler: {(results,error) in
             if let resultdata = results {
                 print(resultdata)
-                let details = try? newJSONDecoder().decode(AppointHistoryResponseModel.self, from: resultdata)
+                let details = try? newJSONDecoder().decode(LABResponseModel.self, from: resultdata)
                 //                print(details?.response[0].location)
                 //                print(details?.response[0].landMark)
                 print("Total array iof appointment ==",details?.response.count as Any, self.userHistoryModel)
@@ -217,16 +219,17 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     @IBAction func tapToSearch(_ sender:Any){
         self.API_CheckBydateAppointment()
     }
+    
     @IBAction func tapToBack(_ sender:Any){
         self.navigationController?.popViewController(animated: true)
     }
     func API_DeleteAppointment(index:Int){
 //        {"visitID":"406","patientId":"204"}
         let itemData = userHistoryModel[index]
-        let Visit = itemData.visit.visitID
-        let Patient = itemData.visit.patientID
-        let requestData : [String:Any] = ["visitID":Visit,
-                                          "patientId":Patient]
+//        let Visit = itemData.visit.visitID
+//        let Patient = itemData.visit.patientID
+        let requestData : [String:Any] = ["visitID":"Visit",
+                                          "patientId":"Patient"]
         print("Delete Request data and url",serviceURLDelete,requestData)
         apiManager.Api_GetWithData(serviceName: serviceURLDelete, parameters: requestData, completionHandler: {
             (resultData,error) in
@@ -251,7 +254,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     }
 }
 
-extension AppointmentHistoryVC:UITextViewDelegate,UITableViewDataSource{
+extension LAbResultViewController:UITextViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -262,15 +265,14 @@ extension AppointmentHistoryVC:UITextViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AppointHistoryCell", for: indexPath) as? AppointHistoryCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LABResultTableCell", for: indexPath) as? LABResultTableCell else {
             fatalError("can't dequeue CustomCell")
         }
-        cell.btnCancel.tag = indexPath.row
-        cell.btnReshdule.tag = indexPath.row + 2
-        cell.cellDelegate = self
+//        cell.btnCancel.tag = indexPath.row
+//        cell.btnReshdule.tag = indexPath.row + 2
+//        cell.cellDelegate = self
         cell.cellViewModel = userHistoryModel[indexPath.row]
 
-//        cell.addShadow(backgroundColor: .white, cornerRadius: 13, shadowRadius: 5, shadowOpacity: 0.1, shadowPathInset: (dx: 8, dy: 6), shadowPathOffset: (dx: 0, dy: 2))
         return cell
     }
     

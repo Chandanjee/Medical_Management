@@ -50,8 +50,9 @@ class LABResultTableCell: UITableViewCell {
 //            let locationCamp = cellViewModel?.masCamp.landMark
             let formatter2 = DateFormatter()
             formatter2.dateFormat = "hh:mm a"
-//            let start = formattedDateFromString(dateString: cellViewModel?.date, withFormat: "dd-MM-yyy")
-            self.lblDate.text = cellViewModel?.date
+            let start = formattedDateFromString(dateString: cellViewModel!.date, withFormat: "yyyy-MM-dd HH:mm:ss.SSS")
+//            print("date=",start)
+            self.lblDate.text = start
             self.lblInvestigationName.text = cellViewModel?.investigationName
             self.lblResult.text = cellViewModel?.result
             self.lblUnits.text = cellViewModel?.unit

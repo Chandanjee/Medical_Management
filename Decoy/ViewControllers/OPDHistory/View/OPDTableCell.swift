@@ -44,7 +44,15 @@ class OPDTableCell: UITableViewCell {
             if let camp = locationCamp {
                 self.lblMMUName.text = camp
             }
-            self.lblDate.text = ""
+            let timeInterval = TimeInterval((cellViewModel?.visit.visitDate)!)
+                      // create NSDate from Double (NSTimeInterval)
+            let myNSDate = Date(timeIntervalSince1970: timeInterval)
+//                      print(myNSDate)
+            let formatDate = DateFormatter()
+               formatDate.dateFormat = "dd-MM-yyyy"
+            let drawDate = formatDate.string(from: myNSDate)
+
+            self.lblDate.text = drawDate
             self.lblPatientName.text = cellViewModel?.patient.patientName
             
         }

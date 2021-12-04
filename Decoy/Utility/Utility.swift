@@ -471,8 +471,7 @@ extension String {
 //        return self.replaceString(" ", withString: "")
         return self.replacingOccurrences(of: " ", with: "")
     }
-    
-    
+
 }
 
 extension UIImageView {
@@ -482,4 +481,20 @@ func setImageTintColor(_ color: UIColor) {
     self.image = tintedImage
     self.tintColor = color
   }
+}
+
+func formattedDateFromString(dateString: String, withFormat format: String) -> String? {
+
+    let inputFormatter = DateFormatter()
+    inputFormatter.dateFormat = format
+
+    if let date = inputFormatter.date(from: dateString) {
+
+        let outputFormatter = DateFormatter()
+      outputFormatter.dateFormat =  "dd-MM-yyyy"
+
+        return outputFormatter.string(from: date)
+    }
+
+    return nil
 }

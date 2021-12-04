@@ -2037,7 +2037,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLn-x2-Gj5">
-                                        <rect key="frame" x="8" y="45" width="55" height="22"/>
+                                        <rect key="frame" x="7.9999999999999964" y="45" width="54.666666666666657" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="3tW-mF-nbv"/>
                                         </constraints>
@@ -2072,7 +2072,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="732"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjf-ty-Gg8">
-                                        <rect key="frame" x="28" y="400" width="319" height="50"/>
+                                        <rect key="frame" x="28" y="470" width="319" height="50"/>
                                         <color key="backgroundColor" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="U6g-b3-aUq"/>
@@ -2093,7 +2093,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsD-jf-4Oy">
-                                        <rect key="frame" x="8" y="10" width="359" height="330"/>
+                                        <rect key="frame" x="8" y="10" width="359" height="440"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9B1-yi-pKA" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="10" width="319" height="60"/>
@@ -2134,7 +2134,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yQG-tK-1iR" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="170" width="319" height="70"/>
+                                                <rect key="frame" x="20" y="250" width="319" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="OsO-EJ-Cqu"/>
                                                 </constraints>
@@ -2156,7 +2156,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z1D-v8-1Qk" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="255" width="319" height="70"/>
+                                                <rect key="frame" x="20" y="335" width="319" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="Z0Z-dW-bov"/>
                                                 </constraints>
@@ -2177,6 +2177,44 @@
                                                     <outlet property="delegate" destination="xjd-MN-LCr" id="0CH-TK-0cf"/>
                                                 </connections>
                                             </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="3pZ-uV-Su7">
+                                                <rect key="frame" x="20" y="187" width="319" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knE-SL-fem">
+                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="30"/>
+                                                        <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Years" image="circle_30_blank">
+                                                            <color key="titleColor" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnYearAction:" destination="xjd-MN-LCr" eventType="touchUpInside" id="UgT-VZ-AfH"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cI-yD-wDW">
+                                                        <rect key="frame" x="114" y="0.0" width="91" height="30"/>
+                                                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Months" image="circle_30_blank">
+                                                            <color key="titleColor" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnMonthsAction:" destination="xjd-MN-LCr" eventType="touchUpInside" id="5Tz-FF-cEY"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEw-F5-Sjz">
+                                                        <rect key="frame" x="228" y="0.0" width="91" height="30"/>
+                                                        <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Days" image="circle_30_blank">
+                                                            <color key="titleColor" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnDaysAction:" destination="xjd-MN-LCr" eventType="touchUpInside" id="bwu-nk-4sF"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="0G2-mo-G8J"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -2184,13 +2222,16 @@
                                             <constraint firstItem="z1D-v8-1Qk" firstAttribute="top" secondItem="yQG-tK-1iR" secondAttribute="bottom" constant="15" id="6Gg-89-mCg"/>
                                             <constraint firstItem="yQG-tK-1iR" firstAttribute="leading" secondItem="zsD-jf-4Oy" secondAttribute="leading" constant="20" symbolic="YES" id="Bwk-qV-K5A"/>
                                             <constraint firstItem="9B1-yi-pKA" firstAttribute="leading" secondItem="zsD-jf-4Oy" secondAttribute="leading" constant="20" symbolic="YES" id="ELm-dX-Pbr"/>
-                                            <constraint firstItem="yQG-tK-1iR" firstAttribute="top" secondItem="CKs-Aq-Yjq" secondAttribute="bottom" constant="15" id="JUn-xz-Gr1"/>
+                                            <constraint firstItem="yQG-tK-1iR" firstAttribute="top" secondItem="3pZ-uV-Su7" secondAttribute="bottom" constant="33" id="Fys-vv-Jef"/>
                                             <constraint firstItem="CKs-Aq-Yjq" firstAttribute="leading" secondItem="zsD-jf-4Oy" secondAttribute="leading" constant="20" symbolic="YES" id="Oih-sU-0qF"/>
                                             <constraint firstItem="9B1-yi-pKA" firstAttribute="top" secondItem="zsD-jf-4Oy" secondAttribute="top" constant="10" id="PT4-9y-IIk"/>
+                                            <constraint firstItem="3pZ-uV-Su7" firstAttribute="leading" secondItem="zsD-jf-4Oy" secondAttribute="leading" constant="20" symbolic="YES" id="PxM-tt-S1w"/>
                                             <constraint firstAttribute="trailing" secondItem="z1D-v8-1Qk" secondAttribute="trailing" constant="20" symbolic="YES" id="QhN-da-7bE"/>
                                             <constraint firstAttribute="trailing" secondItem="yQG-tK-1iR" secondAttribute="trailing" constant="20" symbolic="YES" id="XF6-8C-3xE"/>
-                                            <constraint firstAttribute="height" constant="330" id="ZiK-e1-Flx"/>
-                                            <constraint firstAttribute="bottom" secondItem="z1D-v8-1Qk" secondAttribute="bottom" constant="5" id="gf0-Jx-Oku"/>
+                                            <constraint firstAttribute="height" constant="440" id="ZiK-e1-Flx"/>
+                                            <constraint firstItem="3pZ-uV-Su7" firstAttribute="top" secondItem="CKs-Aq-Yjq" secondAttribute="bottom" constant="32" id="fcW-Gv-Amm"/>
+                                            <constraint firstAttribute="bottom" secondItem="z1D-v8-1Qk" secondAttribute="bottom" constant="35" id="gf0-Jx-Oku"/>
+                                            <constraint firstAttribute="trailing" secondItem="3pZ-uV-Su7" secondAttribute="trailing" constant="20" symbolic="YES" id="gin-E2-xLm"/>
                                             <constraint firstAttribute="trailing" secondItem="CKs-Aq-Yjq" secondAttribute="trailing" constant="20" symbolic="YES" id="uzT-65-Lpv"/>
                                             <constraint firstItem="z1D-v8-1Qk" firstAttribute="leading" secondItem="zsD-jf-4Oy" secondAttribute="leading" constant="20" symbolic="YES" id="zM0-06-dx7"/>
                                         </constraints>
@@ -2203,7 +2244,7 @@
                                     <constraint firstAttribute="bottom" secondItem="dc8-qB-gy6" secondAttribute="bottom" id="6yq-CM-5Ul"/>
                                     <constraint firstItem="bjf-ty-Gg8" firstAttribute="centerX" secondItem="w0F-SD-26Y" secondAttribute="centerX" id="9Fq-xI-Sx7"/>
                                     <constraint firstAttribute="trailing" secondItem="dc8-qB-gy6" secondAttribute="trailing" id="Inf-91-g9y"/>
-                                    <constraint firstItem="bjf-ty-Gg8" firstAttribute="top" secondItem="zsD-jf-4Oy" secondAttribute="bottom" constant="60" id="Ok1-Iz-SLO"/>
+                                    <constraint firstItem="bjf-ty-Gg8" firstAttribute="top" secondItem="zsD-jf-4Oy" secondAttribute="bottom" constant="20" id="Ok1-Iz-SLO"/>
                                     <constraint firstItem="zsD-jf-4Oy" firstAttribute="top" secondItem="w0F-SD-26Y" secondAttribute="top" constant="10" id="Pn8-pm-lOF"/>
                                     <constraint firstAttribute="trailing" secondItem="zsD-jf-4Oy" secondAttribute="trailing" constant="8" id="RiN-aw-Bu5"/>
                                     <constraint firstItem="dc8-qB-gy6" firstAttribute="top" secondItem="w0F-SD-26Y" secondAttribute="top" id="Yvw-eO-2HY"/>
@@ -2225,6 +2266,9 @@
                     </view>
                     <connections>
                         <outlet property="ageTxt" destination="yQG-tK-1iR" id="KIh-e7-5dh"/>
+                        <outlet property="btnDays" destination="XEw-F5-Sjz" id="2AQ-4y-yb7"/>
+                        <outlet property="btnMonth" destination="3cI-yD-wDW" id="2g3-yE-3l4"/>
+                        <outlet property="btnYear" destination="knE-SL-fem" id="7Vz-fi-2aM"/>
                         <outlet property="genderTxt" destination="CKs-Aq-Yjq" id="pAN-aS-2DD"/>
                         <outlet property="mobilenumberTxt" destination="z1D-v8-1Qk" id="Trg-3B-5yI"/>
                         <outlet property="nameTxt" destination="9B1-yi-pKA" id="L4n-D4-vF6"/>
@@ -2331,6 +2375,7 @@
         <image name="arrow.down.doc.fill" catalog="system" width="115" height="128"/>
         <image name="background" width="1648" height="3152"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="circle_30_blank" width="30" height="30"/>
         <image name="footer" width="2036" height="632"/>
         <image name="ic_lock" width="26" height="31"/>
         <image name="ic_search" width="26" height="19"/>

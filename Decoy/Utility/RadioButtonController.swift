@@ -11,8 +11,8 @@ class RadioButtonController: NSObject {
     var buttonsArray: [UIButton]! {
         didSet {
             for b in buttonsArray {
-                b.setImage(UIImage(named: "radio_off"), for: .normal)
-                b.setImage(UIImage(named: "radio_on"), for: .selected)
+                b.setImage(UIImage(named: "circle_30_blank"), for: .normal)
+                b.setImage(UIImage(named: "circle_30_fill"), for: .selected)
             }
         }
     }

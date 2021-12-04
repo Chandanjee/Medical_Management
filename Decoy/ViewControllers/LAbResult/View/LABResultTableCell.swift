@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol LAPResultButtonCellDelegate : AnyObject {
+    func didLAPPressButton(tag: Int,Status:Bool)
+}
+
 class LABResultTableCell: UITableViewCell {
     @IBOutlet weak var lblResult:UILabel!
     @IBOutlet weak var lblInvestigationName:UILabel!
@@ -14,11 +18,11 @@ class LABResultTableCell: UITableViewCell {
     @IBOutlet weak var lblUnits:UILabel!
     @IBOutlet weak var lblValidatedBy:UILabel!
     @IBOutlet weak var lblRange:UILabel!
-    @IBOutlet weak var btnCancel:UIButton!
-    @IBOutlet weak var btnReshdule:UIButton!
+//    @IBOutlet weak var btnCancel:UIButton!
+    @IBOutlet weak var btnReport:UIButton!
     @IBOutlet weak var viewBackground:UIView!
 
-//   weak  var cellDelegate: HistoryButtonCellDelegate?
+   weak  var cellDelegate: LAPResultButtonCellDelegate?
 
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
@@ -63,9 +67,9 @@ class LABResultTableCell: UITableViewCell {
 //        cellDelegate?.didPressButton(tag: sender.tag, Status: true)
     }
     
-    @IBAction func buttonReschduleAction(_ sender: UIButton) {
+    @IBAction func buttonReportAction(_ sender: UIButton) {
 //             buttonPressed()
-        print("Delete ===")
-//        cellDelegate?.didPressButton(tag: sender.tag, Status: false)
+        print("Report ===")
+        cellDelegate?.didLAPPressButton(tag: sender.tag, Status: false)
     }
 }

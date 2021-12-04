@@ -8,7 +8,7 @@
 import UIKit
 import MBProgressHUD
 
-class LAbResultViewController: UIViewController {
+class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
     
     
     @IBOutlet weak var tableView:UITableView!
@@ -26,6 +26,7 @@ class LAbResultViewController: UIViewController {
 
 //    let serviceURL = BaseUrl.baseURL + "getLabResult" //http://103.133.215.182:8080/MobileMedicalUnit/
     let serviceURL = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getLabResult" //http://103.133.215.182:8080/MobileMedicalUnit/
+    let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
 
     let serviceURLDelete = BaseUrl.baseURL + "cancelVisit"
 
@@ -61,11 +62,17 @@ class LAbResultViewController: UIViewController {
     }
     
     //MARK: Delegate Method
-    func didPressButton(tag: Int,Status:Bool) {
+    func didLAPPressButton(tag: Int,Status:Bool) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let v1 = storyboard.instantiateViewController(withIdentifier:"PDFViewController") as? PDFViewController
         if Status == true {
-            self.API_DeleteAppointment(index: tag)
         }else{
-            let Actualtag = tag - 2
+            let visitID = self.userHistoryModel[tag]
+            let id = visitID.orderHDID
+            let urlStr = basePDFUrl + "generateLabHistoryReport" + "?oderHdId=\(id)"
+            v1?.titleData = "Lab Report"
+            v1?.pdfURL = URL(string: urlStr)
+                self.navigationController?.pushViewController(v1!, animated: true)
         }
     }
     
@@ -77,13 +84,13 @@ class LAbResultViewController: UIViewController {
         
         datePicker.autoresizingMask = .flexibleWidth
         datePicker.datePickerMode = .date
-        datePicker.minimumDate = Date()
+//        datePicker.minimumDate = Date()
         
         let currentDate = NSDate()
 
         let prevDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate as Date)
         if status == true {
-            datePicker.minimumDate = prevDate
+//            datePicker.minimumDate = prevDate
         }
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle  = .wheels
@@ -269,8 +276,8 @@ extension LAbResultViewController:UITextViewDelegate,UITableViewDataSource{
             fatalError("can't dequeue CustomCell")
         }
 //        cell.btnCancel.tag = indexPath.row
-//        cell.btnReshdule.tag = indexPath.row + 2
-//        cell.cellDelegate = self
+        cell.btnReport.tag = indexPath.row
+        cell.cellDelegate = self
         cell.cellViewModel = userHistoryModel[indexPath.row]
 
         return cell

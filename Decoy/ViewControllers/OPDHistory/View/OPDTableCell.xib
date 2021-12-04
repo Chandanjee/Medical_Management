@@ -110,6 +110,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonSlipAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cBJ-RI-Niy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoM-b7-oez">
                                 <rect key="frame" x="261" y="150" width="90" height="35"/>
@@ -125,6 +128,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonRefferalAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mSn-qJ-Lgs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -162,6 +168,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnReferral" destination="FoM-b7-oez" id="2sM-2j-cY2"/>
+                <outlet property="btnSLip" destination="DJR-ve-jKd" id="Yf7-Pn-cAa"/>
                 <outlet property="lblDate" destination="DzI-qV-7XJ" id="dEO-Zd-qNx"/>
                 <outlet property="lblDepartmentName" destination="gPx-NL-Qba" id="Icf-0l-Qem"/>
                 <outlet property="lblMMUName" destination="Kgg-5p-4sL" id="I3K-xe-LXX"/>

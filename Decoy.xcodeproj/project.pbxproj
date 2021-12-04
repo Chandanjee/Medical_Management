@@ -25,6 +25,7 @@
 		041673792725AAF800DE0045 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041673782725AAF800DE0045 /* UITableView+Extension.swift */; };
 		0416737C2725AB2900DE0045 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416737B2725AB2900DE0045 /* NSObject+Extension.swift */; };
 		0427A8C5275A20C20022570A /* OPDResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427A8C4275A20C10022570A /* OPDResponseModel.swift */; };
+		0427A8C8275B7DB30022570A /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427A8C7275B7DB30022570A /* PDFViewController.swift */; };
 		042B7FF0273AE7FA00E2DD6C /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */; };
 		044064E3274D631900C4E81F /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E2274D631900C4E81F /* CustomPickerView.swift */; };
 		044064E5274E234200C4E81F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E4274E234200C4E81F /* LocationManager.swift */; };
@@ -124,6 +125,7 @@
 		041673782725AAF800DE0045 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		0416737B2725AB2900DE0045 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		0427A8C4275A20C10022570A /* OPDResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPDResponseModel.swift; sourceTree = "<group>"; };
+		0427A8C7275B7DB30022570A /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
 		044064E2274D631900C4E81F /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		044064E4274E234200C4E81F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -263,6 +265,14 @@
 				0427A8C4275A20C10022570A /* OPDResponseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0427A8C6275B7D860022570A /* PDFViewer */ = {
+			isa = PBXGroup;
+			children = (
+				0427A8C7275B7DB30022570A /* PDFViewController.swift */,
+			);
+			path = PDFViewer;
 			sourceTree = "<group>";
 		};
 		04572860275523F700439C34 /* View */ = {
@@ -567,6 +577,7 @@
 		E30A2F1C27182CC200AABC70 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0427A8C6275B7D860022570A /* PDFViewer */,
 				047830F82757EE9B005C594B /* LAbResult */,
 				047830F72757EE8D005C594B /* OPDHistory */,
 				048585912753FD1C00055AC8 /* AppointmentHistory */,
@@ -804,6 +815,7 @@
 				E30A2F1727181EC200AABC70 /* LoginViewController.swift in Sources */,
 				04996CAF2727202F0006BDE2 /* UserInfoViewController.swift in Sources */,
 				047830F627579112005C594B /* RadioButtonController.swift in Sources */,
+				0427A8C8275B7DB30022570A /* PDFViewController.swift in Sources */,
 				E30A2F4027183BBE00AABC70 /* HomeInteractor.swift in Sources */,
 				0416733A27255BA900DE0045 /* ProfileTableCell.swift in Sources */,
 				045728632755243000439C34 /* AppointHistoryCell.swift in Sources */,

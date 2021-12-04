@@ -9,7 +9,7 @@ import UIKit
 import MBProgressHUD
 
 
-class OPDHistoryVC: UIViewController {
+class OPDHistoryVC: UIViewController,OPDButtonCellDelegate {
     
     
     @IBOutlet weak var tableView:UITableView!
@@ -27,7 +27,7 @@ class OPDHistoryVC: UIViewController {
 
     let serviceURL = BaseUrl.baseURL + "fetchCompleteOpdData"
     let serviceURLDelete = BaseUrl.baseURL + "cancelVisit"
-
+let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 13.0, *) {
@@ -64,11 +64,24 @@ class OPDHistoryVC: UIViewController {
     }
     
     //MARK: Delegate Method
-    func didPressButton(tag: Int,Status:Bool) {
+    func didOPDPressButton(tag: Int,Status:Bool) {
+//        let visitID = self.userHistoryModel[tag]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let v1 = storyboard.instantiateViewController(withIdentifier:"PDFViewController") as? PDFViewController
         if Status == true {
-            self.API_DeleteAppointment(index: tag)
+            let visitID = self.userHistoryModel[tag]
+            let id = visitID.visit.visitID
+            let urlStr = basePDFUrl + "referReportSlip" + "?visit_id=\(id)"
+            v1?.titleData = "Refer Report"
+            v1?.pdfURL = URL(string: urlStr)
+                self.navigationController?.pushViewController(v1!, animated: true)
         }else{
-            let Actualtag = tag - 2
+            let visitID = self.userHistoryModel[tag]
+            let id = visitID.visit.visitID
+            let urlStr = basePDFUrl + "printCaseSheet" + "?visit_id=\(id)"
+            v1?.titleData = "Slip"
+            v1?.pdfURL = URL(string: urlStr)
+                self.navigationController?.pushViewController(v1!, animated: true)
         }
     }
     
@@ -268,9 +281,9 @@ extension OPDHistoryVC:UITextViewDelegate,UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OPDTableCell", for: indexPath) as? OPDTableCell else {
             fatalError("can't dequeue CustomCell")
         }
-//        cell.btnCancel.tag = indexPath.row
-//        cell.btnReshdule.tag = indexPath.row + 2
-//        cell.cellDelegate = self
+        cell.btnSLip.tag = indexPath.row
+        cell.btnReferral.tag = indexPath.row
+        cell.cellDelegate = self
         cell.cellViewModel = userHistoryModel[indexPath.row]
 
         return cell

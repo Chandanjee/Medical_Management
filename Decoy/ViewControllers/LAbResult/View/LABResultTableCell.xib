@@ -135,11 +135,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM6-6j-WZe">
-                                <rect key="frame" x="264" y="222" width="90" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM6-6j-WZe">
+                                <rect key="frame" x="257" y="218" width="90" height="36"/>
                                 <color key="backgroundColor" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Mfz-A0-zIT"/>
+                                    <constraint firstAttribute="width" constant="90" id="xdL-Mn-uXN"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Report" image="ic_pdf">
@@ -150,6 +151,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonReportAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3UX-Ti-6BK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -163,11 +167,11 @@
                             <constraint firstItem="q2U-1q-fbU" firstAttribute="leading" secondItem="W2x-Hc-FCX" secondAttribute="leading" constant="15" id="EuR-lT-A28"/>
                             <constraint firstItem="XWh-3C-8ah" firstAttribute="leading" secondItem="cfC-f1-e9M" secondAttribute="trailing" constant="11" id="GPP-fL-ruU"/>
                             <constraint firstItem="cfC-f1-e9M" firstAttribute="top" secondItem="eR5-HZ-lHf" secondAttribute="bottom" constant="10" id="KYP-0j-EHC"/>
-                            <constraint firstAttribute="bottom" secondItem="pM6-6j-WZe" secondAttribute="bottom" constant="2" id="LcB-AW-SNB"/>
+                            <constraint firstAttribute="bottom" secondItem="pM6-6j-WZe" secondAttribute="bottom" constant="6" id="LcB-AW-SNB"/>
                             <constraint firstItem="bXA-iq-GFL" firstAttribute="leading" secondItem="8Wt-Mu-FCj" secondAttribute="trailing" constant="11" id="MNy-1I-lx1"/>
                             <constraint firstItem="uvr-T2-GLV" firstAttribute="leading" secondItem="W2x-Hc-FCX" secondAttribute="leading" constant="15" id="N7P-oM-ySd"/>
                             <constraint firstItem="8Wt-Mu-FCj" firstAttribute="leading" secondItem="W2x-Hc-FCX" secondAttribute="leading" constant="15" id="PdS-L3-Ek3"/>
-                            <constraint firstAttribute="trailing" secondItem="pM6-6j-WZe" secondAttribute="trailing" constant="5" id="Vcd-lW-KQ9"/>
+                            <constraint firstAttribute="trailing" secondItem="pM6-6j-WZe" secondAttribute="trailing" constant="12" id="Vcd-lW-KQ9"/>
                             <constraint firstItem="FnA-Al-5dX" firstAttribute="leading" secondItem="W2x-Hc-FCX" secondAttribute="leading" constant="15" id="WoN-NX-qC7"/>
                             <constraint firstItem="cfC-f1-e9M" firstAttribute="leading" secondItem="W2x-Hc-FCX" secondAttribute="leading" constant="15" id="Yp8-gc-o84"/>
                             <constraint firstItem="hkl-6M-8Af" firstAttribute="top" secondItem="bXA-iq-GFL" secondAttribute="bottom" constant="15" id="bys-yr-i5b"/>
@@ -193,6 +197,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnReport" destination="pM6-6j-WZe" id="Sg7-GA-r6t"/>
                 <outlet property="lblDate" destination="zNv-bW-fn9" id="wdH-g4-w9t"/>
                 <outlet property="lblInvestigationName" destination="bXA-iq-GFL" id="vfS-rJ-msP"/>
                 <outlet property="lblRange" destination="Y3f-ZN-5e7" id="Mp0-4O-G6S"/>

@@ -6,6 +6,9 @@
 //
 
 import UIKit
+protocol OPDButtonCellDelegate : AnyObject {
+    func didOPDPressButton(tag: Int,Status:Bool)
+}
 
 class OPDTableCell: UITableViewCell {
     @IBOutlet weak var lblDepartmentName:UILabel!
@@ -16,7 +19,7 @@ class OPDTableCell: UITableViewCell {
     @IBOutlet weak var btnReferral:UIButton!
     @IBOutlet weak var viewBackgrounds:UIView!
 
-   weak  var cellDelegate: HistoryButtonCellDelegate?
+   weak  var cellDelegate: OPDButtonCellDelegate?
 
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
@@ -47,15 +50,15 @@ class OPDTableCell: UITableViewCell {
         }
     }
     
-    @IBAction func buttonDeleteAction(_ sender: UIButton) {
+    @IBAction func buttonRefferalAction(_ sender: UIButton) {
 //             buttonPressed()
-        print("Delete")
-        cellDelegate?.didPressButton(tag: sender.tag, Status: true)
+        print("buttonRefferalAction")
+        cellDelegate?.didOPDPressButton(tag: sender.tag, Status: true)
     }
     
-    @IBAction func buttonReschduleAction(_ sender: UIButton) {
+    @IBAction func buttonSlipAction(_ sender: UIButton) {
 //             buttonPressed()
-        print("Delete ===")
-        cellDelegate?.didPressButton(tag: sender.tag, Status: false)
+        print("buttonSlipAction ===")
+        cellDelegate?.didOPDPressButton(tag: sender.tag, Status: false)
     }
 }

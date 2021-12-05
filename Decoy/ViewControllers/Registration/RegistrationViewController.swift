@@ -24,7 +24,7 @@ class RegistrationViewController: UIViewController {
     var OTPToken = ""
     let registerData = RegisterDetail()
     private let apiManager = NetworkManager()
-    let serviceUrlRegis = BaseUrl.baseURL + "login"
+    let serviceUrlRegis = BaseUrl.baseURL + "createPatient"
     let serviceURLGender = BaseUrl.baseURL + "getAllRelation"
 //https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/9897040757/AUTOGEN/MMULOGIN
     let serviceURlOTP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/"
@@ -268,6 +268,22 @@ print(timeFromDate)
             [weak self] (response, error) in
             if let response = response {
                 print(response)
+                do{
+                    let json = try JSONSerialization.jsonObject(with: response, options: []) as? [String : Any]
+                    print(json as Any)
+                    let status = json?["status"] as? NSNumber
+                    let msg = json?["message"] as? String
+                    
+                    if status == 200 {
+                        MBProgressHUD.hide(for: (self?.view)!, animated: true)
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                    if status == 401 {
+                        MBProgressHUD.hide(for: (self?.view)!, animated: true)
+                        Utility().addAlertView("Alert!", msg ?? "", "ok", self!)
+                        return
+                    }
+                }catch{ print("erroMsg") }
                 MBProgressHUD.hide(for: (self?.view)!, animated: true)
 
             }

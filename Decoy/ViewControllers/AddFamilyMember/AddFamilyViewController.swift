@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class AddFamilyViewController: UIViewController {
     @IBOutlet weak var tableView:UITableView!
@@ -20,11 +21,12 @@ class AddFamilyViewController: UIViewController {
         @IBOutlet weak var btnDays: UIButton!
     var arrGenderID = [String]()
     var arrGenderName = [String]()
+    var selectedGender = ""
     private let apiManager = NetworkManager()
 
     let radioController: RadioButtonController = RadioButtonController()
     let serviceURLGender = BaseUrl.baseURL + "getAllRelation"
-
+    let serviceUrlAddFamily = BaseUrl.baseURL + "createPatient"
     override func viewDidLoad() {
         super.viewDidLoad()
         addArrowBtnToTextFields()
@@ -32,7 +34,8 @@ class AddFamilyViewController: UIViewController {
         // Do any additional setup after loading the view.
         genderTxt.loadDropdownData(data: ["Select","Male","Female","Others"])
         radioController.buttonsArray = [btnYear,btnMonth,btnDays]
-              radioController.defaultButton = btnYear
+        radioController.defaultButton = btnYear
+        selectedGender = "Years"
     }
     
     //MARK: Add Arrow on TextField
@@ -48,15 +51,39 @@ class AddFamilyViewController: UIViewController {
     
     @IBAction func btnYearAction(_ sender: UIButton) {
          radioController.buttonArrayUpdated(buttonSelected: sender)
+        selectedGender = "Years"
      }
 
      @IBAction func btnMonthsAction(_ sender: UIButton) {
          radioController.buttonArrayUpdated(buttonSelected: sender)
+         selectedGender = "month"
      }
 
      @IBAction func btnDaysAction(_ sender: UIButton) {
          radioController.buttonArrayUpdated(buttonSelected: sender)
+         selectedGender = "days"
      }
+    
+    @IBAction func btnAddFamily(_ sender:Any){
+        if (self.nameTxt.text?.isEmpty == true) {
+            Utility().addAlertView("Alert!", "Enter your name.", "ok", self)
+            return
+        }else if (self.genderTxt.text?.isEmpty == true) || (self.genderTxt.text == "Select"){
+            Utility().addAlertView("Alert!", "Select your gender.", "ok", self)
+            return
+        }else if (self.ageTxt.text?.isEmpty == true){
+            Utility().addAlertView("Alert!", "Enter your age.", "ok", self)
+            return
+        }else{
+            let u_contact = ValidationClass.verifyPhoneNumber(text: mobilenumberTxt.text!)
+            guard u_contact.1 else {
+                Utility().addAlertView("Alert!", "Please set 10 digit number.", "OK", self)
+                return
+            }
+            API_Registration()
+        }
+        
+    }
     
     //MARK: Gender Api
     func getGender_API(){
@@ -97,5 +124,67 @@ class AddFamilyViewController: UIViewController {
             }
             
         })
+    }
+    
+    fileprivate func getRegisORAddFamilyParams() -> [String: Any] {
+        let dob = self.ageTxt.text
+        let ageInt = Int(dob!)
+        var date: Date? = nil
+        if selectedGender == "Years" {
+            date = Calendar.current.date(byAdding: .year, value: -ageInt!, to: Date())
+
+        } else if selectedGender == "month"{
+            date = Calendar.current.date(byAdding: .month, value: -ageInt!, to: Date())
+        }else if selectedGender == "days"{
+            date = Calendar.current.date(byAdding: .day, value: -ageInt!, to: Date())
+        }
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "yyyy-MM-dd"  //1986-11-13
+        let timeFromDate = dateFormatter.string(from: date!)
+print(timeFromDate)
+        let index =  arrGenderName.firstIndex(where: { $0 == self.genderTxt.text }) ?? 0
+        let nameID =  arrGenderID[index]
+        let password = UserDefaults.standard.value(forKey: "LoginPassword") as? String
+        let dictData: [String:Any] = ["age": self.ageTxt.text!,
+                                      "dateOfBirth": timeFromDate,
+                                      "gender": nameID,
+                                      "mobileNumber": self.mobilenumberTxt.text!,
+                                      "password": password ?? "",
+                                      "patientName": self.nameTxt.text!,
+                                      "religenID": "1"
+                                     ]
+        return dictData
+    }
+    
+    func API_Registration(){
+        let dictData = getRegisORAddFamilyParams()
+        print("Registration Json",dictData)
+        apiManager.apiPostView(serviceName: serviceUrlAddFamily, parameters: dictData, completionHandler: {
+            [weak self] (response, error) in
+            if let response = response {
+                print(response)
+                do{
+                    let json = try JSONSerialization.jsonObject(with: response, options: []) as? [String : Any]
+                    print(json as Any)
+                    let status = json?["status"] as? NSNumber
+                    let msg = json?["message"] as? String
+                    
+                    if status == 200 {
+                        MBProgressHUD.hide(for: (self?.view)!, animated: true)
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                    if status == 401 {
+                        MBProgressHUD.hide(for: (self?.view)!, animated: true)
+                        Utility().addAlertView("Alert!", msg ?? "", "ok", self!)
+                        return
+                    }
+                }catch{ print("erroMsg") }
+                MBProgressHUD.hide(for: (self?.view)!, animated: true)
+
+            }
+            
+        })
+
     }
 }

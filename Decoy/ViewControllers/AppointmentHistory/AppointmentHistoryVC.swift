@@ -63,7 +63,14 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         if Status == true {
             self.API_DeleteAppointment(index: tag)
         }else{
-            let Actualtag = tag - 2
+            let historydata = userHistoryModel[tag]
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let v1 = storyboard.instantiateViewController(withIdentifier:"RescheduleVC") as? RescheduleVC
+            v1?.userResultUpdateModel = historydata
+//            self.navigationController?.hidesBarsOnTap = true
+//            self.navigationController?.navigationBar.isHidden = true
+
+            self.navigationController?.pushViewController(v1!, animated: true)
         }
     }
     
@@ -158,8 +165,10 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     
     //MARK: - Dictionary for Search
     fileprivate func getSearchParams() -> [String: Any] {
-        let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
-
+        var id =  UserDefaults.standard.value(forKey: "patientId") as? Int
+        if id == nil {
+            id = userHistoryModel[0].patient.patientID
+        }
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
         let firstDate = formatter.date(from: self.fromDateTxt.text!)
@@ -266,7 +275,7 @@ extension AppointmentHistoryVC:UITextViewDelegate,UITableViewDataSource{
             fatalError("can't dequeue CustomCell")
         }
         cell.btnCancel.tag = indexPath.row
-        cell.btnReshdule.tag = indexPath.row + 2
+        cell.btnReshdule.tag = indexPath.row
         cell.cellDelegate = self
         cell.cellViewModel = userHistoryModel[indexPath.row]
 

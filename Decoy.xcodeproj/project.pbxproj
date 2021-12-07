@@ -61,6 +61,8 @@
 		04B832DF272494FE00379243 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B832DE272494FE00379243 /* DashboardViewController.swift */; };
 		04B832E22724952E00379243 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B832E12724952E00379243 /* SettingViewController.swift */; };
 		04BA81E92739978200024685 /* PatientRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA81E82739978200024685 /* PatientRequestModel.swift */; };
+		04C122F2275FA89C007B7EA5 /* RescheduleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C122F0275FA89C007B7EA5 /* RescheduleTableCell.swift */; };
+		04C122F3275FA89C007B7EA5 /* RescheduleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C122F1275FA89C007B7EA5 /* RescheduleTableCell.xib */; };
 		04D38B7A274A3F42006A6C78 /* CampPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D38B79274A3F42006A6C78 /* CampPlanVC.swift */; };
 		04D38B7D274B5EC0006A6C78 /* BookAppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D38B7C274B5EC0006A6C78 /* BookAppointmentVC.swift */; };
 		04E24E1F2729C8500013FDD3 /* PatientListJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E24E1E2729C8500013FDD3 /* PatientListJSONModel.swift */; };
@@ -162,6 +164,8 @@
 		04B832DE272494FE00379243 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		04B832E12724952E00379243 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04BA81E82739978200024685 /* PatientRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRequestModel.swift; sourceTree = "<group>"; };
+		04C122F0275FA89C007B7EA5 /* RescheduleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescheduleTableCell.swift; sourceTree = "<group>"; };
+		04C122F1275FA89C007B7EA5 /* RescheduleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RescheduleTableCell.xib; sourceTree = "<group>"; };
 		04D38B79274A3F42006A6C78 /* CampPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampPlanVC.swift; sourceTree = "<group>"; };
 		04D38B7C274B5EC0006A6C78 /* BookAppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointmentVC.swift; sourceTree = "<group>"; };
 		04E24E1E2729C8500013FDD3 /* PatientListJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListJSONModel.swift; sourceTree = "<group>"; };
@@ -430,6 +434,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04C122EF275F9C30007B7EA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04C122F0275FA89C007B7EA5 /* RescheduleTableCell.swift */,
+				04C122F1275FA89C007B7EA5 /* RescheduleTableCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		04D38B7B274B5E9D006A6C78 /* BookAppointment */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +600,7 @@
 		E30A2F1C27182CC200AABC70 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				04C122EF275F9C30007B7EA5 /* View */,
 				0427C9A5275E8ACB0042123A /* Reschedule */,
 				0427A8C6275B7D860022570A /* PDFViewer */,
 				047830F82757EE9B005C594B /* LAbResult */,
@@ -747,6 +761,7 @@
 				E30A2F0E27181DEB00AABC70 /* LaunchScreen.storyboard in Resources */,
 				0485859027536D4B00055AC8 /* TimeSlotViewCell.xib in Resources */,
 				04E3C2D627247455008A074B /* SmoothTabItemView.xib in Resources */,
+				04C122F3275FA89C007B7EA5 /* RescheduleTableCell.xib in Resources */,
 				E30A2F2027182CF100AABC70 /* ProfileTableViewCell.xib in Resources */,
 				04E3C2D327247455008A074B /* SmoothTabBarView.xib in Resources */,
 				E30A2F0B27181DEB00AABC70 /* Assets.xcassets in Resources */,
@@ -887,6 +902,7 @@
 				E30A2F3C27183BBE00AABC70 /* HomeWorker.swift in Sources */,
 				E30A2F55271D9D6600AABC70 /* CampPlanInteractor.swift in Sources */,
 				04996CB4272720FA0006BDE2 /* UserInfoCell.swift in Sources */,
+				04C122F2275FA89C007B7EA5 /* RescheduleTableCell.swift in Sources */,
 				04E3C2C82724735E008A074B /* Extensions.swift in Sources */,
 				0427A8C5275A20C20022570A /* OPDResponseModel.swift in Sources */,
 				0402E75A2722CCE5004D866A /* Loader.swift in Sources */,

@@ -41,6 +41,8 @@ class RescheduleVC: UIViewController {
     var userInfoModels : ResponsesData? = nil
     
     var appointModelArray = [ResponseAppointment]()
+    var userResultUpdateModel: HistoryResponse? = nil
+
     var arrCityName = [String]()
     var arrCampName = [String]()
     override func viewDidLoad() {
@@ -52,21 +54,6 @@ class RescheduleVC: UIViewController {
         Utility.addAllSidesShadowOnView(MiddleSearchView)
         Utility.setViewCornerRadius(MiddleSearchView, 8)
         tableView.register(TimeSlotViewCell.nib, forCellReuseIdentifier: TimeSlotViewCell.identifier)
-        let name = userInfoModels?.patientName
-        self.lblFullName.text = name
-        let gend = userInfoModels?.administrativeSexID.administrativeSexCode
-        var gender = ""
-        switch gend {
-        case .f:
-            gender = "Female"
-        case .m:
-            gender = "Male"
-        case .none:
-            gender = ""
-        }
-        lblGender.text = gender
-        let age = (userInfoModels?.age.description)! + " years"
-        lblAge.text = age
         
         self.API_City()
         // Do any additional setup after loading the view.
@@ -91,7 +78,21 @@ class RescheduleVC: UIViewController {
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
         tableView.reloadData()
-        
+        let name = userResultUpdateModel?.patient.patientName
+        self.lblFullName.text = name
+        let gend = userResultUpdateModel?.patient.administrativeSexID.administrativeSexName
+        var gender = ""
+//        switch gend {
+//        case .f:
+//            gender = "Female"
+//        case .m:
+//            gender = "Male"
+//        case .none:
+//            gender = ""
+//        }
+        lblGender.text = gend
+        let age = (userResultUpdateModel?.patient.age.description)! + " years"
+        lblAge.text = age
     }
     
     override func viewDidLayoutSubviews(){
@@ -388,21 +389,27 @@ class RescheduleVC: UIViewController {
         let resultString = inputFormatter.string(from: dt)
         
 
-let datafromArray = appointModelArray[index]
-        let campID = datafromArray.campID
-        let departID = datafromArray.departmentID
-        let mmu_ID = datafromArray.masMMU
-        let lastChangeDate = mmu_ID.lastChgDate
-        let date = TimeInterval(lastChangeDate).stringFromTimeInterval()
+//let datafromArray = appointModelArray[index]
+        let campID = userResultUpdateModel?.masCamp.campID
+        let departID = userResultUpdateModel?.masDepartment.departmentID
+        let mmu_ID = userResultUpdateModel?.masCamp.masMMU
+        let lastChangeDate = mmu_ID?.lastChgDate
+        let date = TimeInterval(lastChangeDate!).stringFromTimeInterval()
         let startDateSelect = resultString + " " + date
-        let mmuid = mmu_ID.mmuID
+        let mmuid = mmu_ID?.mmuID
+        let stat = mmu_ID?.status.rawValue
        let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
-        let dictData: [String:Any] = ["camp_id": String(campID),
-                                      "departmentID": String(departID),
+        /*
+         {"camp_id":"435","departmentID":"2","lastChangeDate":"2021-12-01 17:07:11.783","mmu_id":"1","patientId":"204","status":"N","visitId":"411","visit_date":"2021-12-02 09:30:00.0"}
+         */
+        
+        let dictData: [String:Any] = ["camp_id": String(campID!),
+                                      "departmentID": String(departID!),
                                       "lastChangeDate": startDateSelect,
-                                      "mmu_id": String(mmuid),
+                                      "mmu_id": String(mmuid!),
                                       "patientId":String(id!),
-                                      "status": mmu_ID.status,
+                                      "status": String(stat!),
+                                      "visitId":String((userResultUpdateModel?.visit.visitID)!),
                                       "visit_date": bookDate
                                      ]
         

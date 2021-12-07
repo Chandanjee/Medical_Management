@@ -40,8 +40,8 @@ var targetOption = ""
     
     func Data_ListPatient(){
         MBProgressHUD.showAdded(to: self.view, animated: true)
-
-        API_getViewAllTickets(json: PatientRequestModel.init(username: "9971182412"), data: {
+      let  mobile =  UserDefaults.standard.value(forKey: "LoginMobilenum") as? String
+        API_getViewAllTickets(json: PatientRequestModel.init(username: mobile!), data: {
             
             responseData,status  in
             
@@ -50,6 +50,8 @@ var targetOption = ""
             let dataResult = responseData?.response
             if dataResult?.count ?? 0 > 0{
                 self.userInfoModel = dataResult ?? []
+                UserDefaults.standard.set(self.userInfoModel[0].patientID, forKey: "patientId")
+
             }else{
                 self.userInfoModel =  []
             }

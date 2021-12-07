@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
     let serviceURlOTP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/"
     var OTPTokenLogin = ""
 
+    let getpatientList = BaseUrl.baseURL + "getPatientList"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,9 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.txtPassword.text = "abc"
-        self.txtMobileNo.text = "9910248968"
+//        self.txtMobileNo.text = "9910248968"
+        self.txtMobileNo.text = "9897040757"
+
     }
     // MARK: - Action Login With Password
     @IBAction func tapToLogin(_ sender:Any){
@@ -180,6 +183,7 @@ class LoginViewController: UIViewController {
                     if (status == "200") {
                         UserDefaults.standard.set(patientId, forKey: "patientId")
                         UserDefaults.standard.set(Password, forKey: "LoginPassword")
+                        UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
                         data(true)
                     }else if (status == "500") {
                         data(false)
@@ -272,6 +276,7 @@ class LoginViewController: UIViewController {
                     let json = try JSONSerialization.jsonObject(with: response, options: []) as? [String : Any]
                         let status = json?["Status"] as? String
                         if status == "Success" {
+                            UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
                             MBProgressHUD.hide(for: (self?.view)!, animated: true)
                             self?.showDashboard()
                         }

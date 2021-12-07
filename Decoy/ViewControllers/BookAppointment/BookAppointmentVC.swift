@@ -273,7 +273,7 @@ class BookAppointmentVC: UIViewController {
         
 //        Loader.showLoader("Wait checking your slot...", target: self)
         var ResponseMSG:String? = ""
-        apiManager.Api_GetWithData(serviceName: urlEncode!, parameters: [:], completionHandler: {(resultDatas,error) in
+        apiManager.Api_GetWithData(serviceName: url, parameters: [:], completionHandler: {(resultDatas,error) in
             if let responsedata = resultDatas {
                 do{
                     let json = try JSONSerialization.jsonObject(with: responsedata, options: []) as? [String : Any]
@@ -317,6 +317,7 @@ class BookAppointmentVC: UIViewController {
         if (nameID != "" &&  nameID != "Select") {
             //            Loader.showLoader("Downloading Details...", target: self)
             self.txtCamp.text = nameID
+            globalIndexValue = String(index - 1)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss"
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")!
@@ -396,7 +397,10 @@ let datafromArray = appointModelArray[index]
         let date = TimeInterval(lastChangeDate).stringFromTimeInterval()
         let startDateSelect = resultString + " " + date
         let mmuid = mmu_ID.mmuID
-       let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
+        var id =  UserDefaults.standard.value(forKey: "patientId") as? Int
+        if id == nil {
+            id = userInfoModels?.patientID
+        }
         let dictData: [String:Any] = ["camp_id": String(campID),
                                       "departmentID": String(departID),
                                       "lastChangeDate": startDateSelect,
@@ -514,7 +518,7 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
             fatalError("can't dequeue CustomCell")
         }
         let FirstTime = arrayDateList[indexPath.row]
-        let secondTime = arrayDateList[indexPath.row+1]
+        let secondTime = arrayDateList[indexPath.row]
         cell.loadData(startTime: FirstTime, endTime: secondTime)
         return cell
     }
@@ -531,7 +535,7 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
         let startDateSelect = resultString + " " + startTime
         print("cuurent time Select",startDateSelect)
         let cell = tableView.cellForRow(at: indexPath) as? TimeSlotViewCell
-        globalIndexValue = String(indexPath.row)
+//        globalIndexValue = String(indexPath.row)
         globalSelectedDate = startDateSelect
         API_GetTokenonDate(date: startDateSelect, handlerValue: { [weak self](valuess)in
         print("return message of appointment",valuess)

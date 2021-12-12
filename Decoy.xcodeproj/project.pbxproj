@@ -33,6 +33,11 @@
 		045728632755243000439C34 /* AppointHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045728612755243000439C34 /* AppointHistoryCell.swift */; };
 		045728642755243000439C34 /* AppointHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045728622755243000439C34 /* AppointHistoryCell.xib */; };
 		0457286727553ED100439C34 /* AppointHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457286627553ED100439C34 /* AppointHistoryResponseModel.swift */; };
+		045C91A12766209400E10EB6 /* OfficialDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C91A02766209400E10EB6 /* OfficialDashboardVC.swift */; };
+		045C91A4276620E200E10EB6 /* AnalyticReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C91A3276620E200E10EB6 /* AnalyticReportVC.swift */; };
+		045C91A727664D9900E10EB6 /* PendingApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C91A627664D9900E10EB6 /* PendingApprovalVC.swift */; };
+		045C91AA27664DF700E10EB6 /* PandemicZoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C91A927664DF700E10EB6 /* PandemicZoneVC.swift */; };
+		045C91AC276654A300E10EB6 /* LogoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C91AB276654A300E10EB6 /* LogoutVC.swift */; };
 		046D95F7273C32F10063FDCB /* OTPStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95F6273C32F10063FDCB /* OTPStackView.swift */; };
 		046D95F9273C33650063FDCB /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95F8273C33650063FDCB /* OTPTextField.swift */; };
 		046D95FB273C39260063FDCB /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D95FA273C39260063FDCB /* OTPView.swift */; };
@@ -136,6 +141,11 @@
 		045728612755243000439C34 /* AppointHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointHistoryCell.swift; sourceTree = "<group>"; };
 		045728622755243000439C34 /* AppointHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointHistoryCell.xib; sourceTree = "<group>"; };
 		0457286627553ED100439C34 /* AppointHistoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointHistoryResponseModel.swift; sourceTree = "<group>"; };
+		045C91A02766209400E10EB6 /* OfficialDashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialDashboardVC.swift; sourceTree = "<group>"; };
+		045C91A3276620E200E10EB6 /* AnalyticReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticReportVC.swift; sourceTree = "<group>"; };
+		045C91A627664D9900E10EB6 /* PendingApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalVC.swift; sourceTree = "<group>"; };
+		045C91A927664DF700E10EB6 /* PandemicZoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PandemicZoneVC.swift; sourceTree = "<group>"; };
+		045C91AB276654A300E10EB6 /* LogoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVC.swift; sourceTree = "<group>"; };
 		046D95F6273C32F10063FDCB /* OTPStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPStackView.swift; sourceTree = "<group>"; };
 		046D95F8273C33650063FDCB /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		046D95FA273C39260063FDCB /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -309,8 +319,44 @@
 		045C919E276612EB00E10EB6 /* officialController */ = {
 			isa = PBXGroup;
 			children = (
+				045C91A827664DC400E10EB6 /* PandemicZone */,
+				045C91A527664D5F00E10EB6 /* Pending */,
+				045C91A22766209C00E10EB6 /* AnalyticReport */,
+				045C919F2766206700E10EB6 /* OfficialDashboard */,
 			);
 			path = officialController;
+			sourceTree = "<group>";
+		};
+		045C919F2766206700E10EB6 /* OfficialDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				045C91A02766209400E10EB6 /* OfficialDashboardVC.swift */,
+			);
+			path = OfficialDashboard;
+			sourceTree = "<group>";
+		};
+		045C91A22766209C00E10EB6 /* AnalyticReport */ = {
+			isa = PBXGroup;
+			children = (
+				045C91A3276620E200E10EB6 /* AnalyticReportVC.swift */,
+			);
+			path = AnalyticReport;
+			sourceTree = "<group>";
+		};
+		045C91A527664D5F00E10EB6 /* Pending */ = {
+			isa = PBXGroup;
+			children = (
+				045C91A627664D9900E10EB6 /* PendingApprovalVC.swift */,
+			);
+			path = Pending;
+			sourceTree = "<group>";
+		};
+		045C91A827664DC400E10EB6 /* PandemicZone */ = {
+			isa = PBXGroup;
+			children = (
+				045C91A927664DF700E10EB6 /* PandemicZoneVC.swift */,
+			);
+			path = PandemicZone;
 			sourceTree = "<group>";
 		};
 		046D95FC273C39340063FDCB /* OTPView */ = {
@@ -591,6 +637,7 @@
 				0416733727255B8100DE0045 /* View */,
 				E30A2F1927182C2C00AABC70 /* ProfileViewController.swift */,
 				0416733427255A8000DE0045 /* ProfileData.swift */,
+				045C91AB276654A300E10EB6 /* LogoutVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -845,6 +892,7 @@
 				0457286727553ED100439C34 /* AppointHistoryResponseModel.swift in Sources */,
 				0427C9A7275E8AF50042123A /* RescheduleVC.swift in Sources */,
 				0402E7492722B37D004D866A /* Utility.swift in Sources */,
+				045C91AC276654A300E10EB6 /* LogoutVC.swift in Sources */,
 				04984BA727457D49001EC315 /* FamilyListCell.swift in Sources */,
 				E30A2F51271D9D6600AABC70 /* CampPlanWorker.swift in Sources */,
 				E30A2F1727181EC200AABC70 /* LoginViewController.swift in Sources */,
@@ -860,6 +908,7 @@
 				E30A2F2A2718350000AABC70 /* SettingsRouter.swift in Sources */,
 				E30A2F3F27183BBE00AABC70 /* HomeViewController.swift in Sources */,
 				0402E7602722D0B9004D866A /* Design.swift in Sources */,
+				045C91AA27664DF700E10EB6 /* PandemicZoneVC.swift in Sources */,
 				0402E7692723E5FD004D866A /* DateTime.swift in Sources */,
 				04E47D5A272806CD00A4C0DB /* NetworkManager.swift in Sources */,
 				047831012757EFA2005C594B /* OPDTableCell.swift in Sources */,
@@ -887,6 +936,8 @@
 				0416733527255A8000DE0045 /* ProfileData.swift in Sources */,
 				E30A2F1A27182C2C00AABC70 /* ProfileViewController.swift in Sources */,
 				E30A2F54271D9D6600AABC70 /* CampPlanViewController.swift in Sources */,
+				045C91A12766209400E10EB6 /* OfficialDashboardVC.swift in Sources */,
+				045C91A4276620E200E10EB6 /* AnalyticReportVC.swift in Sources */,
 				E30A2F48271D899000AABC70 /* AddFamilyViewController.swift in Sources */,
 				E30A2F44271D867B00AABC70 /* DashboardCollectionViewCell.swift in Sources */,
 				047831092758AAE6005C594B /* LABResponseModel.swift in Sources */,
@@ -916,6 +967,7 @@
 				0402E75A2722CCE5004D866A /* Loader.swift in Sources */,
 				E30A2F2D2718350000AABC70 /* SettingsInteractor.swift in Sources */,
 				04D38B7D274B5EC0006A6C78 /* BookAppointmentVC.swift in Sources */,
+				045C91A727664D9900E10EB6 /* PendingApprovalVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

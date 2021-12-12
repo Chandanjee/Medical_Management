@@ -102,5 +102,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                           completion: nil)
 
     }
+    
+    func smoothOfficialTab() -> [TabItem] {
+        
+//        Dummy = 5
+//       case Home = 0
+//       case Profile = 1
+//       case Setting = 2
+//       case Menu = 3
+     let storyboard = UIStoryboard(name: "Main", bundle: nil)
+     let v1 = storyboard.instantiateViewController(withIdentifier:"OfficialDashboardVC") as? OfficialDashboardVC
+        v1?.tabController = .Home
+      let v2 =  storyboard.instantiateViewController(withIdentifier: "AnalyticReportVC") as? AnalyticReportVC
+        v2?.tabController = .Profile
+        let v3 =  storyboard.instantiateViewController(withIdentifier: "PendingApprovalVC") as? PendingApprovalVC
+          v3?.tabController = .Setting
+        let v4 =  storyboard.instantiateViewController(withIdentifier: "PandemicZoneVC") as? PandemicZoneVC
+          v4?.tabController = .Menu
+      let v5 = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+        v5?.tabControllerss = .Dummy
+      
+      
+        let t1 = TabItem(v1!, imageName: "dashboard", tabName: "Dashboard")
+        let t2 = TabItem(v2!, imageName: "reportAnalysis", tabName: "Analytic Report")
+        let t3 = TabItem(v3!, imageName: "medical_supply", tabName: "Pending Approval")
+        let t4 = TabItem(v4!, imageName: "pandemic", tabName: "Pandemic Zone")
+        let t5 = TabItem(v5!, imageName: "profile", tabName: "Profile")
+      
+      return [t1,t2,t3,t4,t5]
+    }
+    
 }
 

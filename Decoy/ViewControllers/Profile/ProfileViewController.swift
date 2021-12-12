@@ -14,6 +14,7 @@ protocol ProfileViewDelegate {
 class ProfileViewController: UIViewController,ProfileViewDelegate {
     
     var tabController: VC_TYPE = .Setting
+    var tabControllerss: VC_TYPE = .Dummy
 
     @IBOutlet weak var viewTop: UIView!
     @IBOutlet weak var tableViewProfile: UITableView!
@@ -64,18 +65,18 @@ extension ProfileViewController:UITableViewDataSource,UITableViewDelegate{
                 cell.selectionStyle = .none
                 return cell
             }
-//        case 1:
-        default:
+        case 1:
+//        default:
             if let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableCell.identifierProfile, for: indexPath) as? ProfileTableCell {
                 cell.loadData(entry: profileData.data[indexPath.row])
                 cell.selectionStyle = .none
                 return cell
             }
-//        default:
-//            if let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.profileLogoutTableCell, for: indexPath) as? ProfileLogoutTableCell {
-//                cell.selectionStyle = .none
-//                return cell
-//            }
+        default:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: ProfileLogoutTableCell.identifierLogout, for: indexPath) as? ProfileLogoutTableCell {
+                cell.selectionStyle = .none
+                return cell
+            }
         }
         return UITableViewCell()
     }
@@ -101,22 +102,22 @@ extension ProfileViewController:UITableViewDataSource,UITableViewDelegate{
             }
         case 2:
             print("Logout")
-//            Utility.performTaskInMainQueue {
-//                let storyboard = UIStoryboard(name: Storyboard.main, bundle: nil)
-//                let logoutVC = storyboard.instantiateViewController(withIdentifier: ControllerIdentifier.logoutVC) as! LogoutVC
-////                logoutVC.modalPresentationStyle = .overCurrentContext
-////                logoutVC.modalTransitionStyle = .crossDissolve
-//                logoutVC.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.85)
-////                logoutVC.view.isOpaque = false
+            Utility.performTaskInMainQueue {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let logoutVC = storyboard.instantiateViewController(withIdentifier: "LogoutVC") as! LogoutVC
+//                logoutVC.modalPresentationStyle = .overCurrentContext
+//                logoutVC.modalTransitionStyle = .crossDissolve
+                logoutVC.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.85)
+//                logoutVC.view.isOpaque = false
 //                logoutVC.callBackToPushLoginVC = { [weak self] in
 //                    guard let weakSelf = self else { return }
 //                    weakSelf.callAPI_Logout()
 //                }
 //                self.navigationController?.pushViewController(logoutVC, animated: true)
-////                self.navigationController?.popToViewController(logoutVC, animated: true)
-////                self.navigationController?.popToRootViewController(animated: true)
-////                self.present(logoutVC, animated: true, completion: nil)
-//            }
+//                self.navigationController?.popToViewController(logoutVC, animated: true)
+                self.navigationController?.popToRootViewController(animated: true)
+//                self.present(logoutVC, animated: true, completion: nil)
+            }
         default: break
         }
     }

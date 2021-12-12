@@ -115,6 +115,15 @@ public class Utility : NSObject {
        alertController.addAction(defaultAction)
        controller.present(alertController, animated: true, completion: nil)
    }
+    
+    
+   @objc public class func performTaskInMainQueue(task:@escaping () -> ()) {
+        DispatchQueue.main.async {
+            task()
+        }
+    }
+    
+    
 }
 
 

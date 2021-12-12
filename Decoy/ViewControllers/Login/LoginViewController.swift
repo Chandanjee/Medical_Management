@@ -169,6 +169,7 @@ class LoginViewController: UIViewController {
         let dictData = getLoginParams()
         print("login",dictData)
         MBProgressHUD.showAdded(to: view, animated: true)
+        UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
         apiManager.apiPostLogin(serviceName: serviceUrl, parameters: dictData, completionHandler: {
             [weak self] (response, error) in
                 guard let weakSelf = self else { return }
@@ -195,7 +196,7 @@ class LoginViewController: UIViewController {
                     }catch{ print("erroMsg") }
                     if (status == "200") {
                         UserDefaults.standard.set(patientId, forKey: "patientId")
-                        UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
+                       
                         UserDefaults.standard.set(Password, forKey: "LoginPassword")
                         UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
                         UserDefaults.standard.set(name, forKey: "Username")
@@ -214,16 +215,28 @@ class LoginViewController: UIViewController {
     
     func showDashboard() {
         var _: UIWindow?
-
-        let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothTab())
-        _ = UINavigationController.init(rootViewController: dashboard)
-        if #available(iOS 13.0, *) {
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(dashboard)
-        } else {
-            (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(dashboard)
+        if segmentSelectedOption == "Patient" {
+            let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothTab())
+            _ = UINavigationController.init(rootViewController: dashboard)
+            if #available(iOS 13.0, *) {
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(dashboard)
+            } else {
+                (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(dashboard)
+            }
+        }else{
+            let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothOfficialTab())
+            _ = UINavigationController.init(rootViewController: dashboard)
+            if #available(iOS 13.0, *) {
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(dashboard)
+            } else {
+                (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(dashboard)
+            }
         }
+        
+       
     }
     
+    //MARK: Patient Login Tab
     func smoothTab() -> [TabItem] {
      let storyboard = UIStoryboard(name: "Main", bundle: nil)
      let v1 = storyboard.instantiateViewController(withIdentifier:"DashboardViewController") as? DashboardViewController
@@ -242,6 +255,31 @@ class LoginViewController: UIViewController {
       //let t4 = TabItem(v4, imageName: "profile", tabName: "Profile")
       
       return [t1,t2,t3]
+    }
+    
+    //MARK: Official Tab Bar
+    func smoothOfficialTab() -> [TabItem] {
+        
+     let storyboard = UIStoryboard(name: "Main", bundle: nil)
+     let v1 = storyboard.instantiateViewController(withIdentifier:"OfficialDashboardVC") as? OfficialDashboardVC
+        v1?.tabController = .Home
+      let v2 =  storyboard.instantiateViewController(withIdentifier: "AnalyticReportVC") as? AnalyticReportVC
+        v2?.tabController = .Profile
+        let v3 =  storyboard.instantiateViewController(withIdentifier: "PendingApprovalVC") as? PendingApprovalVC
+          v3?.tabController = .Setting
+        let v4 =  storyboard.instantiateViewController(withIdentifier: "PandemicZoneVC") as? PandemicZoneVC
+          v4?.tabController = .Menu
+      let v5 = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+        v5?.tabControllerss = .Dummy
+      
+      
+        let t1 = TabItem(v1!, imageName: "dashboard", tabName: "Dashboard")
+        let t2 = TabItem(v2!, imageName: "reportAnalysis", tabName: "Analytic Report")
+        let t3 = TabItem(v3!, imageName: "medical_supply", tabName: "Pending Approval")
+        let t4 = TabItem(v4!, imageName: "pandemic", tabName: "Pandemic Zone")
+        let t5 = TabItem(v5!, imageName: "profile", tabName: "Profile")
+      
+      return [t1,t2,t3,t4,t5]
     }
     
     //MARK:- OTP VIA LOGIN
@@ -283,7 +321,7 @@ class LoginViewController: UIViewController {
             if getOTP.count < 6 {
                 print("Get otp is less then 6")
             }else if getOTP != ""{
-                
+                UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
             let urlVeriftOTP = baseURLOtP + self.OTPTokenLogin + "/" + getOTP
             print("url OTP",urlVeriftOTP)
             self.apiManager.Api_OTP(serviceName: urlVeriftOTP, parameters: [:], completionHandler: {
@@ -295,7 +333,7 @@ class LoginViewController: UIViewController {
                         let status = json?["Status"] as? String
                         if status == "Success" {
                             UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
-                            UserDefaults.standard.set(self?.segmentSelectedOption, forKey: "LoginMode")
+                            
                             MBProgressHUD.hide(for: (self?.view)!, animated: true)
                             self?.showDashboard()
                         }

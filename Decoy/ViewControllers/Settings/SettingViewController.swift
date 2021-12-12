@@ -40,8 +40,9 @@ class SettingViewController: UIViewController {
     
     func Data_ListPatient(){
         MBProgressHUD.showAdded(to: view, animated: true)
+        let usermobile = UserDefaults.standard.value(forKey: "LoginMobilenum") as? String
 
-        API_getViewAllTickets(json: PatientRequestModel.init(username: "9971182412"), data: {
+        API_getViewAllTickets(json: PatientRequestModel.init(username: usermobile!), data: {
             
             responseData,status  in
             

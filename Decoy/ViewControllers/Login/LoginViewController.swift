@@ -51,9 +51,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.txtPassword.text = "abc"
-//        self.txtMobileNo.text = "9910248968"
-        self.txtMobileNo.text = "9897040757"
+        self.txtPassword.text = "test"
+        self.txtMobileNo.text = "9910248968"
+//        self.txtMobileNo.text = "9897040757"
 
     }
     // MARK: - Action Login With Password
@@ -179,17 +179,35 @@ class LoginViewController: UIViewController {
                     self?.userMobile = loginJSONModel?.response[0].mobileNumber ?? ""
                     let patientId = loginJSONModel?.response[0].patientID
                     let Password = loginJSONModel?.response[0].loginPwd
+                    let name = loginJSONModel?.response[0].patientName
+
                     print(datass as Any)
+                    do{
+                    let json = try JSONSerialization.jsonObject(with: response, options: []) as? [String : Any]
+                        let loginStatus = json?["status"] as? NSNumber
+                        let loginMsg = json?["message"] as? String
+                        if loginStatus == 400 {
+                            Utility().addAlertView("Alert!", "Incorrect user credentials", "OK", self!)
+                            MBProgressHUD.hide(for: (self?.view)!, animated: true)
+                            return
+                        }
+                        print(json as Any)
+                    }catch{ print("erroMsg") }
                     if (status == "200") {
                         UserDefaults.standard.set(patientId, forKey: "patientId")
+                        UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
                         UserDefaults.standard.set(Password, forKey: "LoginPassword")
                         UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
+                        UserDefaults.standard.set(name, forKey: "Username")
+
                         data(true)
                     }else if (status == "500") {
                         data(false)
                     } else {
                         data(false)
                     }
+                    MBProgressHUD.hide(for: (self?.view)!, animated: true)
+                    
                 }
         })
     }
@@ -277,6 +295,7 @@ class LoginViewController: UIViewController {
                         let status = json?["Status"] as? String
                         if status == "Success" {
                             UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
+                            UserDefaults.standard.set(self?.segmentSelectedOption, forKey: "LoginMode")
                             MBProgressHUD.hide(for: (self?.view)!, animated: true)
                             self?.showDashboard()
                         }

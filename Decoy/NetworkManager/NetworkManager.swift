@@ -21,14 +21,13 @@ import SVProgressHUD
 struct BaseUrl {
     private struct Domains {
 //        http://103.133.215.182:8080/MobileMedicalUnit/admin/login
-        static let Base_UrlIP = "http://103.133.215.182:8080/"
+        static let Base_UrlIP = "http://103.133.215.26:8080/"
         static let Base_Url =  "http://103.133.215.182:8080/" //smac/login
     }
-    
     private  struct Routes {
         static let Api = "MobileMedicalUnit/admin/"           //smac // Production url
 //        static let ApiZero = "icgRestful/api/"            // Production url
-        static let ApiDevelopment = "MobileMedicalUnit/admin/"            // development url
+        static let ApiDevelopment = "MobileMedicalUnitTesting/admin/"            // development url
         static let ApiWithIP = "icgRestful_pro/api/"            //  url With IP
     }
     

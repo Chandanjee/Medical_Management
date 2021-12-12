@@ -51,6 +51,10 @@ var targetOption = ""
             if dataResult?.count ?? 0 > 0{
                 self.userInfoModel = dataResult ?? []
                 UserDefaults.standard.set(self.userInfoModel[0].patientID, forKey: "patientId")
+                UserDefaults.standard.set(self.userInfoModel[0].patientName, forKey: "Username")
+                UserDefaults.standard.set(self.userInfoModel[0].mobileNumber, forKey: "LoginMobilenum")
+                UserDefaults.standard.set(self.userInfoModel[0].loginPwd, forKey: "LoginPassword")
+
 
             }else{
                 self.userInfoModel =  []

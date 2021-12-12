@@ -44,12 +44,13 @@ class ProfileImageTableCell: UITableViewCell {
             imgView.image = image
         }
 //        let fullName = (profile[kFirstName] as? String ?? "") + " " + (profile[kLastName] as? String ?? "")
-//        labelUsername.text = fullName
+        let username = UserDefaults.standard.value(forKey: "Username") as? String
+        let usermobile = UserDefaults.standard.value(forKey: "LoginMobilenum") as? String
+
+        labelUsername.text = username
 //        labelEmailId.text = profile[kEmail] as? String
-//        let mobileNumber = UserDefaults.subscriberId ?? ""
-//        buttonMobileNumber.setTitle(UserDefaults.subscriberId ?? "", for: .normal)
+        buttonMobileNumber.setTitle(usermobile ?? "", for: .normal)
 //
-//        labelUsername.text = UserDefaults.userName
 //        labelEmailId.text = UserDefaults.userEmail
     }
     

@@ -19,7 +19,7 @@ class BookAppointmentVC: UIViewController {
     @IBOutlet weak var txtCity:UITextField!
     @IBOutlet weak var txtCamp:UITextField!
     @IBOutlet weak var btnSubmit:UIButton!
-
+    @IBOutlet weak var btnBack:UIButton!
     @IBOutlet weak var tblHConstraint: NSLayoutConstraint!
 
     var datePicker = UIDatePicker()
@@ -46,6 +46,9 @@ class BookAppointmentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.tblHConstraint.constant = 0
+        let image = UIImage(named: "back")
+        btnBack.setImage(image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        btnBack.tintColor = UIColor.white
         addArrowBtnToTextFields()
         Utility.addAllSidesShadowOnView(TopPersonalDetails)
         Utility.setViewCornerRadius(TopPersonalDetails, 8)

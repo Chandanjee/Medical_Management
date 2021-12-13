@@ -19,7 +19,8 @@ class RescheduleVC: UIViewController {
     @IBOutlet weak var txtCity:UITextField!
     @IBOutlet weak var txtCamp:UITextField!
     @IBOutlet weak var btnSubmit:UIButton!
-
+    @IBOutlet weak var btnBack:UIButton!
+    
     @IBOutlet weak var tblHConstraint: NSLayoutConstraint!
 
     var datePicker = UIDatePicker()
@@ -54,7 +55,9 @@ class RescheduleVC: UIViewController {
         Utility.addAllSidesShadowOnView(MiddleSearchView)
         Utility.setViewCornerRadius(MiddleSearchView, 8)
         tableView.register(TimeSlotViewCell.nib, forCellReuseIdentifier: TimeSlotViewCell.identifier)
-        
+        let images = UIImage(named: "back")
+        btnBack.setImage(images?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        btnBack.tintColor = UIColor.white
         self.API_City()
         // Do any additional setup after loading the view.
     }

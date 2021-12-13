@@ -51,9 +51,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.txtPassword.text = "test"
-        self.txtMobileNo.text = "9910248968"
-//        self.txtMobileNo.text = "9897040757"
+        self.txtPassword.text = "9971182412"
+//        self.txtMobileNo.text = "9910248968"
+//        self.txtMobileNo.text = "9897040757" // deepak
+        self.txtMobileNo.text = "9971182412"
 
     }
     // MARK: - Action Login With Password

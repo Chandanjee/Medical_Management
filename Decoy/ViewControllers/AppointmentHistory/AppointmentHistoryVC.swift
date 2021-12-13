@@ -15,6 +15,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     @IBOutlet weak var fromDateTxt:UITextField!
     @IBOutlet weak var toDateTxt:UITextField!
     @IBOutlet weak var searchButton:UIButton!
+    @IBOutlet weak var btnBack:UIButton!
     
     var datePicker = UIDatePicker()
     var toolbar = UIToolbar()
@@ -29,6 +30,11 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let image = UIImage(named: "back")
+        btnBack.setImage(image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        btnBack.tintColor = UIColor.white
+        
         if #available(iOS 13.0, *) {
             let image = UIImage(named: "imageName")?.withTintColor(.white, renderingMode: .alwaysTemplate)
         } else {

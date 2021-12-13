@@ -19,7 +19,8 @@ class PDFViewController: UIViewController {
 //    let pdfViewController = PDFViewController()
     @IBOutlet weak var titleLabel:UILabel!
     @IBOutlet weak var pdfFile:UIView!
-
+    @IBOutlet weak var btnBack:UIButton!
+    
 //    init(pdfUrl: URL) {
 //         self.pdfURL = pdfUrl
 //         self.document = PDFDocument(url: pdfUrl)
@@ -32,6 +33,9 @@ class PDFViewController: UIViewController {
 //      }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let images = UIImage(named: "back")
+        btnBack.setImage(images?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        btnBack.tintColor = UIColor.white
         MBProgressHUD.showAdded(to: self.view, animated: true)
 
         titleLabel.text = titleData

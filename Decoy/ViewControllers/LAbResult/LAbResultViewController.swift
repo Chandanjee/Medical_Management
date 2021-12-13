@@ -15,6 +15,7 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
     @IBOutlet weak var fromDateTxt:UITextField!
     @IBOutlet weak var toDateTxt:UITextField!
     @IBOutlet weak var searchButton:UIButton!
+    @IBOutlet weak var btnBack:UIButton!
     
     var datePicker = UIDatePicker()
     var toolbar = UIToolbar()
@@ -32,6 +33,9 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let images = UIImage(named: "back")
+        btnBack.setImage(images?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        btnBack.tintColor = UIColor.white
         if #available(iOS 13.0, *) {
             let image = UIImage(named: "imageName")?.withTintColor(.white, renderingMode: .alwaysTemplate)
         } else {

@@ -15,6 +15,7 @@ class AddFamilyViewController: UIViewController {
     @IBOutlet weak var ageTxt:UITextField!
     @IBOutlet weak var mobilenumberTxt:UITextField!
     @IBOutlet weak var submitButton:UIButton!
+    @IBOutlet weak var backButton:UIButton!
     
     @IBOutlet weak var btnYear: UIButton!
         @IBOutlet weak var btnMonth: UIButton!
@@ -36,6 +37,7 @@ class AddFamilyViewController: UIViewController {
         radioController.buttonsArray = [btnYear,btnMonth,btnDays]
         radioController.defaultButton = btnYear
         selectedGender = "Years"
+        
     }
     
     //MARK: Add Arrow on TextField
@@ -46,8 +48,15 @@ class AddFamilyViewController: UIViewController {
         genderTxt.rightViewMode = UITextField.ViewMode.always
         genderTxt.rightView = dropDownBtn
         
+        let image = UIImage(named: "back")
+        backButton.setImage(image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        backButton.tintColor = UIColor.white
     }
    
+    
+    @IBAction func btnbackButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+     }
     
     @IBAction func btnYearAction(_ sender: UIButton) {
          radioController.buttonArrayUpdated(buttonSelected: sender)

@@ -876,13 +876,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CJ-I4-ZJI">
-                                        <rect key="frame" x="8" y="45" width="55" height="22"/>
+                                        <rect key="frame" x="8" y="45" width="73" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="DI7-1l-9O3"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Back">
-                                            <imageReference key="image" image="chevron.left" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            <imageReference key="image" image="back" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <connections>
                                             <action selector="tapToBack:" destination="1nV-zK-ntx" eventType="touchUpInside" id="qgY-2M-9dq"/>
@@ -1540,6 +1540,7 @@
                     <connections>
                         <outlet property="MiddleSearchView" destination="8e9-th-Vq8" id="nSN-Pw-dAR"/>
                         <outlet property="TopPersonalDetails" destination="DtJ-gY-DTc" id="5al-Se-K81"/>
+                        <outlet property="btnBack" destination="81A-Ck-Mq0" id="gUQ-TW-wmB"/>
                         <outlet property="btnSubmit" destination="yZG-CM-HZj" id="Eum-xu-BrX"/>
                         <outlet property="lblAge" destination="SVq-Oq-wC1" id="nTb-5m-NX5"/>
                         <outlet property="lblFullName" destination="vh9-hA-lyk" id="47K-Js-Acn"/>
@@ -2098,13 +2099,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvo-hc-zwi">
-                                        <rect key="frame" x="8" y="45" width="55" height="22"/>
+                                        <rect key="frame" x="8" y="43" width="73" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="wrg-1a-Zvq"/>
+                                            <constraint firstAttribute="height" constant="30" id="wrg-1a-Zvq"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Back">
-                                            <imageReference key="image" image="chevron.left" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            <imageReference key="image" image="back" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <connections>
                                             <action selector="tapToBack:" destination="yL6-Zv-SMK" eventType="touchUpInside" id="t9f-XA-rwI"/>
@@ -2125,7 +2126,7 @@
                                     <constraint firstAttribute="bottom" secondItem="8UR-dA-E8a" secondAttribute="bottom" constant="13" id="4ya-Wd-xId"/>
                                     <constraint firstAttribute="height" constant="80" id="6Uk-rx-iLT"/>
                                     <constraint firstItem="Nvo-hc-zwi" firstAttribute="leading" secondItem="BOD-oS-7b1" secondAttribute="leading" constant="8" id="E3S-Rt-5h9"/>
-                                    <constraint firstAttribute="bottom" secondItem="Nvo-hc-zwi" secondAttribute="bottom" constant="13" id="dhE-b0-Vbx"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nvo-hc-zwi" secondAttribute="bottom" constant="7" id="dhE-b0-Vbx"/>
                                     <constraint firstItem="8UR-dA-E8a" firstAttribute="centerX" secondItem="BOD-oS-7b1" secondAttribute="centerX" id="vKe-LD-73M"/>
                                 </constraints>
                             </view>
@@ -2254,9 +2255,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jlg-tf-qre">
-                                        <rect key="frame" x="8" y="45" width="55" height="22"/>
+                                        <rect key="frame" x="8" y="43" width="55" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="9RM-U8-V85"/>
+                                            <constraint firstAttribute="height" constant="30" id="9RM-U8-V85"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Back">
@@ -2279,7 +2280,7 @@
                                 <color key="backgroundColor" red="0.066666666669999999" green="0.34928837419999997" blue="0.65245425700000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Jlg-tf-qre" firstAttribute="leading" secondItem="Gcp-06-4ak" secondAttribute="leading" constant="8" id="M6K-Cs-59Q"/>
-                                    <constraint firstAttribute="bottom" secondItem="Jlg-tf-qre" secondAttribute="bottom" constant="13" id="P1l-LL-RIG"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jlg-tf-qre" secondAttribute="bottom" constant="7" id="P1l-LL-RIG"/>
                                     <constraint firstItem="bxM-FO-gwH" firstAttribute="centerX" secondItem="Gcp-06-4ak" secondAttribute="centerX" id="lG1-sP-m9h"/>
                                     <constraint firstAttribute="bottom" secondItem="bxM-FO-gwH" secondAttribute="bottom" constant="13" id="nxE-C5-79J"/>
                                     <constraint firstAttribute="height" constant="80" id="zMx-aJ-f24"/>
@@ -2388,6 +2389,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnBack" destination="Jlg-tf-qre" id="esH-UD-2T5"/>
                         <outlet property="fromDateTxt" destination="ped-qw-Nfk" id="7WW-kq-Jfm"/>
                         <outlet property="searchButton" destination="GMf-C5-odB" id="Fq2-mg-X92"/>
                         <outlet property="tableView" destination="Ggc-wL-qtW" id="lp7-qm-eY8"/>
@@ -2544,6 +2546,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnBack" destination="fVo-PX-ysY" id="6a1-YF-8IE"/>
                         <outlet property="fromDateTxt" destination="AYw-WR-XdZ" id="a9M-Dz-Juw"/>
                         <outlet property="searchButton" destination="kSm-MV-7FU" id="hac-ZX-54o"/>
                         <outlet property="tableView" destination="gCC-LS-fsp" id="ExO-uP-yjn"/>
@@ -2630,6 +2633,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnBack" destination="Opf-d9-VuS" id="zyH-E3-EtZ"/>
                         <outlet property="pdfFile" destination="tlM-OK-Ycd" id="Jkn-EM-W6R"/>
                         <outlet property="titleLabel" destination="czX-MH-DcN" id="HdZ-XS-Y52"/>
                     </connections>
@@ -2650,14 +2654,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLn-x2-Gj5">
-                                        <rect key="frame" x="7.9999999999999964" y="45" width="54.666666666666657" height="22"/>
+                                        <rect key="frame" x="8" y="42" width="73" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="3tW-mF-nbv"/>
+                                            <constraint firstAttribute="height" constant="30" id="3tW-mF-nbv"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Back">
-                                            <imageReference key="image" image="chevron.left" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            <imageReference key="image" image="back" symbolScale="large" renderingMode="template"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnbackButton:" destination="xjd-MN-LCr" eventType="touchUpInside" id="hKf-4S-1ay"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Family Member" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUc-fu-jPf">
                                         <rect key="frame" x="104.33333333333333" y="45" width="166.66666666666669" height="22"/>
@@ -2673,7 +2680,7 @@
                                 <constraints>
                                     <constraint firstItem="RLn-x2-Gj5" firstAttribute="leading" secondItem="BBc-tI-iqf" secondAttribute="leading" constant="8" id="5eo-Cz-ocb"/>
                                     <constraint firstItem="KUc-fu-jPf" firstAttribute="centerX" secondItem="BBc-tI-iqf" secondAttribute="centerX" id="AtH-eL-7SZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="RLn-x2-Gj5" secondAttribute="bottom" constant="13" id="YjY-ak-Zgf"/>
+                                    <constraint firstAttribute="bottom" secondItem="RLn-x2-Gj5" secondAttribute="bottom" constant="8" id="YjY-ak-Zgf"/>
                                     <constraint firstAttribute="bottom" secondItem="KUc-fu-jPf" secondAttribute="bottom" constant="13" id="cP2-ZA-6Ok"/>
                                     <constraint firstAttribute="height" constant="80" id="s9C-7F-zOr"/>
                                 </constraints>
@@ -2879,6 +2886,7 @@
                     </view>
                     <connections>
                         <outlet property="ageTxt" destination="yQG-tK-1iR" id="KIh-e7-5dh"/>
+                        <outlet property="backButton" destination="RLn-x2-Gj5" id="KNp-qC-Qct"/>
                         <outlet property="btnDays" destination="XEw-F5-Sjz" id="2AQ-4y-yb7"/>
                         <outlet property="btnMonth" destination="3cI-yD-wDW" id="2g3-yE-3l4"/>
                         <outlet property="btnYear" destination="knE-SL-fem" id="7Vz-fi-2aM"/>
@@ -2995,6 +3003,7 @@
     </designables>
     <resources>
         <image name="arrow.down.doc.fill" catalog="system" width="115" height="128"/>
+        <image name="back" width="33" height="33"/>
         <image name="background" width="1648" height="3152"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="circle_30_blank" width="30" height="30"/>

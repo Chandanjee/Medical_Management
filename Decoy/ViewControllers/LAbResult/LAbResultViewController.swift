@@ -33,9 +33,9 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let images = UIImage(named: "back")
-        btnBack.setImage(images?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
-        btnBack.tintColor = UIColor.white
+//        let images = UIImage(named: "back")
+//        btnBack.setImage(images?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+//        btnBack.tintColor = UIColor.white
         if #available(iOS 13.0, *) {
             let image = UIImage(named: "imageName")?.withTintColor(.white, renderingMode: .alwaysTemplate)
         } else {

@@ -31,9 +31,9 @@ class OPDHistoryVC: UIViewController,OPDButtonCellDelegate {
 let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
     override func viewDidLoad() {
         super.viewDidLoad()
-        let image = UIImage(named: "back")
-        btnBack.setImage(image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
-        btnBack.tintColor = UIColor.white
+//        let image = UIImage(named: "back")
+//        btnBack.setImage(image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+//        btnBack.tintColor = UIColor.white
         
         if #available(iOS 13.0, *) {
             let image = UIImage(named: "imageName")?.withTintColor(.white, renderingMode: .alwaysTemplate)

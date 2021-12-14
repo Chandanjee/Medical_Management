@@ -23,9 +23,9 @@ var targetOption = ""
         // Do any additional setup after loading the view.
         self.Data_ListPatient()
         
-        let image = UIImage(named: "back")
-        btnBack.setImage(image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
-        btnBack.tintColor = UIColor.white
+//        let image = UIImage(named: "back")
+//        btnBack.setImage(image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+//        btnBack.tintColor = UIColor.white
 
     }
     

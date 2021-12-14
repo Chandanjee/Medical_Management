@@ -46,6 +46,7 @@
 		046FABE32767146C00565FA6 /* PendingApprovalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FABE12767146C00565FA6 /* PendingApprovalCell.xib */; };
 		046FABE72767153900565FA6 /* AnalticReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FABE52767153900565FA6 /* AnalticReportCell.swift */; };
 		046FABE82767153900565FA6 /* AnalticReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FABE62767153900565FA6 /* AnalticReportCell.xib */; };
+		046FABEE2767C5AC00565FA6 /* LoginOfficialResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FABED2767C5AC00565FA6 /* LoginOfficialResponse.swift */; };
 		047830F627579112005C594B /* RadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047830F527579111005C594B /* RadioButtonController.swift */; };
 		047830FA2757EECA005C594B /* LAbResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047830F92757EECA005C594B /* LAbResultViewController.swift */; };
 		047830FC2757EEF4005C594B /* OPDHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047830FB2757EEF4005C594B /* OPDHistoryVC.swift */; };
@@ -158,6 +159,7 @@
 		046FABE12767146C00565FA6 /* PendingApprovalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PendingApprovalCell.xib; sourceTree = "<group>"; };
 		046FABE52767153900565FA6 /* AnalticReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalticReportCell.swift; sourceTree = "<group>"; };
 		046FABE62767153900565FA6 /* AnalticReportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnalticReportCell.xib; sourceTree = "<group>"; };
+		046FABED2767C5AC00565FA6 /* LoginOfficialResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOfficialResponse.swift; sourceTree = "<group>"; };
 		047830F527579111005C594B /* RadioButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonController.swift; sourceTree = "<group>"; };
 		047830F92757EECA005C594B /* LAbResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAbResultViewController.swift; sourceTree = "<group>"; };
 		047830FB2757EEF4005C594B /* OPDHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPDHistoryVC.swift; sourceTree = "<group>"; };
@@ -584,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				04E47D682728115300A4C0DB /* LoginJSONModel.swift */,
+				046FABED2767C5AC00565FA6 /* LoginOfficialResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -979,6 +982,7 @@
 				0416734527255C1A00DE0045 /* ProfileLogoutTableCell.swift in Sources */,
 				E30A2F282718350000AABC70 /* SettingsPresenter.swift in Sources */,
 				0402E7632722D102004D866A /* RoundedCorner.swift in Sources */,
+				046FABEE2767C5AC00565FA6 /* LoginOfficialResponse.swift in Sources */,
 				04837DAA2725DF630090BBE4 /* RegistrationViewController.swift in Sources */,
 				04E24E1F2729C8500013FDD3 /* PatientListJSONModel.swift in Sources */,
 				E30A2F3C27183BBE00AABC70 /* HomeWorker.swift in Sources */,

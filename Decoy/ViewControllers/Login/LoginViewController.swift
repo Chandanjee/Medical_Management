@@ -25,6 +25,8 @@ class LoginViewController: UIViewController {
     
     var segmentSelectedOption:String?
     let serviceUrl = BaseUrl.baseURL + "login"
+    let serviceUrlOfficial = BaseUrl.baseURL + "loginOffical"
+
     var userMobile = ""
     @IBOutlet weak var backContainerView: UIView!
 
@@ -65,6 +67,9 @@ class LoginViewController: UIViewController {
             if segmentSelectedOption == "" || segmentSelectedOption == nil{
                 segmentSelectedOption = "Patient"
             }
+            if segmentSelectedOption == "Official" {
+                
+            }else{
             API_Login(option:segmentSelectedOption!, data: {
                 status in
                 print(status)
@@ -78,6 +83,8 @@ class LoginViewController: UIViewController {
                 }
                 UserDefaults.standard.synchronize()
             })
+            }
+            
         }
     }
 
@@ -210,7 +217,42 @@ class LoginViewController: UIViewController {
                     }
                     MBProgressHUD.hide(for: (self?.view)!, animated: true)
                     
+                }else{
+                    Utility().addAlertView("Alert!", "Server error", "OK", self!)
+                    MBProgressHUD.hide(for: (self?.view)!, animated: true)
                 }
+        })
+    }
+    
+    //MARK: Official Login
+    
+    func API_officialLogin(){
+        let dictData = getLoginParams()
+        UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
+
+        apiManager.apiPostLogin(serviceName: serviceUrlOfficial, parameters: dictData, completionHandler: {[weak self](result,error) in
+            if let responsed = result {
+                print(responsed)
+
+                let loginJSONModel = try? newJSONDecoder().decode(LoginOfficialResponse.self, from: responsed)
+                UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
+                UserDefaults.standard.set(loginJSONModel?.response.userName, forKey: "Username")
+                
+                do{
+                let json = try JSONSerialization.jsonObject(with: responsed, options: []) as? [String : Any]
+                    let loginStatus = json?["status"] as? NSNumber
+                    let loginMsg = json?["message"] as? String
+                    if loginStatus == 400 {
+                        Utility().addAlertView("Alert!", "Incorrect user credentials", "OK", self!)
+                        MBProgressHUD.hide(for: (self?.view)!, animated: true)
+                        return
+                    }
+                    print(json as Any)
+                }catch{ print("erroMsg") }
+            }else{
+                Utility().addAlertView("Alert!", "Server error", "OK", self!)
+                MBProgressHUD.hide(for: (self?.view)!, animated: true)
+            }
         })
     }
     

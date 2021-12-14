@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x1159A7)], for: .normal)
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
-        self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .selected)
 //        otpStackView.delegate = self
         // Do any additional setup after loading the view.
     }
@@ -68,7 +68,20 @@ class LoginViewController: UIViewController {
                 segmentSelectedOption = "Patient"
             }
             if segmentSelectedOption == "Official" {
-                
+                API_officialLogin(option: segmentSelectedOption!, data: {
+                    status in
+                    print(status)
+                    if status == true{
+                        UserDefaults.standard.set("Yes", forKey: "userLoginStatus")
+                        UserDefaults.standard.set(self.userMobile, forKey: "userMobile")
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        self.showDashboard()
+                    }else{
+                        UserDefaults.standard.set("No", forKey: "userLoginStatus")
+                    }
+                    UserDefaults.standard.synchronize()
+                }
+)
             }else{
             API_Login(option:segmentSelectedOption!, data: {
                 status in
@@ -226,7 +239,7 @@ class LoginViewController: UIViewController {
     
     //MARK: Official Login
     
-    func API_officialLogin(){
+    func API_officialLogin(option:String, data: @escaping (_ result:Bool) -> ()){
         let dictData = getLoginParams()
         UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
 
@@ -236,8 +249,11 @@ class LoginViewController: UIViewController {
 
                 let loginJSONModel = try? newJSONDecoder().decode(LoginOfficialResponse.self, from: responsed)
                 UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
+                self?.userMobile = loginJSONModel?.response.mobileNo ?? ""
+
                 UserDefaults.standard.set(loginJSONModel?.response.userName, forKey: "Username")
-                
+                let status = loginJSONModel?.status.description
+
                 do{
                 let json = try JSONSerialization.jsonObject(with: responsed, options: []) as? [String : Any]
                     let loginStatus = json?["status"] as? NSNumber
@@ -249,6 +265,20 @@ class LoginViewController: UIViewController {
                     }
                     print(json as Any)
                 }catch{ print("erroMsg") }
+                if (status == "200") {
+                    let patientId = loginJSONModel?.response.userID
+
+                    UserDefaults.standard.set(patientId, forKey: "userID")
+                   
+                    UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
+                    UserDefaults.standard.set(loginJSONModel?.response.userName, forKey: "Username")
+
+                    data(true)
+                }else if (status == "500") {
+                    data(false)
+                } else {
+                    data(false)
+                }
             }else{
                 Utility().addAlertView("Alert!", "Server error", "OK", self!)
                 MBProgressHUD.hide(for: (self?.view)!, animated: true)

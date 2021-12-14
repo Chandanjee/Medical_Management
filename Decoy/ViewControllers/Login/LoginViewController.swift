@@ -53,10 +53,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.txtPassword.text = "9971182412"
-//        self.txtMobileNo.text = "9910248968"
+//        self.txtPassword.text = "9971182412"
+        self.txtPassword.text = "abc"
+        self.txtMobileNo.text = "9910248968"
 //        self.txtMobileNo.text = "9897040757" // deepak
-        self.txtMobileNo.text = "9971182412"
+//        self.txtMobileNo.text = "9971182412"
 
     }
     // MARK: - Action Login With Password
@@ -188,7 +189,7 @@ class LoginViewController: UIViewController {
     //MARK: - Login
     func API_Login(option:String, data: @escaping (_ result:Bool) -> ()){
         let dictData = getLoginParams()
-        print("login",dictData)
+        print("login",dictData,serviceUrl)
         MBProgressHUD.showAdded(to: view, animated: true)
         UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
         apiManager.apiPostLogin(serviceName: serviceUrl, parameters: dictData, completionHandler: {
@@ -241,6 +242,8 @@ class LoginViewController: UIViewController {
     
     func API_officialLogin(option:String, data: @escaping (_ result:Bool) -> ()){
         let dictData = getLoginParams()
+        print("loginOfficial ",dictData,serviceUrlOfficial)
+
         UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
 
         apiManager.apiPostLogin(serviceName: serviceUrlOfficial, parameters: dictData, completionHandler: {[weak self](result,error) in

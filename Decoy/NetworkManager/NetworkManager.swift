@@ -34,19 +34,21 @@ struct BaseUrl {
 
     
     private  static let Domain = Domains.Base_Url
+    private  static let DomainIP = Domains.Base_UrlIP
     private  static let Route = Routes.Api
     private  static let BaseURL = Domain + Route
     
 //    private  static let RouteZero = Routes.ApiZero
 //    private  static let BaseURLZero = Domain + RouteZero
     private  static let RouteDev = Routes.ApiDevelopment
-    private  static let BaseURLDev = Domain + RouteDev
+    private  static let BaseURLDev = DomainIP + RouteDev
     // For IP
     private  static let RouteWithIPRoute = Routes.ApiWithIP
     private  static let BaseURLIPDomain = Domains.Base_UrlIP
     private  static let BaseURLIP = BaseURLIPDomain + RouteWithIPRoute
     static var baseURL: String {
-        return BaseURL
+//        return BaseURL
+        return BaseURLDev
     }
 //    static var baseURLZero: String {
 //        return BaseURLZero
@@ -63,7 +65,8 @@ class NetworkManager: NSObject {
      var delegate : NetworkManagerDelegate?
     
     func getBaseUrl() -> String{
-        return BaseUrl.baseURL
+//        return BaseUrl.baseURL
+        return BaseUrl.baseURLDev
     }
     
      public func getBaseUrlDevlopment() -> String{

@@ -521,7 +521,7 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
             fatalError("can't dequeue CustomCell")
         }
         let FirstTime = arrayDateList[indexPath.row]
-        let secondTime = arrayDateList[indexPath.row]
+        let secondTime = arrayDateList[indexPath.row + 1]
         cell.loadData(startTime: FirstTime, endTime: secondTime)
         return cell
     }
@@ -543,7 +543,7 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
         API_GetTokenonDate(date: startDateSelect, handlerValue: { [weak self](valuess)in
         print("return message of appointment",valuess)
             cell?.lblAppointmentCount.text! = valuess
-            tableView.reloadData()
+//            tableView.reloadData()
         }
 )
         

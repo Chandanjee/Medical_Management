@@ -700,7 +700,7 @@
 				04D38B7B274B5E9D006A6C78 /* BookAppointment */,
 				04996CAD27271FFF0006BDE2 /* UserInformation */,
 				04837DA82725DF4B0090BBE4 /* Registration */,
-				E30A2F49271D9CF800AABC70 /* Camp Plan */,
+				E30A2F49271D9CF800AABC70 /* CampPlan */,
 				E30A2F46271D896300AABC70 /* AddFamilyMember */,
 				E30A2F3427183B9600AABC70 /* Home */,
 				E30A2F21271834C700AABC70 /* Settings */,
@@ -775,7 +775,7 @@
 			path = AddFamilyMember;
 			sourceTree = "<group>";
 		};
-		E30A2F49271D9CF800AABC70 /* Camp Plan */ = {
+		E30A2F49271D9CF800AABC70 /* CampPlan */ = {
 			isa = PBXGroup;
 			children = (
 				04D0D7AF2769226400BCC278 /* View */,
@@ -787,7 +787,7 @@
 				E30A2F4F271D9D6600AABC70 /* CampPlanInteractor.swift */,
 				04D38B79274A3F42006A6C78 /* CampPlanVC.swift */,
 			);
-			path = "Camp Plan";
+			path = CampPlan;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

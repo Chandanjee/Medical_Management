@@ -206,6 +206,8 @@ class BookAppointmentVC: UIViewController {
     
     //MARK: API After Date Selection
     func APi_AfterSelectionDate(date:String){
+        self.arrCityName = []
+        self.arrCampName = []
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat =  "dd-MM-yyyy"//"dd/MM/yyyy"
         let showDate = inputFormatter.date(from: date)
@@ -240,25 +242,48 @@ class BookAppointmentVC: UIViewController {
                 var firstitem: Bool = false
                 if  details?.response.count ?? 0 > 0{
                     self.appointModelArray = details?.response ?? []
+                    var countss = 0
+
                     for itemss in details!.response {
-                        if firstitem == false {
+                                                if firstitem == false {
                             firstitem = true
                             self.arrCityName.append("Select")
                             self.arrCampName.append("Select")
-                            self.arrCityName.append(itemss.location.trailingSpacesTrimmed)
-                            self.arrCampName.append(itemss.landMark.trailingSpacesTrimmed)
+                            self.arrCityName.append(itemss.masCity.cityName.trailingSpacesTrimmed)
+                            self.arrCampName.append(itemss.location.trailingSpacesTrimmed)
                             
                         }else{
-                            self.arrCityName.append(itemss.location.trailingSpacesTrimmed)
-                            self.arrCampName.append(itemss.landMark.trailingSpacesTrimmed)
+                            for element in itemss.masCity.cityName{
+                                if self.arrCityName.contains(itemss.masCity.cityName){
+                                    print("\(element) is Duplicate")
+                                    countss = 1
+                                    
+                                }else{
+//                                    self.arrCityName.append(element.description)
+                                }
+                            }
+                            
+                            self.arrCityName.append(itemss.masCity.cityName.trailingSpacesTrimmed)
+                            
+                            self.arrCampName.append(itemss.location.trailingSpacesTrimmed)
                         }
+                    }
+                    if (countss == 1) {
+                        let dropDownBtn2 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+                        dropDownBtn2.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+                        self.txtCamp.rightViewMode = UITextField.ViewMode.always
+                        self.txtCamp.rightView = dropDownBtn2
+                        self.txtCamp.loadDropdownData(data: self.arrCampName)
+                        self.txtCamp.resignFirstResponder()
                     }
                 }
                 MBProgressHUD.hide(for: self.view, animated: true)
                 if self.arrCityName.count > 0 {
                     self.tblHConstraint.constant = self.tableView.contentSize.height
                 }
-                self.txtCity.loadDropdownData(data: self.arrCityName)
+                let orderedNoDuplicates =  Array(NSOrderedSet(array: self.arrCityName).map({ $0 as! String }))
+
+                self.txtCity.loadDropdownData(data: orderedNoDuplicates)
             }else{
                 MBProgressHUD.hide(for: self.view, animated: true)
                 Utility().addAlertView("Alert!", "Server is not responding", "ok", self)

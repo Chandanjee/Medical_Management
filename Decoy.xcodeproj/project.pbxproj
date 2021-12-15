@@ -73,6 +73,8 @@
 		04BA81E92739978200024685 /* PatientRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA81E82739978200024685 /* PatientRequestModel.swift */; };
 		04C122F2275FA89C007B7EA5 /* RescheduleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C122F0275FA89C007B7EA5 /* RescheduleTableCell.swift */; };
 		04C122F3275FA89C007B7EA5 /* RescheduleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C122F1275FA89C007B7EA5 /* RescheduleTableCell.xib */; };
+		04D0D7B22769229500BCC278 /* CamPlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0D7B02769229500BCC278 /* CamPlanCell.swift */; };
+		04D0D7B32769229500BCC278 /* CamPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0D7B12769229500BCC278 /* CamPlanCell.xib */; };
 		04D38B7A274A3F42006A6C78 /* CampPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D38B79274A3F42006A6C78 /* CampPlanVC.swift */; };
 		04D38B7D274B5EC0006A6C78 /* BookAppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D38B7C274B5EC0006A6C78 /* BookAppointmentVC.swift */; };
 		04E24E1F2729C8500013FDD3 /* PatientListJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E24E1E2729C8500013FDD3 /* PatientListJSONModel.swift */; };
@@ -186,6 +188,8 @@
 		04BA81E82739978200024685 /* PatientRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRequestModel.swift; sourceTree = "<group>"; };
 		04C122F0275FA89C007B7EA5 /* RescheduleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescheduleTableCell.swift; sourceTree = "<group>"; };
 		04C122F1275FA89C007B7EA5 /* RescheduleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RescheduleTableCell.xib; sourceTree = "<group>"; };
+		04D0D7B02769229500BCC278 /* CamPlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamPlanCell.swift; sourceTree = "<group>"; };
+		04D0D7B12769229500BCC278 /* CamPlanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CamPlanCell.xib; sourceTree = "<group>"; };
 		04D38B79274A3F42006A6C78 /* CampPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampPlanVC.swift; sourceTree = "<group>"; };
 		04D38B7C274B5EC0006A6C78 /* BookAppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointmentVC.swift; sourceTree = "<group>"; };
 		04E24E1E2729C8500013FDD3 /* PatientListJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListJSONModel.swift; sourceTree = "<group>"; };
@@ -519,6 +523,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04D0D7AF2769226400BCC278 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04D0D7B02769229500BCC278 /* CamPlanCell.swift */,
+				04D0D7B12769229500BCC278 /* CamPlanCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		04D38B7B274B5E9D006A6C78 /* BookAppointment */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +778,7 @@
 		E30A2F49271D9CF800AABC70 /* Camp Plan */ = {
 			isa = PBXGroup;
 			children = (
+				04D0D7AF2769226400BCC278 /* View */,
 				E30A2F4A271D9D6600AABC70 /* CampPlanPresenter.swift */,
 				E30A2F4B271D9D6600AABC70 /* CampPlanWorker.swift */,
 				E30A2F4C271D9D6600AABC70 /* CampPlanRouter.swift */,
@@ -845,6 +859,7 @@
 				E30A2F0B27181DEB00AABC70 /* Assets.xcassets in Resources */,
 				04837DB12725E4410090BBE4 /* VerifyOTPView.xib in Resources */,
 				04984BA827457D4A001EC315 /* FamilyListCell.xib in Resources */,
+				04D0D7B32769229500BCC278 /* CamPlanCell.xib in Resources */,
 				E30A2F332718399600AABC70 /* SettingsTableViewCell.xib in Resources */,
 				E30A2F0927181DE800AABC70 /* Main.storyboard in Resources */,
 				046FABE82767153900565FA6 /* AnalticReportCell.xib in Resources */,
@@ -989,6 +1004,7 @@
 				E30A2F55271D9D6600AABC70 /* CampPlanInteractor.swift in Sources */,
 				04996CB4272720FA0006BDE2 /* UserInfoCell.swift in Sources */,
 				04C122F2275FA89C007B7EA5 /* RescheduleTableCell.swift in Sources */,
+				04D0D7B22769229500BCC278 /* CamPlanCell.swift in Sources */,
 				04E3C2C82724735E008A074B /* Extensions.swift in Sources */,
 				0427A8C5275A20C20022570A /* OPDResponseModel.swift in Sources */,
 				0402E75A2722CCE5004D866A /* Loader.swift in Sources */,

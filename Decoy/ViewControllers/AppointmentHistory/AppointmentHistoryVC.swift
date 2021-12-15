@@ -16,7 +16,8 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     @IBOutlet weak var toDateTxt:UITextField!
     @IBOutlet weak var searchButton:UIButton!
     @IBOutlet weak var btnBack:UIButton!
-    
+    @IBOutlet weak var backViewTop:UIView!
+
     var datePicker = UIDatePicker()
     var toolbar = UIToolbar()
     var selectedDate = ""
@@ -34,7 +35,8 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
 //        let image = UIImage(named: "back")
 //        btnBack.setImage(image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
 //        btnBack.tintColor = UIColor.white
-        
+        Utility.addAllSidesShadowOnView(backViewTop)
+        Utility.setViewCornerRadius(backViewTop, 10)
         if #available(iOS 13.0, *) {
             let image = UIImage(named: "imageName")?.withTintColor(.white, renderingMode: .alwaysTemplate)
         } else {
@@ -88,14 +90,14 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         
         datePicker.autoresizingMask = .flexibleWidth
         datePicker.datePickerMode = .date
-        datePicker.minimumDate = Date()
+//        datePicker.minimumDate = Date()
         
         let currentDate = NSDate()
 
         let prevDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate as Date)
-        if status == true {
-            datePicker.minimumDate = prevDate
-        }
+//        if status == true {
+//            datePicker.minimumDate = prevDate
+//        }
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle  = .wheels
             datePicker.backgroundColor = .white

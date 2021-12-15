@@ -40,13 +40,47 @@ class AppointHistoryCell: UITableViewCell {
     var cellViewModel: HistoryResponse? {
         didSet {
             let status = cellViewModel?.visit.visitStatus
+            let statusss = cellViewModel?.visit.visitID
+            let date = cellViewModel?.visit.visitDate
+
             let locationCamp = cellViewModel?.masCamp.landMark
+            if status == "" {
+                self.lblAppointmentStatus.text = ""
+            }else if status == "c" ||  status == "C"{
+                self.lblAppointmentStatus.textColor = .green
+                self.lblAppointmentStatus.text = "Completed"
+                self.btnCancel.isHidden = true
+                self.btnReshdule.isHidden = true
+            }else if status == "x" ||  status == "X"{
+                self.lblAppointmentStatus.textColor = .red
+                self.lblAppointmentStatus.text = "Not Visited"
+                self.btnCancel.isHidden = true
+                self.btnReshdule.isHidden = true
+            }else if status == "p" ||  status == "P" || status == "n" ||  status == "N" {
+                self.lblAppointmentStatus.textColor = .yellow
+                self.lblAppointmentStatus.text = "Awating Consultant"
+            }
+            
             self.lblAppointmentStatus.text = status
             if let camp = locationCamp {
                 self.lblCampLocation.text = camp
             }
-            self.lblAppointmentdate.text = ""
-            self.lblAppointmentTime.text = ""
+            let timeInterval = TimeInterval((cellViewModel?.visit.visitDate)!)
+                      // create NSDate from Double (NSTimeInterval)
+            let myNSDate = Date(timeIntervalSince1970: timeInterval)
+
+//                      print(myNSDate)
+            let formatDate = DateFormatter()
+//            formatDate.locale = Locale(identifier: "UTC")
+
+               formatDate.dateFormat = "dd-MM-yyyy"
+            let drawDate = formatDate.string(from: myNSDate)
+            let formatDate1 = DateFormatter()
+               formatDate1.dateFormat = "hh:mm a"
+            let drawDate1 = formatDate1.string(from: myNSDate)
+           
+            self.lblAppointmentdate.text = drawDate
+            self.lblAppointmentTime.text = drawDate1
             
         }
     }

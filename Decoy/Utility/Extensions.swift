@@ -83,9 +83,9 @@ extension UIColor {
   }
   
   
-  static let themeTapColor = UIColor(hexString: "#FF0035")
-  static let themeFontColor = UIColor(hexString: "#212621")
-  static let themeFontLightColor = UIColor(hexString: "#8C98A9")
+  static let themeTapColor = UIColor(hexString: "#1159A7") //FF0035 //F0C15B
+  static let themeFontColor = UIColor(hexString: "#212621") //  //212621
+  static let themeFontLightColor = UIColor(hexString: "#c5c5c5") //8C98A9
 }
 
 

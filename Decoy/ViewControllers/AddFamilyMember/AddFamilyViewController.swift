@@ -37,6 +37,9 @@ class AddFamilyViewController: UIViewController {
         radioController.buttonsArray = [btnYear,btnMonth,btnDays]
         radioController.defaultButton = btnYear
         selectedGender = "Years"
+        let usermobile = UserDefaults.standard.value(forKey: "LoginMobilenum") as? String
+
+        self.mobilenumberTxt.text = usermobile
         
     }
     
@@ -114,8 +117,8 @@ class AddFamilyViewController: UIViewController {
                                 let idGender = itemss["administrativeSexId"] as? Int
                                 if firstitem == false {
                                     firstitem = true
-                                    self.arrGenderID.append("Select")
-                                    self.arrGenderName.append("Select")
+                                    self.arrGenderID.append("Select your gender")
+                                    self.arrGenderName.append("Select your gender")
                                     self.arrGenderID.append(String(idGender!))
                                     self.arrGenderName.append(nameGender!)
                                 }else{
@@ -138,6 +141,15 @@ class AddFamilyViewController: UIViewController {
     fileprivate func getRegisORAddFamilyParams() -> [String: Any] {
         let dob = self.ageTxt.text
         let ageInt = Int(dob!)
+        if selectedGender == "days" {
+            if ageInt! > 30 {
+                Utility().addAlertView("Alert!",  "Days value should not be greater than 30", "ok", self)
+            }
+        }else if selectedGender == "month" {
+            if ageInt! > 11 {
+                Utility().addAlertView("Alert!",  "Month value should not be greater than 11", "ok", self)
+            }
+        }
         var date: Date? = nil
         if selectedGender == "Years" {
             date = Calendar.current.date(byAdding: .year, value: -ageInt!, to: Date())
@@ -167,6 +179,19 @@ print(timeFromDate)
     }
     
     func API_Registration(){
+        let dob = self.ageTxt.text
+        let ageInt = Int(dob!)
+        if selectedGender == "days" {
+            if ageInt! > 30 {
+                Utility().addAlertView("Alert!",  "Days value should not be greater than 30", "ok", self)
+                return
+            }
+        }else if selectedGender == "month" {
+            if ageInt! > 11 {
+                Utility().addAlertView("Alert!",  "Month value should not be greater than 11", "ok", self)
+                return
+            }
+        }
         let dictData = getRegisORAddFamilyParams()
         print("Registration Json",dictData)
         apiManager.apiPostView(serviceName: serviceUrlAddFamily, parameters: dictData, completionHandler: {

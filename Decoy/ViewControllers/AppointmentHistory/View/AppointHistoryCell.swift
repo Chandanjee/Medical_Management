@@ -40,8 +40,9 @@ class AppointHistoryCell: UITableViewCell {
     var cellViewModel: HistoryResponse? {
         didSet {
             let status = cellViewModel?.visit.visitStatus
+            
             let statusss = cellViewModel?.visit.visitID
-            let date = cellViewModel?.visit.visitDate
+            let dateStr = cellViewModel?.visit.visitDateData
 
             let locationCamp = cellViewModel?.masCamp.landMark
             if status == "" {
@@ -59,9 +60,11 @@ class AppointHistoryCell: UITableViewCell {
             }else if status == "p" ||  status == "P" || status == "n" ||  status == "N" {
                 self.lblAppointmentStatus.textColor = .yellow
                 self.lblAppointmentStatus.text = "Awating Consultant"
+                self.btnCancel.isHidden = false
+                self.btnReshdule.isHidden = false
             }
             
-            self.lblAppointmentStatus.text = status
+//            self.lblAppointmentStatus.text = status
             if let camp = locationCamp {
                 self.lblCampLocation.text = camp
             }
@@ -73,11 +76,13 @@ class AppointHistoryCell: UITableViewCell {
             let formatDate = DateFormatter()
 //            formatDate.locale = Locale(identifier: "UTC")
 
-               formatDate.dateFormat = "dd-MM-yyyy"
-            let drawDate = formatDate.string(from: myNSDate)
+               formatDate.dateFormat = "dd-MM-yyyy HH:mm:ss"
+            let date = formatDate.date(from: dateStr!)
+            formatDate.dateFormat = "dd-MM-yyyy"
+            let drawDate = formatDate.string(from: date!)
             let formatDate1 = DateFormatter()
                formatDate1.dateFormat = "hh:mm a"
-            let drawDate1 = formatDate1.string(from: myNSDate)
+            let drawDate1 = formatDate1.string(from: date!)
            
             self.lblAppointmentdate.text = drawDate
             self.lblAppointmentTime.text = drawDate1

@@ -284,6 +284,7 @@ class BookAppointmentVC: UIViewController {
                 let orderedNoDuplicates =  Array(NSOrderedSet(array: self.arrCityName).map({ $0 as! String }))
 
                 self.txtCity.loadDropdownData(data: orderedNoDuplicates)
+                self.txtCity.text = orderedNoDuplicates[1]
             }else{
                 MBProgressHUD.hide(for: self.view, animated: true)
                 Utility().addAlertView("Alert!", "Server is not responding", "ok", self)
@@ -314,6 +315,7 @@ class BookAppointmentVC: UIViewController {
                            print(person["name"] as! String)
                             ResponseMSG = person["name"] as? String ?? ""
                             handlerValue(ResponseMSG!)
+                            
                         }
                     }else{
                         handlerValue(message!)
@@ -473,6 +475,9 @@ let datafromArray = appointModelArray[index]
                         if status == 200 {
                             MBProgressHUD.hide(for: self.view, animated: true)
                             Utility().addAlertView("Alert!", "Visit create successfully", "ok", self)
+                            self.txtCamp.text = self.txtCamp.placeholder
+                            self.txtAppointmentDate.text =  self.txtAppointmentDate.placeholder
+                            self.txtCity.text = self.txtCity.placeholder
                             return
                         }
                         
@@ -550,6 +555,7 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
         cell.loadData(startTime: FirstTime, endTime: secondTime)
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dt = Date()

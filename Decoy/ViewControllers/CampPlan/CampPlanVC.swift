@@ -8,6 +8,12 @@
 import UIKit
 
 class CampPlanVC: UIViewController {
+    @IBOutlet weak var toDate:UITextField!
+    @IBOutlet weak var fromDate:UITextField!
+    @IBOutlet weak var cityTxt:UITextField!
+    @IBOutlet weak var btnSearch:UIButton!
+    @IBOutlet weak var backViewTops:UIView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

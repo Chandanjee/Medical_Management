@@ -259,7 +259,10 @@ class RescheduleVC: UIViewController {
                 if self.arrCityName.count > 0 {
                     self.tblHConstraint.constant = self.tableView.contentSize.height
                 }
-                self.txtCity.loadDropdownData(data: self.arrCityName)
+                let orderedNoDuplicates =  Array(NSOrderedSet(array: self.arrCityName).map({ $0 as! String }))
+                self.txtCity.loadDropdownData(data: orderedNoDuplicates) // self.arrCityName
+                self.txtCity.text = orderedNoDuplicates[1]
+
             }else{
                 MBProgressHUD.hide(for: self.view, animated: true)
                 Utility().addAlertView("Alert!", "Server is not responding", "ok", self)
@@ -290,6 +293,7 @@ class RescheduleVC: UIViewController {
                            print(person["name"] as! String)
                             ResponseMSG = person["name"] as? String ?? ""
                             handlerValue(ResponseMSG!)
+                           
                         }
                     }else{
                         handlerValue(message!)
@@ -400,7 +404,7 @@ class RescheduleVC: UIViewController {
         let date = TimeInterval(lastChangeDate!).stringFromTimeInterval()
         let startDateSelect = resultString + " " + date
         let mmuid = mmu_ID?.mmuID
-        let stat = mmu_ID?.status.rawValue
+        let stat = mmu_ID?.status
        let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
         /*
          {"camp_id":"435","departmentID":"2","lastChangeDate":"2021-12-01 17:07:11.783","mmu_id":"1","patientId":"204","status":"N","visitId":"411","visit_date":"2021-12-02 09:30:00.0"}
@@ -451,6 +455,9 @@ class RescheduleVC: UIViewController {
                         if status == 200 {
                             MBProgressHUD.hide(for: self.view, animated: true)
                             Utility().addAlertView("Alert!", "Visit create successfully", "ok", self)
+                            self.txtCamp.text = self.txtCamp.placeholder
+                            self.txtAppointmentDate.text =  self.txtAppointmentDate.placeholder
+                            self.txtCity.text = self.txtCity.placeholder
                             return
                         }
                         
@@ -543,7 +550,7 @@ extension RescheduleVC:UITableViewDelegate,UITableViewDataSource{
         API_GetTokenonDate(date: startDateSelect, handlerValue: { [weak self](valuess)in
         print("return message of appointment",valuess)
             cell?.lblAppointmentCount.text! = valuess
-            tableView.reloadData()
+//            tableView.reloadData()
         }
 )
         

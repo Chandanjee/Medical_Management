@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class CamPlanCell: UITableViewCell {
     @IBOutlet weak var campAvailableLbl:UILabel!
     @IBOutlet weak var campDayLbl:UILabel!
@@ -22,6 +23,8 @@ class CamPlanCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let jeremyGif = UIImage.gifWithName("map")
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

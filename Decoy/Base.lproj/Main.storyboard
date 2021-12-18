@@ -3046,6 +3046,9 @@
         <designable name="dwh-ss-r4L">
             <size key="intrinsicContentSize" width="67.666666666666671" height="21"/>
         </designable>
+        <designable name="eAu-F7-OyB">
+            <size key="intrinsicContentSize" width="47.666666666666664" height="25"/>
+        </designable>
         <designable name="erm-7Y-lsA">
             <size key="intrinsicContentSize" width="95" height="20"/>
         </designable>
@@ -3058,11 +3061,17 @@
         <designable name="oTX-0t-Vfj">
             <size key="intrinsicContentSize" width="191" height="21"/>
         </designable>
+        <designable name="oXe-8a-yqW">
+            <size key="intrinsicContentSize" width="74.666666666666671" height="25"/>
+        </designable>
         <designable name="paa-Fl-naI">
             <size key="intrinsicContentSize" width="157" height="20"/>
         </designable>
         <designable name="ped-qw-Nfk">
             <size key="intrinsicContentSize" width="94.333333333333329" height="21"/>
+        </designable>
+        <designable name="rHV-qn-yCV">
+            <size key="intrinsicContentSize" width="94.666666666666671" height="25"/>
         </designable>
         <designable name="yQG-tK-1iR">
             <size key="intrinsicContentSize" width="43.333333333333336" height="21"/>

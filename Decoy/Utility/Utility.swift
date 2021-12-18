@@ -528,3 +528,36 @@ func formattedDateFromString(dateString: String, withFormat format: String) -> S
 
     return nil
 }
+
+///////////////////////////////////////////////////////////////////////
+///  This function converts decimal degrees to radians              ///
+///////////////////////////////////////////////////////////////////////
+func deg2rad(deg:Double) -> Double {
+//    return deg * M_PI / 180
+    return deg * Double.pi / 180
+
+}
+
+///////////////////////////////////////////////////////////////////////
+///  This function converts radians to decimal degrees              ///
+///////////////////////////////////////////////////////////////////////
+func rad2deg(rad:Double) -> Double {
+//    return rad * 180.0 / M_PI
+    return rad * 180.0 / Double.pi
+
+}
+
+func distance(lat1:Double, lon1:Double, lat2:Double, lon2:Double, unit:String) -> Double {
+    let theta = lon1 - lon2
+    var dist = sin(deg2rad(deg: lat1)) * sin(deg2rad(deg: lat2)) + cos(deg2rad(deg: lat1)) * cos(deg2rad(deg: lat2)) * cos(deg2rad(deg: theta))
+    dist = acos(dist)
+    dist = rad2deg(rad: dist)
+    dist = dist * 60 * 1.1515 // "M"= "Miles"
+    if (unit == "K") { // "K"= "Kilometers"
+        dist = dist * 1.609344
+    }
+    else if (unit == "N") { // "N"= "Nautical Miles"
+        dist = dist * 0.8684
+    }
+    return dist
+}

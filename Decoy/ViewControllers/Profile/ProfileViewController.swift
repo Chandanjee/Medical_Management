@@ -104,7 +104,7 @@ extension ProfileViewController:UITableViewDataSource,UITableViewDelegate{
             print("Logout")
             Utility.performTaskInMainQueue {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let logoutVC = storyboard.instantiateViewController(withIdentifier: "LogoutVC") as! LogoutVC
+                let logoutVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
 //                logoutVC.modalPresentationStyle = .overCurrentContext
 //                logoutVC.modalTransitionStyle = .crossDissolve
 //                logoutVC.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.85)
@@ -113,9 +113,12 @@ extension ProfileViewController:UITableViewDataSource,UITableViewDelegate{
 //                    guard let weakSelf = self else { return }
 //                    weakSelf.callAPI_Logout()
 //                }
-//                self.navigationController?.pushViewController(logoutVC, animated: true)
+                UserDefaults.standard.set("", forKey: "userLoginType")
+                UserDefaults.standard.set("NO", forKey: "userLoginStatus")
+                UserDefaults.standard.set("", forKey: "userMobile")
+                self.navigationController?.pushViewController(logoutVC, animated: true)
 //                self.navigationController?.popToViewController(logoutVC, animated: true)
-                self.navigationController?.popToRootViewController(animated: true)
+//                self.navigationController?.popToRootViewController(animated: true)
 //                self.present(logoutVC, animated: true, completion: nil)
             }
         default: break

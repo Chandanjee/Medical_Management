@@ -53,11 +53,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-//        self.txtPassword.text = "9971182412"
-        self.txtPassword.text = "abc"
-        self.txtMobileNo.text = "9910248968"
+        self.txtPassword.text = "9971182412"
+//        self.txtPassword.text = "abc"
+//        self.txtMobileNo.text = "9910248968"
 //        self.txtMobileNo.text = "9897040757" // deepak
-//        self.txtMobileNo.text = "9971182412"
+        self.txtMobileNo.text = "9971182412"
 
     }
     // MARK: - Action Login With Password
@@ -73,11 +73,14 @@ class LoginViewController: UIViewController {
                     status in
                     print(status)
                     if status == true{
+                        UserDefaults.standard.set(self.segmentSelectedOption, forKey: "userLoginType")
+
                         UserDefaults.standard.set("Yes", forKey: "userLoginStatus")
                         UserDefaults.standard.set(self.userMobile, forKey: "userMobile")
                         MBProgressHUD.hide(for: self.view, animated: true)
                         self.showDashboard()
                     }else{
+                        UserDefaults.standard.set("", forKey: "userLoginType")
                         UserDefaults.standard.set("No", forKey: "userLoginStatus")
                     }
                     UserDefaults.standard.synchronize()
@@ -88,11 +91,13 @@ class LoginViewController: UIViewController {
                 status in
                 print(status)
                 if status == true{
+                    UserDefaults.standard.set(self.segmentSelectedOption, forKey: "userLoginType")
                     UserDefaults.standard.set("Yes", forKey: "userLoginStatus")
                     UserDefaults.standard.set(self.userMobile, forKey: "userMobile")
                     MBProgressHUD.hide(for: self.view, animated: true)
                     self.showDashboard()
                 }else{
+                    UserDefaults.standard.set("", forKey: "userLoginType")
                     UserDefaults.standard.set("No", forKey: "userLoginStatus")
                 }
                 UserDefaults.standard.synchronize()
@@ -349,10 +354,15 @@ class LoginViewController: UIViewController {
         v5?.tabControllerss = .Dummy
       
       
-        let t1 = TabItem(v1!, imageName: "dashboard", tabName: "Dashboard")
-        let t2 = TabItem(v2!, imageName: "reportAnalysis", tabName: "Analytic Report")
-        let t3 = TabItem(v3!, imageName: "medical_supply", tabName: "Pending Approval")
-        let t4 = TabItem(v4!, imageName: "pandemic", tabName: "Pandemic Zone")
+//        let t1 = TabItem(v1!, imageName: "dashboard", tabName: "Dashboard")
+//        let t2 = TabItem(v2!, imageName: "reportAnalysis", tabName: "Analytic Report")
+//        let t3 = TabItem(v3!, imageName: "medical_supply", tabName: "Pending Approval")
+//        let t4 = TabItem(v4!, imageName: "pandemic", tabName: "Pandemic Zone")
+//        let t5 = TabItem(v5!, imageName: "profile", tabName: "Profile")
+        let t1 = TabItem(v1!, imageName: "dashboard", tabName: "Home")
+        let t2 = TabItem(v2!, imageName: "reportAnalysis", tabName: "Report")
+        let t3 = TabItem(v3!, imageName: "medical_supply", tabName: "Approval")
+        let t4 = TabItem(v4!, imageName: "pandemic", tabName: "Pandemic")
         let t5 = TabItem(v5!, imageName: "profile", tabName: "Profile")
       
       return [t1,t2,t3,t4,t5]

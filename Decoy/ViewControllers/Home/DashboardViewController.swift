@@ -48,7 +48,10 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
         
         print(name.title)
         if (name.title == "Camp Plan") {
-            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let v1 = storyboard.instantiateViewController(withIdentifier:"CampPlanVC") as? CampPlanVC
+//                v1?.targetOption = name.title
+                self.navigationController?.pushViewController(v1!, animated: true)
         }else if (name.title == "Add Family Member"){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let v1 = storyboard.instantiateViewController(withIdentifier:"AddFamilyViewController") as? AddFamilyViewController

@@ -717,18 +717,14 @@
             </objects>
             <point key="canvasLocation" x="4128.8000000000002" y="82.758620689655174"/>
         </scene>
-        <!--Camp Plan View Controller-->
+        <!--Camp PlanVC-->
         <scene sceneID="0gW-xJ-UYq">
             <objects>
-                <viewController id="gJq-xF-glX" customClass="CampPlanViewController" customModule="Decoy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampPlanVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gJq-xF-glX" customClass="CampPlanVC" customModule="Decoy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Yt-tg-kTj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bDk-xJ-47e">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxw-z7-ZZv">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
@@ -762,9 +758,12 @@
                                     <constraint firstItem="LKF-TL-jde" firstAttribute="centerY" secondItem="zgE-Vr-zmk" secondAttribute="centerY" id="gFt-Ii-Liq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNj-7G-Q03">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="bDk-xJ-47e">
+                                <rect key="frame" x="0.0" y="80" width="375" height="732"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNj-7G-Q03">
                                 <rect key="frame" x="8" y="90" width="359" height="185"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7e3-0V-WK9">
                                         <rect key="frame" x="16" y="16" width="80" height="21"/>
@@ -774,59 +773,103 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLE-sr-6B4">
-                                        <rect key="frame" x="24" y="92" width="31" height="21"/>
+                                        <rect key="frame" x="24" y="93" width="31" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqb-CP-XzU">
-                                        <rect key="frame" x="202" y="16" width="59" height="21"/>
+                                        <rect key="frame" x="198" y="16" width="59" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewz-W7-I7K">
-                                        <rect key="frame" x="258" y="122" width="65" height="45"/>
+                                        <rect key="frame" x="270" y="122" width="65" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.066666666669999999" green="0.34901960780000002" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="ic_search"/>
+                                        <connections>
+                                            <action selector="tapToSearch:" destination="gJq-xF-glX" eventType="touchUpInside" id="fDq-bD-Zhh"/>
+                                        </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eAu-F7-OyB">
-                                        <rect key="frame" x="16" y="122" width="160" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eAu-F7-OyB" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="122" width="170" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHV-qn-yCV">
-                                        <rect key="frame" x="16" y="42" width="130" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="From Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHV-qn-yCV" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="42" width="140" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-8a-yqW">
-                                        <rect key="frame" x="199" y="42" width="130" height="45"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="To Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-8a-yqW" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
+                                        <rect key="frame" x="195" y="42" width="140" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="1Ga-f4-jMl"/>
+                                </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yaB-WL-I6g">
+                                <rect key="frame" x="0.0" y="283" width="375" height="529"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="gJq-xF-glX" id="xi8-XR-Ruf"/>
+                                    <outlet property="delegate" destination="gJq-xF-glX" id="Sd6-4x-gU8"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d19-P1-dfy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="yaB-WL-I6g" firstAttribute="trailing" secondItem="d19-P1-dfy" secondAttribute="trailing" id="25K-2B-WHF"/>
+                            <constraint firstItem="pNj-7G-Q03" firstAttribute="leading" secondItem="d19-P1-dfy" secondAttribute="leading" constant="8" id="2vG-Hl-U5Y"/>
                             <constraint firstItem="zxw-z7-ZZv" firstAttribute="leading" secondItem="5Yt-tg-kTj" secondAttribute="leading" id="4FA-Dz-r19"/>
                             <constraint firstItem="bDk-xJ-47e" firstAttribute="leading" secondItem="5Yt-tg-kTj" secondAttribute="leading" id="4y7-LA-UqX"/>
+                            <constraint firstItem="d19-P1-dfy" firstAttribute="trailing" secondItem="pNj-7G-Q03" secondAttribute="trailing" constant="8" id="8Nu-vw-Rzq"/>
+                            <constraint firstAttribute="bottom" secondItem="yaB-WL-I6g" secondAttribute="bottom" id="9NJ-ML-5Ip"/>
                             <constraint firstAttribute="trailing" secondItem="bDk-xJ-47e" secondAttribute="trailing" id="E0p-mj-tsg"/>
+                            <constraint firstItem="yaB-WL-I6g" firstAttribute="leading" secondItem="d19-P1-dfy" secondAttribute="leading" id="Oiw-QN-kvJ"/>
+                            <constraint firstItem="yaB-WL-I6g" firstAttribute="top" secondItem="pNj-7G-Q03" secondAttribute="bottom" constant="8" symbolic="YES" id="XQ9-0s-dhg"/>
                             <constraint firstAttribute="trailing" secondItem="zxw-z7-ZZv" secondAttribute="trailing" id="ZxN-Wn-ZHw"/>
-                            <constraint firstItem="bDk-xJ-47e" firstAttribute="top" secondItem="5Yt-tg-kTj" secondAttribute="top" id="il6-Se-o2r"/>
+                            <constraint firstItem="bDk-xJ-47e" firstAttribute="top" secondItem="5Yt-tg-kTj" secondAttribute="top" constant="80" id="il6-Se-o2r"/>
                             <constraint firstAttribute="bottom" secondItem="bDk-xJ-47e" secondAttribute="bottom" id="jtr-lg-nM5"/>
                             <constraint firstItem="zxw-z7-ZZv" firstAttribute="top" secondItem="5Yt-tg-kTj" secondAttribute="top" id="sKr-tf-RiW"/>
+                            <constraint firstItem="pNj-7G-Q03" firstAttribute="top" secondItem="zxw-z7-ZZv" secondAttribute="bottom" constant="10" id="wOa-Tt-Eef"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backViewTops" destination="pNj-7G-Q03" id="pVO-be-lJi"/>
+                        <outlet property="btnSearch" destination="Ewz-W7-I7K" id="pav-4O-7fv"/>
+                        <outlet property="cityTxt" destination="eAu-F7-OyB" id="dRH-MW-Mam"/>
+                        <outlet property="fromDate" destination="rHV-qn-yCV" id="i8E-Kl-c0K"/>
+                        <outlet property="tableViews" destination="yaB-WL-I6g" id="SIJ-lr-Zsy"/>
+                        <outlet property="toDate" destination="oXe-8a-yqW" id="Xoj-B9-s1l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zT3-Qh-0S2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

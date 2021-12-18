@@ -74,6 +74,8 @@
 		04BA81E92739978200024685 /* PatientRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA81E82739978200024685 /* PatientRequestModel.swift */; };
 		04C122F2275FA89C007B7EA5 /* RescheduleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C122F0275FA89C007B7EA5 /* RescheduleTableCell.swift */; };
 		04C122F3275FA89C007B7EA5 /* RescheduleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C122F1275FA89C007B7EA5 /* RescheduleTableCell.xib */; };
+		04C41342276D9F79003310E9 /* CampPlanResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C41341276D9F79003310E9 /* CampPlanResponse.swift */; };
+		04C41345276E0310003310E9 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C41344276E0310003310E9 /* CoreLocationManager.swift */; };
 		04D0D7B22769229500BCC278 /* CamPlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0D7B02769229500BCC278 /* CamPlanCell.swift */; };
 		04D0D7B32769229500BCC278 /* CamPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0D7B12769229500BCC278 /* CamPlanCell.xib */; };
 		04D38B7A274A3F42006A6C78 /* CampPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D38B79274A3F42006A6C78 /* CampPlanVC.swift */; };
@@ -190,6 +192,9 @@
 		04BA81E82739978200024685 /* PatientRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRequestModel.swift; sourceTree = "<group>"; };
 		04C122F0275FA89C007B7EA5 /* RescheduleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescheduleTableCell.swift; sourceTree = "<group>"; };
 		04C122F1275FA89C007B7EA5 /* RescheduleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RescheduleTableCell.xib; sourceTree = "<group>"; };
+		04C41341276D9F79003310E9 /* CampPlanResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampPlanResponse.swift; sourceTree = "<group>"; };
+		04C41343276DF318003310E9 /* Decoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Decoy.entitlements; sourceTree = "<group>"; };
+		04C41344276E0310003310E9 /* CoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
 		04D0D7B02769229500BCC278 /* CamPlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamPlanCell.swift; sourceTree = "<group>"; };
 		04D0D7B12769229500BCC278 /* CamPlanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CamPlanCell.xib; sourceTree = "<group>"; };
 		04D38B79274A3F42006A6C78 /* CampPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampPlanVC.swift; sourceTree = "<group>"; };
@@ -274,6 +279,7 @@
 				044064E2274D631900C4E81F /* CustomPickerView.swift */,
 				044064E4274E234200C4E81F /* LocationManager.swift */,
 				047830F527579111005C594B /* RadioButtonController.swift */,
+				04C41344276E0310003310E9 /* CoreLocationManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -533,6 +539,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04C41340276D9F56003310E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04C41341276D9F79003310E9 /* CampPlanResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		04D0D7AF2769226400BCC278 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +666,7 @@
 		E30A2F0027181DE800AABC70 /* Decoy */ = {
 			isa = PBXGroup;
 			children = (
+				04C41343276DF318003310E9 /* Decoy.entitlements */,
 				046D95FC273C39340063FDCB /* OTPView */,
 				04E47D582728067700A4C0DB /* NetworkManager */,
 				0402E7472722B362004D866A /* Utility */,
@@ -789,6 +804,7 @@
 		E30A2F49271D9CF800AABC70 /* CampPlan */ = {
 			isa = PBXGroup;
 			children = (
+				04C41340276D9F56003310E9 /* Model */,
 				04D0D7AF2769226400BCC278 /* View */,
 				E30A2F4A271D9D6600AABC70 /* CampPlanPresenter.swift */,
 				E30A2F4B271D9D6600AABC70 /* CampPlanWorker.swift */,
@@ -953,6 +969,7 @@
 				0427A8C8275B7DB30022570A /* PDFViewController.swift in Sources */,
 				E30A2F4027183BBE00AABC70 /* HomeInteractor.swift in Sources */,
 				0416733A27255BA900DE0045 /* ProfileTableCell.swift in Sources */,
+				04C41342276D9F79003310E9 /* CampPlanResponse.swift in Sources */,
 				045728632755243000439C34 /* AppointHistoryCell.swift in Sources */,
 				E30A2F2C2718350000AABC70 /* SettingsViewController.swift in Sources */,
 				E30A2F292718350000AABC70 /* SettingsWorker.swift in Sources */,
@@ -982,6 +999,7 @@
 				04B832DF272494FE00379243 /* DashboardViewController.swift in Sources */,
 				E30A2F52271D9D6600AABC70 /* CampPlanRouter.swift in Sources */,
 				0416734C2725759C00DE0045 /* Constants.swift in Sources */,
+				04C41345276E0310003310E9 /* CoreLocationManager.swift in Sources */,
 				046FABE72767153900565FA6 /* AnalticReportCell.swift in Sources */,
 				E30A2F3B27183BBE00AABC70 /* HomePresenter.swift in Sources */,
 				044064E5274E234200C4E81F /* LocationManager.swift in Sources */,
@@ -1171,6 +1189,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Decoy/Decoy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77RD563Q8T;
 				INFOPLIST_FILE = Decoy/Info.plist;
@@ -1192,6 +1211,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Decoy/Decoy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77RD563Q8T;
 				INFOPLIST_FILE = Decoy/Info.plist;

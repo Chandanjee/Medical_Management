@@ -11,15 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CamPlanCell" id="KGk-i7-Jjw" customClass="CamPlanCell" customModule="Decoy" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CamPlanCell" id="KGk-i7-Jjw" customClass="CamPlanCell" customModule="Decoy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-63-n4U">
-                        <rect key="frame" x="0.0" y="2" width="375" height="253"/>
+                        <rect key="frame" x="0.0" y="4" width="375" height="252"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camp Available On  :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztq-ex-Hsp">
                                 <rect key="frame" x="15" y="15" width="152" height="20"/>
@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camp Landmark      :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ph-mI-zML">
-                                <rect key="frame" x="15" y="215" width="152" height="20"/>
+                                <rect key="frame" x="15" y="220" width="152" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -113,13 +113,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsm-oA-zGL">
-                                <rect key="frame" x="180" y="165" width="51" height="47"/>
+                                <rect key="frame" x="180" y="165" width="51" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL4-eF-bH2">
-                                <rect key="frame" x="180" y="220" width="51" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL4-eF-bH2">
+                                <rect key="frame" x="180" y="225" width="51" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="2Ua-Zg-NBT"/>
                                 </constraints>
@@ -144,7 +144,7 @@
                             <constraint firstItem="ztq-ex-Hsp" firstAttribute="top" secondItem="a1D-63-n4U" secondAttribute="top" constant="15" id="CCk-jx-T5E"/>
                             <constraint firstItem="qNZ-te-fwa" firstAttribute="top" secondItem="ABS-1L-TEM" secondAttribute="bottom" constant="10" id="CEk-Aj-DPW"/>
                             <constraint firstItem="TAg-5n-VrW" firstAttribute="leading" secondItem="a1D-63-n4U" secondAttribute="leading" constant="15" id="CjX-dA-TTM"/>
-                            <constraint firstAttribute="bottom" secondItem="TL4-eF-bH2" secondAttribute="bottom" constant="13" id="Dai-NX-8eY"/>
+                            <constraint firstAttribute="bottom" secondItem="TL4-eF-bH2" secondAttribute="bottom" constant="7" id="Dai-NX-8eY"/>
                             <constraint firstItem="MLM-Gq-rQE" firstAttribute="width" secondItem="ztq-ex-Hsp" secondAttribute="width" id="F1A-eR-gAD"/>
                             <constraint firstItem="BjO-Kp-tAC" firstAttribute="top" secondItem="fcw-Wr-I9v" secondAttribute="bottom" constant="10" id="Gfi-Em-Vhy"/>
                             <constraint firstItem="wsm-oA-zGL" firstAttribute="top" secondItem="wFV-WZ-UDs" secondAttribute="bottom" constant="10" id="H6A-PT-8Yz"/>
@@ -156,7 +156,6 @@
                             <constraint firstItem="WAO-vO-2Pe" firstAttribute="top" secondItem="MLM-Gq-rQE" secondAttribute="bottom" constant="10" id="XCa-7O-Bkp"/>
                             <constraint firstItem="WAO-vO-2Pe" firstAttribute="width" secondItem="ztq-ex-Hsp" secondAttribute="width" id="YZ8-CC-lDr"/>
                             <constraint firstItem="ztq-ex-Hsp" firstAttribute="leading" secondItem="a1D-63-n4U" secondAttribute="leading" constant="15" id="ZRv-Y3-YjK"/>
-                            <constraint firstItem="8Ph-mI-zML" firstAttribute="top" secondItem="BjO-Kp-tAC" secondAttribute="bottom" constant="30" id="b5T-Kd-jFD"/>
                             <constraint firstItem="wsm-oA-zGL" firstAttribute="leading" secondItem="BjO-Kp-tAC" secondAttribute="trailing" constant="13" id="bbL-25-Vic"/>
                             <constraint firstItem="XdP-78-eTz" firstAttribute="top" secondItem="a1D-63-n4U" secondAttribute="top" constant="15" id="cqN-HJ-NUu"/>
                             <constraint firstItem="XdP-78-eTz" firstAttribute="leading" secondItem="ztq-ex-Hsp" secondAttribute="trailing" constant="13" id="eVs-ZO-tjG"/>
@@ -165,6 +164,7 @@
                             <constraint firstItem="8Ph-mI-zML" firstAttribute="width" secondItem="ztq-ex-Hsp" secondAttribute="width" id="hdi-6D-b5V"/>
                             <constraint firstItem="TAg-5n-VrW" firstAttribute="width" secondItem="ztq-ex-Hsp" secondAttribute="width" id="jcK-tV-tbk"/>
                             <constraint firstItem="BjO-Kp-tAC" firstAttribute="width" secondItem="ztq-ex-Hsp" secondAttribute="width" id="ksB-C8-zb0"/>
+                            <constraint firstAttribute="bottom" secondItem="8Ph-mI-zML" secondAttribute="bottom" constant="12" id="n20-Pf-fwt"/>
                             <constraint firstItem="wFV-WZ-UDs" firstAttribute="leading" secondItem="fcw-Wr-I9v" secondAttribute="trailing" constant="13" id="oFS-16-o4I"/>
                             <constraint firstItem="ABS-1L-TEM" firstAttribute="leading" secondItem="TAg-5n-VrW" secondAttribute="trailing" constant="13" id="oFZ-hc-asp"/>
                             <constraint firstItem="8Ph-mI-zML" firstAttribute="leading" secondItem="a1D-63-n4U" secondAttribute="leading" constant="15" id="oz2-bd-NDm"/>
@@ -182,15 +182,20 @@
                 <constraints>
                     <constraint firstItem="a1D-63-n4U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Cf8-p7-Kpo"/>
                     <constraint firstAttribute="trailing" secondItem="a1D-63-n4U" secondAttribute="trailing" id="FyP-o7-sNd"/>
-                    <constraint firstAttribute="bottom" secondItem="a1D-63-n4U" secondAttribute="bottom" id="RCE-Bd-b7w"/>
-                    <constraint firstItem="a1D-63-n4U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="peh-Y6-Ld8"/>
+                    <constraint firstAttribute="bottom" secondItem="a1D-63-n4U" secondAttribute="bottom" constant="4" id="RCE-Bd-b7w"/>
+                    <constraint firstItem="a1D-63-n4U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="peh-Y6-Ld8"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="campAvailableLbl" destination="XdP-78-eTz" id="3Pn-Jg-6sB"/>
                 <outlet property="campDayLbl" destination="ABS-1L-TEM" id="miO-X2-smH"/>
+                <outlet property="campDistanceLbl" destination="wFV-WZ-UDs" id="vQ2-2m-s30"/>
+                <outlet property="campEndTimeLbl" destination="PXO-Bk-1Z2" id="CeU-R9-EgL"/>
+                <outlet property="campLandmarkLbl" destination="TL4-eF-bH2" id="iEc-ic-r8M"/>
+                <outlet property="campLocation" destination="wsm-oA-zGL" id="ZQA-DO-tev"/>
                 <outlet property="campStartTimeLbl" destination="qNZ-te-fwa" id="0Rg-WI-Qc9"/>
+                <outlet property="campViews" destination="a1D-63-n4U" id="oSf-Xp-COE"/>
             </connections>
             <point key="canvasLocation" x="138.40579710144928" y="43.526785714285715"/>
         </tableViewCell>

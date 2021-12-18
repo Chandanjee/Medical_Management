@@ -79,6 +79,9 @@ class CampPlanVC: UIViewController {
     @IBAction func tapToSearch(_ sender:Any){
         fetchDataCampPlan()
     }
+    @IBAction func tapToBack(_ sender:Any){
+        self.navigationController?.popViewController(animated: true)
+    }
     
     //MARK: Location Manager
     

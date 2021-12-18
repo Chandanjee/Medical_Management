@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController,ProfileViewDelegate {
 
 extension ProfileViewController:UITableViewDataSource,UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,7 +107,7 @@ extension ProfileViewController:UITableViewDataSource,UITableViewDelegate{
                 let logoutVC = storyboard.instantiateViewController(withIdentifier: "LogoutVC") as! LogoutVC
 //                logoutVC.modalPresentationStyle = .overCurrentContext
 //                logoutVC.modalTransitionStyle = .crossDissolve
-                logoutVC.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.85)
+//                logoutVC.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.85)
 //                logoutVC.view.isOpaque = false
 //                logoutVC.callBackToPushLoginVC = { [weak self] in
 //                    guard let weakSelf = self else { return }

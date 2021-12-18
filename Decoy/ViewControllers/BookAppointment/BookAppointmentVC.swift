@@ -229,6 +229,8 @@ class BookAppointmentVC: UIViewController {
                 do{
                     let json = try JSONSerialization.jsonObject(with: responsedata, options: []) as? [String : Any]
                     let status = json?["status"] as? NSNumber
+                    let msgeg = json?["message"] as? String
+
                     MBProgressHUD.hide(for: self.view, animated: true)
                     
                     if status == 404 {
@@ -237,6 +239,11 @@ class BookAppointmentVC: UIViewController {
                         return
                     }
                     
+                    if status == 401 {
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        Utility().addAlertView("Alert!", msgeg ?? "", "ok", self)
+                        return
+                    }
                     print(json as Any)
                 }catch{ print("erroMsg") }
                 var firstitem: Bool = false
@@ -284,7 +291,9 @@ class BookAppointmentVC: UIViewController {
                 let orderedNoDuplicates =  Array(NSOrderedSet(array: self.arrCityName).map({ $0 as! String }))
 
                 self.txtCity.loadDropdownData(data: orderedNoDuplicates)
-                self.txtCity.text = orderedNoDuplicates[1]
+                if orderedNoDuplicates.count > 1 {
+                    self.txtCity.text = orderedNoDuplicates[1]
+                }
             }else{
                 MBProgressHUD.hide(for: self.view, animated: true)
                 Utility().addAlertView("Alert!", "Server is not responding", "ok", self)

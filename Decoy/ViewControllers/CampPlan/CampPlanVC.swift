@@ -24,6 +24,9 @@ class CampPlanVC: UIViewController {
     var datePicker = UIDatePicker()
     var toolbar = UIToolbar()
     var selectedDate = ""
+    var latCordinate:Double = 0.0
+    var longCordinate:Double = 0.0
+
     var selectedTextField = 0
     var userInfoModel = [CampResponse]()
     let locationService = CoreLocationManager()
@@ -99,6 +102,8 @@ class CampPlanVC: UIViewController {
             switch result {
             case .success(let location):
                 print(location.coordinate.latitude, location.coordinate.longitude)
+                self.latCordinate = location.coordinate.latitude
+                self.longCordinate = location.coordinate.longitude
                 CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
                     if error != nil {
                         print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
@@ -150,6 +155,7 @@ class CampPlanVC: UIViewController {
         toolbar.sizeToFit()
         self.view.addSubview(toolbar)
     }
+    
     @objc func dateChanged(_ sender: UIDatePicker?) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
@@ -327,8 +333,8 @@ extension CampPlanVC:UITableViewDelegate,UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CamPlanCell", for: indexPath) as? CamPlanCell else {
             fatalError("can't dequeue CustomCell")
         }
-        cell.cellViewModel = userInfoModel[indexPath.row]
-
+//        cell.cellViewModel = userInfoModel[indexPath.row]
+        cell.loadCellDataOne(lat: latCordinate, long: longCordinate, cellViewModel: userInfoModel[indexPath.row])
         return cell
     }
 }

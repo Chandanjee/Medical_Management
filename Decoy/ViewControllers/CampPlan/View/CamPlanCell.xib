@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CamPlanCell" id="KGk-i7-Jjw" customClass="CamPlanCell" customModule="Decoy" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="236"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="236"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-63-n4U">
-                        <rect key="frame" x="0.0" y="4" width="375" height="252"/>
+                        <rect key="frame" x="0.0" y="4" width="375" height="228"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camp Available On  :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztq-ex-Hsp">
                                 <rect key="frame" x="15" y="15" width="152" height="20"/>
@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camp Landmark      :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ph-mI-zML">
-                                <rect key="frame" x="15" y="220" width="152" height="20"/>
+                                <rect key="frame" x="15" y="194.5" width="152" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -113,16 +113,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsm-oA-zGL">
-                                <rect key="frame" x="180" y="165" width="51" height="52"/>
+                                <rect key="frame" x="180" y="165" width="187" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL4-eF-bH2">
-                                <rect key="frame" x="180" y="225" width="51" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="2Ua-Zg-NBT"/>
-                                </constraints>
+                                <rect key="frame" x="180" y="194.5" width="187" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -144,7 +141,8 @@
                             <constraint firstItem="ztq-ex-Hsp" firstAttribute="top" secondItem="a1D-63-n4U" secondAttribute="top" constant="15" id="CCk-jx-T5E"/>
                             <constraint firstItem="qNZ-te-fwa" firstAttribute="top" secondItem="ABS-1L-TEM" secondAttribute="bottom" constant="10" id="CEk-Aj-DPW"/>
                             <constraint firstItem="TAg-5n-VrW" firstAttribute="leading" secondItem="a1D-63-n4U" secondAttribute="leading" constant="15" id="CjX-dA-TTM"/>
-                            <constraint firstAttribute="bottom" secondItem="TL4-eF-bH2" secondAttribute="bottom" constant="7" id="Dai-NX-8eY"/>
+                            <constraint firstItem="8Ph-mI-zML" firstAttribute="top" secondItem="TL4-eF-bH2" secondAttribute="top" id="CwQ-nZ-Zwf"/>
+                            <constraint firstItem="TL4-eF-bH2" firstAttribute="top" secondItem="wsm-oA-zGL" secondAttribute="bottom" constant="10" id="Dgo-eI-e5B"/>
                             <constraint firstItem="MLM-Gq-rQE" firstAttribute="width" secondItem="ztq-ex-Hsp" secondAttribute="width" id="F1A-eR-gAD"/>
                             <constraint firstItem="BjO-Kp-tAC" firstAttribute="top" secondItem="fcw-Wr-I9v" secondAttribute="bottom" constant="10" id="Gfi-Em-Vhy"/>
                             <constraint firstItem="wsm-oA-zGL" firstAttribute="top" secondItem="wFV-WZ-UDs" secondAttribute="bottom" constant="10" id="H6A-PT-8Yz"/>
@@ -164,17 +162,18 @@
                             <constraint firstItem="8Ph-mI-zML" firstAttribute="width" secondItem="ztq-ex-Hsp" secondAttribute="width" id="hdi-6D-b5V"/>
                             <constraint firstItem="TAg-5n-VrW" firstAttribute="width" secondItem="ztq-ex-Hsp" secondAttribute="width" id="jcK-tV-tbk"/>
                             <constraint firstItem="BjO-Kp-tAC" firstAttribute="width" secondItem="ztq-ex-Hsp" secondAttribute="width" id="ksB-C8-zb0"/>
-                            <constraint firstAttribute="bottom" secondItem="8Ph-mI-zML" secondAttribute="bottom" constant="12" id="n20-Pf-fwt"/>
                             <constraint firstItem="wFV-WZ-UDs" firstAttribute="leading" secondItem="fcw-Wr-I9v" secondAttribute="trailing" constant="13" id="oFS-16-o4I"/>
                             <constraint firstItem="ABS-1L-TEM" firstAttribute="leading" secondItem="TAg-5n-VrW" secondAttribute="trailing" constant="13" id="oFZ-hc-asp"/>
+                            <constraint firstAttribute="bottom" secondItem="TL4-eF-bH2" secondAttribute="bottom" constant="14" id="oPi-ud-FZE"/>
                             <constraint firstItem="8Ph-mI-zML" firstAttribute="leading" secondItem="a1D-63-n4U" secondAttribute="leading" constant="15" id="oz2-bd-NDm"/>
                             <constraint firstItem="fcw-Wr-I9v" firstAttribute="top" secondItem="WAO-vO-2Pe" secondAttribute="bottom" constant="10" id="ph9-dC-zYw"/>
                             <constraint firstItem="WAO-vO-2Pe" firstAttribute="leading" secondItem="a1D-63-n4U" secondAttribute="leading" constant="15" id="qxO-tL-JL2"/>
                             <constraint firstItem="MLM-Gq-rQE" firstAttribute="top" secondItem="TAg-5n-VrW" secondAttribute="bottom" constant="10" id="sAa-P3-PKH"/>
+                            <constraint firstAttribute="trailing" secondItem="wsm-oA-zGL" secondAttribute="trailing" constant="8" id="sQC-Wl-TXn"/>
                             <constraint firstItem="PXO-Bk-1Z2" firstAttribute="leading" secondItem="WAO-vO-2Pe" secondAttribute="trailing" constant="13" id="sfg-Jh-7hY"/>
                             <constraint firstItem="fcw-Wr-I9v" firstAttribute="leading" secondItem="a1D-63-n4U" secondAttribute="leading" constant="15" id="soh-u2-bci"/>
-                            <constraint firstItem="TL4-eF-bH2" firstAttribute="top" secondItem="wsm-oA-zGL" secondAttribute="bottom" constant="8" symbolic="YES" id="uhh-oF-MMX"/>
                             <constraint firstItem="wsm-oA-zGL" firstAttribute="top" secondItem="wFV-WZ-UDs" secondAttribute="bottom" constant="10" id="vvQ-R1-5PY"/>
+                            <constraint firstAttribute="trailing" secondItem="TL4-eF-bH2" secondAttribute="trailing" constant="8" id="w3w-pO-TTF"/>
                         </constraints>
                     </view>
                 </subviews>

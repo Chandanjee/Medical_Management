@@ -292,6 +292,21 @@
             </objects>
             <point key="canvasLocation" x="927.20000000000005" y="92.203898050974516"/>
         </scene>
+        <!--LogoutVC-->
+        <scene sceneID="h47-1G-eP1">
+            <objects>
+                <viewController storyboardIdentifier="LogoutVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5NL-N4-FFx" customClass="LogoutVC" customModule="Decoy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7rg-JQ-Gk2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8pp-YM-Spw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="luX-Oh-rtN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1481" y="732"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="xgA-XU-yZu">
             <objects>

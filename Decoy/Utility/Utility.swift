@@ -492,6 +492,27 @@ func setImageTintColor(_ color: UIColor) {
   }
 }
 
+extension UILabel
+{
+var optimalHeightLabel : CGFloat
+    {
+        get
+        {
+//            let label = UILabel(frame: CGRectMake(0, 0, self.frame.width, CGFloat.greatestFiniteMagnitude))
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: CGFloat.greatestFiniteMagnitude))
+            label.numberOfLines = 0
+            label.lineBreakMode = self.lineBreakMode
+            label.font = self.font
+            label.text = self.text
+
+            label.sizeToFit()
+
+            return label.frame.height
+         }
+    }
+}
+
+
 func formattedDateFromString(dateString: String, withFormat format: String) -> String? {
 
     let inputFormatter = DateFormatter()

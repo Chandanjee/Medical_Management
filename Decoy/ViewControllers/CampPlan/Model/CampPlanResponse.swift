@@ -28,11 +28,12 @@ struct CampResponse: Codable {
     let startTime, endTime: String
     let lastChangeBy: JSONNull?
     let lastChangeDate, year, month: Int
+    let campDateData: String
 
     enum CodingKeys: String, CodingKey {
         case campID = "campId"
         case departmentID = "department_id"
-        case masState, masDistrict, masCity, masMMU, campDate, location, landMark, lattitude, longitude, day, weeklyOff, status, startTime, endTime, lastChangeBy, lastChangeDate, year, month
+        case masState, masDistrict, masCity, masMMU, campDate, location, landMark, lattitude, longitude, day, weeklyOff, status, startTime, endTime, lastChangeBy, lastChangeDate, year, month, campDateData
     }
 }
 // MARK: - MasCity

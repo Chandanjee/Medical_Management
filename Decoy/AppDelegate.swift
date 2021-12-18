@@ -52,10 +52,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func showDashboard() {
-        let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothTab())
-        let navigation = UINavigationController.init(rootViewController: dashboard)
-        window?.rootViewController = navigation
-        window?.makeKeyAndVisible()
+        var _: UIWindow?
+//        userLoginType
+        let segmentSelectedOption = UserDefaults.standard.value(forKey: "userLoginType") as? String
+        if segmentSelectedOption == "Patient" {
+            let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothTab())
+            _ = UINavigationController.init(rootViewController: dashboard)
+            if #available(iOS 13.0, *) {
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(dashboard)
+            } else {
+                (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(dashboard)
+            }
+        }else if segmentSelectedOption == "Official"{
+            let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothOfficialTab())
+            _ = UINavigationController.init(rootViewController: dashboard)
+            if #available(iOS 13.0, *) {
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(dashboard)
+            } else {
+                (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(dashboard)
+            }
+        }
+        
+       
     }
     
     func smoothTab() -> [TabItem] {
@@ -123,10 +141,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         v5?.tabControllerss = .Dummy
       
       
-        let t1 = TabItem(v1!, imageName: "dashboard", tabName: "Dashboard")
-        let t2 = TabItem(v2!, imageName: "reportAnalysis", tabName: "Analytic Report")
-        let t3 = TabItem(v3!, imageName: "medical_supply", tabName: "Pending Approval")
-        let t4 = TabItem(v4!, imageName: "pandemic", tabName: "Pandemic Zone")
+        let t1 = TabItem(v1!, imageName: "dashboard", tabName: "Home")
+        let t2 = TabItem(v2!, imageName: "reportAnalysis", tabName: "Report")
+        let t3 = TabItem(v3!, imageName: "medical_supply", tabName: "Approval")
+        let t4 = TabItem(v4!, imageName: "pandemic", tabName: "Pandemic")
         let t5 = TabItem(v5!, imageName: "profile", tabName: "Profile")
       
       return [t1,t2,t3,t4,t5]

@@ -162,9 +162,11 @@
                                                     <action selector="tapToLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YKD-NT-52w"/>
                                                 </connections>
                                             </button>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bF1-03-99A">
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bF1-03-99A">
                                                 <rect key="frame" x="104" y="180" width="127" height="32"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="Xzu-X4-3vT"/>
+                                                </constraints>
                                                 <segments>
                                                     <segment title="Patient"/>
                                                     <segment title="Official"/>
@@ -205,9 +207,11 @@
                                             <constraint firstItem="T9u-Dl-sUn" firstAttribute="leading" secondItem="QO0-wR-Nmf" secondAttribute="leading" constant="10" id="U9f-vo-lB8"/>
                                             <constraint firstAttribute="trailing" secondItem="GxV-Yz-0Tu" secondAttribute="trailing" constant="10" id="Uuy-Ex-iJU"/>
                                             <constraint firstAttribute="bottom" secondItem="CKj-84-E01" secondAttribute="bottom" constant="4" id="V6u-BX-fkO"/>
+                                            <constraint firstItem="bF1-03-99A" firstAttribute="centerX" secondItem="QO0-wR-Nmf" secondAttribute="centerX" id="VAY-DT-6HR"/>
                                             <constraint firstItem="lmI-4H-RZ3" firstAttribute="top" secondItem="GxV-Yz-0Tu" secondAttribute="bottom" constant="7" id="Z64-ja-0IX">
                                                 <variation key="heightClass=regular" constant="10"/>
                                             </constraint>
+                                            <constraint firstItem="bF1-03-99A" firstAttribute="top" secondItem="GxV-Yz-0Tu" secondAttribute="bottom" constant="10" id="dix-kL-V2l"/>
                                             <constraint firstItem="MJN-af-U1L" firstAttribute="top" secondItem="QO0-wR-Nmf" secondAttribute="top" constant="20" symbolic="YES" id="gw3-zx-Zmp"/>
                                             <constraint firstItem="ICK-a1-Q9i" firstAttribute="top" secondItem="lmI-4H-RZ3" secondAttribute="bottom" constant="8" id="heS-Zj-G9G">
                                                 <variation key="heightClass=regular" constant="5"/>
@@ -3049,6 +3053,9 @@
         <designable name="dwh-ss-r4L">
             <size key="intrinsicContentSize" width="67.666666666666671" height="21"/>
         </designable>
+        <designable name="eAu-F7-OyB">
+            <size key="intrinsicContentSize" width="47.666666666666664" height="25"/>
+        </designable>
         <designable name="erm-7Y-lsA">
             <size key="intrinsicContentSize" width="95" height="20"/>
         </designable>
@@ -3061,11 +3068,17 @@
         <designable name="oTX-0t-Vfj">
             <size key="intrinsicContentSize" width="191" height="21"/>
         </designable>
+        <designable name="oXe-8a-yqW">
+            <size key="intrinsicContentSize" width="74.666666666666671" height="25"/>
+        </designable>
         <designable name="paa-Fl-naI">
             <size key="intrinsicContentSize" width="157" height="20"/>
         </designable>
         <designable name="ped-qw-Nfk">
             <size key="intrinsicContentSize" width="94.333333333333329" height="21"/>
+        </designable>
+        <designable name="rHV-qn-yCV">
+            <size key="intrinsicContentSize" width="94.666666666666671" height="25"/>
         </designable>
         <designable name="yQG-tK-1iR">
             <size key="intrinsicContentSize" width="43.333333333333336" height="21"/>

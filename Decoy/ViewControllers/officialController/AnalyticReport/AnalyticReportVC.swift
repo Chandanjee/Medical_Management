@@ -13,7 +13,7 @@ class AnalyticReportVC: UIViewController {
     let collectionData = OfficialCollection()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initCollectionView()
         // Do any additional setup after loading the view.
     }
     

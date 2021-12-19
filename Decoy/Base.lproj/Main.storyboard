@@ -311,7 +311,44 @@
             </objects>
             <point key="canvasLocation" x="1481" y="732"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Item 2-->
+        <scene sceneID="6RK-fL-SOQ">
+            <objects>
+                <viewController id="gNI-3U-nwx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eTY-8H-M0N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XKL-0e-Z5A"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="vQ8-8I-svc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z5Y-6r-yzh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2423" y="1557"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="2Yj-ki-HVE">
+            <objects>
+                <tabBarController id="ZON-bg-CN6" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8CS-ZC-GEc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="WCR-O1-c3E" kind="relationship" relationship="viewControllers" id="uEA-Az-lD7"/>
+                        <segue destination="xZJ-fO-Con" kind="relationship" relationship="viewControllers" id="Mrl-o1-Jqd"/>
+                        <segue destination="nRJ-8B-pxd" kind="relationship" relationship="viewControllers" id="5Qp-Ta-Ur1"/>
+                        <segue destination="tRs-Pj-I4t" kind="relationship" relationship="viewControllers" id="HKI-ZT-FtT"/>
+                        <segue destination="Prl-hm-xpT" kind="relationship" relationship="viewControllers" id="Tas-q3-92G"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KhJ-1h-Qez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2183" y="866"/>
+        </scene>
+        <!--Setting-->
         <scene sceneID="xgA-XU-yZu">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Prl-hm-xpT" customClass="ProfileViewController" customModule="Decoy" customModuleProvider="target" sceneMemberID="viewController">
@@ -337,6 +374,7 @@
                             <constraint firstItem="YDV-qo-WFQ" firstAttribute="leading" secondItem="FdE-ag-KVH" secondAttribute="leading" id="zZk-HT-fsc"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Setting" image="Setting" id="bZ7-TZ-uga"/>
                     <connections>
                         <outlet property="tableViewProfile" destination="YDV-qo-WFQ" id="BfW-lN-7d1"/>
                     </connections>
@@ -1587,7 +1625,7 @@
             </objects>
             <point key="canvasLocation" x="11554" y="71"/>
         </scene>
-        <!--Official DashboardVC-->
+        <!--Dashboard-->
         <scene sceneID="02L-yN-YT5">
             <objects>
                 <viewController storyboardIdentifier="OfficialDashboardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WCR-O1-c3E" customClass="OfficialDashboardVC" customModule="Decoy" customModuleProvider="target" sceneMemberID="viewController">
@@ -1647,12 +1685,13 @@
                             <constraint firstItem="j6C-6c-LDF" firstAttribute="top" secondItem="n8g-uU-kYo" secondAttribute="bottom" id="zs4-Ko-RYG"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="Dash" id="anl-SW-tGP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maz-SK-F4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12296.799999999999" y="71.674876847290648"/>
+            <point key="canvasLocation" x="2999" y="812"/>
         </scene>
-        <!--Analytic ReportVC-->
+        <!--Analytic Report-->
         <scene sceneID="zqb-PT-uOw">
             <objects>
                 <viewController storyboardIdentifier="AnalyticReportVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xZJ-fO-Con" customClass="AnalyticReportVC" customModule="Decoy" customModuleProvider="target" sceneMemberID="viewController">
@@ -1733,15 +1772,16 @@
                             <constraint firstItem="KWn-SN-e1Y" firstAttribute="trailing" secondItem="KcA-GE-Mvu" secondAttribute="trailing" id="liB-X5-aP2"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Analytic Report" image="Report" id="KG3-bJ-nLV"/>
                     <connections>
                         <outlet property="collectionViews" destination="KWn-SN-e1Y" id="aMh-tq-L5j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcZ-QT-pz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13016.799999999999" y="71.674876847290648"/>
+            <point key="canvasLocation" x="3638" y="1010"/>
         </scene>
-        <!--Pandemic ZoneVC-->
+        <!--Pendemic-->
         <scene sceneID="v5i-iu-nIO">
             <objects>
                 <viewController storyboardIdentifier="PandemicZoneVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nRJ-8B-pxd" customClass="PandemicZoneVC" customModule="Decoy" customModuleProvider="target" sceneMemberID="viewController">
@@ -1794,12 +1834,13 @@
                             <constraint firstItem="EUB-3L-W6J" firstAttribute="trailing" secondItem="EWa-Jm-gMj" secondAttribute="trailing" id="sHe-j9-tPO"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Pendemic" image="Pendemic" id="0FQ-i2-vhP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jb6-7y-lYy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13699" y="75"/>
+            <point key="canvasLocation" x="4300" y="811"/>
         </scene>
-        <!--Pending ApprovalVC-->
+        <!--Pending Approval-->
         <scene sceneID="A4h-oj-zUF">
             <objects>
                 <viewController storyboardIdentifier="PendingApprovalVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tRs-Pj-I4t" customClass="PendingApprovalVC" customModule="Decoy" customModuleProvider="target" sceneMemberID="viewController">
@@ -1880,13 +1921,14 @@
                             <constraint firstItem="aSp-6V-hk4" firstAttribute="trailing" secondItem="9Ez-57-vQA" secondAttribute="trailing" id="m5t-y9-1i3"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Pending Approval" image="Approval" id="AsD-xX-bbK"/>
                     <connections>
                         <outlet property="collectionViews" destination="bAD-Aq-AFV" id="xV6-Rx-oI6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ddb-Eu-RQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14342" y="83"/>
+            <point key="canvasLocation" x="4993" y="848"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fVb-wL-Eie">
@@ -3091,6 +3133,11 @@
         </designable>
     </designables>
     <resources>
+        <image name="Approval" width="35" height="35"/>
+        <image name="Dash" width="35" height="35"/>
+        <image name="Pendemic" width="35" height="35"/>
+        <image name="Report" width="35" height="35"/>
+        <image name="Setting" width="35" height="35"/>
         <image name="arrow.down.doc.fill" catalog="system" width="115" height="128"/>
         <image name="background" width="1648" height="3152"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>

@@ -56,6 +56,7 @@
 		047831052757F010005C594B /* LABResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047831032757F010005C594B /* LABResultTableCell.swift */; };
 		047831062757F010005C594B /* LABResultTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047831042757F010005C594B /* LABResultTableCell.xib */; };
 		047831092758AAE6005C594B /* LABResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047831082758AAE5005C594B /* LABResponseModel.swift */; };
+		047A2793276F513A0092963B /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A2792276F51390092963B /* TabbarViewController.swift */; };
 		04837DA62725B10D0090BBE4 /* CollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DA52725B10D0090BBE4 /* CollectionData.swift */; };
 		04837DAA2725DF630090BBE4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DA92725DF630090BBE4 /* RegistrationViewController.swift */; };
 		04837DAE2725E4340090BBE4 /* VerifyOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */; };
@@ -174,6 +175,7 @@
 		047831032757F010005C594B /* LABResultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LABResultTableCell.swift; sourceTree = "<group>"; };
 		047831042757F010005C594B /* LABResultTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LABResultTableCell.xib; sourceTree = "<group>"; };
 		047831082758AAE5005C594B /* LABResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LABResponseModel.swift; sourceTree = "<group>"; };
+		047A2792276F51390092963B /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		04837DA52725B10D0090BBE4 /* CollectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionData.swift; sourceTree = "<group>"; };
 		04837DA92725DF630090BBE4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		04837DAD2725E4340090BBE4 /* VerifyOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPView.swift; sourceTree = "<group>"; };
@@ -457,6 +459,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		047A2791276F51000092963B /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				047A2792276F51390092963B /* TabbarViewController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		04837DA82725DF4B0090BBE4 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,6 +676,7 @@
 		E30A2F0027181DE800AABC70 /* Decoy */ = {
 			isa = PBXGroup;
 			children = (
+				047A2791276F51000092963B /* TabBarController */,
 				04C41343276DF318003310E9 /* Decoy.entitlements */,
 				046D95FC273C39340063FDCB /* OTPView */,
 				04E47D582728067700A4C0DB /* NetworkManager */,
@@ -968,6 +979,7 @@
 				047830F627579112005C594B /* RadioButtonController.swift in Sources */,
 				0427A8C8275B7DB30022570A /* PDFViewController.swift in Sources */,
 				E30A2F4027183BBE00AABC70 /* HomeInteractor.swift in Sources */,
+				047A2793276F513A0092963B /* TabbarViewController.swift in Sources */,
 				0416733A27255BA900DE0045 /* ProfileTableCell.swift in Sources */,
 				04C41342276D9F79003310E9 /* CampPlanResponse.swift in Sources */,
 				045728632755243000439C34 /* AppointHistoryCell.swift in Sources */,

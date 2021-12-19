@@ -37,6 +37,8 @@ class BookAppointmentVC: UIViewController {
     //http://103.133.215.182:8080/MobileMedicalUnit/getAllCityByDate/2021-11-23
     //http://103.133.215.182:8080/MobileMedicalUnit/admin/createVisits
     //    var userInfoModels  =  [ResponsesData]()
+//https://2factor.in/API/R1/?module=TRANS_SMS&" + "apikey=5cdc6365-22b5-11ec-a13b-0200cd936042&" + "to="+ mobileNo1.trim()+"&" + "from=CGMSSY" + "&msg="+msg
+    let sendMsgURL = "https://2factor.in/API/R1/?module=TRANS_SMS&apikey=5cdc6365-22b5-11ec-a13b-0200cd936042&"
     
     var userInfoModels : ResponsesData? = nil
     
@@ -452,6 +454,8 @@ let datafromArray = appointModelArray[index]
         return dictData
     }
     
+    
+    //MARK: Book Time Slot
     @IBAction func SubmitTimeSlot(_ sender:Any){
         
         if globalIndexValue == "" {
@@ -508,6 +512,11 @@ let datafromArray = appointModelArray[index]
         
         
 
+    }
+    
+    //MARK: Send Book Slot MSG
+    func API_SendMSG(City:String){
+//        var msg = "प्रिय " + userData.patientName + ", आपका ऑनलाइन अपॉइंटमेंट " + MyUtils.dateSendSms(tokenServerDate) + " पर " + City + " / " + data[0] + " के लिए दर्ज कर लिया गया है। \n" + "सादर, \n" + "CGMSSY"
     }
 }
 

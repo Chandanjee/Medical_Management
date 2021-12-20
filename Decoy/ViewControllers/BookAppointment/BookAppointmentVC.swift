@@ -343,7 +343,8 @@ class BookAppointmentVC: UIViewController {
                     print(json as Any)
                 }catch{ print("erroMsg") }
             }else{
-                Utility().addAlertView("Alert!", error!.localizedDescription, "ok", self)
+                print(error!.localizedDescription)
+                Utility().addAlertView("Alert!", "Server Error.", "ok", self)
                 Loader.hideLoader(self)
             }
             

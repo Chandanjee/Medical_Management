@@ -24,8 +24,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnSegment:UISegmentedControl!
     
     var segmentSelectedOption:String?
-    let serviceUrl = BaseUrl.baseURL + "login"
-    let serviceUrlOfficial = BaseUrl.baseURL + "loginOffical"
+    let serviceUrl = BaseUrl.baseURL + "admin/" + "login"
+    let serviceUrlOfficial = BaseUrl.baseURL + "admin/" + "loginOffical"
 
     var userMobile = ""
     @IBOutlet weak var backContainerView: UIView!
@@ -36,8 +36,9 @@ class LoginViewController: UIViewController {
     let serviceURlOTP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/"
     var OTPTokenLogin = ""
 
-    let getpatientList = BaseUrl.baseURL + "getPatientList"
-    
+    let getpatientList = BaseUrl.baseURL + "admin/" + "getPatientList"
+    let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x1159A7)], for: .normal)
@@ -53,11 +54,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.txtPassword.text = "9971182412"
-//        self.txtPassword.text = "abc"
-//        self.txtMobileNo.text = "9910248968"
+//        self.txtPassword.text = "9971182412"
+        self.txtPassword.text = "abc"
+        self.txtMobileNo.text = "9910248968"
 //        self.txtMobileNo.text = "9897040757" // deepak
-        self.txtMobileNo.text = "9971182412"
+//        self.txtMobileNo.text = "9971182412"
 
     }
     // MARK: - Action Login With Password
@@ -401,14 +402,13 @@ class LoginViewController: UIViewController {
         animateViewDown {
 //            proceed()
 //        https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/{key}/{otp}
-            let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
             let getOTP = self.otpStackView.getOTP()
             MBProgressHUD.showAdded(to: self.view, animated: true)
             if getOTP.count < 6 {
                 print("Get otp is less then 6")
             }else if getOTP != ""{
                 UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
-            let urlVeriftOTP = baseURLOtP + self.OTPTokenLogin + "/" + getOTP
+                let urlVeriftOTP = self.baseURLOtP + self.OTPTokenLogin + "/" + getOTP
             print("url OTP",urlVeriftOTP)
             self.apiManager.Api_OTP(serviceName: urlVeriftOTP, parameters: [:], completionHandler: {
                 [weak self] (response, error) in

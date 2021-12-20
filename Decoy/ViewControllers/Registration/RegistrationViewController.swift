@@ -24,8 +24,10 @@ class RegistrationViewController: UIViewController {
     var OTPToken = ""
     let registerData = RegisterDetail()
     private let apiManager = NetworkManager()
-    let serviceUrlRegis = BaseUrl.baseURL + "createPatient"
-    let serviceURLGender = BaseUrl.baseURL + "getAllRelation"
+    let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
+
+    let serviceUrlRegis = BaseUrl.baseURL + "admin/" + "createPatient"
+    let serviceURLGender = BaseUrl.baseURL + "admin/" + "getAllRelation"
 //https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/9897040757/AUTOGEN/MMULOGIN
     let serviceURlOTP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/"
     @IBOutlet weak var logoImageView: UIImageView!{
@@ -206,11 +208,10 @@ class RegistrationViewController: UIViewController {
         animateViewDown {
 //            proceed()
 //        https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/{key}/{otp}
-            let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
             let getOTP = self.otpStackView.getOTP()
             MBProgressHUD.showAdded(to: self.view, animated: true)
 
-            let urlVeriftOTP = baseURLOtP + self.OTPToken + "/" + getOTP
+            let urlVeriftOTP = self.baseURLOtP + self.OTPToken + "/" + getOTP
             print("url OTP",urlVeriftOTP)
             self.apiManager.Api_OTP(serviceName: urlVeriftOTP, parameters: [:], completionHandler: {
                 [weak self] (response, error) in

@@ -26,8 +26,8 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     private let apiManager = NetworkManager()
     var userHistoryModel = [HistoryResponse]()
 
-    let serviceURL = BaseUrl.baseURL + "getDataFromPatientIdAndDates"
-    let serviceURLDelete = BaseUrl.baseURL + "cancelVisit"
+    let serviceURL = BaseUrl.baseURL + "admin/" + "getDataFromPatientIdAndDates"
+    let serviceURLDelete = BaseUrl.baseURL + "admin/" + "cancelVisit"
 
     override func viewDidLoad() {
         super.viewDidLoad()

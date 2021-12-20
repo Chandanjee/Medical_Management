@@ -27,10 +27,11 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
     var userHistoryModel = [LABResponse]()
 
 //    let serviceURL = BaseUrl.baseURL + "getLabResult" //http://103.133.215.182:8080/MobileMedicalUnit/
-    let serviceURL = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getLabResult" //http://103.133.215.182:8080/MobileMedicalUnit/
+//    let serviceURL = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getLabResult" //http://103.133.215.182:8080/MobileMedicalUnit/
+    let serviceURL = BaseUrl.baseURL + "getLabResult"
     let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
 
-    let serviceURLDelete = BaseUrl.baseURL + "cancelVisit"
+    let serviceURLDelete = BaseUrl.baseURL + "admin/" + "cancelVisit"
 
     override func viewDidLoad() {
         super.viewDidLoad()

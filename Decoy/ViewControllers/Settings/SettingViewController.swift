@@ -14,7 +14,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var btnBack:UIButton!
     private let apiManager = NetworkManager()
 
-    let serviceUrl = BaseUrl.baseURL + "getPatientList"
+    let serviceUrl = BaseUrl.baseURL + "admin/" + "getPatientList"
     var userInfoModel = [ResponsesData]()
 
     override func viewDidLoad() {

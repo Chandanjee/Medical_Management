@@ -27,13 +27,16 @@ class RescheduleVC: UIViewController {
     var toolbar = UIToolbar()
     var selectedDate = ""
     private let apiManager = NetworkManager()
-    let serviceURL = BaseUrl.baseURL + "getAllCity"
-    let serviceURLWithDate = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getAllCityByDate/"
-    let serviceURLToken = BaseUrl.baseURL + "checking_token/"
-    let serviceURLCreateBookVisit = BaseUrl.baseURL + "createVisits"
+    let serviceURL = BaseUrl.baseURL + "admin/" + "getAllCity"
+//    let serviceURLWithDate = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getAllCityByDate/"
+    let serviceURLWithDate = BaseUrl.baseURL + "getAllCityByDate/"
+    let serviceURLToken = BaseUrl.baseURL + "admin/" + "checking_token/"
+    let serviceURLCreateBookVisit = BaseUrl.baseURL + "admin/" + "createVisits"
     var arrayDateList: [String] = []
     var globalIndexValue = ""
     var globalSelectedDate = ""
+    let sendMsgURL = "https://2factor.in/API/R1/?module=TRANS_SMS&apikey=5cdc6365-22b5-11ec-a13b-0200cd936042&"
+
     //http://103.133.215.182:8080/MobileMedicalUnit/admin/checking_token/{date}
     //http://103.133.215.182:8080/MobileMedicalUnit/getAllCityByDate/2021-11-23
     //http://103.133.215.182:8080/MobileMedicalUnit/admin/createVisits
@@ -428,8 +431,10 @@ class RescheduleVC: UIViewController {
         if globalIndexValue == "" {
             return
         }else{
-            
+            let seletedTime = arrayDateList[Int(globalIndexValue)!]
             let dictData = getBookParams(index: Int(globalIndexValue)!, bookDate: globalSelectedDate)
+            let mobile = userInfoModels?.mobileNumber
+
             print("createBook appoint url and Data ",serviceURLCreateBookVisit , dictData)
             apiManager.apiPostView(serviceName: serviceURLCreateBookVisit, parameters: dictData, completionHandler: {(resultData,error )in
                 if let resuts = resultData {
@@ -454,7 +459,9 @@ class RescheduleVC: UIViewController {
                         }
                         if status == 200 {
                             MBProgressHUD.hide(for: self.view, animated: true)
+                            self.API_SendMSG(City: self.txtCity.text!, time: seletedTime, mobile: mobile!)
                             Utility().addAlertView("Alert!", "Visit create successfully", "ok", self)
+                            
                             self.txtCamp.text = self.txtCamp.placeholder
                             self.txtAppointmentDate.text =  self.txtAppointmentDate.placeholder
                             self.txtCity.text = self.txtCity.placeholder
@@ -478,6 +485,28 @@ class RescheduleVC: UIViewController {
 //        {"camp_id":"367","departmentID":"2","lastChangeDate":"2021-11-28 15:43:48.685","mmu_id":"59","patientId":"204","status":"N","visit_date":"2021-11-29 08:30:00.0"}
         
         
+
+    }
+    
+    //MARK: Send Book Slot MSG
+    func API_SendMSG(City:String,time:String,mobile:String){
+        let camp = appointModelArray[0].location
+        var msg = "प्रिय " + "patientName" + ", आपका ऑनलाइन अपॉइंटमेंट " + time + " पर " + City + " / " + camp + " के लिए दर्ज कर लिया गया है। \n" + "सादर, \n" + "CGMSSY"
+        print("msg register",msg)
+        let urlEndPoint = "to=" + mobile + "&" + "from=CGMSSY" + "&msg=" + msg
+        let newURL = sendMsgURL + urlEndPoint
+        print("New Send MSg url",newURL)
+        apiManager.Api_GetWithData(serviceName: newURL, parameters: [:], completionHandler: {(result,error) in
+            if let resultData = result {
+                do{
+                    let json = try JSONSerialization.jsonObject(with: resultData, options: []) as? [String : Any]
+                    let status = json?["status"] as? NSNumber
+                    let response = json?["response"] as? [String:Any]
+                    let msg = response?["message"] as? String
+                    print("Booking msg status",msg as Any)
+                }catch{ print("erroMsg") }
+            }
+        })
 
     }
 }

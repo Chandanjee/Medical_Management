@@ -25,9 +25,9 @@ struct BaseUrl {
         static let Base_Url =  "http://103.133.215.182:8080/" //smac/login
     }
     private  struct Routes {
-        static let Api = "MobileMedicalUnit/admin/"           //smac // Production url
+        static let Api = "MobileMedicalUnit/"           //smac // Production url
 //        static let ApiZero = "icgRestful/api/"            // Production url
-        static let ApiDevelopment = "MobileMedicalUnitTesting/admin/"            // development url
+        static let ApiDevelopment = "MobileMedicalUnitTesting/"            // development url
         static let ApiWithIP = "icgRestful_pro/api/"            //  url With IP
     }
     

@@ -93,7 +93,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      let storyboard = UIStoryboard(name: "Main", bundle: nil)
      let v1 = storyboard.instantiateViewController(withIdentifier:"DashboardViewController") as? DashboardViewController
         v1?.tabController = .Home
-      let v2 =  storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+      let v2 =  storyboard.instantiateViewController(withIdentifier: "PatientProfileVC") as? PatientProfileVC
         v2?.tabController = .Setting
       let v3 = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController
         v3?.tabController = .Profile
@@ -159,15 +159,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       return [t1,t2,t3,t4,t5]
     }
     func CustomeTabbar(){
+        guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
                let home = TabbarViewController()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let v1 = storyboard.instantiateViewController(withIdentifier:"TabbarViewController") as? TabbarViewController
         let navController = UINavigationController(rootViewController: v1!)
-        self.window?.rootViewController = navController
+        self.window!.rootViewController = navController
 //               self.window?.rootViewController = home
-               window?.makeKeyAndVisible()
-//               window?.windowScene = windowScene
+        self.window!.makeKeyAndVisible()
+               window?.windowScene = windowScene
     }
 }
 

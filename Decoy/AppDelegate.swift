@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      let storyboard = UIStoryboard(name: "Main", bundle: nil)
      let v1 = storyboard.instantiateViewController(withIdentifier:"DashboardViewController") as? DashboardViewController
         v1?.tabController = .Home
-      let v2 =  storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+      let v2 =  storyboard.instantiateViewController(withIdentifier: "PatientProfileVC") as? PatientProfileVC
         v2?.tabController = .Setting
       let v3 = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController
         v3?.tabController = .Profile
@@ -161,9 +161,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let v1 = storyboard.instantiateViewController(withIdentifier:"TabbarViewController") as? TabbarViewController
         let navController = UINavigationController(rootViewController: v1!)
-        self.window?.rootViewController = navController
+        self.window!.rootViewController = navController
 //               self.window?.rootViewController = home
-               window?.makeKeyAndVisible()
+        self.window!.makeKeyAndVisible()
 //               window?.windowScene = windowScene
     }
 }

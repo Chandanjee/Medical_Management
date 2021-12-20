@@ -323,7 +323,7 @@ class LoginViewController: UIViewController {
      let storyboard = UIStoryboard(name: "Main", bundle: nil)
      let v1 = storyboard.instantiateViewController(withIdentifier:"DashboardViewController") as? DashboardViewController
         v1?.tabController = .Home
-      let v2 =  storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+      let v2 =  storyboard.instantiateViewController(withIdentifier: "PatientProfileVC") as? PatientProfileVC
         v2?.tabController = .Setting
       let v3 = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController
         v3?.tabController = .Profile

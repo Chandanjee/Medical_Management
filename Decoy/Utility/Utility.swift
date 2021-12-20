@@ -561,3 +561,13 @@ func distance(lat1:Double, lon1:Double, lat2:Double, lon2:Double, unit:String) -
     }
     return dist
 }
+
+extension UIWindow {
+    static var key: UIWindow! {
+        if #available(iOS 13, *) {
+            return UIApplication.shared.windows.first { $0.isKeyWindow }
+        } else {
+            return UIApplication.shared.keyWindow
+        }
+    }
+}

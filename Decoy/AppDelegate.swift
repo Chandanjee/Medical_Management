@@ -64,13 +64,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(dashboard)
             }
         }else if segmentSelectedOption == "Official"{
-            let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothOfficialTab())
-            _ = UINavigationController.init(rootViewController: dashboard)
-            if #available(iOS 13.0, *) {
-                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(dashboard)
-            } else {
-                (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(dashboard)
-            }
+            
+            CustomeTabbar()
+            return
+            
+//            let dashboard = AppTabBarViewController.init(nibName: "AppTabBarViewController", bundle: nil,smoothData: smoothOfficialTab())
+//            _ = UINavigationController.init(rootViewController: dashboard)
+//            if #available(iOS 13.0, *) {
+//                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(dashboard)
+//            } else {
+//                (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(dashboard)
+//            }
         }
         
        
@@ -150,5 +154,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return [t1,t2,t3,t4,t5]
     }
     
+    func CustomeTabbar(){
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+               let home = TabbarViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let v1 = storyboard.instantiateViewController(withIdentifier:"TabbarViewController") as? TabbarViewController
+        let navController = UINavigationController(rootViewController: v1!)
+        self.window?.rootViewController = navController
+//               self.window?.rootViewController = home
+               window?.makeKeyAndVisible()
+//               window?.windowScene = windowScene
+    }
 }
 

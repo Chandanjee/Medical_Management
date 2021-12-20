@@ -70,6 +70,7 @@
 		04996CAF2727202F0006BDE2 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04996CAE2727202F0006BDE2 /* UserInfoViewController.swift */; };
 		04996CB4272720FA0006BDE2 /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04996CB2272720FA0006BDE2 /* UserInfoCell.swift */; };
 		04996CB5272720FA0006BDE2 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04996CB3272720FA0006BDE2 /* UserInfoCell.xib */; };
+		04B7C803276FC26200680B36 /* PatientProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7C802276FC26100680B36 /* PatientProfileVC.swift */; };
 		04B832DF272494FE00379243 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B832DE272494FE00379243 /* DashboardViewController.swift */; };
 		04B832E22724952E00379243 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B832E12724952E00379243 /* SettingViewController.swift */; };
 		04BA81E92739978200024685 /* PatientRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA81E82739978200024685 /* PatientRequestModel.swift */; };
@@ -189,6 +190,7 @@
 		04996CAE2727202F0006BDE2 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		04996CB2272720FA0006BDE2 /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		04996CB3272720FA0006BDE2 /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
+		04B7C802276FC26100680B36 /* PatientProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientProfileVC.swift; sourceTree = "<group>"; };
 		04B832DE272494FE00379243 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		04B832E12724952E00379243 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04BA81E82739978200024685 /* PatientRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRequestModel.swift; sourceTree = "<group>"; };
@@ -712,6 +714,7 @@
 				E30A2F1927182C2C00AABC70 /* ProfileViewController.swift */,
 				0416733427255A8000DE0045 /* ProfileData.swift */,
 				045C91AB276654A300E10EB6 /* LogoutVC.swift */,
+				04B7C802276FC26100680B36 /* PatientProfileVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -967,6 +970,7 @@
 				048585932753FD5000055AC8 /* AppointmentHistoryVC.swift in Sources */,
 				0402E75D2722D04F004D866A /* UIColor+Theme.swift in Sources */,
 				041673792725AAF800DE0045 /* UITableView+Extension.swift in Sources */,
+				04B7C803276FC26200680B36 /* PatientProfileVC.swift in Sources */,
 				0416737C2725AB2900DE0045 /* NSObject+Extension.swift in Sources */,
 				0457286727553ED100439C34 /* AppointHistoryResponseModel.swift in Sources */,
 				0427C9A7275E8AF50042123A /* RescheduleVC.swift in Sources */,

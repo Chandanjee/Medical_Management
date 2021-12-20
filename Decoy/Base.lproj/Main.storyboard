@@ -327,10 +327,10 @@
             </objects>
             <point key="canvasLocation" x="2423" y="1557"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tabbar View Controller-->
         <scene sceneID="2Yj-ki-HVE">
             <objects>
-                <tabBarController id="ZON-bg-CN6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZON-bg-CN6" customClass="TabbarViewController" customModule="Decoy" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8CS-ZC-GEc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

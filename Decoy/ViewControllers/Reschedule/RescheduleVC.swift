@@ -313,6 +313,8 @@ class RescheduleVC: UIViewController {
                 }catch{ print("erroMsg") }
             }else{
                 Loader.hideLoader(self)
+                Utility().addAlertView("Alert!", "Server Error.", "ok", self)
+
             }
             
 

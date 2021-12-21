@@ -524,9 +524,12 @@ let datafromArray = appointModelArray[index]
     //MARK: Send Book Slot MSG
     func API_SendMSG(City:String,time:String,mobile:String){
         let camp = appointModelArray[0].location
-        var msg = "प्रिय " + "patientName" + ", आपका ऑनलाइन अपॉइंटमेंट " + time + " पर " + City + " / " + camp + " के लिए दर्ज कर लिया गया है। \n" + "सादर, \n" + "CGMSSY"
-        print("msg register",msg)
-        let urlEndPoint = "to=" + mobile + "&" + "from=CGMSSY" + "&msg=" + msg
+        let name = userInfoModels?.patientName
+        var msg = "प्रिय " + name! + ", आपका ऑनलाइन अपॉइंटमेंट " + time + " पर "
+        let city = City + " / " + camp + " के लिए दर्ज कर लिया गया है। \n" + "सादर, \n" + "CGMSSY"
+        let fullSentence = msg + city
+        print("msg register",fullSentence)
+        let urlEndPoint = "to=" + mobile + "&" + "from=CGMSSY" + "&msg=" + fullSentence
         let newURL = sendMsgURL + urlEndPoint
         print("New Send MSg url",newURL)
         apiManager.Api_GetWithData(serviceName: newURL, parameters: [:], completionHandler: {(result,error) in

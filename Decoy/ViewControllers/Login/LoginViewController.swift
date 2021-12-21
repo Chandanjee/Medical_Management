@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
 
     let getpatientList = BaseUrl.baseURL + "admin/" + "getPatientList"
     let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
-
+let officialWebpageLogin = WebServiceTesing + "dashboard/mmuLogin"
     override func viewDidLoad() {
         super.viewDidLoad()
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x1159A7)], for: .normal)
@@ -54,11 +54,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-//        self.txtPassword.text = "9971182412"
-        self.txtPassword.text = "abc"
-        self.txtMobileNo.text = "9910248968"
+        self.txtPassword.text = "9971182412"
+//        self.txtPassword.text = "abc"
+//        self.txtMobileNo.text = "9910248968"
 //        self.txtMobileNo.text = "9897040757" // deepak
-//        self.txtMobileNo.text = "9971182412"
+        self.txtMobileNo.text = "9971182412"
 
     }
     // MARK: - Action Login With Password
@@ -295,6 +295,33 @@ class LoginViewController: UIViewController {
         })
     }
     
+    //MARK: Official Login Web Page
+   
+    func webViewDidFinishLoad(webView: UIWebView) {
+
+        // fill data
+       
+        let savedUsername = self.txtMobileNo.text
+        let savedPassword = self.txtPassword.text
+        
+        let fillForm = String(format: "document.getElementById('expert_email').value = '\(savedUsername)';document.getElementById('expert_password').value = '\(savedPassword)';")
+//        webView.stringByEvaluatingJavaScriptFromString(fillForm)
+        webView.stringByEvaluatingJavaScript(from: fillForm)
+
+        //check checkboxes
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('expert_remember_me').checked = true; document.getElementById('expert_terms_of_service').checked = true;")
+
+         //submit form
+//        dispatch_after(dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), Int64(1 * NSEC_PER_SEC)), DispatchQueue.main.async){
+//            webView.stringByEvaluatingJavaScriptFromString("document.forms[\"new_expert\"].submit();")
+//        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+           // code to execute
+            webView.stringByEvaluatingJavaScript(from: "document.forms[\"new_expert\"].submit();")
+        })
+
+    }
     func showDashboard() {
         var _: UIWindow?
         if segmentSelectedOption == "Patient" {

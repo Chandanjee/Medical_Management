@@ -10,6 +10,8 @@ import UIKit
 class OfficialDashboardVC: UIViewController {
     var tabController: VC_TYPE = .Home
 
+    let serviceUrl = WebServiceTesing + "dashboard/dashboard"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

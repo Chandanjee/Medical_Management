@@ -80,6 +80,7 @@
 		04C41345276E0310003310E9 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C41344276E0310003310E9 /* CoreLocationManager.swift */; };
 		04D0D7B22769229500BCC278 /* CamPlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0D7B02769229500BCC278 /* CamPlanCell.swift */; };
 		04D0D7B32769229500BCC278 /* CamPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D0D7B12769229500BCC278 /* CamPlanCell.xib */; };
+		04D240842771A6BF00BB7A72 /* WebAPi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D240832771A6BF00BB7A72 /* WebAPi.swift */; };
 		04D38B7A274A3F42006A6C78 /* CampPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D38B79274A3F42006A6C78 /* CampPlanVC.swift */; };
 		04D38B7D274B5EC0006A6C78 /* BookAppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D38B7C274B5EC0006A6C78 /* BookAppointmentVC.swift */; };
 		04E24E1F2729C8500013FDD3 /* PatientListJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E24E1E2729C8500013FDD3 /* PatientListJSONModel.swift */; };
@@ -201,6 +202,7 @@
 		04C41344276E0310003310E9 /* CoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
 		04D0D7B02769229500BCC278 /* CamPlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamPlanCell.swift; sourceTree = "<group>"; };
 		04D0D7B12769229500BCC278 /* CamPlanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CamPlanCell.xib; sourceTree = "<group>"; };
+		04D240832771A6BF00BB7A72 /* WebAPi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPi.swift; sourceTree = "<group>"; };
 		04D38B79274A3F42006A6C78 /* CampPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampPlanVC.swift; sourceTree = "<group>"; };
 		04D38B7C274B5EC0006A6C78 /* BookAppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppointmentVC.swift; sourceTree = "<group>"; };
 		04E24E1E2729C8500013FDD3 /* PatientListJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListJSONModel.swift; sourceTree = "<group>"; };
@@ -627,6 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				04E47D59272806CD00A4C0DB /* NetworkManager.swift */,
+				04D240832771A6BF00BB7A72 /* WebAPi.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -1007,6 +1010,7 @@
 				E30A2F3D27183BBE00AABC70 /* HomeRouter.swift in Sources */,
 				E30A2F322718399600AABC70 /* SettingsTableViewCell.swift in Sources */,
 				E30A2F2B2718350000AABC70 /* SettingsModels.swift in Sources */,
+				04D240842771A6BF00BB7A72 /* WebAPi.swift in Sources */,
 				042B7FF0273AE7FA00E2DD6C /* ValidationClass.swift in Sources */,
 				0416734127255BF500DE0045 /* ProfileImageTableCell.swift in Sources */,
 				0485858B275167D000055AC8 /* AppointmentResponseModel.swift in Sources */,

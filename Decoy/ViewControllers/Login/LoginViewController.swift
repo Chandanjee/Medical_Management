@@ -24,8 +24,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnSegment:UISegmentedControl!
     
     var segmentSelectedOption:String?
-    let serviceUrl = BaseUrl.baseURL + "login"
-    let serviceUrlOfficial = BaseUrl.baseURL + "loginOffical"
+    let serviceUrl = BaseUrl.baseURL + "admin/" + "login"
+    let serviceUrlOfficial = BaseUrl.baseURL + "admin/" + "loginOffical"
 
     var userMobile = ""
     @IBOutlet weak var backContainerView: UIView!
@@ -36,8 +36,9 @@ class LoginViewController: UIViewController {
     let serviceURlOTP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/"
     var OTPTokenLogin = ""
 
-    let getpatientList = BaseUrl.baseURL + "getPatientList"
-    
+    let getpatientList = BaseUrl.baseURL + "admin/" + "getPatientList"
+    let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
+let officialWebpageLogin = WebServiceTesing + "dashboard/mmuLogin"
     override func viewDidLoad() {
         super.viewDidLoad()
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x1159A7)], for: .normal)
@@ -294,6 +295,33 @@ class LoginViewController: UIViewController {
         })
     }
     
+    //MARK: Official Login Web Page
+   
+    func webViewDidFinishLoad(webView: UIWebView) {
+
+        // fill data
+       
+        let savedUsername = self.txtMobileNo.text
+        let savedPassword = self.txtPassword.text
+        
+        let fillForm = String(format: "document.getElementById('expert_email').value = '\(savedUsername)';document.getElementById('expert_password').value = '\(savedPassword)';")
+//        webView.stringByEvaluatingJavaScriptFromString(fillForm)
+        webView.stringByEvaluatingJavaScript(from: fillForm)
+
+        //check checkboxes
+        webView.stringByEvaluatingJavaScript(from: "document.getElementById('expert_remember_me').checked = true; document.getElementById('expert_terms_of_service').checked = true;")
+
+         //submit form
+//        dispatch_after(dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), Int64(1 * NSEC_PER_SEC)), DispatchQueue.main.async){
+//            webView.stringByEvaluatingJavaScriptFromString("document.forms[\"new_expert\"].submit();")
+//        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+           // code to execute
+            webView.stringByEvaluatingJavaScript(from: "document.forms[\"new_expert\"].submit();")
+        })
+
+    }
     func showDashboard() {
         var _: UIWindow?
         if segmentSelectedOption == "Patient" {
@@ -417,14 +445,13 @@ class LoginViewController: UIViewController {
         animateViewDown {
 //            proceed()
 //        https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/{key}/{otp}
-            let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
             let getOTP = self.otpStackView.getOTP()
             MBProgressHUD.showAdded(to: self.view, animated: true)
             if getOTP.count < 6 {
                 print("Get otp is less then 6")
             }else if getOTP != ""{
                 UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
-            let urlVeriftOTP = baseURLOtP + self.OTPTokenLogin + "/" + getOTP
+                let urlVeriftOTP = self.baseURLOtP + self.OTPTokenLogin + "/" + getOTP
             print("url OTP",urlVeriftOTP)
             self.apiManager.Api_OTP(serviceName: urlVeriftOTP, parameters: [:], completionHandler: {
                 [weak self] (response, error) in

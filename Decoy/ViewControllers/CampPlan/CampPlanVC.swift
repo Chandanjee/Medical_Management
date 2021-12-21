@@ -32,8 +32,9 @@ class CampPlanVC: UIViewController {
     let locationService = CoreLocationManager()
 
     private let apiManager = NetworkManager()
-    let serviceURL = "http://103.133.215.182:8080/MobileMedicalUnit/getAllCity" //BaseUrl.baseURL + "getAllCity" // http://103.133.215.182:8080/MobileMedicalUnit/getAllCity
-    let serviceUrlCamp = BaseUrl.baseURL + "getMasCampPlan"
+//    let serviceURL = "http://103.133.215.182:8080/MobileMedicalUnit/getAllCity" //BaseUrl.baseURL + "getAllCity" // http://103.133.215.182:8080/MobileMedicalUnit/getAllCity
+    let serviceURL = BaseUrl.baseURL + "getAllCity" //
+    let serviceUrlCamp = BaseUrl.baseURL + "admin/" + "getMasCampPlan"
     override func viewDidLoad() {
         super.viewDidLoad()
         let dropDownBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
@@ -78,6 +79,9 @@ class CampPlanVC: UIViewController {
     }
     @IBAction func tapToSearch(_ sender:Any){
         fetchDataCampPlan()
+    }
+    @IBAction func tapToBack(_ sender:Any){
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: Location Manager

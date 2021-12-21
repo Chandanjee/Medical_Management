@@ -26,10 +26,11 @@ class BookAppointmentVC: UIViewController {
     var toolbar = UIToolbar()
     var selectedDate = ""
     private let apiManager = NetworkManager()
-    let serviceURL = BaseUrl.baseURL + "getAllCity"
-    let serviceURLWithDate = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getAllCityByDate/"
-    let serviceURLToken = BaseUrl.baseURL + "checking_token/"
-    let serviceURLCreateBookVisit = BaseUrl.baseURL + "createVisits"
+    let serviceURL = BaseUrl.baseURL + "admin/" + "getAllCity"
+//    let serviceURLWithDate = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getAllCityByDate/"
+    let serviceURLWithDate = BaseUrl.baseURL + "getAllCityByDate/"
+    let serviceURLToken = BaseUrl.baseURL + "admin/" + "checking_token/"
+    let serviceURLCreateBookVisit = BaseUrl.baseURL + "admin/" + "createVisits"
     var arrayDateList: [String] = []
     var globalIndexValue = ""
     var globalSelectedDate = ""
@@ -37,6 +38,8 @@ class BookAppointmentVC: UIViewController {
     //http://103.133.215.182:8080/MobileMedicalUnit/getAllCityByDate/2021-11-23
     //http://103.133.215.182:8080/MobileMedicalUnit/admin/createVisits
     //    var userInfoModels  =  [ResponsesData]()
+//https://2factor.in/API/R1/?module=TRANS_SMS&" + "apikey=5cdc6365-22b5-11ec-a13b-0200cd936042&" + "to="+ mobileNo1.trim()+"&" + "from=CGMSSY" + "&msg="+msg
+    let sendMsgURL = "https://2factor.in/API/R1/?module=TRANS_SMS&apikey=5cdc6365-22b5-11ec-a13b-0200cd936042&"
     
     var userInfoModels : ResponsesData? = nil
     
@@ -340,6 +343,8 @@ class BookAppointmentVC: UIViewController {
                     print(json as Any)
                 }catch{ print("erroMsg") }
             }else{
+                print(error!.localizedDescription)
+                Utility().addAlertView("Alert!", "Server Error.", "ok", self)
                 Loader.hideLoader(self)
             }
             
@@ -452,13 +457,17 @@ let datafromArray = appointModelArray[index]
         return dictData
     }
     
+    
+    //MARK: Book Time Slot
     @IBAction func SubmitTimeSlot(_ sender:Any){
         
         if globalIndexValue == "" {
             return
         }else{
-            
+            let seletedTime = arrayDateList[Int(globalIndexValue)!]
             let dictData = getBookParams(index: Int(globalIndexValue)!, bookDate: globalSelectedDate)
+            let mobile = userInfoModels?.mobileNumber
+
             print("createBook appoint url and Data ",serviceURLCreateBookVisit , dictData)
             apiManager.apiPostView(serviceName: serviceURLCreateBookVisit, parameters: dictData, completionHandler: {(resultData,error )in
                 if let resuts = resultData {
@@ -484,6 +493,8 @@ let datafromArray = appointModelArray[index]
                         if status == 200 {
                             MBProgressHUD.hide(for: self.view, animated: true)
                             Utility().addAlertView("Alert!", "Visit create successfully", "ok", self)
+                            self.API_SendMSG(City: self.txtCity.text!, time: seletedTime, mobile: mobile!)
+
                             self.txtCamp.text = self.txtCamp.placeholder
                             self.txtAppointmentDate.text =  self.txtAppointmentDate.placeholder
                             self.txtCity.text = self.txtCity.placeholder
@@ -507,6 +518,31 @@ let datafromArray = appointModelArray[index]
 //        {"camp_id":"367","departmentID":"2","lastChangeDate":"2021-11-28 15:43:48.685","mmu_id":"59","patientId":"204","status":"N","visit_date":"2021-11-29 08:30:00.0"}
         
         
+
+    }
+    
+    //MARK: Send Book Slot MSG
+    func API_SendMSG(City:String,time:String,mobile:String){
+        let camp = appointModelArray[0].location
+        let name = userInfoModels?.patientName
+        var msg = "प्रिय " + name! + ", आपका ऑनलाइन अपॉइंटमेंट " + time + " पर "
+        let city = City + " / " + camp + " के लिए दर्ज कर लिया गया है। \n" + "सादर, \n" + "CGMSSY"
+        let fullSentence = msg + city
+        print("msg register",fullSentence)
+        let urlEndPoint = "to=" + mobile + "&" + "from=CGMSSY" + "&msg=" + fullSentence
+        let newURL = sendMsgURL + urlEndPoint
+        print("New Send MSg url",newURL)
+        apiManager.Api_GetWithData(serviceName: newURL, parameters: [:], completionHandler: {(result,error) in
+            if let resultData = result {
+                do{
+                    let json = try JSONSerialization.jsonObject(with: resultData, options: []) as? [String : Any]
+                    let status = json?["status"] as? NSNumber
+                    let response = json?["response"] as? [String:Any]
+                    let msg = response?["message"] as? String
+                    print("Booking msg status",msg as Any)
+                }catch{ print("erroMsg") }
+            }
+        })
 
     }
 }

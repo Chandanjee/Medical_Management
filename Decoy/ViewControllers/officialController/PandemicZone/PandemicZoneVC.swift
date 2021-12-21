@@ -12,6 +12,8 @@ import UIKit
 class PandemicZoneVC: UIViewController {
     var tabController: VC_TYPE = .Menu
 
+    let serviceURL = WebServiceTesing + "master/zoneMaster"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

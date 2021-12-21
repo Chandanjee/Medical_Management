@@ -821,15 +821,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKF-TL-jde">
-                                        <rect key="frame" x="8" y="45" width="55" height="22"/>
+                                        <rect key="frame" x="8" y="40" width="55" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="55" id="p6L-5b-ULc"/>
-                                            <constraint firstAttribute="height" constant="22" id="qdk-GS-11X"/>
+                                            <constraint firstAttribute="height" constant="30" id="qdk-GS-11X"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Back">
                                             <imageReference key="image" image="chevron.left" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tapToBack:" destination="gJq-xF-glX" eventType="touchUpInside" id="iSB-6r-JHW"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camp Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgE-Vr-zmk">
                                         <rect key="frame" x="142.33333333333334" y="45" width="90.333333333333343" height="22"/>
@@ -847,7 +850,7 @@
                                     <constraint firstAttribute="height" constant="80" id="2d1-WL-gaF"/>
                                     <constraint firstAttribute="bottom" secondItem="zgE-Vr-zmk" secondAttribute="bottom" constant="13" id="Ue5-3x-bGa"/>
                                     <constraint firstItem="LKF-TL-jde" firstAttribute="leading" secondItem="zxw-z7-ZZv" secondAttribute="leading" constant="8" id="WPE-OM-QAq"/>
-                                    <constraint firstItem="LKF-TL-jde" firstAttribute="centerY" secondItem="zgE-Vr-zmk" secondAttribute="centerY" id="gFt-Ii-Liq"/>
+                                    <constraint firstItem="LKF-TL-jde" firstAttribute="centerY" secondItem="zgE-Vr-zmk" secondAttribute="centerY" constant="-1" id="gFt-Ii-Liq"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="bDk-xJ-47e">

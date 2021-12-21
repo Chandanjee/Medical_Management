@@ -26,8 +26,8 @@ class OPDHistoryVC: UIViewController,OPDButtonCellDelegate {
     private let apiManager = NetworkManager()
     var userHistoryModel = [OPDResponse]()
 
-    let serviceURL = BaseUrl.baseURL + "fetchCompleteOpdData"
-    let serviceURLDelete = BaseUrl.baseURL + "cancelVisit"
+    let serviceURL = BaseUrl.baseURL + "admin/" + "fetchCompleteOpdData"
+    let serviceURLDelete = BaseUrl.baseURL + "admin/" + "cancelVisit"
 let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
     override func viewDidLoad() {
         super.viewDidLoad()

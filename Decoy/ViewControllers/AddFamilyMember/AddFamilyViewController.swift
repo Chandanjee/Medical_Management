@@ -26,8 +26,8 @@ class AddFamilyViewController: UIViewController {
     private let apiManager = NetworkManager()
 
     let radioController: RadioButtonController = RadioButtonController()
-    let serviceURLGender = BaseUrl.baseURL + "getAllRelation"
-    let serviceUrlAddFamily = BaseUrl.baseURL + "createPatient"
+    let serviceURLGender = BaseUrl.baseURL + "admin/" + "getAllRelation"
+    let serviceUrlAddFamily = BaseUrl.baseURL + "admin/" + "createPatient"
     override func viewDidLoad() {
         super.viewDidLoad()
         addArrowBtnToTextFields()

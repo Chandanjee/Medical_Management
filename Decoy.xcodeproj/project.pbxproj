@@ -29,6 +29,23 @@
 		0427A8C8275B7DB30022570A /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427A8C7275B7DB30022570A /* PDFViewController.swift */; };
 		0427C9A7275E8AF50042123A /* RescheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427C9A6275E8AF50042123A /* RescheduleVC.swift */; };
 		042B7FF0273AE7FA00E2DD6C /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */; };
+		0435277C27739E1300A18905 /* MMURegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435277B27739E1300A18905 /* MMURegister.swift */; };
+		0435277E27739E3500A18905 /* OPDReportsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435277D27739E3500A18905 /* OPDReportsVC.swift */; };
+		0435278027739E5F00A18905 /* MonthCampReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435277F27739E5F00A18905 /* MonthCampReport.swift */; };
+		0435278227739E8A00A18905 /* DailyMMURegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435278127739E8A00A18905 /* DailyMMURegister.swift */; };
+		0435278427739EC200A18905 /* IndentRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435278327739EC200A18905 /* IndentRegisterVC.swift */; };
+		0435278627739EF700A18905 /* MedicineIssueRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435278527739EF700A18905 /* MedicineIssueRegisterVC.swift */; };
+		0435278827739F2C00A18905 /* StockStatusReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435278727739F2C00A18905 /* StockStatusReportVC.swift */; };
+		0435278A27739F5300A18905 /* OpenBalRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435278927739F5300A18905 /* OpenBalRegisterVC.swift */; };
+		0435278C27739F8100A18905 /* DrugExpReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435278B27739F8100A18905 /* DrugExpReportVC.swift */; };
+		0435278E27739FC600A18905 /* MMSSYInfoRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435278D27739FC600A18905 /* MMSSYInfoRegisterVC.swift */; };
+		043527902773A00700A18905 /* MMSSYLabourRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435278F2773A00600A18905 /* MMSSYLabourRegister.swift */; };
+		043527922773A03300A18905 /* DaiDidiRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043527912773A03300A18905 /* DaiDidiRegisterVC.swift */; };
+		043527942773A0A200A18905 /* IncidentRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043527932773A0A200A18905 /* IncidentRegisterVC.swift */; };
+		043527962773A0CF00A18905 /* AttendanceRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043527952773A0CF00A18905 /* AttendanceRegister.swift */; };
+		043527982773A10600A18905 /* StockTakingRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043527972773A10600A18905 /* StockTakingRegisterVC.swift */; };
+		0435279A2773A13500A18905 /* PenaltyRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043527992773A13500A18905 /* PenaltyRegisterVC.swift */; };
+		0435279C2773A16600A18905 /* EquipmentCheckListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435279B2773A16600A18905 /* EquipmentCheckListVC.swift */; };
 		044064E3274D631900C4E81F /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E2274D631900C4E81F /* CustomPickerView.swift */; };
 		044064E5274E234200C4E81F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E4274E234200C4E81F /* LocationManager.swift */; };
 		045728632755243000439C34 /* AppointHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045728612755243000439C34 /* AppointHistoryCell.swift */; };
@@ -150,6 +167,23 @@
 		0427A8C7275B7DB30022570A /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		0427C9A6275E8AF50042123A /* RescheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescheduleVC.swift; sourceTree = "<group>"; };
 		042B7FEF273AE7FA00E2DD6C /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
+		0435277B27739E1300A18905 /* MMURegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMURegister.swift; sourceTree = "<group>"; };
+		0435277D27739E3500A18905 /* OPDReportsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPDReportsVC.swift; sourceTree = "<group>"; };
+		0435277F27739E5F00A18905 /* MonthCampReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCampReport.swift; sourceTree = "<group>"; };
+		0435278127739E8A00A18905 /* DailyMMURegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMMURegister.swift; sourceTree = "<group>"; };
+		0435278327739EC200A18905 /* IndentRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentRegisterVC.swift; sourceTree = "<group>"; };
+		0435278527739EF700A18905 /* MedicineIssueRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineIssueRegisterVC.swift; sourceTree = "<group>"; };
+		0435278727739F2C00A18905 /* StockStatusReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockStatusReportVC.swift; sourceTree = "<group>"; };
+		0435278927739F5300A18905 /* OpenBalRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenBalRegisterVC.swift; sourceTree = "<group>"; };
+		0435278B27739F8100A18905 /* DrugExpReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugExpReportVC.swift; sourceTree = "<group>"; };
+		0435278D27739FC600A18905 /* MMSSYInfoRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSSYInfoRegisterVC.swift; sourceTree = "<group>"; };
+		0435278F2773A00600A18905 /* MMSSYLabourRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMSSYLabourRegister.swift; sourceTree = "<group>"; };
+		043527912773A03300A18905 /* DaiDidiRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaiDidiRegisterVC.swift; sourceTree = "<group>"; };
+		043527932773A0A200A18905 /* IncidentRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentRegisterVC.swift; sourceTree = "<group>"; };
+		043527952773A0CF00A18905 /* AttendanceRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRegister.swift; sourceTree = "<group>"; };
+		043527972773A10600A18905 /* StockTakingRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTakingRegisterVC.swift; sourceTree = "<group>"; };
+		043527992773A13500A18905 /* PenaltyRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyRegisterVC.swift; sourceTree = "<group>"; };
+		0435279B2773A16600A18905 /* EquipmentCheckListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCheckListVC.swift; sourceTree = "<group>"; };
 		044064E2274D631900C4E81F /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		044064E4274E234200C4E81F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		045728612755243000439C34 /* AppointHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointHistoryCell.swift; sourceTree = "<group>"; };
@@ -336,6 +370,30 @@
 			path = Reschedule;
 			sourceTree = "<group>";
 		};
+		0435277A27739DA800A18905 /* AllReportController */ = {
+			isa = PBXGroup;
+			children = (
+				0435277B27739E1300A18905 /* MMURegister.swift */,
+				0435277D27739E3500A18905 /* OPDReportsVC.swift */,
+				0435277F27739E5F00A18905 /* MonthCampReport.swift */,
+				0435278127739E8A00A18905 /* DailyMMURegister.swift */,
+				0435278327739EC200A18905 /* IndentRegisterVC.swift */,
+				0435278527739EF700A18905 /* MedicineIssueRegisterVC.swift */,
+				0435278727739F2C00A18905 /* StockStatusReportVC.swift */,
+				0435278927739F5300A18905 /* OpenBalRegisterVC.swift */,
+				0435278B27739F8100A18905 /* DrugExpReportVC.swift */,
+				0435278D27739FC600A18905 /* MMSSYInfoRegisterVC.swift */,
+				0435278F2773A00600A18905 /* MMSSYLabourRegister.swift */,
+				043527912773A03300A18905 /* DaiDidiRegisterVC.swift */,
+				043527932773A0A200A18905 /* IncidentRegisterVC.swift */,
+				043527952773A0CF00A18905 /* AttendanceRegister.swift */,
+				043527972773A10600A18905 /* StockTakingRegisterVC.swift */,
+				043527992773A13500A18905 /* PenaltyRegisterVC.swift */,
+				0435279B2773A16600A18905 /* EquipmentCheckListVC.swift */,
+			);
+			path = AllReportController;
+			sourceTree = "<group>";
+		};
 		04572860275523F700439C34 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +433,7 @@
 		045C91A22766209C00E10EB6 /* AnalyticReport */ = {
 			isa = PBXGroup;
 			children = (
+				0435277A27739DA800A18905 /* AllReportController */,
 				046FABE4276714F800565FA6 /* View */,
 				045C91A3276620E200E10EB6 /* AnalyticReportVC.swift */,
 			);
@@ -976,31 +1035,39 @@
 				04B7C803276FC26200680B36 /* PatientProfileVC.swift in Sources */,
 				0416737C2725AB2900DE0045 /* NSObject+Extension.swift in Sources */,
 				0457286727553ED100439C34 /* AppointHistoryResponseModel.swift in Sources */,
+				043527942773A0A200A18905 /* IncidentRegisterVC.swift in Sources */,
+				043527902773A00700A18905 /* MMSSYLabourRegister.swift in Sources */,
 				0427C9A7275E8AF50042123A /* RescheduleVC.swift in Sources */,
 				0402E7492722B37D004D866A /* Utility.swift in Sources */,
 				045C91AC276654A300E10EB6 /* LogoutVC.swift in Sources */,
 				04984BA727457D49001EC315 /* FamilyListCell.swift in Sources */,
 				E30A2F51271D9D6600AABC70 /* CampPlanWorker.swift in Sources */,
 				E30A2F1727181EC200AABC70 /* LoginViewController.swift in Sources */,
+				043527922773A03300A18905 /* DaiDidiRegisterVC.swift in Sources */,
 				04996CAF2727202F0006BDE2 /* UserInfoViewController.swift in Sources */,
 				047830F627579112005C594B /* RadioButtonController.swift in Sources */,
 				0427A8C8275B7DB30022570A /* PDFViewController.swift in Sources */,
 				E30A2F4027183BBE00AABC70 /* HomeInteractor.swift in Sources */,
 				047A2793276F513A0092963B /* TabbarViewController.swift in Sources */,
 				0416733A27255BA900DE0045 /* ProfileTableCell.swift in Sources */,
+				0435278427739EC200A18905 /* IndentRegisterVC.swift in Sources */,
 				04C41342276D9F79003310E9 /* CampPlanResponse.swift in Sources */,
 				045728632755243000439C34 /* AppointHistoryCell.swift in Sources */,
 				E30A2F2C2718350000AABC70 /* SettingsViewController.swift in Sources */,
+				0435279C2773A16600A18905 /* EquipmentCheckListVC.swift in Sources */,
 				E30A2F292718350000AABC70 /* SettingsWorker.swift in Sources */,
 				04D38B7A274A3F42006A6C78 /* CampPlanVC.swift in Sources */,
 				E30A2F2A2718350000AABC70 /* SettingsRouter.swift in Sources */,
 				E30A2F3F27183BBE00AABC70 /* HomeViewController.swift in Sources */,
 				0402E7602722D0B9004D866A /* Design.swift in Sources */,
 				045C91AA27664DF700E10EB6 /* PandemicZoneVC.swift in Sources */,
+				0435278827739F2C00A18905 /* StockStatusReportVC.swift in Sources */,
 				0402E7692723E5FD004D866A /* DateTime.swift in Sources */,
 				04E47D5A272806CD00A4C0DB /* NetworkManager.swift in Sources */,
+				0435279A2773A13500A18905 /* PenaltyRegisterVC.swift in Sources */,
 				047831012757EFA2005C594B /* OPDTableCell.swift in Sources */,
 				E30A2F3E27183BBE00AABC70 /* HomeModels.swift in Sources */,
+				0435278C27739F8100A18905 /* DrugExpReportVC.swift in Sources */,
 				04E3C2D727247455008A074B /* AppTabBarViewController.swift in Sources */,
 				04837DA62725B10D0090BBE4 /* CollectionData.swift in Sources */,
 				04E3C2D527247455008A074B /* SmoothTabItemView.swift in Sources */,
@@ -1008,6 +1075,7 @@
 				044064E3274D631900C4E81F /* CustomPickerView.swift in Sources */,
 				0402E7662722D1F4004D866A /* DesignableUITextField.swift in Sources */,
 				E30A2F3D27183BBE00AABC70 /* HomeRouter.swift in Sources */,
+				0435278A27739F5300A18905 /* OpenBalRegisterVC.swift in Sources */,
 				E30A2F322718399600AABC70 /* SettingsTableViewCell.swift in Sources */,
 				E30A2F2B2718350000AABC70 /* SettingsModels.swift in Sources */,
 				04D240842771A6BF00BB7A72 /* WebAPi.swift in Sources */,
@@ -1020,6 +1088,7 @@
 				E30A2F52271D9D6600AABC70 /* CampPlanRouter.swift in Sources */,
 				0416734C2725759C00DE0045 /* Constants.swift in Sources */,
 				04C41345276E0310003310E9 /* CoreLocationManager.swift in Sources */,
+				043527962773A0CF00A18905 /* AttendanceRegister.swift in Sources */,
 				046FABE72767153900565FA6 /* AnalticReportCell.swift in Sources */,
 				E30A2F3B27183BBE00AABC70 /* HomePresenter.swift in Sources */,
 				044064E5274E234200C4E81F /* LocationManager.swift in Sources */,
@@ -1034,6 +1103,7 @@
 				047831092758AAE6005C594B /* LABResponseModel.swift in Sources */,
 				E30A2F1F27182CF100AABC70 /* ProfileTableViewCell.swift in Sources */,
 				047831052757F010005C594B /* LABResultTableCell.swift in Sources */,
+				0435278627739EF700A18905 /* MedicineIssueRegisterVC.swift in Sources */,
 				046D95F7273C32F10063FDCB /* OTPStackView.swift in Sources */,
 				047830FC2757EEF4005C594B /* OPDHistoryVC.swift in Sources */,
 				04BA81E92739978200024685 /* PatientRequestModel.swift in Sources */,
@@ -1041,6 +1111,8 @@
 				04B832E22724952E00379243 /* SettingViewController.swift in Sources */,
 				E30A2F0227181DE800AABC70 /* AppDelegate.swift in Sources */,
 				E30A2F0427181DE800AABC70 /* SceneDelegate.swift in Sources */,
+				0435277C27739E1300A18905 /* MMURegister.swift in Sources */,
+				0435277E27739E3500A18905 /* OPDReportsVC.swift in Sources */,
 				0485858F27536D4B00055AC8 /* TimeSlotViewCell.swift in Sources */,
 				046D95F9273C33650063FDCB /* OTPTextField.swift in Sources */,
 				04837DAE2725E4340090BBE4 /* VerifyOTPView.swift in Sources */,
@@ -1050,6 +1122,7 @@
 				046FABEE2767C5AC00565FA6 /* LoginOfficialResponse.swift in Sources */,
 				04837DAA2725DF630090BBE4 /* RegistrationViewController.swift in Sources */,
 				04E24E1F2729C8500013FDD3 /* PatientListJSONModel.swift in Sources */,
+				0435278027739E5F00A18905 /* MonthCampReport.swift in Sources */,
 				E30A2F3C27183BBE00AABC70 /* HomeWorker.swift in Sources */,
 				E30A2F55271D9D6600AABC70 /* CampPlanInteractor.swift in Sources */,
 				04996CB4272720FA0006BDE2 /* UserInfoCell.swift in Sources */,
@@ -1057,7 +1130,10 @@
 				04D0D7B22769229500BCC278 /* CamPlanCell.swift in Sources */,
 				04E3C2C82724735E008A074B /* Extensions.swift in Sources */,
 				0427A8C5275A20C20022570A /* OPDResponseModel.swift in Sources */,
+				0435278E27739FC600A18905 /* MMSSYInfoRegisterVC.swift in Sources */,
 				0402E75A2722CCE5004D866A /* Loader.swift in Sources */,
+				043527982773A10600A18905 /* StockTakingRegisterVC.swift in Sources */,
+				0435278227739E8A00A18905 /* DailyMMURegister.swift in Sources */,
 				E30A2F2D2718350000AABC70 /* SettingsInteractor.swift in Sources */,
 				046FABE22767146C00565FA6 /* PendingApprovalCell.swift in Sources */,
 				04D38B7D274B5EC0006A6C78 /* BookAppointmentVC.swift in Sources */,

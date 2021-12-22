@@ -30,7 +30,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdb-yg-965">
-                                <rect key="frame" x="14" y="110" width="93" height="17"/>
+                                <rect key="frame" x="13" y="110" width="95" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -39,11 +39,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ciW-Qd-go2" secondAttribute="trailing" constant="15" id="5he-zM-ZRF"/>
-                            <constraint firstAttribute="trailing" secondItem="vdb-yg-965" secondAttribute="trailing" constant="14" id="KIC-UY-Ly0"/>
+                            <constraint firstAttribute="trailing" secondItem="vdb-yg-965" secondAttribute="trailing" constant="13" id="KIC-UY-Ly0"/>
                             <constraint firstItem="ciW-Qd-go2" firstAttribute="centerX" secondItem="0uO-Rv-tNW" secondAttribute="centerX" id="SMc-KL-5hc"/>
-                            <constraint firstItem="vdb-yg-965" firstAttribute="leading" secondItem="0uO-Rv-tNW" secondAttribute="leading" constant="14" id="VaT-ai-8Hg"/>
+                            <constraint firstItem="vdb-yg-965" firstAttribute="leading" secondItem="0uO-Rv-tNW" secondAttribute="leading" constant="13" id="VaT-ai-8Hg"/>
                             <constraint firstItem="ciW-Qd-go2" firstAttribute="top" secondItem="0uO-Rv-tNW" secondAttribute="top" constant="20" id="cI7-mG-2A6"/>
                             <constraint firstItem="vdb-yg-965" firstAttribute="top" secondItem="ciW-Qd-go2" secondAttribute="bottom" constant="8" id="d4B-sx-tFC"/>
+                            <constraint firstAttribute="bottom" secondItem="vdb-yg-965" secondAttribute="bottom" constant="10" id="eg3-1R-la2"/>
                             <constraint firstItem="ciW-Qd-go2" firstAttribute="leading" secondItem="0uO-Rv-tNW" secondAttribute="leading" constant="15" id="mmr-8H-mRe"/>
                         </constraints>
                     </view>

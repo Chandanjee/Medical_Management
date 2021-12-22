@@ -43,15 +43,14 @@ class ProfileImageTableCell: UITableViewCell {
         if image != nil {
             imgView.image = image
         }
-//        let fullName = (profile[kFirstName] as? String ?? "") + " " + (profile[kLastName] as? String ?? "")
         let username = UserDefaults.standard.value(forKey: "Username") as? String
         let usermobile = UserDefaults.standard.value(forKey: "LoginMobilenum") as? String
+        let email = UserDefaults.standard.value(forKey: "emailAddress") as? String
 
         labelUsername.text = username
-//        labelEmailId.text = profile[kEmail] as? String
+        labelEmailId.text = email
         buttonMobileNumber.setTitle(usermobile ?? "", for: .normal)
 //
-//        labelEmailId.text = UserDefaults.userEmail
     }
     
     @IBAction func tapCamera(_ sender: UIButton) {

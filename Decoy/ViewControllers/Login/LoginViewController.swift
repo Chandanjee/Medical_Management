@@ -251,6 +251,7 @@ let officialWebpageLogin = WebServiceTesing + "dashboard/mmuLogin"
         print("loginOfficial ",dictData,serviceUrlOfficial)
 
         UserDefaults.standard.set(self.segmentSelectedOption, forKey: "LoginMode")
+        MBProgressHUD.showAdded(to: view, animated: true)
 
         apiManager.apiPostLogin(serviceName: serviceUrlOfficial, parameters: dictData, completionHandler: {[weak self](result,error) in
             if let responsed = result {
@@ -276,9 +277,12 @@ let officialWebpageLogin = WebServiceTesing + "dashboard/mmuLogin"
                 }catch{ print("erroMsg") }
                 if (status == "200") {
                     let patientId = loginJSONModel?.response.userID
+                    let email = loginJSONModel?.response.emailAddress
 
                     UserDefaults.standard.set(patientId, forKey: "userID")
-                   
+                    
+                    UserDefaults.standard.set(email, forKey: "emailAddress")
+
                     UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
                     UserDefaults.standard.set(loginJSONModel?.response.userName, forKey: "Username")
 
@@ -288,6 +292,7 @@ let officialWebpageLogin = WebServiceTesing + "dashboard/mmuLogin"
                 } else {
                     data(false)
                 }
+                MBProgressHUD.hide(for: (self?.view)!, animated: true)
             }else{
                 Utility().addAlertView("Alert!", "Server error", "OK", self!)
                 MBProgressHUD.hide(for: (self?.view)!, animated: true)
@@ -380,7 +385,7 @@ let officialWebpageLogin = WebServiceTesing + "dashboard/mmuLogin"
         let v4 =  storyboard.instantiateViewController(withIdentifier: "PandemicZoneVC") as? PandemicZoneVC
           v4?.tabController = .Menu
       let v5 = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
-        v5?.tabControllerss = .Dummy
+//        v5?.tabControllerss = .Dummy
       
       
 //        let t1 = TabItem(v1!, imageName: "dashboard", tabName: "Dashboard")

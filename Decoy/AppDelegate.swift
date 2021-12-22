@@ -142,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let v4 =  storyboard.instantiateViewController(withIdentifier: "PandemicZoneVC") as? PandemicZoneVC
           v4?.tabController = .Menu
       let v5 = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
-        v5?.tabControllerss = .Dummy
+//        v5?.tabControllerss = .Dummy
       
       
         let t1 = TabItem(v1!, imageName: "dashboard", tabName: "Home")

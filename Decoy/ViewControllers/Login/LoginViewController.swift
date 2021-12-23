@@ -114,6 +114,9 @@ let officialWebpageLogin = WebServiceTesing + "dashboard/mmuLogin"
 //        print("Final OTP : ",otpStackView.getOTP())
 //        otpStackView.setAllFieldColor(isWarningColor: true, color: .yellow)
 //        Enter the code sent to you at +916966366466
+        if segmentSelectedOption == "" || segmentSelectedOption == nil{
+            segmentSelectedOption = "Patient"
+        }
         if txtMobileNo.text!.isEmpty {
             Utility().addAlertView("Alert!", StringConstant.emptyUsername, "OK", self)
         } else if !(txtMobileNo.text!.containsNumberOnly()) {
@@ -467,7 +470,9 @@ let officialWebpageLogin = WebServiceTesing + "dashboard/mmuLogin"
                         let status = json?["Status"] as? String
                         if status == "Success" {
                             UserDefaults.standard.set(self?.txtMobileNo.text, forKey: "LoginMobilenum")
-                            
+                            UserDefaults.standard.set("", forKey: "Username")
+                            UserDefaults.standard.set("", forKey: "emailAddress")
+
                             MBProgressHUD.hide(for: (self?.view)!, animated: true)
                             self?.showDashboard()
                         }

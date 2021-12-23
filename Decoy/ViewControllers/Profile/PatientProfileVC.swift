@@ -101,6 +101,7 @@ extension PatientProfileVC:UITableViewDataSource,UITableViewDelegate{
             Utility.performTaskInMainQueue {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let logoutVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                logoutVC.segmentSelectedOption = ""
 //                logoutVC.modalPresentationStyle = .overCurrentContext
 //                logoutVC.modalTransitionStyle = .crossDissolve
 //                logoutVC.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.85)

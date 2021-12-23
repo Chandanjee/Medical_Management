@@ -46,6 +46,7 @@
 		043527982773A10600A18905 /* StockTakingRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043527972773A10600A18905 /* StockTakingRegisterVC.swift */; };
 		0435279A2773A13500A18905 /* PenaltyRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043527992773A13500A18905 /* PenaltyRegisterVC.swift */; };
 		0435279C2773A16600A18905 /* EquipmentCheckListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435279B2773A16600A18905 /* EquipmentCheckListVC.swift */; };
+		0435279F27749ADE00A18905 /* PendingSubModelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435279E27749ADE00A18905 /* PendingSubModelVC.swift */; };
 		044064E3274D631900C4E81F /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E2274D631900C4E81F /* CustomPickerView.swift */; };
 		044064E5274E234200C4E81F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044064E4274E234200C4E81F /* LocationManager.swift */; };
 		045728632755243000439C34 /* AppointHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045728612755243000439C34 /* AppointHistoryCell.swift */; };
@@ -184,6 +185,7 @@
 		043527972773A10600A18905 /* StockTakingRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTakingRegisterVC.swift; sourceTree = "<group>"; };
 		043527992773A13500A18905 /* PenaltyRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyRegisterVC.swift; sourceTree = "<group>"; };
 		0435279B2773A16600A18905 /* EquipmentCheckListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCheckListVC.swift; sourceTree = "<group>"; };
+		0435279E27749ADE00A18905 /* PendingSubModelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingSubModelVC.swift; sourceTree = "<group>"; };
 		044064E2274D631900C4E81F /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		044064E4274E234200C4E81F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		045728612755243000439C34 /* AppointHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointHistoryCell.swift; sourceTree = "<group>"; };
@@ -394,6 +396,14 @@
 			path = AllReportController;
 			sourceTree = "<group>";
 		};
+		0435279D277498C400A18905 /* AllApprovalController */ = {
+			isa = PBXGroup;
+			children = (
+				0435279E27749ADE00A18905 /* PendingSubModelVC.swift */,
+			);
+			path = AllApprovalController;
+			sourceTree = "<group>";
+		};
 		04572860275523F700439C34 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +453,7 @@
 		045C91A527664D5F00E10EB6 /* Pending */ = {
 			isa = PBXGroup;
 			children = (
+				0435279D277498C400A18905 /* AllApprovalController */,
 				045C91A627664D9900E10EB6 /* PendingApprovalVC.swift */,
 				046FABE02767146C00565FA6 /* PendingApprovalCell.swift */,
 				046FABE12767146C00565FA6 /* PendingApprovalCell.xib */,
@@ -1055,6 +1066,7 @@
 				045728632755243000439C34 /* AppointHistoryCell.swift in Sources */,
 				E30A2F2C2718350000AABC70 /* SettingsViewController.swift in Sources */,
 				0435279C2773A16600A18905 /* EquipmentCheckListVC.swift in Sources */,
+				0435279F27749ADE00A18905 /* PendingSubModelVC.swift in Sources */,
 				E30A2F292718350000AABC70 /* SettingsWorker.swift in Sources */,
 				04D38B7A274A3F42006A6C78 /* CampPlanVC.swift in Sources */,
 				E30A2F2A2718350000AABC70 /* SettingsRouter.swift in Sources */,

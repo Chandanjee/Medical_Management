@@ -1,39 +1,63 @@
 //
-//  PandemicZoneVC.swift
+//  PendingSubModelVC.swift
 //  Decoy
 //
-//  Created by MAC on 12/12/21.
+//  Created by MAC on 23/12/21.
 //
 
 import UIKit
 import WebKit
 import MBProgressHUD
 
-class PandemicZoneVC: UIViewController {
-    var tabController: VC_TYPE = .Menu
-    @IBOutlet weak var backSideZone:UIView!
+class PendingSubModelVC: UIViewController {
+    
+    @IBOutlet weak var backSideSub:UIView!
+    @IBOutlet weak var titleLbl:UILabel!
+    @IBOutlet weak var backButton:UIButton!
+
+    var titlename = ""
     lazy var webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration()
-        let  webViewf = WKWebView(frame: CGRect(x: 0, y: self.backSideZone.frame.height - 80, width: self.backSideZone.frame.width, height: self.backSideZone.frame.height))
 
-        let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.backSideZone.frame.width, height: self.backSideZone.frame.height), configuration: webConfiguration)
+        let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.backSideSub.frame.width, height: self.backSideSub.frame.height), configuration: webConfiguration)
         webView.uiDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }()
     
-    let serviceURL = WebServiceTesing + "master/zoneMaster"
+    var serviceURL = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        if titlename == "Pending Indent For Approval (CO)"{
+            serviceURL = WebServiceTesing + "dispencery/getIndentApprovalListForCO"
+       }else if titlename == "Pending Indent For Approval (APM)" {
+           serviceURL =   WebServiceTesing + "dispencery/getIndentForApproval"
+
+        }else if titlename == "Pending Indent For Approval (Auditor)"{
+            serviceURL = WebServiceTesing + "dispencery/getIndentApprovalListForAuditor"
+
+        }else if titlename == "Pending approval list of Employee registration (APM)"{
+            serviceURL = WebServiceTesing + "empRegistration/getAPMWaitingList"
+
+        }else if titlename == "Pending approval list of employee registration (Auditor)"{
+            serviceURL = WebServiceTesing + "empRegistration/getAuditorWaitingList"
+
+        }else if titlename == "Pending approval list of employee registration (CHMO)"{
+            serviceURL = WebServiceTesing + "empRegistration/getCHMOWaitingList"
+
+        }else if titlename == "Pending approval list of employee registration (UPSS)"{
+            serviceURL = WebServiceTesing + "empRegistration/getUPSSWaitingList"
+
+        }
+        self.titleLbl.text = titlename
         let myURL = URL(string:serviceURL)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
         MBProgressHUD.showAdded(to: self.view, animated: true)
         self.webView.navigationDelegate = self
-
-         self.backSideZone.addSubview(webView)
+        self.backSideSub.addSubview(webView)
     }
     
     func setupUI() {
@@ -51,11 +75,13 @@ class PandemicZoneVC: UIViewController {
                     .constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor)
             ])
         }
-
-  
-
+    
+    @IBAction func tapToBack(_ sender:Any){
+        self.navigationController?.popViewController(animated: true)
+    }
 }
-extension PandemicZoneVC:WKUIDelegate,WKNavigationDelegate{
+
+extension PendingSubModelVC:WKUIDelegate,WKNavigationDelegate{
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
           print("Started to load")
       }
@@ -72,4 +98,3 @@ extension PandemicZoneVC:WKUIDelegate,WKNavigationDelegate{
 
       }
 }
-

@@ -63,7 +63,10 @@ extension PendingApprovalVC:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let name = collectionData.PendingApproval[indexPath.item]
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let v1 = storyboard.instantiateViewController(withIdentifier:"PendingSubModelVC") as? PendingSubModelVC
+            v1?.titlename = name.title
+            self.navigationController?.pushViewController(v1!, animated: true)
         print(name.title)
         
     }

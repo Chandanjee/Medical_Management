@@ -211,6 +211,8 @@ class BookAppointmentVC: UIViewController {
     func APi_AfterSelectionDate(date:String){
         self.arrCityName = []
         self.arrCampName = []
+        self.arrCityName.removeAll()
+        self.arrCampName.removeAll()
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat =  "dd-MM-yyyy"//"dd/MM/yyyy"
         let showDate = inputFormatter.date(from: date)

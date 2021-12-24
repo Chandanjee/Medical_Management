@@ -29,29 +29,43 @@ class PendingSubModelVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.hidesBarsOnTap = true
+
         setupUI()
         if titlename == "Pending Indent For Approval (CO)"{
+            self.titleLbl.text = "Approval (CO)"
+
             serviceURL = WebServiceTesing + "dispencery/getIndentApprovalListForCO"
        }else if titlename == "Pending Indent For Approval (APM)" {
+           self.titleLbl.text = "Approval (APM)"
            serviceURL =   WebServiceTesing + "dispencery/getIndentForApproval"
 
         }else if titlename == "Pending Indent For Approval (Auditor)"{
+            self.titleLbl.text = "Approval (Auditor)"
             serviceURL = WebServiceTesing + "dispencery/getIndentApprovalListForAuditor"
 
-        }else if titlename == "Pending approval list of Employee registration (APM)"{
+        }else if titlename == "Pending approval list of employee registration (APM)"{
+            self.titleLbl.text = "Employee registration(APM)"
+
             serviceURL = WebServiceTesing + "empRegistration/getAPMWaitingList"
 
         }else if titlename == "Pending approval list of employee registration (Auditor)"{
+            self.titleLbl.text = "Employee registration(Auditor)"
+
             serviceURL = WebServiceTesing + "empRegistration/getAuditorWaitingList"
 
         }else if titlename == "Pending approval list of employee registration (CHMO)"{
+            self.titleLbl.text = "Employee registration(CHMO)"
+
             serviceURL = WebServiceTesing + "empRegistration/getCHMOWaitingList"
 
         }else if titlename == "Pending approval list of employee registration (UPSS)"{
+            self.titleLbl.text = "Employee registration(UPSS)"
+
             serviceURL = WebServiceTesing + "empRegistration/getUPSSWaitingList"
 
         }
-        self.titleLbl.text = titlename
         let myURL = URL(string:serviceURL)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
@@ -75,6 +89,16 @@ class PendingSubModelVC: UIViewController {
                     .constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor)
             ])
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     
     @IBAction func tapToBack(_ sender:Any){
         self.navigationController?.popViewController(animated: true)

@@ -110,6 +110,7 @@
 		04E3C2D727247455008A074B /* AppTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3C2D227247455008A074B /* AppTabBarViewController.swift */; };
 		04E47D5A272806CD00A4C0DB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E47D59272806CD00A4C0DB /* NetworkManager.swift */; };
 		04E47D692728115300A4C0DB /* LoginJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E47D682728115300A4C0DB /* LoginJSONModel.swift */; };
+		0C02855E277647E40017B2F1 /* AllReportModelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02855D277647E40017B2F1 /* AllReportModelVC.swift */; };
 		36125A46D804152D5C35BDFD /* Pods_Decoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A81C20BA8A0B48A9CA559B /* Pods_Decoy.framework */; };
 		E30A2F0227181DE800AABC70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A2F0127181DE800AABC70 /* AppDelegate.swift */; };
 		E30A2F0427181DE800AABC70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A2F0327181DE800AABC70 /* SceneDelegate.swift */; };
@@ -251,6 +252,7 @@
 		04E47D59272806CD00A4C0DB /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		04E47D682728115300A4C0DB /* LoginJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJSONModel.swift; sourceTree = "<group>"; };
 		09BC3AAE9555263D090F3D75 /* Pods-Decoy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decoy.release.xcconfig"; path = "Target Support Files/Pods-Decoy/Pods-Decoy.release.xcconfig"; sourceTree = "<group>"; };
+		0C02855D277647E40017B2F1 /* AllReportModelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReportModelVC.swift; sourceTree = "<group>"; };
 		62410E77FE703117B87BCF52 /* Pods-Decoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decoy.debug.xcconfig"; path = "Target Support Files/Pods-Decoy/Pods-Decoy.debug.xcconfig"; sourceTree = "<group>"; };
 		63A81C20BA8A0B48A9CA559B /* Pods_Decoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30A2EFE27181DE800AABC70 /* Decoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,6 +394,7 @@
 				043527972773A10600A18905 /* StockTakingRegisterVC.swift */,
 				043527992773A13500A18905 /* PenaltyRegisterVC.swift */,
 				0435279B2773A16600A18905 /* EquipmentCheckListVC.swift */,
+				0C02855D277647E40017B2F1 /* AllReportModelVC.swift */,
 			);
 			path = AllReportController;
 			sourceTree = "<group>";
@@ -1087,6 +1090,7 @@
 				044064E3274D631900C4E81F /* CustomPickerView.swift in Sources */,
 				0402E7662722D1F4004D866A /* DesignableUITextField.swift in Sources */,
 				E30A2F3D27183BBE00AABC70 /* HomeRouter.swift in Sources */,
+				0C02855E277647E40017B2F1 /* AllReportModelVC.swift in Sources */,
 				0435278A27739F5300A18905 /* OpenBalRegisterVC.swift in Sources */,
 				E30A2F322718399600AABC70 /* SettingsTableViewCell.swift in Sources */,
 				E30A2F2B2718350000AABC70 /* SettingsModels.swift in Sources */,

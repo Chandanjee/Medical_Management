@@ -23,15 +23,7 @@ class AnalyticReportVC: UIViewController {
         collectionViews.delegate = self
         collectionViews.dataSource = self
    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  
 
 }
 extension AnalyticReportVC:UICollectionViewDelegateFlowLayout{
@@ -84,22 +76,12 @@ extension AnalyticReportVC:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let name = collectionData.AnalyticalReport[indexPath.item]
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let v1 = storyboard.instantiateViewController(withIdentifier:"AllReportModelVC") as? AllReportModelVC
+            v1?.titlename = name.title
+            self.navigationController?.pushViewController(v1!, animated: true)
         print(name.title)
-//        if (name.title == "Camp Plan") {
-//
-//        }else if (name.title == "Add Family Member"){
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let v1 = storyboard.instantiateViewController(withIdentifier:"AddFamilyViewController") as? AddFamilyViewController
-////                v1?.targetOption = name.title
-//                self.navigationController?.pushViewController(v1!, animated: true)
-//        }else{
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let v1 = storyboard.instantiateViewController(withIdentifier:"UserInfoViewController") as? UserInfoViewController
-//            v1?.targetOption = name.title
-//            self.navigationController?.pushViewController(v1!, animated: true)
-//
-//        }
+
     }
     
 }

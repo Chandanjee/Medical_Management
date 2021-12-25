@@ -29,9 +29,9 @@ class PendingSubModelVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.navigationBar.isHidden = true
+        navigationItem.backButtonTitle = ""
         self.navigationController?.hidesBarsOnTap = true
-
+        self.navigationController?.navigationBar.isHidden = true
         setupUI()
         if titlename == "Pending Indent For Approval (CO)"{
             self.titleLbl.text = "Approval (CO)"

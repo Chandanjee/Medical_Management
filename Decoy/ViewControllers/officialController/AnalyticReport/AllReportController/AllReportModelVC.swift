@@ -195,9 +195,13 @@ extension AllReportModelVC:WKUIDelegate,WKNavigationDelegate{
 
       func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
           print("Finished loading")
+          MBProgressHUD.hide(for: (self.view)!, animated: true)
+
       }
 
       func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
           print(error.localizedDescription)
+          MBProgressHUD.hide(for: (self.view)!, animated: true)
+
       }
 }

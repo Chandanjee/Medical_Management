@@ -319,6 +319,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBz-XZ-bRX">
+                                <rect key="frame" x="0.0" y="80" width="375" height="732"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrc-zP-VCE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
@@ -355,10 +359,6 @@
                                     <constraint firstAttribute="bottom" secondItem="ddj-L3-niW" secondAttribute="bottom" constant="13" id="eRk-Ax-jDz"/>
                                     <constraint firstItem="ddj-L3-niW" firstAttribute="centerX" secondItem="jrc-zP-VCE" secondAttribute="centerX" id="kkf-N3-wcL"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBz-XZ-bRX">
-                                <rect key="frame" x="0.0" y="80" width="375" height="732"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XKL-0e-Z5A"/>

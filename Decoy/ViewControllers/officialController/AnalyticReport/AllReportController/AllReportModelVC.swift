@@ -189,6 +189,7 @@ class AllReportModelVC: UIViewController {
 }
 
 extension AllReportModelVC:WKUIDelegate,WKNavigationDelegate{
+    
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
           print("Started to load")
       }
@@ -204,4 +205,41 @@ extension AllReportModelVC:WKUIDelegate,WKNavigationDelegate{
           MBProgressHUD.hide(for: (self.view)!, animated: true)
 
       }
+    
+//    decidePolicy
+    
+    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        if let url = webView.url?.absoluteString {
+            print("url = \(url)")
+        }
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+            if navigationAction.navigationType == .linkActivated  {
+                if let url = navigationAction.request.url {
+                    print("download Url \(url)")
+                    //let myRequest = URLRequest(url: url)
+                    //webView.load(myRequest)
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+                    decisionHandler(.allow)
+                } else {
+                    decisionHandler(.allow)
+                }
+            } else {
+                decisionHandler(.allow)
+            }
+        }
+    
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+            if navigationAction.targetFrame == nil || navigationAction.targetFrame?.isMainFrame == false {
+                if let urlToLoad = navigationAction.request.url {
+                    print("----- \(urlToLoad.absoluteString)")
+                }
+            }
+            return nil
+        }
+    
+    
 }

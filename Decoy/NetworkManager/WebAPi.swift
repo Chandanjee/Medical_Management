@@ -8,5 +8,8 @@
 import Foundation
 import UIKit
 
-let WebService = "http://103.133.215.182:8080/MMUWeb/"
-let WebServiceTesing = "http://103.133.215.26:8080/MMUWeb/"
+//let WebServiceProd = "http://103.133.215.182:8080/MMUWeb/"
+//let WebServiceTesing = "http://103.133.215.26:8080/MMUWeb/"
+let WebService = "https://www.cgmmssy.in/"
+
+let WebServiceTesting = "http://gloitel-n-cs-suda-mmu-app-lb-1892627395.ap-south-1.elb.amazonaws.com/MMUWeb/"

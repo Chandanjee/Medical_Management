@@ -23,7 +23,7 @@ class OfficialDashboardVC: UIViewController {
         return webView
     }()
     
-    let serviceUrl = WebServiceTesing + "dashboard/dashboard"
+    let serviceUrl = WebService + "dashboard/dashboard"
     
     /*
     override func loadView() {

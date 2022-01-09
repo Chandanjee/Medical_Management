@@ -36,34 +36,34 @@ class PendingSubModelVC: UIViewController {
         if titlename == "Pending Indent For Approval (CO)"{
             self.titleLbl.text = "Approval (CO)"
 
-            serviceURL = WebServiceTesing + "dispencery/getIndentApprovalListForCO"
+            serviceURL = WebService + "dispencery/getIndentApprovalListForCO"
        }else if titlename == "Pending Indent For Approval (APM)" {
            self.titleLbl.text = "Approval (APM)"
-           serviceURL =   WebServiceTesing + "dispencery/getIndentForApproval"
+           serviceURL =   WebService + "dispencery/getIndentForApproval"
 
         }else if titlename == "Pending Indent For Approval (Auditor)"{
             self.titleLbl.text = "Approval (Auditor)"
-            serviceURL = WebServiceTesing + "dispencery/getIndentApprovalListForAuditor"
+            serviceURL = WebService + "dispencery/getIndentApprovalListForAuditor"
 
         }else if titlename == "Pending approval list of employee registration (APM)"{
             self.titleLbl.text = "Employee registration(APM)"
 
-            serviceURL = WebServiceTesing + "empRegistration/getAPMWaitingList"
+            serviceURL = WebService + "empRegistration/getAPMWaitingList"
 
         }else if titlename == "Pending approval list of employee registration (Auditor)"{
             self.titleLbl.text = "Employee registration(Auditor)"
 
-            serviceURL = WebServiceTesing + "empRegistration/getAuditorWaitingList"
+            serviceURL = WebService + "empRegistration/getAuditorWaitingList"
 
         }else if titlename == "Pending approval list of employee registration (CHMO)"{
             self.titleLbl.text = "Employee registration(CHMO)"
 
-            serviceURL = WebServiceTesing + "empRegistration/getCHMOWaitingList"
+            serviceURL = WebService + "empRegistration/getCHMOWaitingList"
 
         }else if titlename == "Pending approval list of employee registration (UPSS)"{
             self.titleLbl.text = "Employee registration(UPSS)"
 
-            serviceURL = WebServiceTesing + "empRegistration/getUPSSWaitingList"
+            serviceURL = WebService + "empRegistration/getUPSSWaitingList"
 
         }
         let myURL = URL(string:serviceURL)

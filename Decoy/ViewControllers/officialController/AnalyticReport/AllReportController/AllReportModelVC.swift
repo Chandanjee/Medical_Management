@@ -119,71 +119,71 @@ class AllReportModelVC: UIViewController {
     func SelectURL()  {
         if titlename == "MMU Register"{
             self.titleLbl.text = "MMU Register"
-            serviceURL = WebServiceTesing + "registration/showOPDRegister"
+            serviceURL = WebService + "registration/showOPDRegister"
             
         }else   if titlename == "OPD Reports"{
             self.titleLbl.text = "OPD Reports"
-            serviceURL = WebServiceTesing + "opd/opdPrescriptionReports"
+            serviceURL = WebService + "opd/opdPrescriptionReports"
             
         }else   if titlename == "Monthly Camp Reports"{
             self.titleLbl.text = "Monthly Camp Reports"
-            serviceURL = WebServiceTesing + "registration/campMonthlyPlanReport"
+            serviceURL = WebService + "registration/campMonthlyPlanReport"
             
         }else   if titlename == "Daily MMU Register"{
             self.titleLbl.text = "Daily MMU Register"
-            serviceURL = WebServiceTesing + "mis/dailyMmuRegister"
+            serviceURL = WebService + "mis/dailyMmuRegister"
             
         }else   if titlename == "Indent Register"{
             self.titleLbl.text = "Indent Register"
-            serviceURL = WebServiceTesing + "mis/showIndentRegister"
+            serviceURL = WebService + "mis/showIndentRegister"
             
         }else   if titlename == "Medicine Issue Register"{
             self.titleLbl.text = "Medicine Issue Register"
-            serviceURL = WebServiceTesing + "mis/showMedicineIssueRegister"
+            serviceURL = WebService + "mis/showMedicineIssueRegister"
             
         }else   if titlename == "Stock Status Reports"{
             self.titleLbl.text = "Stock Status Reports"
-            serviceURL = WebServiceTesing + "store/showStockStatusReport"
+            serviceURL = WebService + "store/showStockStatusReport"
             
         }else   if titlename == "Opening Balance Register"{
             self.titleLbl.text = "Opening Balance Register"
-            serviceURL = WebServiceTesing + "store/showOpeningBalanceRegister"
+            serviceURL = WebService + "store/showOpeningBalanceRegister"
             
         }else   if titlename == "Drug Expiry Reports"{
             self.titleLbl.text = "Drug Expiry Reports"
-            serviceURL = WebServiceTesing + "dispencery/drugExpiryList"
+            serviceURL = WebService + "dispencery/drugExpiryList"
             
         }else   if titlename == "MMSSY Information Register"{
             self.titleLbl.text = "MMSSY Information"
-            serviceURL = WebServiceTesing + "mis/mmssyInformationRegister"
+            serviceURL = WebService + "mis/mmssyInformationRegister"
             
         }else   if titlename == "MMSSY Labour Beneficiary Register"{
             self.titleLbl.text = "MMSSY Labour Beneficiary"
-            serviceURL = WebServiceTesing + "mis/labourBeneficiaryRegister"
+            serviceURL = WebService + "mis/labourBeneficiaryRegister"
             
         }else   if titlename == "Dai Didi Clinic Register"{
             self.titleLbl.text = "Dai Didi Clinic"
-            serviceURL = WebServiceTesing + "mis/daiDidiDailyRegister"
+            serviceURL = WebService + "mis/daiDidiDailyRegister"
             
         }else   if titlename == "Incident Register"{
             self.titleLbl.text = "Incident Register"
-            serviceURL = WebServiceTesing + "mis/incidentRegister"
+            serviceURL = WebService + "mis/incidentRegister"
             
         }else   if titlename == "Attendance Register"{
             self.titleLbl.text = "Attendance Register"
-            serviceURL = WebServiceTesing + "mis/attendanceRegister"
+            serviceURL = WebService + "mis/attendanceRegister"
             
         }else   if titlename == "Stock Taking Register"{
             self.titleLbl.text = "Stock Taking Register"
-            serviceURL = WebServiceTesing + "store/showStockTakingRegister"
+            serviceURL = WebService + "store/showStockTakingRegister"
             
         }else   if titlename == "Penalty Register"{
             self.titleLbl.text = "Penalty Register"
-            serviceURL = WebServiceTesing + "mis/penaltyRegister"
+            serviceURL = WebService + "mis/penaltyRegister"
             
         }else   if titlename == "Equipment Checklist Register"{
             self.titleLbl.text = "Equipment Checklist Register"
-            serviceURL = WebServiceTesing + "mis/equipmentChecklistRegister"
+            serviceURL = WebService + "mis/equipmentChecklistRegister"
         }
     }
 }

@@ -22,7 +22,7 @@ class PandemicZoneVC: UIViewController {
         return webView
     }()
     
-    let serviceURL = WebServiceTesing + "master/zoneMaster"
+    let serviceURL = WebService + "master/zoneMaster"
     
     override func viewDidLoad() {
         super.viewDidLoad()

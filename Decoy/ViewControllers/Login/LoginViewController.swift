@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
 
     let getpatientList = BaseUrl.baseURL + "admin/" + "getPatientList"
     let baseURLOtP = "https://2factor.in/API/V1/5cdc6365-22b5-11ec-a13b-0200cd936042/SMS/VERIFY/"
-let officialWebpageLogin = WebServiceTesing + "dashboard/mmuLogin"
+let officialWebpageLogin = WebService + "dashboard/mmuLogin"
     override func viewDidLoad() {
         super.viewDidLoad()
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x1159A7)], for: .normal)
@@ -54,11 +54,15 @@ let officialWebpageLogin = WebServiceTesing + "dashboard/mmuLogin"
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.txtPassword.text = "9971182412"
-//        self.txtPassword.text = "abc"
-//        self.txtMobileNo.text = "9910248968"
+//        self.txtPassword.text = "9971182412" // official
+        //        self.txtPassword.text = "9971182412" // Official
+
+        self.txtPassword.text = "abc"
+        self.txtMobileNo.text = "9910248968"
 //        self.txtMobileNo.text = "9897040757" // deepak
-        self.txtMobileNo.text = "9971182412"
+//        self.txtMobileNo.text = "9971182412"
+//        self.txtPassword.text = "12345"
+
 
     }
     // MARK: - Action Login With Password

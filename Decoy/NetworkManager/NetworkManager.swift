@@ -27,7 +27,7 @@ struct BaseUrl {
         static let Base_UrlIP = "http://gloitel-n-cs-suda-mmu-app-lb-1892627395.ap-south-1.elb.amazonaws.com/"
 
 //        static let Base_Url =  "http://103.133.215.182:8080/"
-        static let Base_Url =  "https://www.cgmmssy.in/MobileMedicalUnit/"
+        static let Base_Url =  "https://www.cgmmssy.in/"
     }
     private  struct Routes {
         static let Api = "MobileMedicalUnit/"           //smac // Production url

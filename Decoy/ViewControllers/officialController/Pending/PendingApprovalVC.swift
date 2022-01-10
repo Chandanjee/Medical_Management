@@ -35,7 +35,7 @@ extension PendingApprovalVC:UICollectionViewDelegateFlowLayout{
         let numberOfItemsPerRow: CGFloat = 2.0
         
         let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
-        return CGSize(width: width, height: 150)
+        return CGSize(width: width, height: 180)
     }
     
     

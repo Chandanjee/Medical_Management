@@ -2003,6 +2003,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6C-6c-LDF">
+                                <rect key="frame" x="0.0" y="54" width="375" height="738"/>
+                                <subviews>
+                                    <wkWebView tag="2521" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Kc-MX-7xg">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="738"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="9Kc-MX-7xg" secondAttribute="bottom" id="J2c-mo-cXh"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Kc-MX-7xg" secondAttribute="trailing" id="nNz-12-9mw"/>
+                                    <constraint firstItem="9Kc-MX-7xg" firstAttribute="leading" secondItem="j6C-6c-LDF" secondAttribute="leading" id="rLe-YS-pGO"/>
+                                    <constraint firstItem="9Kc-MX-7xg" firstAttribute="top" secondItem="j6C-6c-LDF" secondAttribute="top" id="vAu-Uj-sQJ"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8g-uU-kYo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
@@ -2038,26 +2058,23 @@
                                     <constraint firstItem="Cij-Xe-PJj" firstAttribute="centerX" secondItem="n8g-uU-kYo" secondAttribute="centerX" id="ufA-RJ-zSo"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6C-6c-LDF">
-                                <rect key="frame" x="0.0" y="80" width="375" height="732"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eO4-XX-C7U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="n8g-uU-kYo" firstAttribute="top" secondItem="Xcd-E7-zs7" secondAttribute="top" id="6FU-rD-aAf"/>
                             <constraint firstItem="j6C-6c-LDF" firstAttribute="trailing" secondItem="eO4-XX-C7U" secondAttribute="trailing" id="Td6-X3-gN4"/>
-                            <constraint firstAttribute="bottom" secondItem="j6C-6c-LDF" secondAttribute="bottom" id="Zyb-iW-svR"/>
+                            <constraint firstAttribute="bottom" secondItem="j6C-6c-LDF" secondAttribute="bottom" constant="20" id="Zyb-iW-svR"/>
                             <constraint firstItem="n8g-uU-kYo" firstAttribute="leading" secondItem="eO4-XX-C7U" secondAttribute="leading" id="bKk-BZ-xcV"/>
                             <constraint firstItem="n8g-uU-kYo" firstAttribute="trailing" secondItem="eO4-XX-C7U" secondAttribute="trailing" id="d0K-Ft-LWC"/>
                             <constraint firstItem="j6C-6c-LDF" firstAttribute="leading" secondItem="eO4-XX-C7U" secondAttribute="leading" id="jBn-Te-STL"/>
-                            <constraint firstItem="j6C-6c-LDF" firstAttribute="top" secondItem="n8g-uU-kYo" secondAttribute="bottom" id="zs4-Ko-RYG"/>
+                            <constraint firstItem="j6C-6c-LDF" firstAttribute="top" secondItem="n8g-uU-kYo" secondAttribute="bottom" constant="-26" id="zs4-Ko-RYG"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="Dash" id="anl-SW-tGP"/>
                     <connections>
                         <outlet property="backSideDash" destination="j6C-6c-LDF" id="oey-el-IQd"/>
+                        <outlet property="webViewDash" destination="9Kc-MX-7xg" id="dDl-hR-k78"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maz-SK-F4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2111,18 +2128,18 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KWn-SN-e1Y">
                                 <rect key="frame" x="0.0" y="80" width="375" height="732"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0ey-dL-7en">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="20" id="0ey-dL-7en">
+                                    <size key="itemSize" width="128" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fGL-Vq-3KW">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6r1-gp-idz">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -2271,18 +2288,18 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bAD-Aq-AFV">
                                 <rect key="frame" x="0.0" y="80" width="375" height="732"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w89-za-tbW">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="20" id="w89-za-tbW">
+                                    <size key="itemSize" width="128" height="190"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bb1-MW-6FY">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UCw-J1-sGF">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -3447,7 +3464,7 @@
             <size key="intrinsicContentSize" width="113.33333333333333" height="17"/>
         </designable>
         <designable name="IFP-18-IQ8">
-            <size key="intrinsicContentSize" width="105" height="19.666666666666668"/>
+            <size key="intrinsicContentSize" width="142" height="19.666666666666668"/>
         </designable>
         <designable name="PKD-yd-Ms2">
             <size key="intrinsicContentSize" width="94.666666666666671" height="21.333333333333332"/>
@@ -3498,7 +3515,7 @@
             <size key="intrinsicContentSize" width="74.666666666666671" height="25"/>
         </designable>
         <designable name="p6x-Hi-9oE">
-            <size key="intrinsicContentSize" width="124.66666666666667" height="19.666666666666668"/>
+            <size key="intrinsicContentSize" width="169.33333333333334" height="19.666666666666668"/>
         </designable>
         <designable name="paa-Fl-naI">
             <size key="intrinsicContentSize" width="157" height="20"/>
@@ -3510,7 +3527,7 @@
             <size key="intrinsicContentSize" width="94.666666666666671" height="25"/>
         </designable>
         <designable name="x7h-bb-mjC">
-            <size key="intrinsicContentSize" width="100.66666666666667" height="19.666666666666668"/>
+            <size key="intrinsicContentSize" width="145.33333333333334" height="19.666666666666668"/>
         </designable>
         <designable name="yQG-tK-1iR">
             <size key="intrinsicContentSize" width="43.333333333333336" height="21"/>

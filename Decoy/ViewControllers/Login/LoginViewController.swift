@@ -69,6 +69,8 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
 //        self.txtMobileNo.text = "9971182412"
 //        self.txtPassword.text = "12345"
 
+        self.txtPassword.text = "test"
+        self.txtMobileNo.text = "9090909090"
 
     }
     // MARK: - Action Login With Password

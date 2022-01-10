@@ -18,9 +18,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginWithOTP:UIButton!
     @IBOutlet weak var btnOfficial:UIButton!
     @IBOutlet weak var btnPatient:UIButton!
+    @IBOutlet weak var btnForgetPass:UIButton!
     @IBOutlet weak var btnLogin:UIButton!
     @IBOutlet weak var imgLogo:UIImageView!
     @IBOutlet weak var imgSlogonTop:UIImageView!
+    @IBOutlet weak var loginView:UIView!
+
     @IBOutlet weak var btnSegment:UISegmentedControl!
     
     var segmentSelectedOption:String?
@@ -44,7 +47,10 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x1159A7)], for: .normal)
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .selected)
-//        otpStackView.delegate = self
+        Utility.addAllSidesShadowOnView(loginView)
+        Utility.setViewCornerRadius(loginView, 12)
+
+
         // Do any additional setup after loading the view.
     }
     
@@ -142,9 +148,7 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
 
     // MARK: - Action Go To Registration
     @IBAction func tapToRegistration(_ sender:Any){
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        guard let v1 = storyboard.instantiateViewController(withIdentifier:"RegistrationViewController") as? RegistrationViewController else { return print("Controller is not initiate.") }
-//        self.navigationController?.pushViewController(v1, animated: true)
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let v1 = storyboard.instantiateViewController(withIdentifier:"RegistrationViewController") as? RegistrationViewController
         self.navigationController?.hidesBarsOnTap = true
@@ -157,9 +161,14 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
 //
 //    }
 //
-//    @IBAction func tapToPatient(_ sender:Any){
-//
-//    }
+    @IBAction func tapToForgetPassword(_ sender:Any){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let v1 = storyboard.instantiateViewController(withIdentifier:"ForgetPasswordVC") as? ForgetPasswordVC
+        self.navigationController?.hidesBarsOnTap = true
+        self.navigationController?.navigationBar.isHidden = true
+
+        self.navigationController?.pushViewController(v1!, animated: true)
+    }
     
     //MARK: - Validation Check
     fileprivate func validationCheck() -> Bool {
@@ -179,10 +188,14 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
         switch btnSegment.selectedSegmentIndex {
         case 0:
             segmentSelectedOption = "Patient"
+            self.btnForgetPass.isHidden = false
+            self.loginWithOTP.isHidden = false
             break
             
         case 1:
             segmentSelectedOption = "Official"
+            self.btnForgetPass.isHidden = true
+            self.loginWithOTP.isHidden = true
             break
            
         default:

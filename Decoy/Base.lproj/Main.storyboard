@@ -202,6 +202,7 @@
                         <outlet property="txtConfirmPassword" destination="p6x-Hi-9oE" id="yME-aX-oFz"/>
                         <outlet property="txtMobileNo" destination="IFP-18-IQ8" id="OhB-1C-X1q"/>
                         <outlet property="txtPassword" destination="x7h-bb-mjC" id="v3N-hh-HHh"/>
+                        <outlet property="viewPassword" destination="Bfu-Yf-MZR" id="hry-hx-C9M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfm-BJ-q72" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3446,7 +3447,7 @@
             <size key="intrinsicContentSize" width="113.33333333333333" height="17"/>
         </designable>
         <designable name="IFP-18-IQ8">
-            <size key="intrinsicContentSize" width="142" height="19.666666666666668"/>
+            <size key="intrinsicContentSize" width="105" height="19.666666666666668"/>
         </designable>
         <designable name="PKD-yd-Ms2">
             <size key="intrinsicContentSize" width="94.666666666666671" height="21.333333333333332"/>
@@ -3497,7 +3498,7 @@
             <size key="intrinsicContentSize" width="74.666666666666671" height="25"/>
         </designable>
         <designable name="p6x-Hi-9oE">
-            <size key="intrinsicContentSize" width="169.33333333333334" height="19.666666666666668"/>
+            <size key="intrinsicContentSize" width="124.66666666666667" height="19.666666666666668"/>
         </designable>
         <designable name="paa-Fl-naI">
             <size key="intrinsicContentSize" width="157" height="20"/>
@@ -3509,7 +3510,7 @@
             <size key="intrinsicContentSize" width="94.666666666666671" height="25"/>
         </designable>
         <designable name="x7h-bb-mjC">
-            <size key="intrinsicContentSize" width="145.33333333333334" height="19.666666666666668"/>
+            <size key="intrinsicContentSize" width="100.66666666666667" height="19.666666666666668"/>
         </designable>
         <designable name="yQG-tK-1iR">
             <size key="intrinsicContentSize" width="43.333333333333336" height="21"/>

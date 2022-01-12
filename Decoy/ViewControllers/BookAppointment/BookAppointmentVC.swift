@@ -25,6 +25,8 @@ class BookAppointmentVC: UIViewController {
     var datePicker = UIDatePicker()
     var toolbar = UIToolbar()
     var selectedDate = ""
+    var selectedDateTime = ""
+
     private let apiManager = NetworkManager()
     let serviceURL = BaseUrl.baseURL + "admin/" + "getAllCity"
 //    let serviceURLWithDate = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getAllCityByDate/"
@@ -167,19 +169,27 @@ class BookAppointmentVC: UIViewController {
     
     @objc func dateChanged(_ sender: UIDatePicker?) {
         let dateFormatter = DateFormatter()
+        let dateFormatter1 = DateFormatter()
+
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "dd-MM-yyyy"
         selectedDate = dateFormatter.string(from: datePicker.date)
+        dateFormatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        selectedDateTime = dateFormatter1.string(from: datePicker.date)
         if let date = sender?.date {
             print("Picked the date \(dateFormatter.string(from: date))")
             selectedDate = dateFormatter.string(from: date)
+            selectedDateTime = dateFormatter1.string(from: date)
+
         }
     }
     
     @objc func onDoneButtonClick() {
         if selectedDate == "" {
             self.txtAppointmentDate.text = Date.getCurrentDate()
+            selectedDateTime = Date.getCurrentDateWithHHmmss()
+
         }else{
             self.txtAppointmentDate.text = selectedDate
         }
@@ -219,7 +229,8 @@ class BookAppointmentVC: UIViewController {
         inputFormatter.dateFormat = "yyyy-MM-dd"
         let resultString = inputFormatter.string(from: showDate!)
         print(resultString)
-        
+        arrayDateList = []
+        tableView.reloadData()
         let urlWithDate = serviceURLWithDate + resultString //2021-11-23
         //        let url = urlWithDate + newdate
         MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -267,7 +278,7 @@ class BookAppointmentVC: UIViewController {
                         }else{
                             for element in itemss.masCity.cityName{
                                 if self.arrCityName.contains(itemss.masCity.cityName){
-                                    print("\(element) is Duplicate")
+//                                    print("\(element) is Duplicate")
                                     countss = 1
                                     
                                 }else{
@@ -358,6 +369,11 @@ class BookAppointmentVC: UIViewController {
     
     func textFieldEditingDidChange() {
         print("change name")
+    
+        if self.txtCity.text == "" {
+            print("not value avail")
+            return
+        }
         let index =  arrCityName.firstIndex(where: { $0 == self.txtCity.text?.trimWhiteSpace }) ?? 0
         let nameID =  arrCampName[index]
         if (nameID != "" &&  nameID != "Select") {
@@ -367,6 +383,10 @@ class BookAppointmentVC: UIViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss"
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")!
+            let date = Date()
+            let df = DateFormatter()
+            df.dateFormat = "HH:mm:ss"
+            let dateString = df.string(from: date)
             arrayDateList = []
             let startTimeStr = appointModelArray[index - 1].startTime
             let endTimeStr = appointModelArray[index - 1].endTime
@@ -390,6 +410,13 @@ class BookAppointmentVC: UIViewController {
     
     //MARK: Create Slote Wise Time
     func setTimeArray(startTime:String, endTime:String){
+        let appointdate = selectedDateTime
+        let inputFormatterSelected = DateFormatter()
+        inputFormatterSelected.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let showDate = inputFormatterSelected.date(from: appointdate)
+        let resultStringSelected = inputFormatterSelected.string(from: showDate!)
+        inputFormatterSelected.dateFormat = "yyyy-MM-dd" //yyyy-MM-dd HH:mm:ss
+        let resultStringSelected1 = inputFormatterSelected.string(from: showDate!)
         
         let dt = Date()
         let formatter = DateFormatter()
@@ -399,14 +426,47 @@ class BookAppointmentVC: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         inputFormatter.dateFormat = "yyyy-MM-dd"
         let resultString = inputFormatter.string(from: dt)
+        let resultString1 = formatter.string(from: dt)
+        let resultString12 = formatter.string(from: showDate!)
+
+
         print("cuurent date",resultString)
+        print("cuurent date and time",resultString1)
+        print("Selected date and time",resultString12)
+
         let formatter2 = DateFormatter()
         formatter2.dateFormat = "HH:mm:ss"
         
-        let startDateResult = resultString + " " + startTime
-        let endDateResult = resultString + " " + endTime
+//        let startDateResult = resultString + " " + startTime
+//        let endDateResult = resultString + " " + endTime
+        let startDateResult = resultStringSelected1 + " " + startTime
+        let endDateResult = resultStringSelected1 + " " + endTime
+        let startDate = formatter.date(from: startDateResult)
+        let endDate = formatter.date(from: endDateResult)
+        var startTIME = ""
+    
+        if dt.compare(startDate!) == .orderedAscending {
+            print("DT less than startdate")
+
+            startTIME = startDateResult
+        }else if dt.compare(endDate!) == .orderedAscending{
+            print("DT less than enddate")
+
+            startTIME = resultStringSelected
+
+        }else if dt.compare(startDate!) == .orderedDescending {
+            print("DT greater than startdate")
+            startTIME = startDateResult
+            Utility().addAlertView("Alert!", "Now time is not suitable", "ok", self)
+            return
+        }else{
+                startTIME = startDateResult
+                Utility().addAlertView("Alert!", "Now time is not suitable", "ok", self)
+                return
+        }
+
         
-        let date1 = formatter.date(from: startDateResult)
+        let date1 = formatter.date(from: startTIME)
         let date2 = formatter.date(from: endDateResult)
         let interval = 60
         let stringFirst = formatter2.string(from: date1!)
@@ -465,7 +525,10 @@ let datafromArray = appointModelArray[index]
         
         if globalIndexValue == "" {
             return
+        }else if arrayDateList.count == 0 {
+            return
         }else{
+            
             let seletedTime = arrayDateList[Int(globalIndexValue)!]
             let dictData = getBookParams(index: Int(globalIndexValue)!, bookDate: globalSelectedDate)
             let mobile = userInfoModels?.mobileNumber

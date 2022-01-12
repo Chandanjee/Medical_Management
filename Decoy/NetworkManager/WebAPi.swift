@@ -12,4 +12,3 @@ import UIKit
 //let WebServiceTesing = "http://103.133.215.26:8080/MMUWeb/"
 let WebService = "https://www.cgmmssy.in/"
 
-let WebServiceTesting = "http://gloitel-n-cs-suda-mmu-app-lb-1892627395.ap-south-1.elb.amazonaws.com/MMUWeb/"

@@ -25,7 +25,7 @@ class BookAppointmentVC: UIViewController {
     var datePicker = UIDatePicker()
     var toolbar = UIToolbar()
     var selectedDate = ""
-    var selectedDateTime = ""
+    var selectedDateTime:String? = ""
 
     private let apiManager = NetworkManager()
     let serviceURL = BaseUrl.baseURL + "admin/" + "getAllCity"
@@ -34,6 +34,7 @@ class BookAppointmentVC: UIViewController {
     let serviceURLToken = BaseUrl.baseURL + "admin/" + "checking_token/"
     let serviceURLCreateBookVisit = BaseUrl.baseURL + "admin/" + "createVisits"
     var arrayDateList: [String] = []
+    var arrayDateListSame: [String] = []
     var DuplicatarrayDateList: [String] = []
 
     var globalIndexValue = ""
@@ -232,6 +233,7 @@ class BookAppointmentVC: UIViewController {
         let resultString = inputFormatter.string(from: showDate!)
         print(resultString)
         arrayDateList = []
+        arrayDateListSame = []
 //        tableView.reloadData()
         let urlWithDate = serviceURLWithDate + resultString //2021-11-23
         //        let url = urlWithDate + newdate
@@ -390,6 +392,7 @@ class BookAppointmentVC: UIViewController {
             df.dateFormat = "HH:mm:ss"
             let dateString = df.string(from: date)
             arrayDateList = []
+            arrayDateListSame = []
             let startTimeStr = appointModelArray[index - 1].startTime
             let endTimeStr = appointModelArray[index - 1].endTime
             print("Start and end Time == ",startTimeStr,endTimeStr)
@@ -412,7 +415,7 @@ class BookAppointmentVC: UIViewController {
     
     //MARK: Create Slote Wise Time
     func setTimeArray(startTime:String, endTime:String){
-        let appointdate = selectedDateTime
+        guard let appointdate = selectedDateTime else { return}
         let inputFormatterSelected = DateFormatter()
         inputFormatterSelected.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let showDate = inputFormatterSelected.date(from: appointdate)
@@ -472,6 +475,7 @@ class BookAppointmentVC: UIViewController {
         let interval = 60
         let stringFirst = formatter2.string(from: date1!)
         arrayDateList.append(stringFirst)
+        arrayDateListSame.append(stringFirst)
         var i = 1
         while true {
             let date = date1?.addingTimeInterval(TimeInterval(i*interval*60))
@@ -479,15 +483,54 @@ class BookAppointmentVC: UIViewController {
             
             if date! >= date2! {
                 arrayDateList.append(string)
+                arrayDateListSame.append(string)
                 break;
             }
             
             i += 1
             arrayDateList.append(string)
+            arrayDateListSame.append(string)
         }
 //        print(arrayDateList)
         DuplicatarrayDateList = []
         if arrayDateList.count > 0 {
+            guard let selctedValDate = selectedDateTime else { return}
+            let inputFormatterSelected = DateFormatter()
+            let inputFormatter = DateFormatter()
+
+            let dt = Date()
+            inputFormatterSelected.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            inputFormatterSelected.dateFormat = "HH:mm:ss"
+            let resultStringSelected = inputFormatterSelected.string(from: dt)
+
+            
+            inputFormatterSelected.dateFormat = "yyyy-MM-dd"
+            let currentdate = inputFormatterSelected.string(from: dt)
+            print(selectedDateTime)
+            inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let showDate = inputFormatter.date(from: selctedValDate)
+            inputFormatter.dateFormat = "yyyy-MM-dd"
+            let selectedDate = inputFormatter.string(from: showDate!)
+            var count = 0
+            if currentdate == selectedDate {
+            for(index,value) in arrayDateList.enumerated() {
+                if resultStringSelected < value {
+                    print( " index" ,index,value)
+                    count = count + 1
+                    DuplicatarrayDateList.append(value)
+    //                return arrayDateList.count - 1
+                }else{
+                    if arrayDateList.count > 0 {
+                        print( "Remove index" ,index,value)
+
+//                        arrayDateList.remove(at: index)
+                    }
+                }
+            }
+            }else if currentdate < selectedDate{
+                DuplicatarrayDateList = arrayDateList
+                count = arrayDateList.count
+            }
             self.tableView.reloadData()
         }
     }
@@ -658,17 +701,28 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        /*
+        guard let selctedValDate = selectedDateTime else { return 0}
         let inputFormatterSelected = DateFormatter()
+        let inputFormatter = DateFormatter()
+
         let dt = Date()
         inputFormatterSelected.dateFormat = "yyyy-MM-dd HH:mm:ss"
         inputFormatterSelected.dateFormat = "HH:mm:ss"
-print(selectedDateTime)
         let resultStringSelected = inputFormatterSelected.string(from: dt)
+
+        inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+        inputFormatterSelected.dateFormat = "yyyy-MM-dd"
+        let currentdate = inputFormatterSelected.string(from: dt)
+        print(selectedDateTime)
+        let showDate = inputFormatterSelected.date(from: selctedValDate)
+        let selectedDate = inputFormatterSelected.string(from: showDate!)
         var count = 0
+        if currentdate == selectedDate {
         for(index,value) in arrayDateList.enumerated() {
             if resultStringSelected < value {
                 print( " index" ,index,value)
-//                print(value, "," ,resultStringSelected)
                 count = count + 1
                 DuplicatarrayDateList.append(value)
 //                return arrayDateList.count - 1
@@ -678,13 +732,17 @@ print(selectedDateTime)
                 arrayDateList.remove(at: index)
             }
         }
+        }else if currentdate < selectedDate{
+            DuplicatarrayDateList = arrayDateList
+            count = arrayDateList.count
+        }
         if count > 1 {
            return count - 1
-            
         }else{
         return count
-        }
-        return count
+        }*/
+        
+        return DuplicatarrayDateList.count - 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimeSlotViewCell", for: indexPath) as? TimeSlotViewCell else {

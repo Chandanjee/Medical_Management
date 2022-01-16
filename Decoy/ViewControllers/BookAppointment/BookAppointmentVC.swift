@@ -34,6 +34,8 @@ class BookAppointmentVC: UIViewController {
     let serviceURLToken = BaseUrl.baseURL + "admin/" + "checking_token/"
     let serviceURLCreateBookVisit = BaseUrl.baseURL + "admin/" + "createVisits"
     var arrayDateList: [String] = []
+    var DuplicatarrayDateList: [String] = []
+
     var globalIndexValue = ""
     var globalSelectedDate = ""
     //http://103.133.215.182:8080/MobileMedicalUnit/admin/checking_token/{date}
@@ -95,19 +97,19 @@ class BookAppointmentVC: UIViewController {
         
         //        txtAppointmentDate.addTarget(self, action: #selector(textFieldTouchUP), for: UIControl.Event.touchDown)
         txtAppointmentDate.addTarget(self, action: #selector(textFieldTouchUP), for: UIControl.Event.editingDidBegin)
-        tableView.reloadData()
-        tableView.setNeedsLayout()
-        tableView.layoutIfNeeded()
-        tableView.reloadData()
+//        tableView.reloadData()
+//        tableView.setNeedsLayout()
+//        tableView.layoutIfNeeded()
+//        tableView.reloadData()
         
     }
     
     override func viewDidLayoutSubviews(){
 //        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
         if self.arrCityName.count > 0 {
+            tableView.reloadData()
             self.tblHConstraint.constant = self.tableView.contentSize.height
         }
-         tableView.reloadData()
         
     }
     
@@ -230,7 +232,7 @@ class BookAppointmentVC: UIViewController {
         let resultString = inputFormatter.string(from: showDate!)
         print(resultString)
         arrayDateList = []
-        tableView.reloadData()
+//        tableView.reloadData()
         let urlWithDate = serviceURLWithDate + resultString //2021-11-23
         //        let url = urlWithDate + newdate
         MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -429,7 +431,6 @@ class BookAppointmentVC: UIViewController {
         let resultString1 = formatter.string(from: dt)
         let resultString12 = formatter.string(from: showDate!)
 
-
         print("cuurent date",resultString)
         print("cuurent date and time",resultString1)
         print("Selected date and time",resultString12)
@@ -437,24 +438,24 @@ class BookAppointmentVC: UIViewController {
         let formatter2 = DateFormatter()
         formatter2.dateFormat = "HH:mm:ss"
         
-//        let startDateResult = resultString + " " + startTime
-//        let endDateResult = resultString + " " + endTime
-        let startDateResult = resultStringSelected1 + " " + startTime
-        let endDateResult = resultStringSelected1 + " " + endTime
+        let startDateResult = resultString + " " + startTime
+        let endDateResult = resultString + " " + endTime
+//        let startDateResult = resultStringSelected1 + " " + startTime
+//        let endDateResult = resultStringSelected1 + " " + endTime
         let startDate = formatter.date(from: startDateResult)
         let endDate = formatter.date(from: endDateResult)
         var startTIME = ""
     
+      /*
+        
         if dt.compare(startDate!) == .orderedAscending {
             print("DT less than startdate")
-
             startTIME = startDateResult
         }else if dt.compare(endDate!) == .orderedAscending{
             print("DT less than enddate")
-
             startTIME = resultStringSelected
 
-        }else if dt.compare(startDate!) == .orderedDescending {
+        }else if dt.compare(startDate!) == .orderedDescending{
             print("DT greater than startdate")
             startTIME = startDateResult
             Utility().addAlertView("Alert!", "Now time is not suitable", "ok", self)
@@ -464,9 +465,9 @@ class BookAppointmentVC: UIViewController {
                 Utility().addAlertView("Alert!", "Now time is not suitable", "ok", self)
                 return
         }
-
+*/
         
-        let date1 = formatter.date(from: startTIME)
+        let date1 = formatter.date(from: startDateResult)
         let date2 = formatter.date(from: endDateResult)
         let interval = 60
         let stringFirst = formatter2.string(from: date1!)
@@ -484,8 +485,11 @@ class BookAppointmentVC: UIViewController {
             i += 1
             arrayDateList.append(string)
         }
-        print(arrayDateList)
-        self.tableView.reloadData()
+//        print(arrayDateList)
+        DuplicatarrayDateList = []
+        if arrayDateList.count > 0 {
+            self.tableView.reloadData()
+        }
     }
     
     fileprivate func getBookParams(index:Int, bookDate:String) -> [String: Any] {
@@ -654,14 +658,57 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayDateList.count-1
+        let inputFormatterSelected = DateFormatter()
+        let dt = Date()
+        inputFormatterSelected.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        inputFormatterSelected.dateFormat = "HH:mm:ss"
+print(selectedDateTime)
+        let resultStringSelected = inputFormatterSelected.string(from: dt)
+        var count = 0
+        for(index,value) in arrayDateList.enumerated() {
+            if resultStringSelected < value {
+                print( " index" ,index,value)
+//                print(value, "," ,resultStringSelected)
+                count = count + 1
+                DuplicatarrayDateList.append(value)
+//                return arrayDateList.count - 1
+            }else{
+                print( "Remove index" ,index,value)
+
+                arrayDateList.remove(at: index)
+            }
+        }
+        if count > 1 {
+           return count - 1
+            
+        }else{
+        return count
+        }
+        return count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimeSlotViewCell", for: indexPath) as? TimeSlotViewCell else {
             fatalError("can't dequeue CustomCell")
         }
-        let FirstTime = arrayDateList[indexPath.row]
-        let secondTime = arrayDateList[indexPath.row + 1]
+     
+        let inputFormatterSelected = DateFormatter()
+        let dt = Date()
+        inputFormatterSelected.dateFormat = "HH:mm:ss"
+        inputFormatterSelected.dateFormat = "HH:mm:ss"
+
+        let resultStringSelected = inputFormatterSelected.string(from: dt)
+       
+//        for (index,items) in DuplicatarrayDateList.enumerated() {
+//            let secondTime = DuplicatarrayDateList[index+1]
+//            if resultStringSelected < items {
+//                let FirstTime = DuplicatarrayDateList[index]
+//                print(FirstTime, "," ,secondTime)
+//                cell.loadData(startTime: FirstTime, endTime: secondTime)
+//
+//            }
+//        }
+        let FirstTime = DuplicatarrayDateList[indexPath.row]
+        let secondTime = DuplicatarrayDateList[indexPath.row+1]
         cell.loadData(startTime: FirstTime, endTime: secondTime)
         return cell
     }
@@ -684,7 +731,6 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
         API_GetTokenonDate(date: startDateSelect, handlerValue: { [weak self](valuess)in
         print("return message of appointment",valuess)
             cell?.lblAppointmentCount.text! = valuess
-//            tableView.reloadData()
         }
 )
         

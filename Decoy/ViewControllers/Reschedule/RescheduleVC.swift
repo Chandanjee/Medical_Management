@@ -57,7 +57,7 @@ class RescheduleVC: UIViewController {
         Utility.setViewCornerRadius(TopPersonalDetails, 8)
         Utility.addAllSidesShadowOnView(MiddleSearchView)
         Utility.setViewCornerRadius(MiddleSearchView, 8)
-        tableView.register(TimeSlotViewCell.nib, forCellReuseIdentifier: TimeSlotViewCell.identifier)
+        tableView.register(RescheduleTableCell.nib, forCellReuseIdentifier: RescheduleTableCell.identifier)
         let images = UIImage(named: "back")
         btnBack.setImage(images?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         btnBack.tintColor = UIColor.white
@@ -555,7 +555,7 @@ extension RescheduleVC:UITableViewDelegate,UITableViewDataSource{
         return arrayDateList.count-1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimeSlotViewCell", for: indexPath) as? TimeSlotViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RescheduleTableCell", for: indexPath) as? RescheduleTableCell else {
             fatalError("can't dequeue CustomCell")
         }
         let FirstTime = arrayDateList[indexPath.row]

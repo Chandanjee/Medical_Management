@@ -18,6 +18,7 @@ class RescheduleTableCell: UITableViewCell {
     }
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         let bgColorView = UIView()

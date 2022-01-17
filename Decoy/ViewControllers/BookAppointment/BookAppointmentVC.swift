@@ -506,7 +506,6 @@ class BookAppointmentVC: UIViewController {
             
             inputFormatterSelected.dateFormat = "yyyy-MM-dd"
             let currentdate = inputFormatterSelected.string(from: dt)
-            print(selectedDateTime)
             inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let showDate = inputFormatter.date(from: selctedValDate)
             inputFormatter.dateFormat = "yyyy-MM-dd"
@@ -542,7 +541,7 @@ class BookAppointmentVC: UIViewController {
         let resultString = inputFormatter.string(from: dt)
         
 
-let datafromArray = appointModelArray[index]
+        let datafromArray = appointModelArray[index]
         let campID = datafromArray.campID
         let departID = datafromArray.departmentID
         let mmu_ID = datafromArray.masMMU

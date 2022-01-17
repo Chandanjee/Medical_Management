@@ -22,20 +22,14 @@ import SVProgressHUD
 
 struct BaseUrl {
     private struct Domains {
-//        http://103.133.215.182:8080/MobileMedicalUnit/admin/login
-//        static let Base_UrlIP = "http://103.133.215.26:8080/"
-                static let Base_UrlIP = "http://103.133.215.182:8080/"
+        static let Base_UrlIP = "http://103.133.215.182:8080/"
 
-
-//        static let Base_Url =  "http://103.133.215.182:8080/"
         static let Base_Url =  "https://www.cgmmssy.in/"
     }
     
     private  struct Routes {
-        static let Api = "MobileMedicalUnit/"           //smac // Production url
-//        static let ApiZero = "icgRestful/api/"            // Production url
+        static let Api = "MobileMedicalUnit/"          // Production url
         static let ApiDevelopment = "MobileMedicalUnitTest/"            // development url
-        static let ApiWithIP = "icgRestful_pro/api/"            //  url With IP
     }
     
 
@@ -49,13 +43,10 @@ struct BaseUrl {
 //    private  static let BaseURLZero = Domain + RouteZero
     private  static let RouteDev = Routes.ApiDevelopment
     private  static let BaseURLDev = DomainIP + RouteDev
-    // For IP
-    private  static let RouteWithIPRoute = Routes.ApiWithIP
-    private  static let BaseURLIPDomain = Domains.Base_UrlIP
-    private  static let BaseURLIP = BaseURLIPDomain + RouteWithIPRoute
+    
     static var baseURL: String {
-        return BaseURL
-//        return BaseURLDev
+//        return BaseURL
+        return BaseURLDev
     }
 //    static var baseURLZero: String {
 //        return BaseURLZero

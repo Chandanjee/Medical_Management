@@ -54,9 +54,9 @@ struct BaseUrl {
     static var baseURLDev: String {
         return BaseURLDev
     }
-    static var baseURLWithIP: String {
-        return BaseURLIP
-    }
+//    static var baseURLWithIP: String {
+//        return BaseURLIP
+//    }
 }
 
 class NetworkManager: NSObject {
@@ -71,9 +71,9 @@ class NetworkManager: NSObject {
         return BaseUrl.baseURLDev
     }
     // For IP based url
-     public func getBaseUrlWithIP() -> String{
-        return BaseUrl.baseURLWithIP
-    }
+//     public func getBaseUrlWithIP() -> String{
+//        return BaseUrl.baseURLWithIP
+//    }
     
     func createLocalUrl(forImageNamed name: String) -> URL? {
 

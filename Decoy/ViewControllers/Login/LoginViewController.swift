@@ -50,7 +50,7 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
         Utility.addAllSidesShadowOnView(loginView)
         Utility.setViewCornerRadius(loginView, 12)
         txtMobileNo.delegate = self
-
+        checkLoginScreenSize()
         // Do any additional setup after loading the view.
     }
     
@@ -566,6 +566,37 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
         animateViewDown{
             
         }
+    }
+    
+    //MARK: Screen Size
+    func checkLoginScreenSize(){
+        var myDefaultHeight: CGFloat = 30.0
+        var deviceOption: Bool = false
+        switch UIDevice().type {
+            case .iPhoneSE, .iPhone5, .iPhone5S: print("default value")
+        case .iPhone11Pro, .iPhone12Pro, .iPhone13Pro:
+            print("Pro")
+            deviceOption = true
+            self.imgLogo.frame.origin.y = self.imgLogo.frame.minY+30
+        case .iPhone11ProMax, .iPhone12ProMax, .iPhone13ProMax:
+            print("Pro Max")
+            deviceOption = true
+            self.imgLogo.frame.origin.y = self.imgLogo.frame.minY+40
+            
+            default: break
+        }
+        
+//        UIView.animate(withDuration: 1.0, animations: {
+//            self.imgLogo.frame = CGRect(x: self.imgLogo.frame.origin.x, y: self.imgLogo.frame.origin.y+40, width: self.imgLogo.frame.width, height: self.imgLogo.frame.height)
+//           })
+        if deviceOption {
+            UIView.animate(withDuration: 0.0) {
+                self.imgLogo.transform = CGAffineTransform(translationX: 0, y:self.imgLogo.frame.origin.y*0.4 )
+                self.imgSlogonTop.transform = CGAffineTransform(translationX: 0, y:self.imgSlogonTop.frame.origin.y*0.4 )
+                self.loginView.transform = CGAffineTransform(translationX: 0, y:self.loginView.frame.origin.y*0.4 )
+                   }
+        }
+      
     }
 }
 

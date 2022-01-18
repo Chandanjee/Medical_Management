@@ -115,6 +115,7 @@
 		0C8A69102795D2920079303A /* UserManual_OfficialMobileApp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0C8A690F2795D2920079303A /* UserManual_OfficialMobileApp.pdf */; };
 		0C8A69122795D29D0079303A /* UserManual_PatientMobileApp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0C8A69112795D29D0079303A /* UserManual_PatientMobileApp.pdf */; };
 		0C8A691427963AD60079303A /* privacypolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = 0C8A691327963AD60079303A /* privacypolicy.html */; };
+		0C8A691627964FF20079303A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A691527964FF10079303A /* Device.swift */; };
 		0CCDAC04278B59E30050891E /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCDAC03278B59E30050891E /* ForgetPasswordVC.swift */; };
 		36125A46D804152D5C35BDFD /* Pods_Decoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A81C20BA8A0B48A9CA559B /* Pods_Decoy.framework */; };
 		E30A2F0227181DE800AABC70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A2F0127181DE800AABC70 /* AppDelegate.swift */; };
@@ -262,6 +263,7 @@
 		0C8A690F2795D2920079303A /* UserManual_OfficialMobileApp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserManual_OfficialMobileApp.pdf; sourceTree = "<group>"; };
 		0C8A69112795D29D0079303A /* UserManual_PatientMobileApp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserManual_PatientMobileApp.pdf; sourceTree = "<group>"; };
 		0C8A691327963AD60079303A /* privacypolicy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacypolicy.html; sourceTree = "<group>"; };
+		0C8A691527964FF10079303A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		0CCDAC03278B59E30050891E /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		62410E77FE703117B87BCF52 /* Pods-Decoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decoy.debug.xcconfig"; path = "Target Support Files/Pods-Decoy/Pods-Decoy.debug.xcconfig"; sourceTree = "<group>"; };
 		63A81C20BA8A0B48A9CA559B /* Pods_Decoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,6 +336,7 @@
 				044064E4274E234200C4E81F /* LocationManager.swift */,
 				047830F527579111005C594B /* RadioButtonController.swift */,
 				04C41344276E0310003310E9 /* CoreLocationManager.swift */,
+				0C8A691527964FF10079303A /* Device.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1120,6 +1123,7 @@
 				E30A2F3E27183BBE00AABC70 /* HomeModels.swift in Sources */,
 				0435278C27739F8100A18905 /* DrugExpReportVC.swift in Sources */,
 				04E3C2D727247455008A074B /* AppTabBarViewController.swift in Sources */,
+				0C8A691627964FF20079303A /* Device.swift in Sources */,
 				04837DA62725B10D0090BBE4 /* CollectionData.swift in Sources */,
 				04E3C2D527247455008A074B /* SmoothTabItemView.swift in Sources */,
 				046D95FB273C39260063FDCB /* OTPView.swift in Sources */,

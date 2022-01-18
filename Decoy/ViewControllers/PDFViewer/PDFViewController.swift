@@ -60,13 +60,6 @@ class PDFViewController: UIViewController {
                 
                 let downloadTask = urlSession.downloadTask(with: url)
                 downloadTask.resume()
-        
-        
-//        let destination = Alamofire.Request.suggestedDownloadDestination(directory: .DocumentDirectory, domain: .UserDomainMask)
-//        Alamofire.download(.GET, "https://httpbin.org/stream/100", destination: destination)
-     
-      
-        
 
     }
     override func viewDidLayoutSubviews() {

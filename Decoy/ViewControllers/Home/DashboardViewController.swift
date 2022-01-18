@@ -47,7 +47,9 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
         let name = collectionData.datass[indexPath.item]
         
         print(name.title)
-        if (name.title == "Camp Plan") {
+        if (name.title == "Notification") {
+            
+        }else if (name.title == "Camp Plan") {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let v1 = storyboard.instantiateViewController(withIdentifier:"CampPlanVC") as? CampPlanVC
 //                v1?.targetOption = name.title

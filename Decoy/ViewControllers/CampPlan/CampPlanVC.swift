@@ -46,6 +46,7 @@ class CampPlanVC: UIViewController {
         Utility.setViewCornerRadius(backViewTops, 8)
         tableViews.register(CamPlanCell.nib, forCellReuseIdentifier: CamPlanCell.identifier)
         API_City()
+        self.defaultDate()
         // Do any additional setup after loading the view.
     }
     
@@ -82,6 +83,15 @@ class CampPlanVC: UIViewController {
     }
     @IBAction func tapToBack(_ sender:Any){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func defaultDate(){
+        let dt = Date()
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "dd-MM-yyyy"
+        let resultString = inputFormatter.string(from: dt)
+        self.toDate.text = resultString
+        self.fromDate.text = resultString
     }
     
     //MARK: Location Manager
@@ -122,8 +132,8 @@ class CampPlanVC: UIViewController {
                         print("Problem with the data received from geocoder")
                     }
                 })
-            case .failure(let error):
-                assertionFailure("Error getting the users location \(error)")
+            case .failure(let error): break
+//                assertionFailure("Error getting the users location \(error)")
             }
         }
     }

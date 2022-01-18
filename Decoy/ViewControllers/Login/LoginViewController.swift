@@ -49,7 +49,7 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .selected)
         Utility.addAllSidesShadowOnView(loginView)
         Utility.setViewCornerRadius(loginView, 12)
-
+        txtMobileNo.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -567,6 +567,22 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
             
         }
     }
+}
+
+extension LoginViewController:UITextFieldDelegate{
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                     replacementString string: String)
+           -> Bool
+      {
+          if textField == txtMobileNo {
+                 if range.location == 10 {
+                     return false
+                 }
+             }
+             return true
+          
+      }
 }
 
 extension LoginViewController: OTPDelegate {

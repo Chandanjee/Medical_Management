@@ -96,3 +96,5 @@ public enum VC_TYPE:Int {
   case Setting = 2
   case Menu = 3
 }
+
+

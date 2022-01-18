@@ -46,7 +46,7 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
             // Fallback on earlier versions
         }
         tableView.register(LABResultTableCell.nib, forCellReuseIdentifier: LABResultTableCell.identifier)
-
+        self.defaultDate()
 //        theImageView.image = theImageView.image?.withRenderingMode(.alwaysTemplate)
 //        theImageView.tintColor = UIColor.red
         // Do any additional setup after loading the view.
@@ -67,6 +67,15 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
         tableView.layoutIfNeeded()
         tableView.reloadData()
         
+    }
+    
+    func defaultDate(){
+        let dt = Date()
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "dd-MM-yyyy"
+        let resultString = inputFormatter.string(from: dt)
+        self.toDateTxt.text = resultString
+        self.fromDateTxt.text = resultString
     }
     
     //MARK: Delegate Method
@@ -189,9 +198,9 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
         let enddate = toDate + " " + "23:59:59"
 //        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 //        let resultString = inputFormatter.string(from: dt)
-        let dictData: [String:Any] = ["fromDate":"2021-10-28 00:00:00", //startDate,
+        let dictData: [String:Any] = ["fromDate": startDate, //"2021-10-28 00:00:00", //
                                       "patientId":String(id!),
-                                      "toDate":"2021-11-30 23:59:59" //enddate
+                                      "toDate":enddate //"2021-11-30 23:59:59" //
                                      ]
         return dictData
     }

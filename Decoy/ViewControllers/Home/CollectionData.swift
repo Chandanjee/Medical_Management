@@ -55,7 +55,7 @@ class OfficialCollection{
     let PendingApproval = [
         EntryData(image: "COApproval", title: "Pending Indent For Approval (CO)"),
         EntryData(image: "APMApproval", title: "Pending Indent For Approval (APM)"),
-        EntryData(image: "indent_auditor", title: "Pending Indent For Approval (Auditor)"),
+        EntryData(image: "indent_auditor", title: "Pending Indent For Approval (Doctor)"),
         EntryData(image: "pending_emp_reg_apm", title: "Pending approval list of employee registration (APM)"),
         EntryData(image: "pending_emp_reg_auditor", title: "Pending approval list of employee registration (Auditor)"),
         EntryData(image: "pending_emp_reg_apm", title: "Pending approval list of employee registration (CHMO)"),

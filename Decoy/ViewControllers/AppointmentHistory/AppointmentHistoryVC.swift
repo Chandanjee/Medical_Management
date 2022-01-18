@@ -43,7 +43,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
             // Fallback on earlier versions
         }
         tableView.register(AppointHistoryCell.nib, forCellReuseIdentifier: AppointHistoryCell.identifier)
-
+        self.defaultDate()
 //        theImageView.image = theImageView.image?.withRenderingMode(.alwaysTemplate)
 //        theImageView.tintColor = UIColor.red
         // Do any additional setup after loading the view.
@@ -64,6 +64,15 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         tableView.layoutIfNeeded()
         tableView.reloadData()
         
+    }
+    
+    func defaultDate(){
+        let dt = Date()
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "dd-MM-yyyy"
+        let resultString = inputFormatter.string(from: dt)
+        self.toDateTxt.text = resultString
+        self.fromDateTxt.text = resultString
     }
     
     //MARK: Delegate Method

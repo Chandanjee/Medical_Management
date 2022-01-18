@@ -94,6 +94,11 @@ extension ProfileViewController:UITableViewDataSource,UITableViewDelegate{
 //                Utility.pushControllerWithAnimation(Storyboard.profile, ControllerIdentifier.privacyPolicyVC, self)
             case 2:
                 print("Backup")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let menualVC = storyboard.instantiateViewController(withIdentifier: "UserMenualVC") as! UserMenualVC
+                menualVC.DataName = "Official"
+                self.navigationController?.pushViewController(menualVC, animated: true)
+
             case 3:
                 print("Back Up ")
             case 4:

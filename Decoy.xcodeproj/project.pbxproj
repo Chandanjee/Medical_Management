@@ -111,6 +111,10 @@
 		04E47D5A272806CD00A4C0DB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E47D59272806CD00A4C0DB /* NetworkManager.swift */; };
 		04E47D692728115300A4C0DB /* LoginJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E47D682728115300A4C0DB /* LoginJSONModel.swift */; };
 		0C02855E277647E40017B2F1 /* AllReportModelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02855D277647E40017B2F1 /* AllReportModelVC.swift */; };
+		0C8A690E2795CAE90079303A /* UserMenualVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A690D2795CAE80079303A /* UserMenualVC.swift */; };
+		0C8A69102795D2920079303A /* UserManual_OfficialMobileApp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0C8A690F2795D2920079303A /* UserManual_OfficialMobileApp.pdf */; };
+		0C8A69122795D29D0079303A /* UserManual_PatientMobileApp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0C8A69112795D29D0079303A /* UserManual_PatientMobileApp.pdf */; };
+		0C8A691427963AD60079303A /* privacypolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = 0C8A691327963AD60079303A /* privacypolicy.html */; };
 		0CCDAC04278B59E30050891E /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCDAC03278B59E30050891E /* ForgetPasswordVC.swift */; };
 		36125A46D804152D5C35BDFD /* Pods_Decoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A81C20BA8A0B48A9CA559B /* Pods_Decoy.framework */; };
 		E30A2F0227181DE800AABC70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A2F0127181DE800AABC70 /* AppDelegate.swift */; };
@@ -254,6 +258,10 @@
 		04E47D682728115300A4C0DB /* LoginJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJSONModel.swift; sourceTree = "<group>"; };
 		09BC3AAE9555263D090F3D75 /* Pods-Decoy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decoy.release.xcconfig"; path = "Target Support Files/Pods-Decoy/Pods-Decoy.release.xcconfig"; sourceTree = "<group>"; };
 		0C02855D277647E40017B2F1 /* AllReportModelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReportModelVC.swift; sourceTree = "<group>"; };
+		0C8A690D2795CAE80079303A /* UserMenualVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenualVC.swift; sourceTree = "<group>"; };
+		0C8A690F2795D2920079303A /* UserManual_OfficialMobileApp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserManual_OfficialMobileApp.pdf; sourceTree = "<group>"; };
+		0C8A69112795D29D0079303A /* UserManual_PatientMobileApp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserManual_PatientMobileApp.pdf; sourceTree = "<group>"; };
+		0C8A691327963AD60079303A /* privacypolicy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacypolicy.html; sourceTree = "<group>"; };
 		0CCDAC03278B59E30050891E /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		62410E77FE703117B87BCF52 /* Pods-Decoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decoy.debug.xcconfig"; path = "Target Support Files/Pods-Decoy/Pods-Decoy.debug.xcconfig"; sourceTree = "<group>"; };
 		63A81C20BA8A0B48A9CA559B /* Pods_Decoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -718,6 +726,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0C8A690C2795CABA0079303A /* UserMenual */ = {
+			isa = PBXGroup;
+			children = (
+				0C8A690D2795CAE80079303A /* UserMenualVC.swift */,
+				0C8A691327963AD60079303A /* privacypolicy.html */,
+				0C8A69112795D29D0079303A /* UserManual_PatientMobileApp.pdf */,
+				0C8A690F2795D2920079303A /* UserManual_OfficialMobileApp.pdf */,
+			);
+			path = UserMenual;
+			sourceTree = "<group>";
+		};
 		0CCDAC02278B59840050891E /* ForgetPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,6 +836,7 @@
 		E30A2F1C27182CC200AABC70 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0C8A690C2795CABA0079303A /* UserMenual */,
 				045C919E276612EB00E10EB6 /* officialController */,
 				0427C9A5275E8ACB0042123A /* Reschedule */,
 				0427A8C6275B7D860022570A /* PDFViewer */,
@@ -984,6 +1004,7 @@
 				04C122F3275FA89C007B7EA5 /* RescheduleTableCell.xib in Resources */,
 				E30A2F2027182CF100AABC70 /* ProfileTableViewCell.xib in Resources */,
 				04E3C2D327247455008A074B /* SmoothTabBarView.xib in Resources */,
+				0C8A69122795D29D0079303A /* UserManual_PatientMobileApp.pdf in Resources */,
 				E30A2F0B27181DEB00AABC70 /* Assets.xcassets in Resources */,
 				04837DB12725E4410090BBE4 /* VerifyOTPView.xib in Resources */,
 				0408A506276C51EF003C8131 /* map.gif in Resources */,
@@ -991,6 +1012,7 @@
 				04D0D7B32769229500BCC278 /* CamPlanCell.xib in Resources */,
 				E30A2F332718399600AABC70 /* SettingsTableViewCell.xib in Resources */,
 				E30A2F0927181DE800AABC70 /* Main.storyboard in Resources */,
+				0C8A69102795D2920079303A /* UserManual_OfficialMobileApp.pdf in Resources */,
 				046FABE82767153900565FA6 /* AnalticReportCell.xib in Resources */,
 				046FABE32767146C00565FA6 /* PendingApprovalCell.xib in Resources */,
 				04996CB5272720FA0006BDE2 /* UserInfoCell.xib in Resources */,
@@ -1000,6 +1022,7 @@
 				045728642755243000439C34 /* AppointHistoryCell.xib in Resources */,
 				046D95FE273C39450063FDCB /* OTPView.xib in Resources */,
 				047831022757EFA2005C594B /* OPDTableCell.xib in Resources */,
+				0C8A691427963AD60079303A /* privacypolicy.html in Resources */,
 				E30A2F45271D867B00AABC70 /* DashboardCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1068,6 +1091,7 @@
 				045C91AC276654A300E10EB6 /* LogoutVC.swift in Sources */,
 				04984BA727457D49001EC315 /* FamilyListCell.swift in Sources */,
 				E30A2F51271D9D6600AABC70 /* CampPlanWorker.swift in Sources */,
+				0C8A690E2795CAE90079303A /* UserMenualVC.swift in Sources */,
 				E30A2F1727181EC200AABC70 /* LoginViewController.swift in Sources */,
 				043527922773A03300A18905 /* DaiDidiRegisterVC.swift in Sources */,
 				04996CAF2727202F0006BDE2 /* UserInfoViewController.swift in Sources */,

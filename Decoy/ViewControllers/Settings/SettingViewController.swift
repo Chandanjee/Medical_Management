@@ -63,15 +63,23 @@ class SettingViewController: UIViewController {
     func API_getViewAllTickets(json:PatientRequestModel, data:@escaping (_ result:PatientListJSONModel?,_ resultBool: Bool) -> ()){
         let jsons =  PatientRequestModel.encode(object: json)
         print("infoView request",jsons)
+        MBProgressHUD.showAdded(to: view, animated: true)
         apiManager.apiPostView(serviceName: serviceUrl, parameters: jsons as! [String : Any], completionHandler: {
             (response, error) in
             if let response = response {
                 let details = try? newJSONDecoder().decode(PatientListJSONModel.self, from: response)
                 data(details, true)
+                MBProgressHUD.hide(for: self.view, animated: true)
 
             }else{
-                data(nil, true)
+                data(nil, false)
+                MBProgressHUD.hide(for: self.view, animated: true)
 
+            }
+            if (error != nil) {
+                print("getPatientList == ",error?.localizedDescription as Any)
+                Utility().addAlertView("Alert!", "Server error", "OK", self)
+                MBProgressHUD.hide(for: self.view, animated: true)
             }
         })
     }

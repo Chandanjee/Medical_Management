@@ -41,8 +41,8 @@ class PendingSubModelVC: UIViewController {
            self.titleLbl.text = "Approval (APM)"
            serviceURL =   WebService + "dispencery/getIndentForApproval"
 
-        }else if titlename == "Pending Indent For Approval (Auditor)"{
-            self.titleLbl.text = "Approval (Auditor)"
+        }else if titlename == "Pending Indent For Approval (Doctor)"{
+            self.titleLbl.text = "Approval (Doctor)"
             serviceURL = WebService + "dispencery/getIndentApprovalListForAuditor"
 
         }else if titlename == "Pending approval list of employee registration (APM)"{

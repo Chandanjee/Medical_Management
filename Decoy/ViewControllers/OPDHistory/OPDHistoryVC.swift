@@ -42,7 +42,7 @@ let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
             // Fallback on earlier versions
         }
         tableView.register(OPDTableCell.nib, forCellReuseIdentifier: OPDTableCell.identifier)
-
+        defaultDate()
 //        theImageView.image = theImageView.image?.withRenderingMode(.alwaysTemplate)
 //        theImageView.tintColor = UIColor.red
         // Do any additional setup after loading the view.
@@ -121,6 +121,15 @@ let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
         toolbar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
         toolbar.sizeToFit()
         self.view.addSubview(toolbar)
+    }
+    
+    func defaultDate(){
+        let dt = Date()
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "dd-MM-yyyy"
+        let resultString = inputFormatter.string(from: dt)
+        self.toDateTxt.text = resultString
+        self.fromDateTxt.text = resultString
     }
     
     @objc func dateChanged(_ sender: UIDatePicker?) {

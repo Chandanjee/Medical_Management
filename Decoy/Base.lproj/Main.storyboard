@@ -3528,10 +3528,10 @@
             </objects>
             <point key="canvasLocation" x="12294" y="71"/>
         </scene>
-        <!--View Controller-->
+        <!--Privacy PolicyVC-->
         <scene sceneID="Daq-fG-tFK">
             <objects>
-                <viewController id="is1-dR-wAV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyPolicyVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="is1-dR-wAV" customClass="PrivacyPolicyVC" customModule="Decoy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6C4-w2-M7A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3549,7 +3549,7 @@
                                             <imageReference key="image" image="chevron.left" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <connections>
-                                            <action selector="tapTOback:" destination="is1-dR-wAV" eventType="touchUpInside" id="EbN-MD-HKs"/>
+                                            <action selector="tapToBack:" destination="is1-dR-wAV" eventType="touchUpInside" id="sO8-a8-p28"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privecy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sF-ba-C0R">
@@ -3571,32 +3571,36 @@
                                     <constraint firstItem="6sF-ba-C0R" firstAttribute="centerX" secondItem="noy-ly-4oi" secondAttribute="centerX" id="dIq-TB-4XW"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGp-mx-ziy">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzU-ML-R5d">
                                 <rect key="frame" x="0.0" y="80" width="375" height="732"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3z7-4H-AMS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="HzU-ML-R5d" firstAttribute="top" secondItem="noy-ly-4oi" secondAttribute="bottom" id="O3P-wd-RiQ"/>
                             <constraint firstItem="noy-ly-4oi" firstAttribute="leading" secondItem="3z7-4H-AMS" secondAttribute="leading" id="RRS-9S-0ux"/>
+                            <constraint firstItem="HzU-ML-R5d" firstAttribute="leading" secondItem="3z7-4H-AMS" secondAttribute="leading" id="UJR-r6-yvX"/>
                             <constraint firstItem="noy-ly-4oi" firstAttribute="trailing" secondItem="3z7-4H-AMS" secondAttribute="trailing" id="YxT-Fs-U0m"/>
+                            <constraint firstItem="HzU-ML-R5d" firstAttribute="trailing" secondItem="3z7-4H-AMS" secondAttribute="trailing" id="dNm-Kd-Qsw"/>
                             <constraint firstItem="noy-ly-4oi" firstAttribute="top" secondItem="6C4-w2-M7A" secondAttribute="top" id="lOj-Yh-fVH"/>
-                            <constraint firstItem="NGp-mx-ziy" firstAttribute="trailing" secondItem="3z7-4H-AMS" secondAttribute="trailing" id="mKU-5w-yoO"/>
-                            <constraint firstAttribute="bottom" secondItem="NGp-mx-ziy" secondAttribute="bottom" id="qQi-IY-aPH"/>
-                            <constraint firstItem="NGp-mx-ziy" firstAttribute="leading" secondItem="3z7-4H-AMS" secondAttribute="leading" id="sCR-kC-NJd"/>
-                            <constraint firstItem="NGp-mx-ziy" firstAttribute="top" secondItem="noy-ly-4oi" secondAttribute="bottom" id="wDc-yr-mbH"/>
+                            <constraint firstAttribute="bottom" secondItem="HzU-ML-R5d" secondAttribute="bottom" id="v73-kX-Cm6"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnBack" destination="65c-5r-Jvn" id="oIT-Wv-yEQ"/>
-                        <outlet property="pdfFile" destination="NGp-mx-ziy" id="TNz-UK-Zgi"/>
+                        <outlet property="btnBackSide" destination="65c-5r-Jvn" id="TIu-c4-9FW"/>
                         <outlet property="titleLabel" destination="6sF-ba-C0R" id="LNT-R0-8Qi"/>
+                        <outlet property="webView" destination="HzU-ML-R5d" id="4nQ-wn-Pcc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O0c-Vq-KHQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13026" y="83"/>
+            <point key="canvasLocation" x="13024.799999999999" y="82.758620689655174"/>
         </scene>
         <!--Latest UpdateVC-->
         <scene sceneID="dMu-iA-Ilq">

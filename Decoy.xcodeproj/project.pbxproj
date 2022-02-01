@@ -111,6 +111,7 @@
 		04E47D5A272806CD00A4C0DB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E47D59272806CD00A4C0DB /* NetworkManager.swift */; };
 		04E47D692728115300A4C0DB /* LoginJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E47D682728115300A4C0DB /* LoginJSONModel.swift */; };
 		0C02855E277647E40017B2F1 /* AllReportModelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02855D277647E40017B2F1 /* AllReportModelVC.swift */; };
+		0C68CB0327A9BBAE00C536CA /* PrivacyPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68CB0227A9BBAE00C536CA /* PrivacyPolicyVC.swift */; };
 		0C8A690E2795CAE90079303A /* UserMenualVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8A690D2795CAE80079303A /* UserMenualVC.swift */; };
 		0C8A69102795D2920079303A /* UserManual_OfficialMobileApp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0C8A690F2795D2920079303A /* UserManual_OfficialMobileApp.pdf */; };
 		0C8A69122795D29D0079303A /* UserManual_PatientMobileApp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0C8A69112795D29D0079303A /* UserManual_PatientMobileApp.pdf */; };
@@ -260,6 +261,7 @@
 		04E47D682728115300A4C0DB /* LoginJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJSONModel.swift; sourceTree = "<group>"; };
 		09BC3AAE9555263D090F3D75 /* Pods-Decoy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decoy.release.xcconfig"; path = "Target Support Files/Pods-Decoy/Pods-Decoy.release.xcconfig"; sourceTree = "<group>"; };
 		0C02855D277647E40017B2F1 /* AllReportModelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReportModelVC.swift; sourceTree = "<group>"; };
+		0C68CB0227A9BBAE00C536CA /* PrivacyPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyVC.swift; sourceTree = "<group>"; };
 		0C8A690D2795CAE80079303A /* UserMenualVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenualVC.swift; sourceTree = "<group>"; };
 		0C8A690F2795D2920079303A /* UserManual_OfficialMobileApp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserManual_OfficialMobileApp.pdf; sourceTree = "<group>"; };
 		0C8A69112795D29D0079303A /* UserManual_PatientMobileApp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserManual_PatientMobileApp.pdf; sourceTree = "<group>"; };
@@ -738,6 +740,7 @@
 				0C8A691327963AD60079303A /* privacypolicy.html */,
 				0C8A69112795D29D0079303A /* UserManual_PatientMobileApp.pdf */,
 				0C8A690F2795D2920079303A /* UserManual_OfficialMobileApp.pdf */,
+				0C68CB0227A9BBAE00C536CA /* PrivacyPolicyVC.swift */,
 			);
 			path = UserMenual;
 			sourceTree = "<group>";
@@ -1091,6 +1094,7 @@
 				0457286727553ED100439C34 /* AppointHistoryResponseModel.swift in Sources */,
 				043527942773A0A200A18905 /* IncidentRegisterVC.swift in Sources */,
 				0CCDAC04278B59E30050891E /* ForgetPasswordVC.swift in Sources */,
+				0C68CB0327A9BBAE00C536CA /* PrivacyPolicyVC.swift in Sources */,
 				043527902773A00700A18905 /* MMSSYLabourRegister.swift in Sources */,
 				0427C9A7275E8AF50042123A /* RescheduleVC.swift in Sources */,
 				0402E7492722B37D004D866A /* Utility.swift in Sources */,

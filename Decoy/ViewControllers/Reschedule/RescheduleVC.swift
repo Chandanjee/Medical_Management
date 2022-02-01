@@ -411,6 +411,7 @@ class RescheduleVC: UIViewController {
         let mmuid = mmu_ID?.mmuID
         let stat = mmu_ID?.status
        let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
+        let patID = userResultUpdateModel?.patient.patientID
         /*
          {"camp_id":"435","departmentID":"2","lastChangeDate":"2021-12-01 17:07:11.783","mmu_id":"1","patientId":"204","status":"N","visitId":"411","visit_date":"2021-12-02 09:30:00.0"}
          */
@@ -419,7 +420,7 @@ class RescheduleVC: UIViewController {
                                       "departmentID": String(departID!),
                                       "lastChangeDate": startDateSelect,
                                       "mmu_id": String(mmuid!),
-                                      "patientId":String(id!),
+                                      "patientId":String(patID!),
                                       "status": String(stat!),
                                       "visitId":String((userResultUpdateModel?.visit.visitID)!),
                                       "visit_date": bookDate

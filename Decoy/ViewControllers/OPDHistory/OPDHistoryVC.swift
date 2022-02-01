@@ -25,6 +25,7 @@ class OPDHistoryVC: UIViewController,OPDButtonCellDelegate {
 
     private let apiManager = NetworkManager()
     var userHistoryModel = [OPDResponse]()
+    var userInfoOPDModels : ResponsesData? = nil
 
     let serviceURL = BaseUrl.baseURL + "admin/" + "fetchCompleteOpdData"
     let serviceURLDelete = BaseUrl.baseURL + "admin/" + "cancelVisit"
@@ -192,7 +193,7 @@ let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
     //MARK: - Dictionary for Search
     fileprivate func getSearchParams() -> [String: Any] {
         let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
-
+        let patID = userInfoOPDModels?.patientID
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
         let firstDate = formatter.date(from: self.fromDateTxt.text!)
@@ -206,7 +207,7 @@ let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
 //        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 //        let resultString = inputFormatter.string(from: dt)
         let dictData: [String:Any] = ["fromDate":startDate, //"2021-10-28 00:00:00", //startDate,
-                                      "patientId":String(id!),
+                                      "patientId":String(patID!),
                                       "toDate":enddate //"2021-11-30 23:59:59"//enddate
                                      ]
         return dictData

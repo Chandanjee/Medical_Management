@@ -25,6 +25,7 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
 
     private let apiManager = NetworkManager()
     var userHistoryModel = [LABResponse]()
+    var userInfoLABModels : ResponsesData? = nil
 
 //    let serviceURL = BaseUrl.baseURL + "getLabResult" //http://103.133.215.182:8080/MobileMedicalUnit/
 //    let serviceURL = "http://103.133.215.182:8080/MobileMedicalUnit/" + "getLabResult" //http://103.133.215.182:8080/MobileMedicalUnit/
@@ -185,6 +186,7 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
     //MARK: - Dictionary for Search
     fileprivate func getSearchParams() -> [String: Any] {
         let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
+        let patID = userInfoLABModels?.patientID
 
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
@@ -199,7 +201,7 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
 //        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 //        let resultString = inputFormatter.string(from: dt)
         let dictData: [String:Any] = ["fromDate": startDate, //"2021-10-28 00:00:00", //
-                                      "patientId":String(id!),
+                                      "patientId":String(patID!),
                                       "toDate":enddate //"2021-11-30 23:59:59" //
                                      ]
         return dictData

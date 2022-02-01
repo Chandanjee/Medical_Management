@@ -122,10 +122,13 @@ extension UserInfoViewController :UITableViewDelegate,UITableViewDataSource{
         else if targetOption == "Lab Result"{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let v1 = storyboard.instantiateViewController(withIdentifier:"LAbResultViewController") as? LAbResultViewController
+            v1?.userInfoLABModels = userInfoModel[indexPath.row]
+
                 self.navigationController?.pushViewController(v1!, animated: true)
         }else if targetOption == "OPD History"{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let v1 = storyboard.instantiateViewController(withIdentifier:"OPDHistoryVC") as? OPDHistoryVC
+            v1?.userInfoOPDModels = userInfoModel[indexPath.row]
                 self.navigationController?.pushViewController(v1!, animated: true)
         }
     }

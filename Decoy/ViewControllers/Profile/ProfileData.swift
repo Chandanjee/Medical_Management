@@ -28,7 +28,7 @@ class ProfileData {
 //        Entry(image: "settingIcon", title: "Chat Background image"),
 //        Entry(image: "status", title: "update status"),
 //        Entry(image: "faq", title: "FAQ"),
-        Entry(image: "contactsus", title: "Contacts us"),
+//        Entry(image: "contactsus", title: "Contacts us"),
 //        Entry(image: "accountIcon", title: "Pin protection enable"),
         
       //  Entry(image: "handbook", title: "User Manual or Help"),

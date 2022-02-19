@@ -7,6 +7,7 @@
 
 import UIKit
 import MBProgressHUD
+import CoreLocation
 
 class BookAppointmentVC: UIViewController {
     @IBOutlet weak var tableView:UITableView!
@@ -51,6 +52,10 @@ class BookAppointmentVC: UIViewController {
     var appointModelArray = [ResponseAppointment]()
     var arrCityName = [String]()
     var arrCampName = [String]()
+    let locationService = CoreLocationManager()
+    var latCordinate:Double = 0.0
+    var longCordinate:Double = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.tblHConstraint.constant = 0
@@ -129,6 +134,32 @@ class BookAppointmentVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func getCurrentLocationCoordinatesResult() {
+        locationService.newLocation = { result in
+            switch result {
+            case .success(let location):
+                print(location.coordinate.latitude, location.coordinate.longitude)
+                self.latCordinate = location.coordinate.latitude
+                self.longCordinate = location.coordinate.longitude
+                CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+                    if error != nil {
+                        print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
+                        return
+                    }
+                    if (placemarks?.count)! > 0 {
+                        print("placemarks", placemarks!)
+                        let pmark = placemarks?[0]
+                        print(pmark)
+//                        self.displayLocationInfo(pmark)
+                    } else {
+                        print("Problem with the data received from geocoder")
+                    }
+                })
+            case .failure(let error): break
+//                assertionFailure("Error getting the users location \(error)")
+            }
+        }
+    }
     //MARK: Add Arrow on TextField
     fileprivate func addArrowBtnToTextFields() {
         
@@ -382,10 +413,24 @@ class BookAppointmentVC: UIViewController {
         }
         let index =  arrCityName.firstIndex(where: { $0 == self.txtCity.text?.trimWhiteSpace }) ?? 0
         let nameID =  arrCampName[index]
+        let arrayDataOfModul = appointModelArray[index]
+        let latPerson = Double(arrayDataOfModul.lattitude)
+        let longPerson = Double(arrayDataOfModul.longitude)
+        let myLocation = CLLocation(latitude: latCordinate, longitude: longCordinate)
+        //My buddy's location
+        let myBuddysLocation = CLLocation(latitude: latPerson, longitude: longPerson)
+
+        //Measuring my distance to my buddy's (in km)
+        let distance = myLocation.distance(from: myBuddysLocation) / 1000
+        print(String(format: "The distance to my buddy is %.01fkm", distance))
+
+        let kilometer = String(format: "%.01fkm", distance)
+        
         if (nameID != "" &&  nameID != "Select") {
             //            Loader.showLoader("Downloading Details...", target: self)
             self.txtCamp.text = nameID
             globalIndexValue = String(index - 1)
+            self.txtCamp.text =  self.txtCamp.text! + "    " + "(\(kilometer))"
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss"
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")!

@@ -63,7 +63,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
         tableView.reloadData()
-        
+        self.API_CheckBydateAppointment()
     }
     
     func defaultDate(){
@@ -72,7 +72,10 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
         inputFormatter.dateFormat = "dd-MM-yyyy"
         let resultString = inputFormatter.string(from: dt)
         self.toDateTxt.text = resultString
-        self.fromDateTxt.text = resultString
+        let previousMonth = Calendar.current.date(byAdding: .month, value: -1, to: Date())
+        let resultString1 = inputFormatter.string(from: previousMonth!)
+
+        self.fromDateTxt.text = resultString1
     }
     
     //MARK: Delegate Method
@@ -184,7 +187,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     fileprivate func getSearchParams() -> [String: Any] {
         var id =  UserDefaults.standard.value(forKey: "patientId") as? Int
         if id == nil {
-            id = userHistoryModel[0].patient.patientID
+            id = userHistoryModel[0].patient?.patientId
         }
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
@@ -215,7 +218,7 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
                 let details = try? newJSONDecoder().decode(AppointHistoryResponseModel.self, from: resultdata)
                 //                print(details?.response[0].location)
                 //                print(details?.response[0].landMark)
-                print("Total array iof appointment ==",details?.response.count as Any, self.userHistoryModel)
+                print("Total array iof appointment ==",details?.response?.count as Any, self.userHistoryModel)
                 self.userHistoryModel = details?.response ?? []
                 do{
                               let json = try JSONSerialization.jsonObject(with: resultdata, options: []) as? [String : Any]
@@ -249,8 +252,8 @@ class AppointmentHistoryVC: UIViewController,HistoryButtonCellDelegate {
     func API_DeleteAppointment(index:Int){
 //        {"visitID":"406","patientId":"204"}
         let itemData = userHistoryModel[index]
-        let Visit = itemData.visit.visitID
-        let Patient = itemData.visit.patientID
+        let Visit = itemData.visit?.visitId
+        let Patient = itemData.visit?.patientId
         let requestData : [String:Any] = ["visitID":Visit,
                                           "patientId":Patient]
         print("Delete Request data and url",serviceURLDelete,requestData)

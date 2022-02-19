@@ -32,14 +32,15 @@ class UserInfoCell: UITableViewCell {
             lblMobileNo.text = cellViewModel?.mobileNumber
             let gend = cellViewModel?.administrativeSexID.administrativeSexCode
             var gender = ""
-            switch gend {
-            case .f:
-                gender = "F"
-            case .m:
-                gender = "M"
-            case .none:
-                gender = ""
-            }
+            gender = gend ?? ""
+//            switch gend {
+//            case .f:
+//                gender = "F"
+//            case .m:
+//                gender = "M"
+//            case .none:
+//                gender = ""
+//            }
             let age = (cellViewModel?.age.description)! + " yrs"
             lblGender.text = age + " / " + gender
             lblUHID.text = cellViewModel?.uhidNo

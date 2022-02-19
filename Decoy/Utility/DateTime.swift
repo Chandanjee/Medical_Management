@@ -39,6 +39,18 @@ extension Date {
            return dateFormatter.string(from: Date())
 
        }
+    
+    func isEqualTo(_ date: Date) -> Bool {
+      return self == date
+    }
+    
+    func isGreaterThan(_ date: Date) -> Bool {
+       return self > date
+    }
+    
+    func isSmallerThan(_ date: Date) -> Bool {
+       return self < date
+    }
 }
 
 extension Date {

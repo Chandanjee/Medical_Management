@@ -45,8 +45,8 @@ struct BaseUrl {
     private  static let BaseURLDev = DomainIP + RouteDev
     
     static var baseURL: String {
-//        return BaseURL
-        return BaseURLDev
+        return BaseURL
+//        return BaseURLDev
     }
 //    static var baseURLZero: String {
 //        return BaseURLZero

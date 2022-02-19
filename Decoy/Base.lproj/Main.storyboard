@@ -256,7 +256,7 @@
                                                     <constraint firstAttribute="height" constant="45" id="cmZ-5z-drr"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="gapPadding">
                                                         <real key="value" value="10"/>
@@ -1225,7 +1225,7 @@
                                             <action selector="tapToSearch:" destination="gJq-xF-glX" eventType="touchUpInside" id="fDq-bD-Zhh"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eAu-F7-OyB" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
+                                    <textField opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eAu-F7-OyB" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
                                         <rect key="frame" x="16" y="122" width="170" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -1235,6 +1235,9 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="gJq-xF-glX" id="eil-7b-83o"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="From Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHV-qn-yCV" customClass="DesignableUITextField" customModule="Decoy" customModuleProvider="target">
                                         <rect key="frame" x="16" y="42" width="140" height="45"/>

@@ -39,36 +39,100 @@ class AppointHistoryCell: UITableViewCell {
     }
     var cellViewModel: HistoryResponse? {
         didSet {
-            let status = cellViewModel?.visit.visitStatus
-            
-            let statusss = cellViewModel?.visit.visitID
-            let dateStr = cellViewModel?.visit.visitDateData
+            let status = cellViewModel?.visit?.visitStatus
+            let dt = Date()
+            let inputFormatter = DateFormatter()
+            inputFormatter.dateFormat = "dd-MM-yyyy"
+            let inputFormatter1 = DateFormatter()
+            inputFormatter1.dateFormat = "dd-MM-yyyy HH:mm:ss"
+            let resultStringDate = inputFormatter.string(from: dt)
+            let statusss = cellViewModel?.visit?.visitId
+            let dateStr = cellViewModel?.visit?.visitDateData
+            if dateStr == "" || dateStr == nil {
+                self.lblAppointmentStatus.text = ""
+                self.btnCancel.isHidden = true
+                self.btnReshdule.isHidden = true
+                return
+            }
+            let convertDate = inputFormatter1.date(from: dateStr!)
+            let convertStringDate = inputFormatter.string(from: convertDate!)
 
-            let locationCamp = cellViewModel?.masCamp.landMark
+            let resultDate1 = inputFormatter.date(from: convertStringDate )
+            let resultDate2 = inputFormatter.date(from: resultStringDate )
+
+//            let dateType = resultDate2?.isEqualTo(resultDate1!)
+//            let dateType1 = resultDate2?.isGreaterThan(resultDate1!)
+//print("Date compare in ",dateType,dateType1)
+            let dayDiff =  diffRenceDate(firstDate: resultDate2!, secondDate: resultDate1!)
+            
+            let locationCamp = cellViewModel?.masCamp?.landMark
             if status == "" {
                 self.lblAppointmentStatus.text = ""
+                self.btnCancel.isHidden = true
+                self.btnReshdule.isHidden = true
             }else if status == "c" ||  status == "C"{
                 self.lblAppointmentStatus.textColor = .green
                 self.lblAppointmentStatus.text = "Completed"
                 self.btnCancel.isHidden = true
                 self.btnReshdule.isHidden = true
             }else if status == "x" ||  status == "X"{
-                self.lblAppointmentStatus.textColor = .red
-                self.lblAppointmentStatus.text = "Not Visited"
-                self.btnCancel.isHidden = true
-                self.btnReshdule.isHidden = true
+//                check date diffrence
+//                if date  == 0 then calcelled else not visted in red color both
+                if dayDiff >= 0{
+                    self.lblAppointmentStatus.backgroundColor = .red
+                    self.lblAppointmentStatus.text = "Cancelled"
+                    self.lblAppointmentStatus.backgroundColor = .black
+
+                    self.btnCancel.isHidden = true
+                    self.btnReshdule.isHidden = true
+                }else{
+                    self.lblAppointmentStatus.textColor = .red
+                    self.lblAppointmentStatus.text = "Not Visited"
+                    self.lblAppointmentStatus.backgroundColor = .black
+                    self.btnCancel.isHidden = true
+                    self.btnReshdule.isHidden = true
+                }
+               
             }else if status == "p" ||  status == "P" || status == "n" ||  status == "N" {
-                self.lblAppointmentStatus.textColor = .yellow
-                self.lblAppointmentStatus.text = "Awating Consultant"
-                self.btnCancel.isHidden = false
-                self.btnReshdule.isHidden = false
+                //                check date diffrence
+                //                if date  == 0 then Awating Consultant else not visted in red color
+                if dayDiff >= 0{
+                    self.lblAppointmentStatus.backgroundColor = .yellow
+                    self.lblAppointmentStatus.text = "Awating Consultant"
+                    self.lblAppointmentStatus.textColor = .black
+                    self.btnCancel.isHidden = false
+                    self.btnReshdule.isHidden = false
+                }else{
+                    self.lblAppointmentStatus.backgroundColor = .red
+                    self.lblAppointmentStatus.text = "Not Visited"
+                    self.lblAppointmentStatus.textColor = .black
+                    self.btnCancel.isHidden = true
+                    self.btnReshdule.isHidden = true
+                }
+                            
+            }else if status == "w" || status == "W"{
+//                check date diffrence
+                //Pending in yello color else not visited
+                if dayDiff >= 0{
+                    self.lblAppointmentStatus.backgroundColor = .yellow
+                    self.lblAppointmentStatus.text = "Pending"
+                    self.lblAppointmentStatus.textColor = .black
+                    self.btnCancel.isHidden = true
+                    self.btnReshdule.isHidden = true
+                }else{
+                    self.lblAppointmentStatus.backgroundColor = .red
+                    self.lblAppointmentStatus.text = "Not Visited"
+                    self.lblAppointmentStatus.textColor = .black
+                    self.btnCancel.isHidden = true
+                    self.btnReshdule.isHidden = true
+                }
             }
             
 //            self.lblAppointmentStatus.text = status
             if let camp = locationCamp {
                 self.lblCampLocation.text = camp
             }
-            let timeInterval = TimeInterval((cellViewModel?.visit.visitDate)!)
+            let timeInterval = TimeInterval((cellViewModel?.visit?.visitDate)!)
                       // create NSDate from Double (NSTimeInterval)
             let myNSDate = Date(timeIntervalSince1970: timeInterval)
 
@@ -100,5 +164,15 @@ class AppointHistoryCell: UITableViewCell {
 //             buttonPressed()
         print("Delete ===")
         cellDelegate?.didPressButton(tag: sender.tag, Status: false)
+    }
+    func diffRenceDate(firstDate:Date,secondDate:Date) -> Int{
+        let calendar = Calendar.current
+
+        // Replace the hour (time) of both dates with 00:00
+        let date1 = calendar.startOfDay(for: firstDate)
+        let date2 = calendar.startOfDay(for: secondDate)
+
+        let components = calendar.dateComponents([.day], from: date1, to: date2)
+        return components.day!
     }
 }

@@ -84,9 +84,10 @@ class RescheduleVC: UIViewController {
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
         tableView.reloadData()
-        let name = userResultUpdateModel?.patient.patientName
+        let name = userResultUpdateModel?.patient?.patientName
         self.lblFullName.text = name
-        let gend = userResultUpdateModel?.patient.administrativeSexID.administrativeSexName
+//        let gend = userResultUpdateModel?.patient.administrativeSexID.administrativeSexName
+        let gend = userResultUpdateModel?.patient?.administrativeSexId?.administrativeSexName
         var gender = ""
 //        switch gend {
 //        case .f:
@@ -97,7 +98,7 @@ class RescheduleVC: UIViewController {
 //            gender = ""
 //        }
         lblGender.text = gend
-        let age = (userResultUpdateModel?.patient.age.description)! + " years"
+        let age = (userResultUpdateModel?.patient?.age?.description)! + " years"
         lblAge.text = age
     }
     
@@ -402,16 +403,16 @@ class RescheduleVC: UIViewController {
         
 
 //let datafromArray = appointModelArray[index]
-        let campID = userResultUpdateModel?.masCamp.campID
-        let departID = userResultUpdateModel?.masDepartment.departmentID
-        let mmu_ID = userResultUpdateModel?.masCamp.masMMU
+        let campID = userResultUpdateModel?.masCamp?.campId
+        let departID = userResultUpdateModel?.masDepartment?.departmentId
+        let mmu_ID = userResultUpdateModel?.masCamp?.masMMU
         let lastChangeDate = mmu_ID?.lastChgDate
         let date = TimeInterval(lastChangeDate!).stringFromTimeInterval()
         let startDateSelect = resultString + " " + date
-        let mmuid = mmu_ID?.mmuID
+        let mmuid = mmu_ID?.mmuId
         let stat = mmu_ID?.status
        let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
-        let patID = userResultUpdateModel?.patient.patientID
+        let patID = userResultUpdateModel?.patient?.patientId
         /*
          {"camp_id":"435","departmentID":"2","lastChangeDate":"2021-12-01 17:07:11.783","mmu_id":"1","patientId":"204","status":"N","visitId":"411","visit_date":"2021-12-02 09:30:00.0"}
          */
@@ -422,7 +423,7 @@ class RescheduleVC: UIViewController {
                                       "mmu_id": String(mmuid!),
                                       "patientId":String(patID!),
                                       "status": String(stat!),
-                                      "visitId":String((userResultUpdateModel?.visit.visitID)!),
+                                      "visitId":String((userResultUpdateModel?.visit?.visitId)!),
                                       "visit_date": bookDate
                                      ]
         

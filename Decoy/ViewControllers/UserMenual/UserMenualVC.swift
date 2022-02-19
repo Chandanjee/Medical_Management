@@ -72,12 +72,12 @@ var titleData = ""
            pdfView.displayDirection = .vertical
            
            ///Open pdf with help of FileManager URL
-           if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-               let bookWithPdf = "xyz.pdf"
-               let fileURL = dir.appendingPathComponent(bookWithPdf)
-               let document = PDFDocument(url: fileURL)
-               pdfView.document = document
-           }
+//           if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+//               let bookWithPdf = "xyz.pdf"
+//               let fileURL = dir.appendingPathComponent(bookWithPdf)
+//               let document = PDFDocument(url: fileURL)
+//               pdfView.document = document
+//           }
     }
     
     @IBAction func tapTOback(_ sender:Any){

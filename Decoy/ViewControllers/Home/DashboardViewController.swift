@@ -11,6 +11,7 @@ class DashboardViewController: UIViewController {
     var tabController: VC_TYPE = .Home
     @IBOutlet weak var collectionViews: UICollectionView!
     let collectionData = CollectionData()
+    let locationService = CoreLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,14 @@ class DashboardViewController: UIViewController {
         collectionViews.delegate = self
         collectionViews.dataSource = self
    }
-
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        didTapAllow()
+    }
+    
+    func didTapAllow() {
+         locationService.requestLocationAuthorization()
+     }
 }
 
 extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataSource{

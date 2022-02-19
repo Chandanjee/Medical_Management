@@ -67,7 +67,7 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
         tableView.reloadData()
-        
+        self.API_CheckBydateAppointment()
     }
     
     func defaultDate(){
@@ -76,7 +76,11 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
         inputFormatter.dateFormat = "dd-MM-yyyy"
         let resultString = inputFormatter.string(from: dt)
         self.toDateTxt.text = resultString
-        self.fromDateTxt.text = resultString
+//        self.fromDateTxt.text = resultString
+        let previousMonth = Calendar.current.date(byAdding: .month, value: -1, to: Date())
+        let resultString1 = inputFormatter.string(from: previousMonth!)
+
+        self.fromDateTxt.text = resultString1
     }
     
     //MARK: Delegate Method

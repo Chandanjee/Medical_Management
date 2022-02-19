@@ -63,6 +63,7 @@ let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
         tableView.reloadData()
+        self.API_CheckBydateAppointment()
         
     }
     
@@ -130,7 +131,11 @@ let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
         inputFormatter.dateFormat = "dd-MM-yyyy"
         let resultString = inputFormatter.string(from: dt)
         self.toDateTxt.text = resultString
-        self.fromDateTxt.text = resultString
+//        self.fromDateTxt.text = resultString
+        let previousMonth = Calendar.current.date(byAdding: .month, value: -1, to: Date())
+        let resultString1 = inputFormatter.string(from: previousMonth!)
+
+        self.fromDateTxt.text = resultString1
     }
     
     @objc func dateChanged(_ sender: UIDatePicker?) {

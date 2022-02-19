@@ -12,7 +12,14 @@ import UIKit
 struct LoginJSONModel: Codable {
     let response: [Response]
     let status: Int
-    let message: String
+    let versinCode, versinApp, message: String
+
+    enum CodingKeys: String, CodingKey {
+        case response, status
+        case versinCode = "versin_code"
+        case versinApp = "versin_app"
+        case message
+    }
 }
 
 // MARK: - Response

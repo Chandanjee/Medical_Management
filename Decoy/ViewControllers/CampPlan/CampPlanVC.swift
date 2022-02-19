@@ -76,8 +76,8 @@ class CampPlanVC: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
+    
     @IBAction func tapToSearch(_ sender:Any){
         fetchDataCampPlan()
     }
@@ -91,7 +91,11 @@ class CampPlanVC: UIViewController {
         inputFormatter.dateFormat = "dd-MM-yyyy"
         let resultString = inputFormatter.string(from: dt)
         self.toDate.text = resultString
-        self.fromDate.text = resultString
+//        self.fromDate.text = resultString
+        let previousMonth = Calendar.current.date(byAdding: .month, value: -1, to: Date())
+        let resultString1 = inputFormatter.string(from: previousMonth!)
+
+        self.fromDate.text = resultString1
     }
     
     //MARK: Location Manager
@@ -226,6 +230,22 @@ class CampPlanVC: UIViewController {
         
     }
     
+    func textFieldEditingDidChange() {
+        print("change name")
+    
+//        if self.txtCity.text == "" {
+//            print("not value avail")
+//            return
+//        }
+        if arrCityName.count > 0 {
+            let nameID =  arrCityName[1]
+            if (nameID != "" &&  nameID != "Select") {
+                self.cityTxt.text = nameID
+            }
+        }
+       
+    }
+    
     func API_City(){
         apiManager.Api_GetWithData(serviceName: serviceURL, parameters: [:], completionHandler: {result,error in
             if let errors = error {
@@ -264,7 +284,17 @@ class CampPlanVC: UIViewController {
                     }catch{ print("erroMsg") }
                 }
                 if self.arrCityName.count > 0 {
+                  
                     self.cityTxt.loadDropdownData(data: self.arrCityName)
+//                    self.cityTxt.text = self.arrCityName[1]
+                    let nameID = self.arrCityName[1]
+                    self.cityTxt.text = ""
+                    if self.cityTxt.text == "Select" || self.cityTxt.text == "" {
+                        self.cityTxt.text = nameID
+                    }
+                    if (self.cityTxt.text != "" &&  self.cityTxt.text != "Select") {
+//                        self.fetchDataCampPlan()
+                    }
                 }
             }
         })
@@ -298,6 +328,7 @@ class CampPlanVC: UIViewController {
     }
     
     func fetchDataCampPlan(){
+        self.userInfoModel = []
         if self.fromDate.text == "" || self.fromDate.text == nil || self.toDate.text == nil || self.toDate.text == ""{
             Utility().addAlertView("Alert!",  "Select both date", "ok", self)
             return
@@ -308,7 +339,7 @@ class CampPlanVC: UIViewController {
         }
         let dataDic = getSearchParams()
         MBProgressHUD.showAdded(to: self.view, animated: true)
-
+print("search Dic",dataDic)
         apiManager.apiPostView(serviceName: serviceUrlCamp, parameters: dataDic, completionHandler: {(resultData,error) in
             if let response = resultData {
                 print(response)
@@ -317,7 +348,7 @@ class CampPlanVC: UIViewController {
                 MBProgressHUD.hide(for: self.view, animated: true)
 
                 if dataResult?.count ?? 0 > 0{
-                    for items in details!.response {
+                    for items in dataResult! {
                         self.userInfoModel.append(items)
                     }
                     print("Count Camp plan ",self.userInfoModel.count)
@@ -351,4 +382,40 @@ extension CampPlanVC:UITableViewDelegate,UITableViewDataSource{
         cell.loadCellDataOne(lat: latCordinate, long: longCordinate, cellViewModel: userInfoModel[indexPath.row])
         return cell
     }
+}
+
+extension CampPlanVC:UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        //        print("TextField did begin editing method called")
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("TextField did end editing method called  = \(textField.text!)")
+//        if (textField.tag == 7 || textField == cityTxt){
+            textFieldEditingDidChange()
+//        }
+        
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        //        print("TextField should begin editing method called")
+        return true;
+    }
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        //        print("TextField should clear method called")
+        return true;
+    }
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        //        print("TextField should end editing method called")
+        return true;
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        //        print("While entering the characters this method gets called")
+        return true;
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //        print("TextField should return method called")
+        textField.resignFirstResponder();
+        return true;
+    }
+    
+    
 }

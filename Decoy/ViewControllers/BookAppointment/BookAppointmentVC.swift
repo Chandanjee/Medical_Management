@@ -67,14 +67,16 @@ class BookAppointmentVC: UIViewController {
         self.lblFullName.text = name
         let gend = userInfoModels?.administrativeSexID.administrativeSexCode
         var gender = ""
-        switch gend {
-        case .f:
-            gender = "Female"
-        case .m:
-            gender = "Male"
-        case .none:
-            gender = ""
-        }
+        gender = gend ?? ""
+
+//        switch gend {
+//        case .f:
+//            gender = "Female"
+//        case .m:
+//            gender = "Male"
+//        case .none:
+//            gender = ""
+//        }
         lblGender.text = gender
         let age = (userInfoModels?.age.description)! + " years"
         lblAge.text = age
@@ -331,7 +333,7 @@ class BookAppointmentVC: UIViewController {
         
 //        Loader.showLoader("Wait checking your slot...", target: self)
         var ResponseMSG:String? = ""
-        apiManager.Api_GetWithData(serviceName: url, parameters: [:], completionHandler: {(resultDatas,error) in
+        apiManager.Api_GetWithData(serviceName: urlEncode!, parameters: [:], completionHandler: {(resultDatas,error) in
             if let responsedata = resultDatas {
                 do{
                     let json = try JSONSerialization.jsonObject(with: responsedata, options: []) as? [String : Any]
@@ -575,7 +577,9 @@ class BookAppointmentVC: UIViewController {
             return
         }else{
             
-            let seletedTime = arrayDateList[Int(globalIndexValue)!]
+//            let seletedTime = arrayDateList[Int(globalIndexValue)!]
+            let seletedTime = DuplicatarrayDateList[Int(globalIndexValue)!]
+
             let dictData = getBookParams(index: Int(globalIndexValue)!, bookDate: globalSelectedDate)
             let mobile = userInfoModels?.mobileNumber
 
@@ -599,6 +603,12 @@ class BookAppointmentVC: UIViewController {
                         if status == 208 {
                             MBProgressHUD.hide(for: self.view, animated: true)
                             Utility().addAlertView("Alert!", "Appointment is already booked for this date", "ok", self)
+                            self.txtCamp.text = self.txtCamp.placeholder
+                            self.txtAppointmentDate.text =  self.txtAppointmentDate.placeholder
+                            self.txtCity.text = self.txtCity.placeholder
+                            self.DuplicatarrayDateList = []
+                            self.tableView.reloadData()
+                            self.globalIndexValue = ""
                             return
                         }
                         if status == 200 {
@@ -609,6 +619,9 @@ class BookAppointmentVC: UIViewController {
                             self.txtCamp.text = self.txtCamp.placeholder
                             self.txtAppointmentDate.text =  self.txtAppointmentDate.placeholder
                             self.txtCity.text = self.txtCity.placeholder
+                            self.globalIndexValue = ""
+                            self.DuplicatarrayDateList = []
+                            self.tableView.reloadData()
                             return
                         }
                         
@@ -783,9 +796,10 @@ extension BookAppointmentVC:UITableViewDelegate,UITableViewDataSource{
         let startDateSelect = resultString + " " + startTime
         print("cuurent time Select",startDateSelect)
         let cell = tableView.cellForRow(at: indexPath) as? TimeSlotViewCell
-//        globalIndexValue = String(indexPath.row)
+        globalIndexValue = String(indexPath.row)
+        let SelectedCellTime = resultString + " " + DuplicatarrayDateList[indexPath.row]
         globalSelectedDate = startDateSelect
-        API_GetTokenonDate(date: startDateSelect, handlerValue: { [weak self](valuess)in
+        API_GetTokenonDate(date: SelectedCellTime, handlerValue: { [weak self](valuess)in
         print("return message of appointment",valuess)
             cell?.lblAppointmentCount.text! = valuess
         }

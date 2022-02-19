@@ -13,28 +13,32 @@ import UIKit
 struct PatientListJSONModel: Codable {
     let response: [ResponsesData]
     let status: Int
-    let message: String
+    let versinCode, versinApp, message: String
+
+    enum CodingKeys: String, CodingKey {
+        case response, status
+        case versinCode = "versin_code"
+        case versinApp = "versin_app"
+        case message
+    }
 }
 
 // MARK: - Response
 struct ResponsesData: Codable {
     let patientID: Int
-    let address: String?
-    let cityID: Int?
+    let address, cityID: JSONNull?
     let dateOfBirth: Int
-    let districtID: Int?
-    let formSubmitted: JSONNull?
-    let identificationNo, laborRegistered: String?
+    let districtID, formSubmitted, identificationNo, laborRegistered: JSONNull?
     let lastChgDate: JSONNull?
     let mobileNumber: String
-    let occuption: String?
+    let occuption: JSONNull?
     let patientName: String
-    let patientType, loginPwd: String?
-    let pincode, campID: Int?
-    let administrativeSexID: AdministrativeSexIDd
-    let religionID: JSONNull?
-    let regNo: String?
-    let stateID: JSONNull?
+    let patientType: JSONNull?
+    let loginPwd: String
+    let pincode: JSONNull?
+    let campID: Int?
+    let administrativeSexID: AdministrativeSexID
+    let religionID, regNo, stateID: JSONNull?
     let uhidNo: String
     let age: Int
 
@@ -57,8 +61,7 @@ struct ResponsesData: Codable {
 // MARK: - AdministrativeSexID
 struct AdministrativeSexIDd: Codable {
     let administrativeSexID: Int
-    let administrativeSexCode: AdministrativeSexCode
-    let administrativeSexName: AdministrativeSexName
+    let administrativeSexCode, administrativeSexName: String
 
     enum CodingKeys: String, CodingKey {
         case administrativeSexID = "administrativeSexId"

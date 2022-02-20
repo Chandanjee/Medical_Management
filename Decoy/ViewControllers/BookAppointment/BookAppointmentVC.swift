@@ -19,6 +19,7 @@ class BookAppointmentVC: UIViewController {
     @IBOutlet weak var txtAppointmentDate:UITextField!
     @IBOutlet weak var txtCity:UITextField!
     @IBOutlet weak var txtCamp:UITextField!
+    @IBOutlet weak var txtMMUName:UITextField!
     @IBOutlet weak var btnSubmit:UIButton!
     @IBOutlet weak var btnBack:UIButton!
     @IBOutlet weak var tblHConstraint: NSLayoutConstraint!
@@ -52,6 +53,8 @@ class BookAppointmentVC: UIViewController {
     var appointModelArray = [ResponseAppointment]()
     var arrCityName = [String]()
     var arrCampName = [String]()
+    var arrMMUName = [String]()
+
     let locationService = CoreLocationManager()
     var latCordinate:Double = 0.0
     var longCordinate:Double = 0.0
@@ -257,8 +260,10 @@ class BookAppointmentVC: UIViewController {
     func APi_AfterSelectionDate(date:String){
         self.arrCityName = []
         self.arrCampName = []
+        self.arrMMUName = []
         self.arrCityName.removeAll()
         self.arrCampName.removeAll()
+        self.arrMMUName.removeAll()
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat =  "dd-MM-yyyy"//"dd/MM/yyyy"
         let showDate = inputFormatter.date(from: date)
@@ -309,8 +314,10 @@ class BookAppointmentVC: UIViewController {
                             firstitem = true
                             self.arrCityName.append("Select")
                             self.arrCampName.append("Select")
+                            self.arrMMUName.append("Select")
                                                     self.arrCityName.append(itemss.masCity.cityName.trailingSpacesTrimmed ?? "")
                                                     self.arrCampName.append(itemss.location.trailingSpacesTrimmed  ?? "")
+                                                    self.arrMMUName.append(itemss.masMMU.mmuName)
                             
                         }else{
                             for element in itemss.masCity.cityName ?? ""{
@@ -326,6 +333,7 @@ class BookAppointmentVC: UIViewController {
                             self.arrCityName.append(itemss.masCity.cityName.trailingSpacesTrimmed ?? "")
                             
                             self.arrCampName.append(itemss.location.trailingSpacesTrimmed ?? "")
+                            self.arrMMUName.append(itemss.masMMU.mmuName)
                         }
                     }
                     if (countss == 1) {
@@ -342,10 +350,13 @@ class BookAppointmentVC: UIViewController {
                     self.tblHConstraint.constant = self.tableView.contentSize.height
                 }
                 let orderedNoDuplicates =  Array(NSOrderedSet(array: self.arrCityName).map({ $0 as! String }))
-
+                let mmuDuplicates =  Array(NSOrderedSet(array: self.arrMMUName).map({ $0 as! String }))
+                self.arrMMUName = []
+                self.arrMMUName = mmuDuplicates
                 self.txtCity.loadDropdownData(data: orderedNoDuplicates)
                 if orderedNoDuplicates.count > 1 {
                     self.txtCity.text = orderedNoDuplicates[1]
+//                    self.txtMMUName.text = mmuDuplicates[1]
                 }
             }else{
                 MBProgressHUD.hide(for: self.view, animated: true)
@@ -429,8 +440,9 @@ class BookAppointmentVC: UIViewController {
         if (nameID != "" &&  nameID != "Select") {
             //            Loader.showLoader("Downloading Details...", target: self)
             self.txtCamp.text = nameID
+            self.txtMMUName.text = arrMMUName[index]
             globalIndexValue = String(index - 1)
-            self.txtCamp.text =  self.txtCamp.text! + "    " + "(\(kilometer))"
+            self.txtCamp.text =  self.txtCamp.text! + "   " + "(\(kilometer))"
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss"
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")!

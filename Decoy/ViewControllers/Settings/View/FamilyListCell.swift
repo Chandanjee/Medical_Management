@@ -30,7 +30,7 @@ class FamilyListCell: UITableViewCell {
         didSet {
             lblName.text = cellViewModel?.patientName
             lblMobileNo.text = cellViewModel?.mobileNumber
-            let gend = cellViewModel?.administrativeSexID.administrativeSexCode
+            let gend = cellViewModel?.administrativeSexId?.administrativeSexCode
             var gender = ""
             gender = gend ?? ""
 
@@ -42,7 +42,7 @@ class FamilyListCell: UITableViewCell {
 //            case .none:
 //                gender = ""
 //            }
-            let age = (cellViewModel?.age.description)! + " yrs"
+            let age = (cellViewModel?.age?.description)! + " yrs"
             lblGender.text = age + " / " + gender
             lblUHID.text = cellViewModel?.uhidNo
         }

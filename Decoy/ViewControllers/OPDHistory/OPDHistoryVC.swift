@@ -198,7 +198,7 @@ let basePDFUrl = "http://103.133.215.182:8080/MMUWeb/report/"
     //MARK: - Dictionary for Search
     fileprivate func getSearchParams() -> [String: Any] {
         let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
-        let patID = userInfoOPDModels?.patientID
+        let patID = userInfoOPDModels?.patientId
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
         let firstDate = formatter.date(from: self.fromDateTxt.text!)

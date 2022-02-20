@@ -190,7 +190,7 @@ class LAbResultViewController: UIViewController,LAPResultButtonCellDelegate {
     //MARK: - Dictionary for Search
     fileprivate func getSearchParams() -> [String: Any] {
         let id =  UserDefaults.standard.value(forKey: "patientId") as? Int
-        let patID = userInfoLABModels?.patientID
+        let patID = userInfoLABModels?.patientId
 
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"

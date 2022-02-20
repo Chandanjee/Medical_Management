@@ -63,13 +63,13 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
 //        self.txtPassword.text = "9971182412" // official
         //        self.txtPassword.text = "9971182412" // Official
 
-        self.txtPassword.text = "abc"
-        self.txtMobileNo.text = "9910248968"
-//        self.txtMobileNo.text = "9897040757" // deepak
+//        self.txtPassword.text = "abc"
+//        self.txtMobileNo.text = "9910248968"
+        self.txtMobileNo.text = "9897040757" // deepak
 //        self.txtMobileNo.text = "9971182412"
 //        self.txtPassword.text = "12345"
 
-//        self.txtPassword.text = "test"
+        self.txtPassword.text = "aaaa"
 //        self.txtMobileNo.text = "9090909090"
 
     }
@@ -225,12 +225,12 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
                 guard let weakSelf = self else { return }
                 if let response = response {
                        let loginJSONModel = try? newJSONDecoder().decode(LoginJSONModel.self, from: response)
-                    let status = loginJSONModel?.status.description
-                    let datass = loginJSONModel?.response[0].dateOfBirth
-                    self?.userMobile = loginJSONModel?.response[0].mobileNumber ?? ""
-                    let patientId = loginJSONModel?.response[0].patientID
-                    let Password = loginJSONModel?.response[0].loginPwd
-                    let name = loginJSONModel?.response[0].patientName
+                    let status = loginJSONModel?.status?.description
+                    let datass = loginJSONModel?.response?[0].dateOfBirth
+                    self?.userMobile = loginJSONModel?.response?[0].mobileNumber ?? ""
+                    let patientId = loginJSONModel?.response?[0].patientId
+                    let Password = loginJSONModel?.response?[0].loginPwd
+                    let name = loginJSONModel?.response?[0].patientName
 
                     print(datass as Any)
                     do{

@@ -46,7 +46,7 @@ class SettingViewController: UIViewController {
             
             responseData,status  in
             
-            print(responseData?.response.count as Any)
+            print(responseData?.response?.count as Any)
 //                self?.userResultModel = response?.result ?? []
             let dataResult = responseData?.response
             if dataResult?.count ?? 0 > 0{

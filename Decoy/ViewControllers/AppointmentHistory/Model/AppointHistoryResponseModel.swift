@@ -568,7 +568,7 @@ struct HistoryMasDistrict : Codable {
     let districtId : Int?
     let districtCode : String?
     let districtName : String?
-    let masState : MasState?
+    let masState : HistoryMasState?
     let status : String?
     let lastChangeBy : String?
     let lastChangeDate : Int?
@@ -589,10 +589,30 @@ struct HistoryMasDistrict : Codable {
         districtId = try values.decodeIfPresent(Int.self, forKey: .districtId)
         districtCode = try values.decodeIfPresent(String.self, forKey: .districtCode)
         districtName = try values.decodeIfPresent(String.self, forKey: .districtName)
-        masState = try values.decodeIfPresent(MasState.self, forKey: .masState)
+        masState = try values.decodeIfPresent(HistoryMasState.self, forKey: .masState)
         status = try values.decodeIfPresent(String.self, forKey: .status)
         lastChangeBy = try values.decodeIfPresent(String.self, forKey: .lastChangeBy)
         lastChangeDate = try values.decodeIfPresent(Int.self, forKey: .lastChangeDate)
+    }
+
+}
+struct HistoryMasState : Codable {
+    let stateId : Int?
+    let stateCode : String?
+    let stateName : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case stateId = "stateId"
+        case stateCode = "stateCode"
+        case stateName = "stateName"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        stateId = try values.decodeIfPresent(Int.self, forKey: .stateId)
+        stateCode = try values.decodeIfPresent(String.self, forKey: .stateCode)
+        stateName = try values.decodeIfPresent(String.self, forKey: .stateName)
     }
 
 }

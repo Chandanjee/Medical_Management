@@ -70,7 +70,7 @@ class BookAppointmentVC: UIViewController {
         tableView.register(TimeSlotViewCell.nib, forCellReuseIdentifier: TimeSlotViewCell.identifier)
         let name = userInfoModels?.patientName
         self.lblFullName.text = name
-        let gend = userInfoModels?.administrativeSexID.administrativeSexCode
+        let gend = userInfoModels?.administrativeSexId?.administrativeSexCode
         var gender = ""
         gender = gend ?? ""
 
@@ -83,7 +83,7 @@ class BookAppointmentVC: UIViewController {
 //            gender = ""
 //        }
         lblGender.text = gender
-        let age = (userInfoModels?.age.description)! + " years"
+        let age = (userInfoModels?.age?.description)! + " years"
         lblAge.text = age
         
         self.API_City()
@@ -304,17 +304,17 @@ class BookAppointmentVC: UIViewController {
                     self.appointModelArray = details?.response ?? []
                     var countss = 0
 
-                    for itemss in details!.response {
+                    for itemss in self.appointModelArray  {
                                                 if firstitem == false {
                             firstitem = true
                             self.arrCityName.append("Select")
                             self.arrCampName.append("Select")
-                            self.arrCityName.append(itemss.masCity.cityName.trailingSpacesTrimmed)
-                            self.arrCampName.append(itemss.location.trailingSpacesTrimmed)
+                                                    self.arrCityName.append(itemss.masCity.cityName.trailingSpacesTrimmed ?? "")
+                                                    self.arrCampName.append(itemss.location.trailingSpacesTrimmed  ?? "")
                             
                         }else{
-                            for element in itemss.masCity.cityName{
-                                if self.arrCityName.contains(itemss.masCity.cityName){
+                            for element in itemss.masCity.cityName ?? ""{
+                                if self.arrCityName.contains(itemss.masCity.cityName ?? ""){
 //                                    print("\(element) is Duplicate")
                                     countss = 1
                                     
@@ -323,9 +323,9 @@ class BookAppointmentVC: UIViewController {
                                 }
                             }
                             
-                            self.arrCityName.append(itemss.masCity.cityName.trailingSpacesTrimmed)
+                            self.arrCityName.append(itemss.masCity.cityName.trailingSpacesTrimmed ?? "")
                             
-                            self.arrCampName.append(itemss.location.trailingSpacesTrimmed)
+                            self.arrCampName.append(itemss.location.trailingSpacesTrimmed ?? "")
                         }
                     }
                     if (countss == 1) {
@@ -414,8 +414,8 @@ class BookAppointmentVC: UIViewController {
         let index =  arrCityName.firstIndex(where: { $0 == self.txtCity.text?.trimWhiteSpace }) ?? 0
         let nameID =  arrCampName[index]
         let arrayDataOfModul = appointModelArray[index]
-        let latPerson = Double(arrayDataOfModul.lattitude)
-        let longPerson = Double(arrayDataOfModul.longitude)
+        let latPerson = Double(arrayDataOfModul.lattitude ?? 0)
+        let longPerson = Double(arrayDataOfModul.longitude ?? 0)
         let myLocation = CLLocation(latitude: latCordinate, longitude: longCordinate)
         //My buddy's location
         let myBuddysLocation = CLLocation(latitude: latPerson, longitude: longPerson)
@@ -443,7 +443,7 @@ class BookAppointmentVC: UIViewController {
             let startTimeStr = appointModelArray[index - 1].startTime
             let endTimeStr = appointModelArray[index - 1].endTime
             print("Start and end Time == ",startTimeStr,endTimeStr)
-            setTimeArray(startTime: startTimeStr, endTime: endTimeStr)
+            setTimeArray(startTime: startTimeStr ?? "", endTime: endTimeStr ?? "")
             //            let dateENDFromStr = dateFormatter.date(from: endTimeStr) ?? nil
             //            let dateStartFromStr = dateFormatter.date(from: startTimeStr) ?? nil
             //
@@ -589,16 +589,16 @@ class BookAppointmentVC: UIViewController {
         
 
         let datafromArray = appointModelArray[index]
-        let campID = datafromArray.campID
-        let departID = datafromArray.departmentID
+        let campID = datafromArray.campID ?? 0
+        let departID = datafromArray.departmentID ?? 0
         let mmu_ID = datafromArray.masMMU
-        let lastChangeDate = mmu_ID.lastChgDate
+        let lastChangeDate = mmu_ID.lastChgDate ?? 0
         let date = TimeInterval(lastChangeDate).stringFromTimeInterval()
         let startDateSelect = resultString + " " + date
-        let mmuid = mmu_ID.mmuID
+        let mmuid = mmu_ID.mmuID ?? 0
         var id =  UserDefaults.standard.value(forKey: "patientId") as? Int
         if id == nil {
-            id = userInfoModels?.patientID
+            id = userInfoModels?.patientId
         }
         let dictData: [String:Any] = ["camp_id": String(campID),
                                       "departmentID": String(departID),
@@ -695,8 +695,9 @@ class BookAppointmentVC: UIViewController {
         let camp = appointModelArray[0].location
         let name = userInfoModels?.patientName
         var msg = "प्रिय " + name! + ", आपका ऑनलाइन अपॉइंटमेंट " + time + " पर "
-        let city = City + " / " + camp + " के लिए दर्ज कर लिया गया है। \n" + "सादर, \n" + "CGMSSY"
-        let fullSentence = msg + city
+        let city = City + " / " + camp + " के लिए दर्ज कर लिया गया है। \n"
+        let sadar =  city + "सादर, \n" + "CGMSSY"
+        let fullSentence = msg + sadar
         print("msg register",fullSentence)
         let urlEndPoint = "to=" + mobile + "&" + "from=CGMSSY" + "&msg=" + fullSentence
         let newURL = sendMsgURL + urlEndPoint

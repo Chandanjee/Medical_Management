@@ -159,7 +159,7 @@ struct CampResponse: Codable {
     let campId : Int?
     let department_id : Int?
     let masState : String?
-    let masDistrict : MasDistrict?
+    let masDistrict : CampMasDistrict?
     let masCity : CampMasCity?
     let masMMU : CampMasMMU?
     let campDate : Int?
@@ -208,7 +208,7 @@ struct CampResponse: Codable {
         campId = try values.decodeIfPresent(Int.self, forKey: .campId)
         department_id = try values.decodeIfPresent(Int.self, forKey: .department_id)
         masState = try values.decodeIfPresent(String.self, forKey: .masState)
-        masDistrict = try values.decodeIfPresent(MasDistrict.self, forKey: .masDistrict)
+        masDistrict = try values.decodeIfPresent(CampMasDistrict.self, forKey: .masDistrict)
         masCity = try values.decodeIfPresent(CampMasCity.self, forKey: .masCity)
         masMMU = try values.decodeIfPresent(CampMasMMU.self, forKey: .masMMU)
         campDate = try values.decodeIfPresent(Int.self, forKey: .campDate)
@@ -234,7 +234,7 @@ struct CampMasCity: Codable {
     let cityId : Int?
     let cityCode : String?
     let cityName : String?
-    let masDistrict : MasDistrict?
+    let masDistrict : CampMasDistrict?
     let status : String?
     let lastChangeBy : Int?
     let lastChangeDate : Int?
@@ -255,7 +255,7 @@ struct CampMasCity: Codable {
         cityId = try values.decodeIfPresent(Int.self, forKey: .cityId)
         cityCode = try values.decodeIfPresent(String.self, forKey: .cityCode)
         cityName = try values.decodeIfPresent(String.self, forKey: .cityName)
-        masDistrict = try values.decodeIfPresent(MasDistrict.self, forKey: .masDistrict)
+        masDistrict = try values.decodeIfPresent(CampMasDistrict.self, forKey: .masDistrict)
         status = try values.decodeIfPresent(String.self, forKey: .status)
         lastChangeBy = try values.decodeIfPresent(Int.self, forKey: .lastChangeBy)
         lastChangeDate = try values.decodeIfPresent(Int.self, forKey: .lastChangeDate)
@@ -267,7 +267,7 @@ struct CampMasDistrict: Codable {
     let districtId : Int?
     let districtCode : String?
     let districtName : String?
-    let masState : MasState?
+    let masState : CampMasState?
     let status : String?
     let lastChangeBy : String?
     let lastChangeDate : Int?
@@ -288,7 +288,7 @@ struct CampMasDistrict: Codable {
         districtId = try values.decodeIfPresent(Int.self, forKey: .districtId)
         districtCode = try values.decodeIfPresent(String.self, forKey: .districtCode)
         districtName = try values.decodeIfPresent(String.self, forKey: .districtName)
-        masState = try values.decodeIfPresent(MasState.self, forKey: .masState)
+        masState = try values.decodeIfPresent(CampMasState.self, forKey: .masState)
         status = try values.decodeIfPresent(String.self, forKey: .status)
         lastChangeBy = try values.decodeIfPresent(String.self, forKey: .lastChangeBy)
         lastChangeDate = try values.decodeIfPresent(Int.self, forKey: .lastChangeDate)

@@ -245,17 +245,17 @@ class RescheduleVC: UIViewController {
                 var firstitem: Bool = false
                 if  details?.response.count ?? 0 > 0{
                     self.appointModelArray = details?.response ?? []
-                    for itemss in details!.response {
+                    for itemss in self.appointModelArray {
                         if firstitem == false {
                             firstitem = true
                             self.arrCityName.append("Select")
                             self.arrCampName.append("Select")
-                            self.arrCityName.append(itemss.location.trailingSpacesTrimmed)
-                            self.arrCampName.append(itemss.landMark.trailingSpacesTrimmed)
+                            self.arrCityName.append(itemss.location.trailingSpacesTrimmed ?? "")
+                            self.arrCampName.append(itemss.landMark.trailingSpacesTrimmed ?? "")
                             
                         }else{
-                            self.arrCityName.append(itemss.location.trailingSpacesTrimmed)
-                            self.arrCampName.append(itemss.landMark.trailingSpacesTrimmed)
+                            self.arrCityName.append(itemss.location.trailingSpacesTrimmed ?? "")
+                            self.arrCampName.append(itemss.landMark.trailingSpacesTrimmed ?? "")
                         }
                     }
                 }
@@ -338,7 +338,7 @@ class RescheduleVC: UIViewController {
             let startTimeStr = appointModelArray[index - 1].startTime
             let endTimeStr = appointModelArray[index - 1].endTime
             print("Start and end Time == ",startTimeStr,endTimeStr)
-            setTimeArray(startTime: startTimeStr, endTime: endTimeStr)
+            setTimeArray(startTime: startTimeStr ?? "", endTime: endTimeStr ?? "")
             //            let dateENDFromStr = dateFormatter.date(from: endTimeStr) ?? nil
             //            let dateStartFromStr = dateFormatter.date(from: startTimeStr) ?? nil
             //
@@ -495,9 +495,11 @@ class RescheduleVC: UIViewController {
     //MARK: Send Book Slot MSG
     func API_SendMSG(City:String,time:String,mobile:String){
         let camp = appointModelArray[0].location
-        var msg = "प्रिय " + "patientName" + ", आपका ऑनलाइन अपॉइंटमेंट " + time + " पर " + City + " / " + camp + " के लिए दर्ज कर लिया गया है। \n" + "सादर, \n" + "CGMSSY"
-        print("msg register",msg)
-        let urlEndPoint = "to=" + mobile + "&" + "from=CGMSSY" + "&msg=" + msg
+        let msg = "प्रिय " + "patientName" + ", आपका ऑनलाइन अपॉइंटमेंट " + time + "पर "
+        let city = msg + City + " / " + camp + " के लिए दर्ज कर लिया गया है। \n"
+        let sadar =  city + "सादर, \n" + "CGMSSY"
+        print("msg register",sadar)
+        let urlEndPoint = "to=" + mobile + "&" + "from=CGMSSY" + "&msg=" + sadar
         let newURL = sendMsgURL + urlEndPoint
         print("New Send MSg url",newURL)
         apiManager.Api_GetWithData(serviceName: newURL, parameters: [:], completionHandler: {(result,error) in

@@ -65,11 +65,13 @@ let officialWebpageLogin = WebService + "dashboard/mmuLogin"
 
 //        self.txtPassword.text = "abc"
 //        self.txtMobileNo.text = "9910248968"
-        self.txtMobileNo.text = "9897040757" // deepak
+//        self.txtMobileNo.text = "9897040757" // deepak
 //        self.txtMobileNo.text = "9971182412"
 //        self.txtPassword.text = "12345"
 
-        self.txtPassword.text = "aaaa"
+//        self.txtPassword.text = "aaaa"
+//        self.txtPassword.text = "9971182412"
+
 //        self.txtMobileNo.text = "9090909090"
 
     }

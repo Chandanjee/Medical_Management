@@ -32,7 +32,7 @@ class LatestUpdateVC: UIViewController {
 //        UIApplication.shared.statusBarView?.backgroundColor = ColorCode.greenColor
         let version = versionAndBuildNumber()
         self.lblAppBulid.text = "MMSSY " + version
-        btnAppUpdate.layer.cornerRadius = 10
+//        btnAppUpdate.layer.cornerRadius = 10
         let df = DateFormatter()
         df.dateFormat = "dd-MM-yyyy"
         let now = df.string(from: buildDate)

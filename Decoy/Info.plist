@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -30,11 +30,11 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>MMU need to know where you are.</string>
+	<string>We require your locaion to search nearest doctors</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Because I always want to know where you are.</string>
+	<string>Because I always want to know where you are to search nearest doctor</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Decoy need to know where you are.</string>
+	<string>we need to know where you are for nearest doctor</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

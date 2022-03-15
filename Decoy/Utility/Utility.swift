@@ -113,7 +113,7 @@ public class Utility : NSObject {
        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
        let defaultAction = UIAlertAction(title: alertAction, style: .cancel, handler: nil)
        alertController.addAction(defaultAction)
-       controller.present(alertController, animated: true, completion: nil)
+    controller.present(alertController, animated: true, completion: nil)
    }
     
     
@@ -228,6 +228,35 @@ extension UIView {
 //        self.layer.shadowOffset = CGSizeMake(1.0, 1.0)
         self.layer.shadowOffset = CGSize.init(width: 1.0, height: 1.0)
     }
+
+    func round(corners: UIRectCorner, cornerRadius: Double) {
+        
+        let size = CGSize(width: cornerRadius, height: cornerRadius)
+        let bezierPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: size)
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.frame = self.bounds
+        shapeLayer.path = bezierPath.cgPath
+        self.layer.mask = shapeLayer
+        }
+    
+    /* Usage Example
+       * bgView.addBottomRoundedEdge(desiredCurve: 1.5)
+       */
+    func addBottomRoundedEdge(desiredCurve: CGFloat?) {
+    let offset: CGFloat = self.frame.width / desiredCurve!
+    let bounds: CGRect = self.bounds
+    let rectBounds: CGRect = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height / 2)
+    let rectPath: UIBezierPath = UIBezierPath(rect: rectBounds)
+    let ovalBounds: CGRect = CGRect(x: bounds.origin.x - offset / 2, y: bounds.origin.y, width: bounds.size.width + offset, height: bounds.size.height)
+    let ovalPath: UIBezierPath = UIBezierPath(ovalIn: ovalBounds)
+            rectPath.append(ovalPath)
+    // Create the shape layer and set its path
+            let maskLayer: CAShapeLayer = CAShapeLayer()
+            maskLayer.frame = bounds
+            maskLayer.path = rectPath.cgPath
+    // Set the newly created shape layer as the mask for the view's layer
+            self.layer.mask = maskLayer
+        }
 }
 
 
@@ -570,4 +599,67 @@ extension UIWindow {
             return UIApplication.shared.keyWindow
         }
     }
+}
+
+extension UIView {
+
+  enum ViewBorder: String {
+      case left, right, top, bottom
+  }
+
+  func add(Border border: ViewBorder, withColor color: UIColor = UIColor.lightGray, andWidth width: CGFloat = 1.0) {
+
+    let borderView = UIView()
+    borderView.backgroundColor = color
+    borderView.translatesAutoresizingMaskIntoConstraints = false
+    self.addSubview(borderView)
+    NSLayoutConstraint.activate(getConstrainsFor(forView: borderView, WithBorderType: border, andWidth: width))
+  }
+
+  private func getConstrainsFor(forView borderView: UIView, WithBorderType border: ViewBorder, andWidth width: CGFloat) -> [NSLayoutConstraint] {
+
+    let height = borderView.heightAnchor.constraint(equalToConstant: width)
+    let widthAnchor = borderView.widthAnchor.constraint(equalToConstant: width)
+    let leading = borderView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+    let trailing = borderView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+    let top = borderView.topAnchor.constraint(equalTo: self.topAnchor)
+    let bottom = borderView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+
+    switch border {
+
+    case .bottom:
+        return [bottom, leading, trailing, height]
+
+    case .top:
+        return [top, leading, trailing, height]
+
+    case .left:
+        return [top, bottom, leading, widthAnchor]
+
+    case .right:
+        return [top, bottom, trailing, widthAnchor]
+    }
+}
+    
+    func roundCornersView(corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+      }
+}
+extension UINavigationController {
+
+    func setStatusBar(backgroundColor: UIColor) {
+        let statusBarFrame: CGRect
+        if #available(iOS 13.0, *) {
+            statusBarFrame = view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
+        } else {
+            statusBarFrame = UIApplication.shared.statusBarFrame
+        }
+        let statusBarView = UIView(frame: statusBarFrame)
+        statusBarView.backgroundColor = backgroundColor
+        view.addSubview(statusBarView)
+    }
+
 }

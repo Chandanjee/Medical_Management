@@ -84,8 +84,14 @@ extension PatientProfileVC:UITableViewDataSource,UITableViewDelegate{
             case 0:
                 print("Account")
 //                Utility.pushControllerWithAnimation(Storyboard.profile, ControllerIdentifier.newUpdateViewController, self)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let VC = storyboard.instantiateViewController(withIdentifier: "LatestUpdateVC") as! LatestUpdateVC
+                self.navigationController?.pushViewController(VC, animated: true)
             case 1:
                 print("Settings")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let VC = storyboard.instantiateViewController(withIdentifier: "PrivacyPolicyVC") as! PrivacyPolicyVC
+                self.navigationController?.pushViewController(VC, animated: true)
 //                Utility.pushControllerWithAnimation(Storyboard.profile, ControllerIdentifier.settingsVC, self)
 //                Utility.pushControllerWithAnimation(Storyboard.profile, ControllerIdentifier.privacyPolicyVC, self)
             case 2:
